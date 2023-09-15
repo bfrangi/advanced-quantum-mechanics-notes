@@ -23,79 +23,14 @@
         \begin{equation}
             1 \ket{v} = \ket{w}
         \end{equation}
+        \item[c)] it posesses an inner product $\braket{u}{v}\in\C$.
     \end{enumerate}
-
+    {\color{red}Check that this is rigorous}
 \end{definition}
 
-Note that every set obeying these axioms is a complex vector space. For example, the set of $3 \times 2$ matrices with complex entries or the set of complex-valued continuous functions on $\R^4$ are both complex vector spaces.
+\subsection{The dual space} \label{dualspace}
 
-In quantum mechanics, we use Hilbert spaces to represent wave functions. If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, which is often written something like this: $\Psi\left(\vec{r}, t\right)$. This particular representation gives us information about the position of the particle we are studying. However, this is not the \textit{only} representation of the wave function we can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it or in which basis we express it. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
-
-For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
-
-\begin{equation}
-    \vec{v}_B = a\cdot \begin{pmatrix}
-        1 \\ 0
-    \end{pmatrix} + b \cdot \begin{pmatrix}
-        0 \\ 1
-    \end{pmatrix} = 
-    \frac{b}{2}\cdot \begin{pmatrix}
-        0 \\ 2
-    \end{pmatrix} + a \cdot \begin{pmatrix}
-        1 \\ 0
-    \end{pmatrix} = \vec{v}_{B'}
-\end{equation}
-
-So, just as in this example, the position representation of the wave function vector space is only one of its many possible representations. The functions $\psi_i\left(\vec{r}, t\right)$ form the basis for the wave function space in the position representation. Other representations, like the momentum representation, can be useful in certain situations, as we will see later on.
-
-\subsection{Dual space}
-
-Given any Hilbert space $\Hbt$, one can construct another complex vector space $\Hbt^*$, called the \textbf{dual vector space}. In order to understand these, we need to introduce the concept of \textbf{linear maps} and \textbf{linear functionals}.
-
-\begin{definition} \label{linear_map}
-    A linear map (or linear operator) is a mathematical entity $A$ that associates a function with another function such that:
-    \begin{equation}
-        A (\lambda_1\psi_1 + \lambda_2\psi_2) = \lambda_1 A\psi_1 + \lambda_2 A\psi_2
-    \end{equation}
-\end{definition}
-
-\begin{definition}
-    A linear functional is a linear map $L$ that associates a function with a scalar value, which may be real or complex.
-\end{definition}
-
-An example of a linear functional could be the linear map $L_x : \R^2 \to \R$ that returns the $x$-coordinate of the vector it is given. For example:
-
-\begin{equation}
-    L_x\begin{bmatrix}
-        a \\ b
-    \end{bmatrix} = a
-\end{equation}
-
-In this case, $L_x$ takes us from $\R^2$ to $\R^1$, so its matrix will be $1$ by $2$ in dimension:
-
-\begin{equation}
-    L_x = \begin{bmatrix}
-        1 & 0 \\
-    \end{bmatrix}
-\end{equation}
-
-so that:
-
-\begin{equation}
-    L_x\begin{bmatrix}
-        a \\ b
-    \end{bmatrix} =
-    \begin{bmatrix}
-        1 & 0 \\
-    \end{bmatrix}\cdot
-    \begin{bmatrix}
-        a \\ b
-    \end{bmatrix} = a
-\end{equation}
-
-Taking a step back, we know that all linear functionals in $\R^2$ take us from $\R^2$ to $\R^1$. Therefore, by definition, all linear functionals in $\R^2$ are represented by $1\times2$ matrices. In other words, the set of all linear functionals in $\R^2$ consists of the set of all row matrices. More generally, the set of all linear functionals in $\R^n$ consists of the set of all $1\times n$ row matrices. In fact, the set of all row matrices, much like column matrices, form their own vector space, which is known as the \textbf{dual space}.
-
-This has been specific to $\R^n$ (particularly $\R^2$), but the dual space is a very general concept that is valid for abstract vector spaces too. More formally:
+Given any Hilbert space $\Hbt$, one can construct another complex vector space $\Hbt^*$, called the \textbf{dual vector space}. It contains all the linear functionals in $\Hbt$, which are a special kind of operator that maps all elements of $\Hbt$ onto complex numbers\footnote{See Appendix \textbf{Section \ref{linfunct}} for more on linear functionals.}. In general, for an abstract vector space $\Hbt$:
 
 \begin{definition}
     Given a Hilbert space $\Hbt$, the dual space $\Hbt^*$ is the vector space of all linear functionals in $\Hbt$.
@@ -104,6 +39,8 @@ This has been specific to $\R^n$ (particularly $\R^2$), but the dual space is a 
 Therefore, all linear functionals $L: \Hbt\to \C$ live in $\Hbt^*$ ($L\in V^*$).
 
 The reason that the dual space is so interesting for quantum mechanics is that our goal as quantum physicists is to build a mathematical model for the real world, and in the end we want to be able to extract useful values and predictions from this model. For example, we may want to know the probability of getting a certain energy; or the average position we expect in a certain state. All these are scalar values, that we need to extract from a quantum state $\ket{\psi}$, so we know we will need a linear functional someplace or other!
+
+This may all sound really abstract at first glance, but hopefully it will become a lot clearer in the next section when we look at the \textbf{Dirac notation}.
 
 \subsection{Dirac Notation}
 
@@ -123,7 +60,9 @@ Bra vectors are operators that linearly map elements of $\Hbt$ into complex numb
     \end{matrix}
 \end{equation}
 
-Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they look suspiciously like an inner product in this notation: $\braket{\phi}{\psi}$. Why have we not mentioned the inner product at all? If we go back at how our $L_x$ operator in $\R^2$ acts on a column vector:
+\subsubsection{Inner product and bra-ket notation}
+
+Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they look suspiciously like an inner product in this notation: $\braket{\phi}{\psi}$. If we go back at how our $L_x$ operator in $\R^2$ acts on a column vector:
 
 \begin{equation}
     L_x\begin{bmatrix}
@@ -194,50 +133,20 @@ Some properties that arise naturally from the Dirac notation:
     \braket{\psi}{\psi}\text{ is real, positive and only zero if }\ket{\psi} = 0
 \end{equation}
 
-\subsection{Closure relation}
-
-For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
-
-\begin{definition}
-    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
-    \begin{equation}
-        \Imat = \sum_i\ket{A_i} \bra{A_i}.
-    \end{equation}
-\end{definition}
-
-\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
-\begin{equation}
-    \ket{\psi} = \sum_i c_i\ket{A_i}
-\end{equation}
-Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
-\begin{equation}
-    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
-\end{equation}
-As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
-\begin{equation}
-    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
-\end{equation}
-As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
-\begin{equation}
-    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
-\end{equation}
-And it is now easy to see that this relation will hold if and only if the closure relation holds:
-\begin{equation}
-    \sum_i \ket{A_i}\bra{A_i} = \Imat
-\end{equation}
-The inverse argument is easy to follow.
-
-\subsection{Physical meaning of the scalar product}
-
-The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
-\begin{enumerate}
-    \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
-    \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
-\end{enumerate}
 
 \subsection{Linear operators}
 
-We already defined linear operators in \textbf{Definition \ref{linear_map}}. In the quantum mechanical context, we can see them as entities that transform a ket into another ket. Some example linear operators are:
+A linear map is defined as:
+
+\begin{definition} \label{linear_map}
+    A linear map (or linear operator) is a mathematical entity $A$ that associates a function with another function such that:
+    \begin{equation}
+        A (\lambda_1\psi_1 + \lambda_2\psi_2) = \lambda_1 A\psi_1 + \lambda_2 A\psi_2
+    \end{equation}
+\end{definition}
+
+
+In the quantum mechanical context, we can see them as entities that transform a ket into another ket. Some example linear operators are:
 \begin{itemize}
     \item \textbf{Commutator:} $[A, B] \equiv AB - BA$ (in general, $AB \neq BA$).
     \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$. \textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.
@@ -334,3 +243,89 @@ In the wave function space, we can define the \textbf{inner product} as:
 \end{definition}
 
 So, these wave functions are the ones composing the basis for our wave function space. How does this connect to what we saw about Dirac? a bra is a vector containing some components that, together with the functions of the basis, define a function within the wave function space. As a simplified example, imagine we have an orthonormal basis $B = \{\phi, \psi\}$. Then, a ket $\ket{f} = (2/\sqrt{5}, 1/\sqrt{5})$ would define the wave function $f(\vec{x}, t) = \frac{2}{\sqrt5}\ \phi + \frac{1}{\sqrt5}\ \psi$.
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Basis of the Hilbert space}
+
+If $\{\ket{A_i}\}$ is a basis for a Hilbert space $\Hbt$, we can expand every arbitrary vector $\ket{\Psi}$ according to this basis:
+\begin{equation}
+    \ket{\Psi} = \sum_i c_i \ket{\psi_i}
+\end{equation}
+so that we have:
+\begin{equation}
+    \braket{\psi_i}{\Psi} = \sum_j c_i \braket{\psi_i}{\Psi} = \sum_j c_i\delta_{ij} = c_i
+\end{equation}
+The choice of basis is arbitrary, and depending on the choice we make, we obtain different representations of state space. 
+
+In quantum mechanics, we use Hilbert spaces to represent wave functions. If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, which is often written something like this: $\Psi\left(\vec{r}, t\right)$. This particular representation gives us information about the position of the particle we are studying. However, this is not the \textit{only} representation of the wave function we can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it or in which basis we express it. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
+
+For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
+
+\begin{equation}
+    \vec{v}_B = a\cdot \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix} + b \cdot \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} = 
+    \frac{b}{2}\cdot \begin{pmatrix}
+        0 \\ 2
+    \end{pmatrix} + a \cdot \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix} = \vec{v}_{B'}
+\end{equation}
+
+So, just as in this example, the position representation of the wave function vector space is only one of its many possible representations. The functions $\psi_i\left(\vec{r}, t\right)$ form the basis for the wave function space in the position representation. Other representations, like the momentum representation, can be useful in certain situations, as we will see later on.
+
+
+Whatever the basis that we choose, it must fulfil the closure relation.
+
+\subsection{Closure relation}
+
+For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
+
+\begin{definition}
+    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
+    \begin{equation}
+        \Imat = \sum_i\ket{A_i} \bra{A_i}.
+    \end{equation}
+\end{definition}
+
+\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
+\begin{equation}
+    \ket{\psi} = \sum_i c_i\ket{A_i}
+\end{equation}
+Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
+\begin{equation}
+    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
+\end{equation}
+As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
+\begin{equation}
+    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
+\end{equation}
+As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
+\begin{equation}
+    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
+\end{equation}
+And it is now easy to see that this relation will hold if and only if the closure relation holds:
+\begin{equation}
+    \sum_i \ket{A_i}\bra{A_i} = \Imat
+\end{equation}
+The inverse argument is easy to follow.
+
+\subsection{Physical meaning of the scalar product}
+
+The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
+\begin{enumerate}
+    \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
+    \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
+\end{enumerate}

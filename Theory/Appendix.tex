@@ -1,0 +1,41 @@
+\section{Appendix}
+
+\subsection{Linear functionals} \label{linfunct}
+
+In order to understand the mathematical background of the dual space, it is interesting to know the definitions of \textbf{linear maps} and \textbf{linear functionals}. We already defined linear operators in \textbf{Definition \ref{linear_map}}. As for linear functionals:
+
+\begin{definition}
+    A linear functional is a linear map $L$ that associates a function with a scalar value, which may be real or complex.
+\end{definition}
+
+An example of a linear functional could be the linear map $L_x : \R^2 \to \R$ that returns the $x$-coordinate of the vector it is given. For example:
+
+\begin{equation}
+    L_x\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = a
+\end{equation}
+
+In this case, $L_x$ takes us from $\R^2$ to $\R^1$, so its matrix will be $1$ by $2$ in dimension:
+
+\begin{equation}
+    L_x = \begin{bmatrix}
+        1 & 0 \\
+    \end{bmatrix}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    L_x\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & 0 \\
+    \end{bmatrix}\cdot
+    \begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = a
+\end{equation}
+
+Taking a step back, we know that all linear functionals in $\R^2$ take us from $\R^2$ to $\R^1$. Therefore, by definition, all linear functionals in $\R^2$ are represented by $1\times2$ matrices. In other words, the set of all linear functionals in $\R^2$ consists of the set of all row matrices. More generally, the set of all linear functionals in $\R^n$ consists of the set of all $1\times n$ row matrices. In fact, the set of all row matrices, much like column matrices, form their own vector space, which is known as the dual space\footnote{See \textbf{Section \ref{dualspace}} for more on the dual space}.
