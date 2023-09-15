@@ -226,7 +226,7 @@ We already defined linear operators in \textbf{Definition \ref{linear_map}}. In 
         \item[b)] $\left(\lambda A\right)^\dagger = \lambda^*A^\dagger$.
         \item[c)] $\left(A + B\right)^\dagger = A^\dagger + B^\dagger$.
         \item[d)] $\left(A B\right)^\dagger = B^\dagger A^\dagger$.
-        \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$. \textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi}{u}^*\braket{v}{\phi}^* = \braket{u}{\psi}\braket{\phi}{v} = \braket{\phi}{v}\braket{u}{\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$
+        \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$.\footnote{\textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi}{u}^*\braket{v}{\phi}^* = \braket{u}{\psi}\braket{\phi}{v} = \braket{\phi}{v}\braket{u}{\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$}
     \end{enumerate}
     The adjoint of a bra is its ket, and the adjoint of a ket is it's bra.
     To obtain the hermitian conjugate of an expression:
@@ -254,13 +254,51 @@ Another special case are \textbf{Hermitian operators}:
 
 An example of a Hermitian operator is the projector operator, as $P_\phi^\dagger = \left(\ket{\phi}\bra{\phi}\right)^\dagger = \ket{\phi}\bra{\phi} = P_\phi$.
 
+\subsection{Closure relation}
+
+For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
+
+\begin{definition}
+    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
+    \begin{equation}
+        \Imat = \sum_i\ket{A_i} \bra{A_i}.
+    \end{equation}
+\end{definition}
+
+\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
+\begin{equation}
+    \ket{\psi} = \sum_i c_i\ket{A_i}
+\end{equation}
+Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
+\begin{equation}
+    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
+\end{equation}
+As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
+\begin{equation}
+    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
+\end{equation}
+As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
+\begin{equation}
+    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
+\end{equation}
+And it is now easy to see that this relation will hold if and only if the closure relation holds:
+\begin{equation}
+    \sum_i \ket{A_i}\bra{A_i} = \Imat
+\end{equation}
+The inverse argument is easy to follow.
+
+
+
 \subsection{Representations in state space}
 
 When studying quantum mechanical systems, we need a way to represent quantum states. We do that by choosing an orthonormal basis, either discrete or continuous, in the state space $E$. Vectors and operators are then represented in this basis by numbers: components for the vectors and matrix elements for the operators. Vectorial calculus then becomes matrix calculus with these numbers.
 
 The choice of a representation is, in theory, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations.
 
-Let's take a step back. So far, we have been talking about Hilbert spaces very generally, and we have not specified what a basis for one of these spaces might look like. Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
+Let's go back to the beginning of the chapter where we talked briefly about basis and representation. So far, we have been talking about Hilbert spaces very generally, and we have talked about performing algebraic operations with vectors in $\Hbt$ without even defining a basis for them. 
+
+
+Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
 
 \begin{definition}\label{wavefunction_space}
     A wave function space is a Hilbert space $\Hbt$ whose vectors are complex functions $\psi(\vec{x}, t)$ of position and time (wave functions), which must fulfil the conditions:
