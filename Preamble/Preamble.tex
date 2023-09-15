@@ -1,0 +1,94 @@
+\usepackage[utf8]{inputenc}
+
+%Colors:
+\usepackage{xcolor}
+
+%Math
+\usepackage[makeroom]{cancel}%cancel lines math
+\usepackage{dsfont}%fonts
+\usepackage{amsmath,xparse}%matrices
+\usepackage{amssymb}%math symbols
+\newcommand{\s}{\text{ }}%Space in math mode
+\newcommand{\trace}{\text{trace}\,}%Trace command
+\newcommand{\F}{\mathbb{F}}%Field
+\newcommand{\rank}{\text{rank}\,}%Rank command
+\newcommand{\R}{\mathbb{R}}%Real Numbers
+\newcommand{\Hbt}{\mathcal{H}}%Hilbert Space
+\newcommand{\C}{\mathbb{C}}%Complex Numbers
+\newcommand{\N}{\mathbb{N}}%Natural Numbers
+\newcommand{\Imat}{\mathds{1}}%Identity Matrix
+\newcommand{\ket}[1]{|#1\rangle}%Prints |#1〉
+\newcommand{\bra}[1]{\langle#1|}%Prints |⟨#1|
+\newcommand{\braket}[2]{\langle#1|#2\rangle}%Prints ⟨#1|#2〉
+\newcommand{\naturalset}[2]{#1=1,\;2,\;...,\;#2}%Prints #1= #1= 1, 2, ..., #2 in math mode
+\newcommand{\vectorset}[3]{#1=\{#2_1,\;#2_2,\;...,\;#2_{#3}\}}%Prints #1= {#2_1,#2_2, ..., #2_{#3}} in math mode
+\newcommand{\diagmatrix}[9]{%
+\begin{pmatrix}
+\lambda_1&1&0&0&0\\0&\lambda_1&0&0&0\\0&0&\lambda_3&1&0\\0&0&0&\lambda_4&1\\0&0&0&0&\lambda_4
+\end{pmatrix}
+}%Matrix with diagonal entries specified
+
+% Setup matha font (mathabx.sty) for extracting specific symbols:
+\DeclareFontFamily{U}{matha}{\hyphenchar\font45}
+\DeclareFontShape{U}{matha}{m}{n}{
+      <5> <6> <7> <8> <9> <10> gen * matha
+      <10.95> matha10 <12> <14.4> <17.28> <20.74> <24.88> matha12
+      }{}
+\DeclareSymbolFont{matha}{U}{matha}{m}{n}
+% Define a plus/minus character from that font (from mathabx.dcl):
+\DeclareMathSymbol{\PM}{2}{matha}{"08}% to completely replace the \pm character, replace \PM with \pm
+\input{Preamble/Diagonal Matrix Command}
+
+
+%Hyperlinks
+% \usepackage[colorlinks,linkcolor=blue]{hyperref}
+
+%Page Margins:
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+
+%paragraph Indent and Spacing
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+%Images:
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{eso-pic}
+\usepackage{wrapfig}%Wrapping Functionality
+\usepackage{float}
+\usepackage{chngcntr}% Count Figures as below v v v
+\counterwithout{figure}{section}%          CONTINUOUS
+\counterwithout{table}{section}%           CONTINUOUS
+
+%Enumerate
+\usepackage{enumitem} 
+
+%Language
+\usepackage[english]{babel}
+
+%Environments
+\usepackage{amsthm, amsfonts}
+\usepackage{thmtools}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{tcolorbox}
+
+\colorlet{LightGray}{gray!15}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightRed}{red!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightRed}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Definition,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}

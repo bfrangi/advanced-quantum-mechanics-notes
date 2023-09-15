@@ -1,0 +1,30 @@
+\section*{Linear Systems}
+
+Any linear system can be expressed in matrix form as $Ax=B$, where $A$ contains the coefficients of the variables, $x$ is a column matrix with the variables, and $B$ is another column matrix with the independent terms.\\
+
+To assess the existence and form of the solutions to a system, we need to take the matrix $A$ to its reduced echelon form. Then, the existence of a solution to $Ax=B$ for any $B$ is guaranteed iff $A$ has one pivot per row; and the uniqueness of the solution is guaranteed iff $A$ has one pivot per column.\\
+
+When we express the solution to a linear system in vector form, we have something like this:
+
+$$x=v+x_1v_1+...+x_rv_r$$
+
+Where $v$ is a particular solution to the system, $x_i$ are the free variables ($\forall \naturalset{i}{r}$) and $v_i$ are the vectors of the basis of $KerA$ and solutions to the homogeneous system $Ax=0$.
+
+\section*{Relationship between the fundamental subspaces}
+
+Every pivot that the matrix $A_{m \times n}$ has is a linear independent row/column, and therefore the number of pivots of the matrix is equal to its rank. The number of pivots is also the number of non-free variables of the system. Therefore:
+
+$$\dim KerA=n-\rank A$$
+
+$$\dim KerA^T=m-\rank A^T$$
+
+$$\dim RanA=\rank A=\rank A^T=\dim RanA^T$$
+
+So:
+$$\dim KerA+\dim RanA=n$$
+
+$$\dim KerA^T+\dim RanA^T=m$$
+
+Another important relation between fundamental subspaces: 
+
+$$KerA=(RanA^*)^\perp \s\s \text{\textit{See} \hyperref[sec:kerran]{Proof}}$$

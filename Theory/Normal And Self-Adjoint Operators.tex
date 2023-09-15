@@ -1,0 +1,34 @@
+\section*{Normal and Self-Adjoint Operators}
+
+\subsubsection*{Normal Operator}
+A normal operator $N$ is any matrix such that $N^*N=NN^*$ (may not be equal to the identity). An operator is normal iff it is unitarily diagonalizable.
+
+\subsubsection*{Self-Adjoint Operator}
+A self-adjoint operator $A$ is a normal operator such that $A=A^*$.\\
+The properties of self-adjoint operators are: 
+
+\begin{enumerate}[label=(\roman*)]
+    \item All eigenvalues of $A=A^*$ are real
+    
+    \textit{Proof:}\\
+    For some eigenvalue $\lambda$ and the corresponding eigenvector $x$ of $A$.
+    $$\begin{cases}
+      (A\,x,\;x)=(\lambda x,\;x)=\lambda (x,\;x)=\lambda ||x||^2\\
+      (A\,x,\;x)=(x,\;A^*x)=(x,\;Ax)=(x,\;\lambda x)=\overline{\lambda}(x,\;x)=\overline{\lambda} ||x||^2
+    \end{cases}$$
+    
+    Therefore, $\overline{\lambda}=\lambda\Rightarrow\lambda \in \R$
+    
+    \item The eigenvectors from different eigenvalues of $A=A^*$ are orthogonal:
+    
+    \textit{Proof:}\\
+    Given $\lambda_1$, $v_1$ and $\lambda_2$, $v_2$ two eigenvalue-eigenvector pairs for $A$, where $\lambda_1 \neq \lambda_2$:
+    
+    $$\begin{cases}
+      (A\,v_1,\;v_2)=(\lambda_1 v_1,\;v_2)=\lambda_1 (v_1,\;v_2)\\
+      (A\,v_1,\;v_2)=(v_1,\;A^*v_2)=(v_1,\;Av_2)=(v_1,\;\lambda_2v_2)=\lambda_2 (v_1,\;v_2)\\
+    \end{cases}$$
+    
+    Therefore, $\lambda_1 (v_1,\;v_2)=\lambda_2 (v_1,\;v_2)\Rightarrow (v_1,\;v_2)=0\Rightarrow v_1\perp v_2$
+\end{enumerate}
+

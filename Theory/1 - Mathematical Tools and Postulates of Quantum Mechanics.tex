@@ -1,0 +1,289 @@
+\section{Mathematical Tools of Quantum Mechanics. Postulates of Quantum Mechanics}
+
+\subsection{Hilbert Spaces}
+
+\textbf{Hilbert spaces}, also known as \textbf{complex vector spaces}, are defined in \textbf{Definition \ref{hilbert_spaces}}.
+
+\begin{definition} \label{hilbert_spaces}
+    Any set $\Hbt$ is called a Hilbert space (or complex vector space), if:
+    
+    \begin{enumerate}
+        \item[a)] it posesses an operation $\Hbt \times \Hbt \to \Hbt$ called ``addition'' which obeys the rules for a commutative group.
+        \item[b)] it has a multiplication $\C \times \Hbt \to \Hbt$ obeying the following axioms for all $\ket{v}, \ \ket{w} \in \Hbt$ and for all $\alpha, \ \beta \in \C$:
+
+        \begin{equation}
+            (\alpha + \beta) \ket{v} = \alpha \ket{v} + \beta \ket{v}
+        \end{equation}
+        \begin{equation}
+            \alpha(\ket{v} + \ket{w}) = \alpha\ket{v} + \alpha\ket{w}
+        \end{equation}
+        \begin{equation}
+            (\alpha\beta)\ket{v} = \alpha (\beta\ket{v})
+        \end{equation}
+        \begin{equation}
+            1 \ket{v} = \ket{w}
+        \end{equation}
+    \end{enumerate}
+
+\end{definition}
+
+Note that every set obeying these axioms is a complex vector space. For example, the set of $3 \times 2$ matrices with complex entries or the set of complex-valued continuous functions on $\R^4$ are both complex vector spaces.
+
+In quantum mechanics, we use Hilbert spaces to represent wave functions. If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, which is often written something like this: $\Psi\left(\vec{r}, t\right)$. This particular representation gives us information about the position of the particle we are studying. However, this is not the \textit{only} representation of the wave function we can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it or in which basis we express it. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
+
+For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
+
+\begin{equation}
+    \vec{v}_B = a\cdot \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix} + b \cdot \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} = 
+    \frac{b}{2}\cdot \begin{pmatrix}
+        0 \\ 2
+    \end{pmatrix} + a \cdot \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix} = \vec{v}_{B'}
+\end{equation}
+
+So, just as in this example, the position representation of the wave function vector space is only one of its many possible representations. The functions $\psi_i\left(\vec{r}, t\right)$ form the basis for the wave function space in the position representation. Other representations, like the momentum representation, can be useful in certain situations, as we will see later on.
+
+\subsection{Dual space}
+
+Given any Hilbert space $\Hbt$, one can construct another complex vector space $\Hbt^*$, called the \textbf{dual vector space}. In order to understand these, we need to introduce the concept of \textbf{linear maps} and \textbf{linear functionals}.
+
+\begin{definition} \label{linear_map}
+    A linear map (or linear operator) is a mathematical entity $A$ that associates a function with another function such that:
+    \begin{equation}
+        A (\lambda_1\psi_1 + \lambda_2\psi_2) = \lambda_1 A\psi_1 + \lambda_2 A\psi_2
+    \end{equation}
+\end{definition}
+
+\begin{definition}
+    A linear functional is a linear map $L$ that associates a function with a scalar value, which may be real or complex.
+\end{definition}
+
+An example of a linear functional could be the linear map $L_x : \R^2 \to \R$ that returns the $x$-coordinate of the vector it is given. For example:
+
+\begin{equation}
+    L_x\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = a
+\end{equation}
+
+In this case, $L_x$ takes us from $\R^2$ to $\R^1$, so its matrix will be $1$ by $2$ in dimension:
+
+\begin{equation}
+    L_x = \begin{bmatrix}
+        1 & 0 \\
+    \end{bmatrix}
+\end{equation}
+
+so that:
+
+\begin{equation}
+    L_x\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & 0 \\
+    \end{bmatrix}\cdot
+    \begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = a
+\end{equation}
+
+Taking a step back, we know that all linear functionals in $\R^2$ take us from $\R^2$ to $\R^1$. Therefore, by definition, all linear functionals in $\R^2$ are represented by $1\times2$ matrices. In other words, the set of all linear functionals in $\R^2$ consists of the set of all row matrices. More generally, the set of all linear functionals in $\R^n$ consists of the set of all $1\times n$ row matrices. In fact, the set of all row matrices, much like column matrices, form their own vector space, which is known as the \textbf{dual space}.
+
+This has been specific to $\R^n$ (particularly $\R^2$), but the dual space is a very general concept that is valid for abstract vector spaces too. More formally:
+
+\begin{definition}
+    Given a Hilbert space $\Hbt$, the dual space $\Hbt^*$ is the vector space of all linear functionals in $\Hbt$.
+\end{definition}
+
+Therefore, all linear functionals $L: \Hbt\to \C$ live in $\Hbt^*$ ($L\in V^*$).
+
+The reason that the dual space is so interesting for quantum mechanics is that our goal as quantum physicists is to build a mathematical model for the real world, and in the end we want to be able to extract useful values and predictions from this model. For example, we may want to know the probability of getting a certain energy; or the average position we expect in a certain state. All these are scalar values, that we need to extract from a quantum state $\ket{\psi}$, so we know we will need a linear functional someplace or other!
+
+\subsection{Dirac Notation}
+
+In quantum mechanics, we use the Dirac notation to represent wave functions:
+
+\begin{itemize}
+    \item We call the elements of $\Hbt$ ``ket'' vectors, and we represent them as $\ket{\psi}\in\Hbt$.
+    \item We call the elements of $\Hbt^*$ ``bra'' vectors, and we represent them as $\bra{\phi}\in\Hbt^*$.
+\end{itemize}
+
+Bra vectors are operators that linearly map elements of $\Hbt$ into complex numbers:
+
+\begin{equation}
+    \begin{matrix}
+    \bra{\phi}: & \Hbt & \rightarrow & \C\\
+    \bra{\phi}: & \ket{\psi} & \rightarrow & \braket{\phi}{\psi}\\
+    \end{matrix}
+\end{equation}
+
+Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they look suspiciously like an inner product in this notation: $\braket{\phi}{\psi}$. Why have we not mentioned the inner product at all? If we go back at how our $L_x$ operator in $\R^2$ acts on a column vector:
+
+\begin{equation}
+    L_x\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1 & 0 \\
+    \end{bmatrix}\cdot
+    \begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = 1 \cdot a + 0\cdot b = a
+\end{equation}
+
+Notice that its action is the same as if we were taking the dot product with the $x$ unit vector:
+
+\begin{equation}
+    \begin{bmatrix}
+        1 \\ 0
+    \end{bmatrix}\cdot
+    \begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = 1 \cdot a + 0\cdot b = a
+\end{equation}
+
+In fact, when a linear functional in $\R^n$ acts on any vector, it can be written equivalently as a dot product with the corresponding column vector:
+
+\begin{equation}
+    L_x \vec{v} = L_x^T\cdot \vec{v}
+\end{equation}
+
+This is actually a very general mathematical fact, rooted within something called the \textbf{Riesz Representation Theorem}:
+
+\begin{theorem}
+    \textbf{(Riesz Representation Theorem)} For any linear functional $L_\phi$, the action of $L_\phi$ is equivalent to taking the inner product with some unique vector $\vec{\phi}$.
+\end{theorem}
+
+In our example of $L_x$, we have that $\vec{\phi} = \vec{x} = [1\ 0]^T$:
+
+\begin{equation}
+    L_x\vec{v} = \begin{bmatrix}
+        1 \\ 0
+    \end{bmatrix}\cdot \vec{v}    
+\end{equation}
+
+This is the reason for the suggestive notation for bra vectors: they are operators whose action on a ket is mathematically equivalent to taking the inner product with said ket:
+\begin{equation}
+    \bra{\phi}\ket{\psi} = \braket{\phi}{\psi}
+\end{equation}
+
+That is the power of bra-ket notation: it has the Riesz Representation Theorem baked right into it. Whatever you do, breaking apart inner products and putting together bras and kets, you will always have something that makes mathematical sense. Although bra and the inner product are two entities that are completely different mathematically, the bra-ket notation makes their connection completely seamless, thanks to the Riesz Representation Theorem.
+
+% https://www.youtube.com/watch?v=lRR-qgjaKlg
+
+\subsubsection{Properties of bras and kets}
+
+Some properties that arise naturally from the Dirac notation:
+
+\begin{equation}
+    \braket{\psi}{\lambda_1\phi_1+\lambda_2\phi_2} = \lambda_1\braket{\psi}{\phi_1} + \lambda_2\braket{\psi}{\phi_2}
+\end{equation}
+\begin{equation}
+    \braket{\lambda_1\psi+\lambda_2\psi_2}{\phi} = \lambda_1^*\braket{\psi_1}{\phi} + \lambda_2^*\braket{\psi_2}{\phi}
+\end{equation}
+\begin{equation}
+    \braket{\psi}{\phi} = \braket{\phi}{\psi}^*
+\end{equation}
+\begin{equation}
+    \braket{\psi}{\psi}\text{ is real, positive and only zero if }\ket{\psi} = 0
+\end{equation}
+
+\subsection{Physical meaning of the scalar product}
+
+The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
+\begin{enumerate}
+    \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
+    \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
+\end{enumerate}
+
+\subsection{Linear operators}
+
+We already defined linear operators in \textbf{Definition \ref{linear_map}}. In the quantum mechanical context, we can see them as entities that transform a ket into another ket. Some example linear operators are:
+\begin{itemize}
+    \item \textbf{Commutator:} $[A, B] \equiv AB - BA$ (in general, $AB \neq BA$).
+    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$. \textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.
+    \item \textbf{Inverse:} assuming it exists, the inverse operator $A^{-1}$ of the operator $A$, when applied to $A$, gives the identity operator. Also, $A$ is the inverse of $A^{-1}$, so that $AA^{-1} = A^{-1}A = \Imat$.
+    \item \textbf{Hermitian conjugation:} the hermitian conjugate (or adjoint) $A^\dagger$ of an operator $A$ is obtained by interchanging the columns of the operator by its rows, and taking the complex conjugate of all elements. For example:
+    \begin{equation}
+        A = \begin{bmatrix}
+            i & 1 \\
+            3-i & -i
+        \end{bmatrix}\rightarrow
+        A^\dagger = \begin{bmatrix}
+            -i & 3 + i \\
+            1 & i
+        \end{bmatrix}
+    \end{equation}
+    Some properties of the adjoint are:
+    \begin{enumerate}
+        \item[a)] $\left(A^\dagger\right)^\dagger = A$.
+        \item[b)] $\left(\lambda A\right)^\dagger = \lambda^*A^\dagger$.
+        \item[c)] $\left(A + B\right)^\dagger = A^\dagger + B^\dagger$.
+        \item[d)] $\left(A B\right)^\dagger = B^\dagger A^\dagger$.
+        \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$. \textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi}{u}^*\braket{v}{\phi}^* = \braket{u}{\psi}\braket{\phi}{v} = \braket{\phi}{v}\braket{u}{\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$
+    \end{enumerate}
+    The adjoint of a bra is its ket, and the adjoint of a ket is it's bra.
+    To obtain the hermitian conjugate of an expression:
+    \begin{enumerate}
+        \item[a)] Replace constants with their complex conjugate: $\lambda \to \lambda^*$.
+        \item[b)] Replace operators with their Hermitian conjugates: $A\to A^\dagger$.
+        \item[c)] Replace kets with bras: $\ket{\phi}\to\bra{\phi}$.
+        \item[d)] Replace bras with kets: $\bra{\phi}\to\ket{\phi}$.
+        \item[e)] Reverse the order of factors: $A\ket{\phi} \to \bra{\phi}A^\dagger$.
+
+    \end{enumerate}
+\end{itemize}
+
+A special case of linear operators are \textbf{unitary operators}:
+
+\begin{definition}
+    A linear operator $U$ is said to be unitary if its inverse $U^{-1}$ is equal to its adjoint $U^\dagger$, so that $U^{-1} = U^\dagger$ and $U^\dagger U = UU^\dagger = \Imat$.
+\end{definition}
+
+Another special case are \textbf{Hermitian operators}:
+
+\begin{definition}
+    An operator $A$ is said to be Hermitian if $A = A^\dagger$.
+\end{definition}
+
+An example of a Hermitian operator is the projector operator, as $P_\phi^\dagger = \left(\ket{\phi}\bra{\phi}\right)^\dagger = \ket{\phi}\bra{\phi} = P_\phi$.
+
+\subsection{Representations in state space}
+
+When studying quantum mechanical systems, we need a way to represent quantum states. We do that by choosing an orthonormal basis, either discrete or continuous, in the state space $E$. Vectors and operators are then represented in this basis by numbers: components for the vectors and matrix elements for the operators. Vectorial calculus then becomes matrix calculus with these numbers.
+
+The choice of a representation is, in theory, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations.
+
+Let's take a step back. So far, we have been talking about Hilbert spaces very generally, and we have not specified what a basis for one of these spaces might look like. Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
+
+\begin{definition}\label{wavefunction_space}
+    A wave function space is a Hilbert space $\Hbt$ whose vectors are complex functions $\psi(\vec{x}, t)$ of position and time (wave functions), which must fulfil the conditions:
+    
+    \begin{itemize}
+        \item they must be single valued and continuous.
+        \item they must be infinitely differentiable and square integrable.
+        \item they must be normaliseable by an arbitrary multiplicative constant in such a way that the area under the curve $|\psi|^2$ is exactly equal to $1$.
+        \item they must have a modulus between $0$ and $1$ at any time $t$.
+    \end{itemize}
+\end{definition}
+
+Although in itself it has no physical interpretation, the wave function of a particle, at a particular time, contains all the information that anybody at that time can have about the particle. For example, applying operators to it, we can obtain information about the particle's energy, position, speed, etc.
+
+Furthermore, we interpret the square of the modulus of the wave function as a probability density function, giving us the probability of finding the particle at a time $t$ at position $\vec{x}$. The fact that $|\psi|^2$ is a probability density function is the reason for the requirements in \textbf{Definition \ref{wavefunction_space}}. 
+
+In the wave function space, we can define the \textbf{inner product} as:
+
+\begin{definition}
+    We define the inner (dot, scalar) product of two vectors $\phi$ and $\psi$ of a wave function space as:
+    \begin{equation}
+        \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) \equiv \int\phi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
+    \end{equation}
+\end{definition}
+
+So, these wave functions are the ones composing the basis for our wave function space. How does this connect to what we saw about Dirac? a bra is a vector containing some components that, together with the functions of the basis, define a function within the wave function space. As a simplified example, imagine we have an orthonormal basis $B = \{\phi, \psi\}$. Then, a ket $\ket{f} = (2/\sqrt{5}, 1/\sqrt{5})$ would define the wave function $f(\vec{x}, t) = \frac{2}{\sqrt5}\ \phi + \frac{1}{\sqrt5}\ \psi$.

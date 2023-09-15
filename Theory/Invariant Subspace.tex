@@ -1,0 +1,53 @@
+\section*{Invariant Subspace}
+
+An invariant subspace $E$ of a matrix $A$ is such that for any $x\in E$, $Ax\in E$. Also, invariant subspaces verify $(A-\lambda_k\Imat)\,v\in E_{k-1}$, $\forall v \in E_k$, where $E_{k-1}$ are invariant subspaces of $A$ formed by the first $k-1$ vectors of the basis of eigenvectors of $A$.
+
+\section*{Cayley-Hamilton Theory}
+
+The characteristic polynomial of any square matrix, evaluated in the matrix, is equal to zero: $P(A)=0$.\\
+
+\textit{Proof:}
+
+From Schur's Theorem, any square matrix $A$ is unitarily equivalent to an upper triangular matrix. For any square $A$, we have $A=UTU^*$ with $U$ unitary. Then, using the properties of unitary similarity, we have the following relation between the characteristic polynomial evaluated at $A$ and $T$, where $P(\lambda)=a_0+a_1\lambda+a_2\lambda^2+...+a_k\lambda^k$:
+
+$$P(A)=a_0A^0+a_1A^1+a_2A^2+...+a_kA^k=$$
+
+$$=a_0(UTU^*)^0+a_1(UTU^*)^1+a_2(UTU^*)^2+...+a_k(UTU^*)^k=$$
+
+$$=a_0UT^0U^*+a_1UT^1U^*+a_2UT^2U^*+...+a_kUT^kU^*=$$
+
+$$=U(a_0T^0+a_1T^1+a_2T^2+...+a_kT^k)U^*=UP(T)U^*$$\\
+
+Remember, $P(\lambda)$ is both the characteristic polynomial of $A$ and $T$, because both matrices are similar. What we are checking here is the relation between that same polynomial evaluated at two different places, $A$ and $T$.\\
+
+Then, the characteristic polynomial of $T$ is:  
+
+$$P(\lambda)=\prod_{k=1}^{n}(d_{k,\,k}-\lambda)=\prod_{k=1}^{n}(\lambda_k-\lambda)$$
+
+$d_{k,\,k}$ are the diagonal entries of $T$. Because $T$ is triangular, $d_{k,\,k}=\lambda_k$, where $\lambda_k$ are the eigenvalues of $T$ ($\forall k=1,\,2,\,3,\,...,\,n$).\\
+
+If we take the columns of $T$, we have a basis of $\mathbb{F}^n$, $\vectorset{B}{v}{n}$. Therefore, we can construct $n$ invariant subspaces of $B$, $\vectorset{E_k}{v}{k}$, where $k=1,\,2,\,3,\,...,\,n$. We know $(T-\lambda_k\Imat)\,v\in E_{k-1}$, $\forall v \in E_k$. Therefore, for $\forall x \in \C^n$:\\
+
+$$x_1=(T-\lambda_n\Imat)\,x \in E_{n-1}$$
+
+$$x_2=(T-\lambda_{n-1}\Imat)\,x_1=(T-\lambda_{n-1}\Imat)(T-\lambda_n\Imat)\,x \in E_{n-2}$$
+
+$$...$$
+
+$$x_{n-1}=(T-\lambda_{2}\Imat)\,x_{n-2}=(T-\lambda_{2}\Imat)(T-\lambda_3\Imat)\,...\,(T-\lambda_n\Imat)\,x \in E_{1}$$
+
+$$x_{n}=(T-\lambda_{1}\Imat)\,x_{n-1}=(T-\lambda_{1}\Imat)(T-\lambda_2\Imat)\,...\,(T-\lambda_n\Imat)\,x =0_n$$
+
+From this result, we know:\\
+
+$$\prod_{k=1}^{n}(T-\lambda_k\Imat)=(-1)^n\prod_{k=1}^{n}(\lambda_k\Imat-T)=0_n$$
+
+Therefore:
+
+$$P(T)=\prod_{k=1}^{n}(\lambda_k\Imat-T)=0_n$$
+ And finally:
+ 
+$$P(A)=U\cdot P(T)\cdot U^*=U\cdot 0_n\cdot U^*=0_n$$
+
+
+$P(T)=0_n$ implies $P(A)=0_n$ for $A=UTU^*$, so this completes the proof.\\

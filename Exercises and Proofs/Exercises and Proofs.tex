@@ -1,0 +1,107 @@
+\section*{The Kernel Subspaces of \textit{A} and \textit{A*A} are the same}
+
+For this we need to prove that, $\forall x\in \mathbb{F}^n$, a matrix $A_{m\times n}$ satisfies:
+
+$$x\in KerA \Rightarrow x\in KerA^*A\text{ }\text{ }\text{ and }\text{ }\text{ }x\in KerA^*A \Rightarrow x\in KerA$$
+
+\textit{Proof:}
+
+$$Ax=0 \rightarrow A^*Ax=A^*0=0,\text{ }\text{ so }\text{ }x\in KerA \Rightarrow x\in KerA^*A$$
+
+$$A^*Ax=0 \rightarrow x^*A^*Ax=0\rightarrow$$
+$$\rightarrow(Ax)^*Ax=(Ax,\;Ax)=||Ax||^2=0\rightarrow$$ 
+$$\rightarrow Ax=0,\text{ }\text{ so }\text{ }x\in KerA^*A \Rightarrow x\in KerA$$
+
+Therefore, $KerA=KerA^*A$
+
+\section*{\textit{A} and \textit{A*A} have the same rank}
+
+Using the previous proof of $KerA=KerA^*A$:\\
+
+\textit{Proof:}
+
+For an $m\times n$ matrix $A$, the matrix $A^*A$ is $n\times n$. Then:
+
+$$\rank A=n-\dim KerA=n-\dim KerA^*A=\rank A^*A$$
+
+\section*{The Determinant of the Hermitian Adjoint}\label{sec:detadj} 
+
+$$\det A=\overline{\det A^*}$$
+
+\textit{Proof:}
+
+$$\det (A)=\det \left(\left(\;\overline{A^*}\;\right)^T\right)=\det \left(\;\overline{A^*}\;\right)=\overline{\det A^*}$$
+
+\section*{The trace of two unitarily equivalent matrices is the same}\label{sec:unittrace} 
+
+$$\trace (A^*A)=\trace (B^*B)$$
+
+\textit{Proof:}
+
+If $A$ and $B$ are unitarily equivalent, then $A=UBU^*$, for some unitary $U$, and $A^*=(UBU^*)=UB^*U^*$. Then, using the cyclic property of the trace for the third step:
+
+$$\trace (A^*A)=\trace (UB^*U^*UBU^*)=\trace (UB^*BU^*)=\trace (U^*UB^*B)=\trace (B^*B)$$
+
+\section*{The Kernel of $A$ is orthogonal complement to the Range of $A^*$}\label{sec:kerran} 
+
+$$KerA=(RanA^*)^\perp$$
+
+\textit{Proof:}\\
+
+In order to show that the range of $A^*$ is the orthogonal complement of $\ker A$, we have to show that $\forall x \in Ran A^*$, $\forall y\in Ker A$: $(x,\s y)=0$:\\
+
+All the vectors $x\in Ran A^*$ are of the form $x=A^*v$ for some $v\in V$, and all vectors $y\in Ker A $ satisfy $Ay=0$. Then:
+
+$$(x,\s y)=(A^*v,\s y)=(v,\s Ay)=(v,\s 0)=0$$
+
+So $KerA=(RanA^*)^\perp$
+
+
+\section*{The orthogonal complement of the orthogonal complement} 
+
+Let a subspace $E\subset V$ and its orthogonal complement $E^\perp\s(\subset V)$, then $E=\left(E^\perp\right)^\perp$.\\
+
+\textit{Proof:}\\
+
+We define $E^\perp$ and $\left(E^\perp\right)^\perp$:
+
+$$E^\perp=\{ y\in V:\s (x,\s y)=0,\s \s \forall x\in E\}$$
+
+$$\left(E^\perp\right)^\perp=\{ w\in V:\s (y,\s w)=0,\s \s \forall y\in E^\perp\}$$\\
+
+Any vector in an inner product space $V$ can be written as the sum of a vector in a subspace $S$ of $V$ and a vector in its orthogonal complement $S^\perp$. \\
+
+In this case, $E^\perp$ is the orthogonal complement of $E$, so $\forall v\in V$, then $v=x+y$, where $x\in E$ and $y\in E^\perp$. But, also, $\left(E^\perp\right)^\perp$ is the orthogonal complement of $E^\perp$, so $\forall v\in V$, then $v=w+y$, where $w\in \left(E^\perp\right)^\perp$ and $y\in E^\perp$:
+
+$$\forall v\in V,\s \text{then}\s 
+\begin{cases}
+      v=x+y,\s\s x\in E, \s y\in E^\perp\\
+      v=w+y, \s\s w\in \left(E^\perp\right)^\perp, \s y\in E^\perp\\
+\end{cases}$$\\
+
+To prove $\left(E^\perp\right)^\perp\subset E$, we take the inner product of $w$ and $y$, which is clearly zero by definition:
+
+$$(y,\s w)=0$$
+
+Now, using the above property ($v=x+y$) for $v=w$, some $x\in E$ and some $y\in E^\perp$. Then:
+
+$$0=(y,\s w)=(y,\s x+y)=\cancelto{0}{(y,\s x)}+(y,\s y)=\mid\mid y \mid\mid ^2$$
+
+Then, $y=0$ and $w=x+\cancelto{o}{y}=x\in E$, which proves $\left(E^\perp\right)^\perp\subset E$.\\
+
+To prove $E\subset \left(E^\perp\right)^\perp$, we take the inner product of $x$ and $y$, which is clearly zero by definition:
+
+$$(x,\s y)=0$$
+
+Now, using the above property ($v=w+y$) for $v=x$, some $w\in \left(E^\perp\right)^\perp$ and some $y\in E^\perp$. Then:
+
+$$0=(x,\s y)=(w+y,\s y)=\cancelto{0}{(w,\s y)}+(y,\s y)=\mid\mid y \mid\mid ^2$$
+
+Then, $y=0$ and $x=w+\cancelto{o}{y}=w\in \left(E^\perp\right)^\perp$, which proves $E\subset \left(E^\perp\right)^\perp$.\\
+
+So we have $E\subset \left(E^\perp\right)^\perp$ and $\left(E^\perp\right)^\perp\subset E$, which gives $\left(E^\perp\right)^\perp= E$
+
+
+
+
+

@@ -1,0 +1,25 @@
+\section*{Spectral Theory}
+
+$\lambda \in \mathbb{F}$ is an eigenvalue of a matrix $A_{n\times n}$ iff $Ax=\lambda x$ for some $x\neq 0\in \mathbb{F}^n$. Such vector $x$ is an eigenvector of $A$.\\
+
+To find $\lambda$ and $x$, we need to solve the system $\left(A-\lambda\Imat\right)x=0$ for some $x\neq 0$. This means $\left(A-\lambda\Imat\right)$ cannot be invertible, otherwise the unique solution of the system will be $x=0$. Therefore, we want $P(\lambda)=\det \left(A-\lambda\Imat\right)=0$. $P(\lambda)$ is called the characteristic polynomial (of degree $n$) of $A$. The roots of the characteristic polynomial are the eigenvalues of $A$. Once we have found the eigenvalues of $A$, all we need to do is solve the system $\left(A-\lambda\Imat\right)x=0$ for each eigenvalue. The eigenvector(s) of each eigenvalue will be the basis of the Kernel of the corresponding matrix $\left(A-\lambda\Imat\right)$.\\
+
+The number of times that each eigenvalue is a root of $P(\lambda)$ is the \textit{algebraic multiplicity} $(AM)$ of that eigenvalue. The number of eigenvectors that each eigenvalue results in is the \textit{geometric multiplicity} $(GM)$ of that eigenvalue. We have the following relation:
+
+$$1\leq GM\leq AM$$
+
+We get $1\leq GM$ from the fact that $\left(A-\lambda\Imat\right)x=0$ has to have non-zero solutions. Then, $\dim Ker\left(A-\lambda \Imat\right) \geq 1$, and $GM=\dim  Ker\left(A-\lambda\Imat\right)$.\\
+
+We get $GM\leq AM$ from the fact that, for every $\lambda_i$ there exist some eigenvectors $v_j$ $(\forall \naturalset{j}{r}$; $r=GM_{\lambda_i})$ such that $Av_j=\lambda v_j$. Then, in some basis with the first $r$ elements being the eigenvectors corresponding to $\lambda_i$, $A$ is similar to a matrix of the form:
+
+$$A'=\begin{pmatrix}\lambda_i \Imat & B \\ 0 & C\\ \end{pmatrix}$$
+
+Then, $P_{A}(\lambda)=P_{A'}(\lambda)=(\lambda_i-\lambda)^r\det \left(C-\lambda\Imat\right)$, so $\lambda$ appears at least $r$ times in the characteristic polyomial of $A$, so $GM \leq AM$.\\
+
+Other properties of the eigenvalues are:
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\det A=\lambda_1\cdot\lambda_2\cdot ...\cdot\lambda_n$
+    \item $\trace A=\lambda_1+\lambda_2+ ...+\lambda_n$
+    \item For triangular matrices (and diagonal matrices), the eigenvalues are just the elements of the diagonal.
+\end{enumerate}

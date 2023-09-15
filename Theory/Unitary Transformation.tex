@@ -1,0 +1,35 @@
+\section*{Unitary Transformation}
+
+A unitary transformation $U:\;V \rightarrow W$ is an isometry that has the additional property that $UU^*=\Imat$. This is thanks to the fact that $\dim V=\dim W$, which means $U$ is a square matrix. Therefore,  $U^*U=UU^*=\Imat$, and $U^{-1}=U^*$.\\
+
+An orthogonal matrix is a real unitary matrix. This means:
+\begin{enumerate}[label=(\roman*)]
+    \item $A^T=A^{-1}$
+    \item Its columns form an orthonormal system
+\end{enumerate}
+
+The properties of unitary matrices are: 
+\begin{enumerate}[label=(\roman*)]
+    \item $|\det U|=1$
+    
+    \textit{Proof:}\\
+    We know $\det U$ is a complex number, so, for any unitary matrix $U$:
+    $$|\det U|^2=\det U\cdot\overline{\det U}=\det U\cdot\det U^*=\det (UU^*)=\det \Imat=1\Rightarrow |\det U|=1$$
+    
+    \item The eigenvalues $\lambda$ of any unitary matrix $U$ satisfy $|\lambda|=1$:
+    
+    \textit{Proof:}\\
+    Any unitary matrix $U$ satisfies $||Ux||=||x||$, therefore if $x$ is an eigenvector of $U$, it will verify:
+    $$||Ux||=||\lambda x||=||x||\Rightarrow |\lambda|\cdot|| x||=||x||\Rightarrow |\lambda|=1$$
+\end{enumerate}
+
+\subsubsection*{Unitary Equivalence and Diagonalization}
+
+Two matrices $A$ and $B$ are unitarily equivalent when $A=UBU^*$, where $U$ is a unitary matrix.\\
+
+A is unitarily diagonalizable iff there exists an orthonormal basis of eigenvectors of $A$. Here, we can only use Gram-Schmidt to orthogonalize vectors within the same eigenspace. So, A is unitarily diagonalizable iff its eigenspaces are orthogonal. Then, $A=UDU^*$, where $D$ is diagonal with the eigenvalues of $A$ in the diagonal and where $U$ is unitary with its columns formed by the orthonormal basis of eigenvectors of $A$, ordered in the same way as the eigenvalues are ordered in $D$.\\
+
+Two unitarily equivalent matrices $A$ and $B$ always verify $\trace(A^*A)=\trace(B^*B)$. \textit{See} \hyperref[sec:unittrace]{Proof}
+
+\subsubsection*{Schur's Theorem}
+Every square matrix is unitarily equivalent to a triangular matrix.

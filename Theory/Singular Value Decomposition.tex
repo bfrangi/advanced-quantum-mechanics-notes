@@ -1,0 +1,157 @@
+\section*{Polar and Singular Value Decomposition}
+
+\subsubsection*{Positivity}
+
+A matrix $A=A^*$ is \textit{\textbf{positive definite}} $(A>0)$ iff:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Main definition: $\forall v \in V$, $(Av,\;v)>0$
+    \item All eigenvalues of $A$ are positive
+    
+    \textit{Proof:}\\
+    Because $A=A^*$, there exists an orthonormal basis of eigenvectors of $A$, $B=\{v_1,\;...,\;v_n\}$, so that $\forall v \in V$, we have $v=\alpha_1 v_1+...+\alpha_n v_n$. Then, $\forall v\neq 0$:
+    
+    $$(Av,\;v)=\left(A(\alpha_1 v_1+...+\alpha_n v_n),(\alpha_1 v_1+...+\alpha_n v_n)\right)=\left((\alpha_1 Av_1+...+\alpha_n Av_n),(\alpha_1 v_1+...+\alpha_n v_n)\right)=$$
+    $$=\left((\alpha_1 \lambda_1v_1+...+\alpha_n \lambda_nv_n),(\alpha_1 v_1+...+\alpha_n v_n)\right)=\sum_{\substack{i=1\\j=1}}^n\alpha_i\overline{\alpha}_j\lambda_i(v_i,\;v_j)=\sum_{\substack{k=1}}^n|\alpha_k|^2\lambda_k>0\Rightarrow$$
+    
+    $$\Rightarrow \lambda_k>0, \text{ for all }\naturalset{k}{n}$$
+    
+    \item Leading principal minors of $A$ are positive \textit{(Sylvester's Criterion of Positivity)}
+\end{enumerate}
+
+A matrix $A=A^*$ is \textit{\textbf{positive semidefinite}} $(A\geq0)$ iff:
+
+\begin{enumerate}[label=(\roman*)]
+    \item Main definition: $\forall v \in V$, $(Av,\;v)\geq0$
+    \item All eigenvalues of $A$ are non-negative
+    
+    \textit{Proof:}\\
+    Because $A=A^*$, there exists an orthonormal basis of eigenvectors of $A$, $B=\{v_1,\;...,\;v_n\}$, so that $\forall v \in V$, we have $v=\alpha_1 v_1+...+\alpha_n v_n$. Then, as before:
+    
+    $$(Av,\;v)=\sum_{\substack{k=1}}^n|\alpha_k|^2\lambda_k \geq 0 \text{ }\text{ } \Rightarrow \text{ }\text{ } \lambda_k \geq 0, \text{ for all }\naturalset{k}{n}$$
+    
+    \item Principal minors of $A$ are non-negative \textit{(Sylvester's Criterion of Positivity)}
+\end{enumerate}
+
+A matrix $A=A^*$ is \textit{\textbf{negative definite}} $(A<0)$ iff the matrix $-A$ is positive definite.\\
+
+A matrix $A=A^*$ is \textit{\textbf{negative semidefinite}} $(A\leq0)$ iff the matrix $-A$ is positive semidefinite.
+
+\subsubsection*{Modulus of a Matrix}
+
+The modulus of an arbitrary matrix $A$ is another matrix $|A|$ such that $|A|^2=A^*A$. Therefore, $|A|$ is self adjoint for any $A$ (Because $(A^*A)^*=(A)^*(A^*)^*=A^*A$). Also, $|A|$ is positive semidefinite for any $A$.\\
+
+\textit{Proof:}
+
+For the matrix $A^*A$ and any vector $x\in V$, we have:
+
+$$(A^*Ax,\;x)=(Ax,\;Ax)=||Ax||^2\geq 0 \Rightarrow |A|=\sqrt{A^*A}\geq 0$$
+
+\subsubsection*{Singular Values}
+
+The singular values $\sigma_i$ of the matrix $A_{m \times n}$ ($\forall \naturalset{i}{n}$) are the eigenvalues of the modulus of $A$. Therefore, they are the square root of the eigenvalues of $A^*A$.\\
+
+Because $A^*A$ is self-adjoint and positive semidefinite, all singular values are real and there exists an orthogonal basis $B=\{v_1,\;...,\;v_n\}$ of eigenvectors of $A^*A$. Then, for a transformation $A:\;V\rightarrow W$, we can find an orthonormal set of $W$ by transforming the vectors of an orthogonal set of $V$ and normalizing them with the singular values: 
+
+$$w_k=\frac{1}{\sigma_k} Av_k$$
+
+\textit{Proof:}
+
+For any two vectors $w_i$ and $w_j$ of such orthonormal set in $W$, we have:
+
+$$(w_i,\;w_j)=\left(\frac{1}{\sigma_i}Av_i,\;\frac{1}{\sigma_j}Av_j\right)=\frac{1}{\sigma_i} 
+\frac{1}{\sigma_j}(Av_i,\;Av_j)=\frac{1}{\sigma_i\,\sigma_j} (A^*Av_i,\;v_j)=\frac{\sigma_i^2}{\sigma_i\,\sigma_j} (v_i,\;v_j)=\frac{\sigma_i}{\sigma_j} (v_i,\;v_j)$$
+
+Because $v_i \perp v_j$ when $i\neq j$, and both vectors are normal we have:
+
+    $$\begin{cases}
+      (v_i,\;v_j)=0,\text{ when }i\neq j\\
+      (v_i,\;v_j)=1,\text{ when }i= j\\
+    \end{cases}$$
+    
+So the conclusion is that the same thing happens with $w_i$ and $w_j$:
+
+    $$\begin{cases}
+      (w_i,\;w_j)=0,\text{ when }i\neq j\\
+      (w_i,\;w_j)=1,\text{ when }i= j\\
+    \end{cases}$$
+
+So $S=\{w_1,\;...,\;w_n\}$ is an orthonormal set in $W$.
+
+\subsubsection*{Schmidt Decomposition}
+
+The Schmidt decomposition of an arbitrary matrix $A_{m \times n}$ is:
+
+$$A=\sum_{k=1}^n\sigma_kw_kv_k^*$$
+
+In matrix form, the Schmidt Decomposition of an arbitrary $A$ is $A=\widetilde{W}\widetilde{\Sigma} \widetilde{V}^*$:
+
+\begin{enumerate}[label=(\roman*)]
+    \item The matrix $\widetilde{W}$ is $m\times r$, where $r$ is the number of singular values of $A$. The columns of $\widetilde{W}$ are the vectors of the orthonormal set of $W$. These are eigenvectors of $AA^*$.
+    \item The matrix $\widetilde{\Sigma}$ is $r\times r$ diagonal and its entries are the singular values of $A$.
+    \item The matrix $\widetilde{V}$ is $n\times r$ (then $\widetilde{V}^*$ is $r\times n$). The columns of $\widetilde{V}$ are the vectors of the orthonormal set of $V$. These are eigenvectors of $A^*A$.
+\end{enumerate}
+
+The order of arrangement of vectors and singular values must be consitent in all three matrices.\\
+
+In this whole process, we can also use $AA^*$ instead of $A^*A$ to find the singular values. The Schmidt Decomposition is still the same, but what changes is that we will find an orthonormal set of eigenvectors of $AA^*$, not of $A^*A$, so these vectors will form an orthonormal set of $W$, not $V$. These vectors will be the columns of the matrix $\widetilde{W}$, not $\widetilde{V}$. For $\widetilde{V}$, we will need to find an orthonormal set of vectors in $V$:
+
+$$w_k=\frac{1}{\sigma_k} Av_k\rightarrow A^*w_k=\frac{1}{\sigma_k}A^* Av_k\rightarrow A^*w_k=\frac{1}{\sigma_k} \sigma_k^2 v_k\Rightarrow v_k=\frac{1}{\sigma_k} A^*w_k$$
+
+\subsubsection*{Singular Value Decomposition (\textit{SVD})}
+
+The Singular Value Decomposition of an arbitrary matrix $A_{m \times n}$ is the same as the Schmidt Decomposition but with one additional condition: $W$ and $V^*$ are square, so they contain orthonormal bases of their respective subspaces, not just orthonormal sets (this also means that they are unitary). Then, $\Sigma$ has the same dimensions as $A_{m \times n}$, so it is a ``diagonal'' form of $A$.\\
+
+
+In matrix form, the Singular Value Decomposition of an arbitrary $A$ is $A=W\Sigma V^*$:
+
+\begin{enumerate}[label=(\roman*)]
+    \item The matrix $W$ is $m\times m$ with its columns being the vectors of an orthonormal basis of $W$. We can complete the orthogonal set of eigenvectors of $AA^*$ to an orthonormal basis of $W$ imposing orthogonality.
+    \item The matrix $\Sigma$ is $m\times n$ and has the $r$ singular values in the $r$ first upper left diagonal entries. All other entries are zero.
+    \item The matrix $V$ is $n\times n$ with its columns being the vectors of an orthonormal basis of $V$. We can complete the orthogonal set of eigenvectors of $A^*A$ to an orthonormal basis of $V$ imposing orthogonality.
+\end{enumerate}
+
+The order of arrangement of vectors and singular values must be consitent in all three matrices. As in the Schmidt Decomposition, we may also use $AA^*$ instead of $A^*A$ to find first an orthonormal basis of $W$ and then extract from it the orthonormal basis of $V$.\\
+
+Note that iff $A$ is square, then $\widetilde{W}=W$, $\widetilde{\Sigma}=\Sigma$ and $\widetilde{V}=V$. Therefore, the \textit{SVD} will be equal to the Schmidt Decomposition.
+
+\subsubsection*{Applications of the \textit{SVD}}
+
+We can use the \textit{SVD} in order to find the\textbf{ direction of maximum change} of a linear transformation $A$:
+
+Finding the direction of maximum change for a linear transformation is the same as finding the direction of maximum change in the unit ball. In other words, finding $\underset{x\;\in\; V}{\max}||Ax||$:
+
+$$\underset{ x\;\in\; V}{\max}||Ax||=\underset{ x\;\in\; V}{\max}||Ax||^2=\underset{ x\;\in\; V}{\max}(Ax,\;Ax)=\underset{ x\;\in\; V}{\max}(A^*Ax,\;x)$$
+
+If we find the singular value decomposition of $A$, we can use $A^*Av_i=\sigma_i^2v_i$ ($\forall \naturalset{i}{n}$) and express $x$ in the orthonormal basis of eigenvectors of $A^*A$, $B=\{v_1,\;...,\;v_n\}$: $x=\alpha_1 v_1+...+\alpha_nv_n$. Then:
+
+$$(A^*Ax,\;x)=(A^*A(\alpha_1 v_1+...+\alpha_nv_n),\;(\alpha_1 v_1+...+\alpha_nv_n))=\sum_{\substack{i=1\\j=1}}^n(\alpha_i A^*Av_i,\;\alpha_j v_j)=$$
+
+$$=\sum_{\substack{i=1\\j=1}}^n(\alpha_i \sigma_i^2v_i,\;\alpha_j v_j)=\sum_{\substack{i=1\\j=1}}^n\alpha_i \overline{\alpha}_j \sigma_i^2(v_i,\;v_j)$$
+
+Due to orthonormality:
+
+$$(A^*Ax,\;x)=\sum_{\substack{i=1\\j=1}}^n\alpha_i \overline{\alpha}_j \sigma_i^2(v_i,\;v_j)=\sum_{k=1}^n|\alpha_k|^2\sigma_k^2=\sum_{k=1}^n|\alpha_k|^2\lambda_k\text{, where }\lambda_k\text{ are the eigenvalues of } A^*A$$
+
+Therefore, we can see that the direction of maximum change is that of the eigenvector of $A^*A$ corresponding to the largest eigenvalue of $A^*A$.\\
+
+We can also use the \textit{SVD} in order to describe the \textbf{image of an invertible linear transformation $y=Ax$ applied to the unit ball}:\\
+
+We are working in the unit ball, so $||x||=1$. Then, for $B=A^{-1}$, $x=By$, so $||By||=1$. From this:
+
+$$1=||By||^2=(By,\;By)=(B^*By,\;y)$$
+
+If we express $y$ in an orthonormal basis of eigenvectors of $B^*B$, $B_B=\{v_1,\;...,\;v_n\}$, we have:
+
+$$(B^*B(\alpha_1v_1+...+\alpha_nv_n),\;(\alpha_1v_1+...+\alpha_nv_n))=\sum_{\substack{i=1\\j=1}}^n(\alpha_i B^*Bv_i,\;\alpha_j v_j)$$
+
+If $\sigma_i$ ($\forall \naturalset{i}{n}$) are the singular values of $A^{-1}=B$, we have $B^*Bv_i=\sigma_i^2v_i$. Also, using orthogonality, we eliminate inner products where $i\neq j$. All other inner products are equal to one:
+
+$$\sum_{\substack{i=1\\j=1}}^n(\alpha_i B^*Bv_i,\;\alpha_j v_j)=\sum_{\substack{i=1\\j=1}}^n(\alpha_i \sigma_i^2v_i,\;\alpha_j v_j)=\sum_{\substack{i=1\\j=1}}^n\alpha_i \overline{\alpha}_j \sigma_i^2(v_i,\;v_j)=\sum_{k=1}^n|\alpha_k|^2 \sigma_k^2$$
+
+The singular values $\sigma_k'$ of the matrix $A$ are $\sigma_k'={1}/{\sigma_k}$, where $\sigma_k$ are the singular values of $B=A^{-1}$. Therefore, the image of the unit ball in the orthogonal basis of eigenvectors of $B^*B$ is:
+
+$$\sum_{k=1}^n \frac{|\alpha_k|^2}{{\sigma_k'}^2}=1$$
+
+This is clearly the general equation of an ellipsoid. In the standard basis, the image of the unit ball is simply a rotation of this ellipsoid, which will have the eigenvectors $v_i$ of $B^*B$ as the axes
+and the corresponding singular values $\sigma_k'$ of $A$ as the half-lengths of the axes.

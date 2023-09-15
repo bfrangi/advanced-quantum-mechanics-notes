@@ -1,0 +1,17 @@
+\section*{Vector Spaces}
+
+\subsubsection{Vector Space and Basis}
+
+A subspace is formed by a set of vectors, a set of scalars, and two operations: product by scalar and vector addition. The result of both operations is a vector.\\
+
+Every vector space $V$ can be expressed as the span of a certain set $S$ of vectors, which is called a generating or spanning set, $S=\{v_1,\;v_2,\;...,\;v_n,\;...,\;v_r\}$. The first $n$ vectors of the spanning set are linearly independent and the last $n-r$ are linearly dependant of some other vector(s) $v_i$, for some $\naturalset{i}{n}$. Any vector $x\in V$ can be expressed as $x=\alpha_1v_1+\alpha_2v_2+...+\alpha_nv_n+...+\alpha_rv_r$, where $\alpha$ are real coefficients.\\
+
+Such set $S$ is a basis $\vectorset{B}{v}{n}$ iff all the elements in it are linearly independent. Then, the number of elements in the basis is equal to the dimension of the subspace ($\dim V=n$). The fact that all the elements of a basis have to be linearly independent means that the unique way of expressing the zero vector as a function of $v_i$, $\forall \naturalset{i}{n}$ is by all the coefficients $\alpha_i$ being equal to zero.
+
+$$0_n=\alpha_1v_1+\alpha_2v_2+...+\alpha_nv_n\Leftrightarrow \alpha_1=\alpha_2=...=\alpha_n=0$$
+
+\subsubsection{Subspace}
+
+The basis of a subspace $W$ of a vector space $V$, $W\subset V$, is formed by taking only some of the vectors of the basis of $V$. However, it is only a subspace if it satisfies all the properties of a vector space in itself. Basically, to check if something is really a subspace we have to check that the product by scalar and the vector addition operations are closed in the subspace. In other words, check that, $\forall \; x_1, x_2 \in W$ and $\forall \; \alpha,\;\beta \in \R$:
+
+$$\alpha x_1+\beta x_2 \in W$$
