@@ -194,6 +194,39 @@ Some properties that arise naturally from the Dirac notation:
     \braket{\psi}{\psi}\text{ is real, positive and only zero if }\ket{\psi} = 0
 \end{equation}
 
+\subsection{Closure relation}
+
+For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
+
+\begin{definition}
+    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
+    \begin{equation}
+        \Imat = \sum_i\ket{A_i} \bra{A_i}.
+    \end{equation}
+\end{definition}
+
+\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
+\begin{equation}
+    \ket{\psi} = \sum_i c_i\ket{A_i}
+\end{equation}
+Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
+\begin{equation}
+    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
+\end{equation}
+As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
+\begin{equation}
+    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
+\end{equation}
+As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
+\begin{equation}
+    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
+\end{equation}
+And it is now easy to see that this relation will hold if and only if the closure relation holds:
+\begin{equation}
+    \sum_i \ket{A_i}\bra{A_i} = \Imat
+\end{equation}
+The inverse argument is easy to follow.
+
 \subsection{Physical meaning of the scalar product}
 
 The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
@@ -254,40 +287,16 @@ Another special case are \textbf{Hermitian operators}:
 
 An example of a Hermitian operator is the projector operator, as $P_\phi^\dagger = \left(\ket{\phi}\bra{\phi}\right)^\dagger = \ket{\phi}\bra{\phi} = P_\phi$.
 
-\subsection{Closure relation}
+\subsection{Matrix element}
 
-For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
-
+The matrix element of an operator $A$ is:
 \begin{definition}
-    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
+    The matrix element of an operator $A$ expressed in the basis $B = \{u_1, u_2, ...\}$ is defined as:
     \begin{equation}
-        \Imat = \sum_i\ket{A_i} \bra{A_i}.
+        A_{ij} = \bra{u_i}A\ket{u_j}
     \end{equation}
+    where $u_i$ and $u_j$ are the $i$-th and $j$-th vectors of the basis, respectively.
 \end{definition}
-
-\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
-\begin{equation}
-    \ket{\psi} = \sum_i c_i\ket{A_i}
-\end{equation}
-Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
-\begin{equation}
-    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
-\end{equation}
-As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
-\begin{equation}
-    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
-\end{equation}
-As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
-\begin{equation}
-    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
-\end{equation}
-And it is now easy to see that this relation will hold if and only if the closure relation holds:
-\begin{equation}
-    \sum_i \ket{A_i}\bra{A_i} = \Imat
-\end{equation}
-The inverse argument is easy to follow.
-
-
 
 \subsection{Representations in state space}
 
