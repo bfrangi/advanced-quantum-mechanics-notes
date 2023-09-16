@@ -39,3 +39,40 @@ so that:
 \end{equation}
 
 Taking a step back, we know that all linear functionals in $\R^2$ take us from $\R^2$ to $\R^1$. Therefore, by definition, all linear functionals in $\R^2$ are represented by $1\times2$ matrices. In other words, the set of all linear functionals in $\R^2$ consists of the set of all row matrices. More generally, the set of all linear functionals in $\R^n$ consists of the set of all $1\times n$ row matrices. In fact, the set of all row matrices, much like column matrices, form their own vector space, which is known as the dual space\footnote{See \textbf{Section \ref{dualspace}} for more on the dual space}.
+
+\subsection{Matrix element of an operator}
+
+The matrix element of an operator $A$ is:
+\begin{definition}
+    The matrix element of an operator $A$ expressed in the basis $B = \{u_1, u_2, ...\}$ is defined as:
+    \begin{equation}
+        A_{ij} = \bra{u_i}A\ket{u_j}
+    \end{equation}
+    where $u_i$ and $u_j$ are the $i$-th and $j$-th vectors of the basis, respectively.
+\end{definition}
+
+\subsection{Proof of the Closure relation} \label{closure_relation_proof}
+
+The closure relation states that, for a set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ to form a basis of a Hilbert space $\Hbt$, they must fulfil the following relation:
+
+If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
+\begin{equation}
+    \ket{\psi} = \sum_i c_i\ket{A_i}
+\end{equation}
+Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
+\begin{equation}
+    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
+\end{equation}
+As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
+\begin{equation}
+    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
+\end{equation}
+As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
+\begin{equation}
+    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
+\end{equation}
+And it is now easy to see that this relation will hold if and only if the closure relation holds:
+\begin{equation}
+    \sum_i \ket{A_i}\bra{A_i} = \Imat
+\end{equation}
+The inverse argument is easy to follow.

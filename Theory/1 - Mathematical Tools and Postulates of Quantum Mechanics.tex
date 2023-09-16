@@ -79,6 +79,9 @@ Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they
 Notice that its action is the same as if we were taking the dot product with the $x$ unit vector:
 
 \begin{equation}
+    x\cdot\begin{bmatrix}
+        a \\ b
+    \end{bmatrix} = 
     \begin{bmatrix}
         1 \\ 0
     \end{bmatrix}\cdot
@@ -149,7 +152,7 @@ A linear map is defined as:
 In the quantum mechanical context, we can see them as entities that transform a ket into another ket. Some example linear operators are:
 \begin{itemize}
     \item \textbf{Commutator:} $[A, B] \equiv AB - BA$ (in general, $AB \neq BA$).
-    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$. \textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.
+    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$.\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.}
     \item \textbf{Inverse:} assuming it exists, the inverse operator $A^{-1}$ of the operator $A$, when applied to $A$, gives the identity operator. Also, $A$ is the inverse of $A^{-1}$, so that $AA^{-1} = A^{-1}A = \Imat$.
     \item \textbf{Hermitian conjugation:} the hermitian conjugate (or adjoint) $A^\dagger$ of an operator $A$ is obtained by interchanging the columns of the operator by its rows, and taking the complex conjugate of all elements. For example:
     \begin{equation}
@@ -170,7 +173,7 @@ In the quantum mechanical context, we can see them as entities that transform a 
         \item[d)] $\left(A B\right)^\dagger = B^\dagger A^\dagger$.
         \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$.\footnote{\textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi}{u}^*\braket{v}{\phi}^* = \braket{u}{\psi}\braket{\phi}{v} = \braket{\phi}{v}\braket{u}{\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$}
     \end{enumerate}
-    The adjoint of a bra is its ket, and the adjoint of a ket is it's bra.
+    The adjoint of a bra is its ket, and the adjoint of a ket is its bra.
     To obtain the hermitian conjugate of an expression:
     \begin{enumerate}
         \item[a)] Replace constants with their complex conjugate: $\lambda \to \lambda^*$.
@@ -196,68 +199,22 @@ Another special case are \textbf{Hermitian operators}:
 
 An example of a Hermitian operator is the projector operator, as $P_\phi^\dagger = \left(\ket{\phi}\bra{\phi}\right)^\dagger = \ket{\phi}\bra{\phi} = P_\phi$.
 
-\subsection{Matrix element}
+\subsection{Closure relation}
 
-The matrix element of an operator $A$ is:
-\begin{definition}
-    The matrix element of an operator $A$ expressed in the basis $B = \{u_1, u_2, ...\}$ is defined as:
-    \begin{equation}
-        A_{ij} = \bra{u_i}A\ket{u_j}
-    \end{equation}
-    where $u_i$ and $u_j$ are the $i$-th and $j$-th vectors of the basis, respectively.
-\end{definition}
-
-\subsection{Representations in state space}
-
-When studying quantum mechanical systems, we need a way to represent quantum states. We do that by choosing an orthonormal basis, either discrete or continuous, in the state space $E$. Vectors and operators are then represented in this basis by numbers: components for the vectors and matrix elements for the operators. Vectorial calculus then becomes matrix calculus with these numbers.
-
-The choice of a representation is, in theory, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations.
-
-Let's go back to the beginning of the chapter where we talked briefly about basis and representation. So far, we have been talking about Hilbert spaces very generally, and we have talked about performing algebraic operations with vectors in $\Hbt$ without even defining a basis for them. 
-
-
-Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
-
-\begin{definition}\label{wavefunction_space}
-    A wave function space is a Hilbert space $\Hbt$ whose vectors are complex functions $\psi(\vec{x}, t)$ of position and time (wave functions), which must fulfil the conditions:
-    
-    \begin{itemize}
-        \item they must be single valued and continuous.
-        \item they must be infinitely differentiable and square integrable.
-        \item they must be normaliseable by an arbitrary multiplicative constant in such a way that the area under the curve $|\psi|^2$ is exactly equal to $1$.
-        \item they must have a modulus between $0$ and $1$ at any time $t$.
-    \end{itemize}
-\end{definition}
-
-Although in itself it has no physical interpretation, the wave function of a particle, at a particular time, contains all the information that anybody at that time can have about the particle. For example, applying operators to it, we can obtain information about the particle's energy, position, speed, etc.
-
-Furthermore, we interpret the square of the modulus of the wave function as a probability density function, giving us the probability of finding the particle at a time $t$ at position $\vec{x}$. The fact that $|\psi|^2$ is a probability density function is the reason for the requirements in \textbf{Definition \ref{wavefunction_space}}. 
-
-In the wave function space, we can define the \textbf{inner product} as:
+For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
 
 \begin{definition}
-    We define the inner (dot, scalar) product of two vectors $\phi$ and $\psi$ of a wave function space as:
+    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
     \begin{equation}
-        \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) \equiv \int\phi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
+        \Imat = \sum_i\ket{A_i} \bra{A_i}.
     \end{equation}
 \end{definition}
 
-So, these wave functions are the ones composing the basis for our wave function space. How does this connect to what we saw about Dirac? a bra is a vector containing some components that, together with the functions of the basis, define a function within the wave function space. As a simplified example, imagine we have an orthonormal basis $B = \{\phi, \psi\}$. Then, a ket $\ket{f} = (2/\sqrt{5}, 1/\sqrt{5})$ would define the wave function $f(\vec{x}, t) = \frac{2}{\sqrt5}\ \phi + \frac{1}{\sqrt5}\ \psi$.
+Proof of this relation is given in \textbf{Section \ref{closure_relation_proof}}.
 
+\subsection{Basis of a Hilbert space}
 
-
-
-
-
-
-
-
-
-
-
-\subsection{Basis of the Hilbert space}
-
-If $\{\ket{A_i}\}$ is a basis for a Hilbert space $\Hbt$, we can expand every arbitrary vector $\ket{\Psi}$ according to this basis:
+If $\{\ket{\psi_i}\}$ is a basis for a Hilbert space $\Hbt$, we can expand every arbitrary vector $\ket{\Psi}$ according to this basis:
 \begin{equation}
     \ket{\Psi} = \sum_i c_i \ket{\psi_i}
 \end{equation}
@@ -265,9 +222,9 @@ so that we have:
 \begin{equation}
     \braket{\psi_i}{\Psi} = \sum_j c_i \braket{\psi_i}{\Psi} = \sum_j c_i\delta_{ij} = c_i
 \end{equation}
-The choice of basis is arbitrary, and depending on the choice we make, we obtain different representations of state space. 
+The choice of basis is arbitrary, and depending on the choice we make, we obtain different representations of state space. There are many different representations, which often have to do with physical properties of the system. 
 
-In quantum mechanics, we use Hilbert spaces to represent wave functions. If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, which is often written something like this: $\Psi\left(\vec{r}, t\right)$. This particular representation gives us information about the position of the particle we are studying. However, this is not the \textit{only} representation of the wave function we can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it or in which basis we express it. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
+If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, $\Psi\left(\vec{r}\right)$. This representation of state space is particularly useful for working with position in a quantum system. However, it is not the \textit{only} representation of state space that can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it from or which basis we express it in. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
 
 For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
 
@@ -284,48 +241,70 @@ For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ 
     \end{pmatrix} = \vec{v}_{B'}
 \end{equation}
 
-So, just as in this example, the position representation of the wave function vector space is only one of its many possible representations. The functions $\psi_i\left(\vec{r}, t\right)$ form the basis for the wave function space in the position representation. Other representations, like the momentum representation, can be useful in certain situations, as we will see later on.
+Just as in this example, the position representation of the wave function vector space is only one of its many possible representations. The functions $\psi_i\left(\vec{r}\right)$ form the basis for the position representation of state space. Other representations, like the momentum representation, can be useful in certain situations, as we will see later on. 
 
 
-Whatever the basis that we choose, it must fulfil the closure relation.
+\subsection{Representations in state space}
 
-\subsection{Closure relation}
+When studying quantum mechanical systems, we need a way to represent quantum states. We do that by choosing an orthonormal basis, either discrete or continuous, in the state space {\color{red}$E$}. Vectors and operators are then represented in this basis by numbers: components for the vectors and matrix elements for the operators.
 
-For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
+As we mentioned before, the choice of a representation is, in principle, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations. 
 
-\begin{definition}
-    A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
-    \begin{equation}
-        \Imat = \sum_i\ket{A_i} \bra{A_i}.
-    \end{equation}
-\end{definition}
+Most useful bases come as eigenstates of some pertinent operator\footnote{More on this later{\color{red}add link}, but the idea is that, if we represent the state space in the basis of eigenstates (analogous to eigenvectors) of an operator, then that operator will be expressed in that basis as a diagonal matrix, where the elements of the diagonals are the eigenvalues of the operator. This makes calculations very easy.}. So far, we have mentioned the position and the momentum representation. These bases deal with the position and momentum operators, but you can think of many others. For example, the eigenstates of the Hamiltonian for some physical system are often used, especially when solving the Schrödinger equation. These might also be infinite dimensional but can be discrete, as opposed to the continuous bases of position and momentum.
 
-\textit{Proof:} If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can write any vector $\ket{\psi}\in\Hbt$ as:
-\begin{equation}
-    \ket{\psi} = \sum_i c_i\ket{A_i}
-\end{equation}
-Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
-\begin{equation}
-    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
-\end{equation}
-As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
-\begin{equation}
-    \ket{\psi} = \sum_i \ket{A_i}\bra{A_i}\ket{\psi}
-\end{equation}
-As $\ket{\psi}$ is the same for every element of the sum, we can pull it out of the sum:
-\begin{equation}
-    \ket{\psi} = \left(\sum_i \ket{A_i}\bra{A_i}\right)\ket{\psi}
-\end{equation}
-And it is now easy to see that this relation will hold if and only if the closure relation holds:
-\begin{equation}
-    \sum_i \ket{A_i}\bra{A_i} = \Imat
-\end{equation}
-The inverse argument is easy to follow.
+% As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.
 
-\subsection{Physical meaning of the scalar product}
+% Or, take a hyrogen-like atom in three dimensions. The basis of atomic levels and orbitals is much more useful than the position or momentum bases, and the former also comes from the eigenstates of the Hamiltonian.
 
-The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
-\begin{enumerate}
-    \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
-    \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
-\end{enumerate}
+% Finally, you can make useful quantities out of the position and momentum eigenstates even for Hamiltonians that have no potential energy term. For example, you can use [wave packets](https://en.wikipedia.org/wiki/Wave_packet) as basis states to more naturally talk about how things move through space over time. Position and momentum are great starting points but they are certainly not all that quantum theory has to offer.
+
+
+% Let's go back to the beginning of the chapter where we talked briefly about basis and representation. So far, we have been talking about Hilbert spaces very generally, and we have talked about performing algebraic operations with vectors in $\Hbt$ without even defining a basis for them. 
+
+% Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
+
+% \begin{definition}\label{wavefunction_space}
+%     A wave function space is a Hilbert space $\Hbt$ whose vectors are complex functions $\psi$ (wave functions), which must fulfil the conditions:
+    
+%     \begin{itemize}
+%         \item they must be single valued and continuous.
+%         \item they must be infinitely differentiable and square integrable.
+%         \item they must be normaliseable by an arbitrary multiplicative constant in such a way that the area under the curve $|\psi|^2$ is exactly equal to $1$.
+%         \item they must have a modulus between $0$ and $1$ at any time $t$.
+%     \end{itemize}
+% \end{definition}
+
+% Although in itself it has no physical interpretation, the wave function of a particle, at a particular time, contains all the information that anybody at that time can have about the particle. For example, applying operators to it, we can obtain information about the particle's energy, position, speed, etc.
+
+% Furthermore, we interpret the square of the modulus of the wave function as a probability density function, giving us the probability of finding the particle at a time $t$ at position $\vec{x}$. The fact that $|\psi|^2$ is a probability density function is the reason for the requirements in \textbf{Definition \ref{wavefunction_space}}. 
+
+% In the wave function space, we can define the \textbf{inner product} as:
+
+% \begin{definition}
+%     We define the inner (dot, scalar) product of two vectors $\phi$ and $\psi$ of a wave function space as:
+%     \begin{equation}
+%         \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) \equiv \int\phi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
+%     \end{equation}
+% \end{definition}
+
+% So, these wave functions are the ones composing the basis for our wave function space. How does this connect to what we saw about Dirac? a bra is a vector containing some components that, together with the functions of the basis, define a function within the wave function space. As a simplified example, imagine we have an orthonormal basis $B = \{\phi, \psi\}$. Then, a ket $\ket{f} = (2/\sqrt{5}, 1/\sqrt{5})$ would define the wave function $f(\vec{x}, t) = \frac{2}{\sqrt5}\ \phi + \frac{1}{\sqrt5}\ \psi$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+% \subsection{Physical meaning of the scalar product}
+
+% The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
+% \begin{enumerate}
+%     \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
+%     \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
+% \end{enumerate}
