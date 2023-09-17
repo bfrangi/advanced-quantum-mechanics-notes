@@ -152,7 +152,11 @@ A linear map is defined as:
 
 In the quantum mechanical context, we can see them as entities that transform a ket into another ket. Some example linear operators are:
 \begin{itemize}
-    \item \textbf{Commutator:} $[A, B] \equiv AB - BA$ (in general, $AB \neq BA$).
+    \item \textbf{Commutator:} The commutator of two operators $A$ and $B$ is defined as:
+    \begin{equation}
+        [A, B] \equiv AB - BA
+    \end{equation}
+    Two operators are said to commute if their commutator is equal to zero, and hence $AB = BA$. See \textbf{Section \ref{uncertainty_relation}} to see an interesting application of commutator algebra for finding the uncertainty products of two operators.
     \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$.\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.}
     \item \textbf{Inverse:} assuming it exists, the inverse operator $A^{-1}$ of the operator $A$, when applied to $A$, gives the identity operator. Also, $A$ is the inverse of $A^{-1}$, so that $AA^{-1} = A^{-1}A = \Imat$.
     \item \textbf{Hermitian conjugation:} the hermitian conjugate (or adjoint) $A^\dagger$ of an operator $A$ is obtained by interchanging the columns of the operator by its rows, and taking the complex conjugate of all elements. For example:
@@ -199,6 +203,22 @@ Another special case are \textbf{Hermitian operators}:
 \end{definition}
 
 An example of a Hermitian operator is the projector operator, as $P_\phi^\dagger = \left(\ket{\phi}\bra{\phi}\right)^\dagger = \ket{\phi}\bra{\phi} = P_\phi$.
+
+\subsubsection{Expected value of an operator}
+
+In order to define the expected value of an operator, we first need to define the \textbf{matrix element}:
+
+\begin{definition}
+    Let $\ket{\psi}, \ \ket{\phi}$ be two kets, we call the matrix element of an operator $A$ between $\ket{\psi}$ and $\ket{\phi}$ the quantity $\bra{\psi}(A\ket{\phi})$. 
+\end{definition}
+
+\begin{definition}
+    The expected value $\langle A \rangle_\psi$ of $A$ in the state $\ket{\psi}$ is defined as the matrix element of $A$ between $\ket{\psi}$ and itself:
+    \begin{equation}
+        \langle A \rangle_\psi = \braket{\psi|A|\psi}
+    \end{equation}
+\end{definition}
+
 
 \subsection{Closure relation}
 
