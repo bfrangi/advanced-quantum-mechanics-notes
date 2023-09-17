@@ -5,28 +5,29 @@
 \textbf{Hilbert spaces}, also known as \textbf{complex vector spaces}, are defined in \textbf{Definition \ref{hilbert_spaces}}.
 
 \begin{definition} \label{hilbert_spaces}
-    Any set $\Hbt$ is called a Hilbert space (or complex vector space), if:
-    
-    \begin{enumerate}
-        \item[a)] it posesses an operation $\Hbt \times \Hbt \to \Hbt$ called ``addition'' which obeys the rules for a commutative group.
-        \item[b)] it has a multiplication $\C \times \Hbt \to \Hbt$ obeying the following axioms for all $\ket{v}, \ \ket{w} \in \Hbt$ and for all $\alpha, \ \beta \in \C$:
+    A Hilbert space $\Hbt$ consists of a set of vectors $\psi$, $\psi$, $\chi$, ... and a set of scalars $a$, $b$, $c$, ... which satisfy the following four properties:
 
+    \begin{enumerate}
+        \item \textbf{$\Hbt$ is a linear space}\footnote{See \textbf{Definition \ref{linear_vector_space}} for the definition of linear vector space.}.
+        \item \textbf{$\Hbt$ has a defined scalar product that is strictly positive}. The scalar product of an element $\psi$ with another element $\phi$ is in general a complex number, denoted by $(\psi,\ \phi)$. The scalar product satisfies the following properties\footnote{\textbf{Note:} Watch out for the order! Since the scalar product is a complex number, the quantity $(\psi,\ \phi) = \psi^*\phi$ is generall not equal to $(\phi,\ \psi) = \phi^*\psi$.}:
         \begin{equation}
-            (\alpha + \beta) \ket{v} = \alpha \ket{v} + \beta \ket{v}
+            (\psi,\ \phi) = (\phi,\ \psi)^*
         \end{equation}
         \begin{equation}
-            \alpha(\ket{v} + \ket{w}) = \alpha\ket{v} + \alpha\ket{w}
+            (\phi,\ a\psi_1 + b\psi_2) = a(\phi,\ \psi_1) + b(\phi,\ \psi_2)
         \end{equation}
         \begin{equation}
-            (\alpha\beta)\ket{v} = \alpha (\beta\ket{v})
+            (a\phi_1 + b\phi_2,\ \psi) = a^*(\phi_1,\ \psi) + b^*(\phi_2,\ \psi)
         \end{equation}
         \begin{equation}
-            1 \ket{v} = \ket{w}
+            (\psi,\ \psi) = ||\psi||^2 \geq 0 \text{ (the equality holds only for } \psi = 0\text{)}
         \end{equation}
-        \item[c)] it posesses an inner product $\braket{u}{v}\in\C$.
+        \item \textbf{$\Hbt$ is separable}.
+        \item \textbf{$\Hbt$ is complete}.
     \end{enumerate}
-    {\color{red}Check that this is rigorous}
 \end{definition}
+
+We should note that in a scalar product $(\phi, \ \psi)$, the second factor, $\psi$, belongs to the Hilbert space $\Hbt$, while the first factor, $\phi$, belongs to its dual Hilbert space $\Hbt^*$\footnote{More on the dual space in the next section.}. The distinction between $\Hbt$ and $\Hbt^*$ is due to the fact that, as mentioned above, the scalar product is not commutative: $(\psi, \ \phi) \neq (\phi, \ \psi)$; the order matters!
 
 \subsection{The dual space} \label{dualspace}
 
@@ -356,6 +357,10 @@ Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec
 \begin{equation}
     \int \omega_\alpha^*(\vec{\xi}')\omega_\alpha(\vec{\xi})d\alpha = \left( \omega_\alpha (\vec{\xi}'),\ \omega_\alpha (\vec{\xi}) \right) = \delta(\vec{\xi} - \vec{\xi}')
 \end{equation}
+
+\subsubsection{``Bases" not belonging to $\F$}
+
+Notice that, when working with continuous bases, we have introduced a continuous coefficient
 
 
 

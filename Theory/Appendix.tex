@@ -1,5 +1,35 @@
 \section{Appendix}
 
+\subsection{Linear vector space}
+
+The definition of linear vector space is as follows:
+
+\begin{definition} \label{linear_vector_space}
+    A linear vector space consists of two sets of elements and two algebraic rules:
+    \begin{itemize}
+        \item A set of vectors $\psi, \ \phi, \ \chi, \ ...$ and a set of scalars $a, \ b, \ c, \ ...$.
+        \item A rule for adding vectors and a rule for multiplying vectors by scalars.
+        \begin{enumerate}
+            \item[a)] \textbf{Addition:}
+            \begin{itemize}
+                \item If $\psi$ and $\phi$ are vectors (elements) of a space, their sum, $\psi + \phi$, is also a vector of the same space.
+                \item Commutativity: $\psi + \phi = \phi + \psi$.
+                \item Associativity: $(\psi + \phi) + \chi = \psi + (\phi + \chi)$.
+                \item Existence of a zero or neutral vector: for each vector $\psi$, there must exist a zero vector $O$ such that: $\psi + O = O + \psi = \psi$.
+                \item Existence of a symmetric or inverse vector: each vector $\psi$ must have a symmetric vector $(-\psi)$ such that $\psi + (-\psi) = (-\psi) + \psi = O$.
+            \end{itemize}
+            \item[b)] \textbf{Multiplication:} The multiplication of vectors by scalars (scalars can be real or complex numbers) has these properties:
+            \begin{itemize}
+                \item The product of a scalar with a vector gives another vector. In general, if $\psi$ and $\phi$ are two vectors of the space, any linear combination $a\psi + b\phi$ is also a vector of the space, $a$ and $b$ being scalars.
+                \item Distributivity with respect to addition: a $(\psi + \phi) = a \psi + a \phi$, and $(a + b)\psi = a\psi + b\psi$.
+                \item Associativity with respect to multiplication of scalars: $a (b \psi) = (ab)\psi$
+                \item For each element $\psi$ there must exist a unitary scalar $I$ and a zero scalar ``$0$" such that $I\psi = \psi I = \psi$ and $\psi 0 = 0\psi = O$.
+                (2.3)
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+\end{definition}
+
 \subsection{Linear functionals} \label{linfunct}
 
 In order to understand the mathematical background of the dual space, it is interesting to know the definitions of \textbf{linear maps} and \textbf{linear functionals}. We already defined linear operators in \textbf{Definition \ref{linear_map}}. As for linear functionals:
