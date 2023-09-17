@@ -218,7 +218,7 @@ If $\{\ket{\psi_i}\}$ is a basis for a Hilbert space $\Hbt$, we can expand every
 \begin{equation}
     \ket{\Psi} = \sum_i c_i \ket{\psi_i}
 \end{equation}
-so that we have:
+so that we have\footnote{$\delta_{ij}$ is known as Kronecker's delta, and is equal to $1$ if $i=j$ and $0$ otherwise.}:
 \begin{equation}
     \braket{\psi_i}{\Psi} = \sum_j c_i \braket{\psi_i}{\Psi} = \sum_j c_i\delta_{ij} = c_i
 \end{equation}
@@ -251,6 +251,51 @@ When studying quantum mechanical systems, we need a way to represent quantum sta
 As we mentioned before, the choice of a representation is, in principle, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations. 
 
 Most useful bases come as eigenstates of some pertinent operator\footnote{More on this later{\color{red}add link}, but the idea is that, if we represent the state space in the basis of eigenstates (analogous to eigenvectors) of an operator, then that operator will be expressed in that basis as a diagonal matrix, where the elements of the diagonals are the eigenvalues of the operator. This makes calculations very easy.}. So far, we have mentioned the position and the momentum representation. These bases deal with the position and momentum operators, but you can think of many others. For example, the eigenstates of the Hamiltonian for some physical system are often used, especially when solving the Schrödinger equation. These might also be infinite dimensional but can be discrete, as opposed to the continuous bases of position and momentum.
+
+\subsubsection{General representation}
+
+For a general representation of state space $E$ (wave function space), the elements of $E$ are functions $\psi(\vec{\xi}),\ \phi(\vec{\xi})$, and the inner product in $E$ is defined as:
+
+\begin{equation}
+    \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) \equiv \int\phi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
+\end{equation}
+
+The length (norm) of a vector is given by:
+
+\begin{equation}
+    \text{length}\left(\psi(\vec{\xi})\right)=\sqrt{\left(\psi(\vec{\xi}), \ \psi(\vec{\xi})\right)} = \sqrt{\int\psi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}} = \sqrt{\int\left|\psi(\vec{\xi}) \right|^2d\vec{\xi}}
+\end{equation}
+
+As the vectors of the basis $\{\phi_i\}$ of $E$ are orthonormal, we have that:
+\begin{equation}
+    \left(\phi_i(\vec{\xi}), \ \phi_j(\vec{\xi})\right) = \delta_{ij}
+\end{equation}
+
+\subsection{Discrete orthonormal bases}
+
+A \textbf{discrete orthonormal basis} is defined as:
+
+\begin{definition}
+    A countable set of functions $\{u_i\}$ is called orthonormal if:
+    \begin{equation}
+        \left(u_i(\vec{\xi}), \ u_j(\vec{\xi})\right) = \delta_{ij}
+    \end{equation}
+    And it constitutes a basis for the Hilbert space $E$ if every function in $E$ can be written as a linear combination of the functions of the basis in exactly one way:
+    \begin{equation}
+        \psi(\vec{\xi}) = \sum_i c_i u_i(\vec{\xi})
+    \end{equation}
+    with the coefficients being:
+    \begin{equation}
+        c_i = \left(u_i(\vec{\xi}), \ \psi(\vec{\xi})\right) = \int u_i^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
+    \end{equation}    
+\end{definition}
+
+For a discrete orthonormal basis, we can express the scalar product in terms of the components as:
+\begin{equation}
+    \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) = \left(\sum_i b_iu_i(\vec{\xi}), \ \sum_j c_ju_j(\vec{\xi})\right) = \sum_{i, \ j} b^*_i c_j \left(u_i(\vec{\xi}), \ u_j(\vec{\xi})\right) = \sum_{i,\ j} b^*_i c_i\delta_{ij} = \sum_i b^*_i c_i
+\end{equation}
+
+
 
 % As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.
 
