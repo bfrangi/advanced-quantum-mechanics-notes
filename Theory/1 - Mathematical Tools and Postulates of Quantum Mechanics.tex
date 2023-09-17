@@ -295,6 +295,20 @@ For a discrete orthonormal basis, we can express the scalar product in terms of 
     \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) = \left(\sum_i b_iu_i(\vec{\xi}), \ \sum_j c_ju_j(\vec{\xi})\right) = \sum_{i, \ j} b^*_i c_j \left(u_i(\vec{\xi}), \ u_j(\vec{\xi})\right) = \sum_{i,\ j} b^*_i c_i\delta_{ij} = \sum_i b^*_i c_i
 \end{equation}
 
+With a similar proof as in \textbf{Section \ref{closure_relation_proof}}, we can find the closure relation for a discrete orthonormal basis:
+
+\begin{equation*}
+    \psi(\vec{\xi}) = \sum_i c_i u_i(\vec{\xi}) = \sum_i \left(u_i(\vec{\xi}), \ \psi(\vec{\xi})\right) u_i(\vec{\xi}) = \sum_i \left( \int u_i^* (\vec{\xi}') \psi(\vec{\xi}')d\vec{\xi}'\right)u_i(\vec{\xi})  =    
+\end{equation*}
+\begin{equation}
+    = \int \left( \sum_i u_i^* (\vec{\xi}') u_i(\vec{\xi})\right)\psi(\vec{\xi}')d\vec{\xi}'
+\end{equation}
+
+Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec{\xi}'$ and zero for every other case, so we obtain the \textbf{closure relation for a discrete orthonormal basis}:
+\begin{equation}
+    \sum_i u^*(\vec{\xi}')u_i(\vec{\xi}) = \delta(\vec{\xi} - \vec{\xi}')
+\end{equation}
+
 
 
 % As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.
