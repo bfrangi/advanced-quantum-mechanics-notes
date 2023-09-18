@@ -109,4 +109,91 @@ The inverse argument is easy to follow.
 
 \subsection{Uncertainty relation between two operators} \label{uncertainty_relation}
 
-An interesting application of the commutator algebra is to derive a general relation giving the uncertainties product of two operators, $A$ and $B$. In particular, we want to give a formal derivation of Heisenberg's uncertainty relations.
+An interesting application of commutator algebra is to derive a general relation giving the uncertainty product of two Hermitian operators, $A$ and $B$. Let $\expected{A}$ and $\expected{B}$ be the expected values of the operators $A$ and $B$, respectively, with respect to the normalized state vector $\ket{\psi}$. Introducing the operators $\Delta A$ and $\Delta B$ as:
+\begin{equation} \label{eqn:uncertainty_def}
+    \Delta A = A - \expected{A}, \qquad \Delta B = B - \expected{B},
+\end{equation}
+we have $(\Delta A)^2 = A^2 - 2A\expected{A} + \expected{A}^2$ and $(\Delta B)^2 = B^2 - 2B\expected{B} + \expected{B}^2$, and hence:
+\begin{equation}
+    \Braket{\psi|(\Delta A)^2|\psi} = \expected{(\Delta A)^2} = \expected{A^2 - 2A\expected{A} + \expected{A}^2} = \expected{A^2} - 2\expected{A}\expected{A} + \expected{A}^2 = \expected{A^2} - \expected{A}^2
+\end{equation}
+\begin{equation}
+    \Braket{\psi|(\Delta B)^2|\psi} = \expected{(\Delta B)^2} = \expected{B^2 - 2B\expected{B} + \expected{B}^2} = \expected{B^2} - 2\expected{B}\expected{B} + \expected{B}^2 = \expected{B^2} - \expected{B}^2
+\end{equation}
+Then, we can write the uncertainties as:
+\begin{equation}
+    \Delta A = \sqrt{\expected{(\Delta A)^2}} = \sqrt{\expected{A^2} - \expected{A}^2}, \qquad \Delta B = \sqrt{\expected{(\Delta B)^2}} = \sqrt{\expected{B^2} - \expected{B}^2}
+\end{equation}
+Writing the action of the operators in \textbf{Equation \ref{eqn:uncertainty_def}} on the state vector $\ket{\psi}$, we have:
+\begin{equation}
+    \ket{\chi} = \Delta A\ket{\psi} = (A - \expected{A})\ket{\psi}, \qquad \ket{\phi} = \Delta B\ket{\psi} = (B - \expected{B})\ket{\psi}
+\end{equation}
+The Cauchy-Schwarz inequality\footnote{See for more on this inequality in \href{https://mathworld.wolfram.com/SchwarzsInequality.html}{this} article.} gives us:
+\begin{equation}
+    \left|\braket{\chi|\phi}\right|^2 \leq \braket{\chi|\chi}\braket{\phi|\phi}
+\end{equation}
+Since $A$ and $B$ are Hermitian, $\Delta A$ and $\Delta B$ must also be Hermitian, so that: $(\Delta A)^\dagger = \Delta A$ and $(\Delta B)^\dagger = \Delta B$:
+\begin{equation}
+    \braket{\chi|\chi} = \Braket{\psi|(\Delta A)^\dagger(\Delta A)|\psi} = \Braket{\psi|(\Delta A)^2|\psi} = \expected{(\Delta A)^2}
+\end{equation}
+\begin{equation}
+    \braket{\phi|\phi} = \Braket{\psi|(\Delta B)^\dagger(\Delta B)|\psi} = \Braket{\psi|(\Delta B)^2|\psi} = \expected{(\Delta B)^2}
+\end{equation}
+\begin{equation}
+    \braket{\chi|\phi} = \Braket{\psi|(\Delta A)^\dagger(\Delta B)|\psi} = \Braket{\psi|\Delta A\Delta B|\psi} = \expected{\Delta A\Delta B}
+\end{equation}
+From this, we obtain a new expression for the Cauchy-Schwarz inequality:
+\begin{equation} \label{eqn:cauchy_expected}
+    \left|\Braket{\Delta A\Delta B}\right|^2 \leq \expected{(\Delta A)^2}\expected{(\Delta B)^2}
+\end{equation}
+We can write the $\Delta A \Delta B$ terms of this equation as:
+\begin{equation}
+    \Delta A \Delta B = 2\cdot \frac12\Delta A \Delta B + \frac12\Delta B \Delta A - \frac12\Delta B \Delta A = \frac12[\Delta A, \Delta B] + \frac12\{\Delta A, \Delta B\}
+\end{equation}
+Since $[\Delta A, \Delta B] = [A, B]$\footnote{\color{red}Check this}:
+\begin{equation}
+    \Delta A \Delta B = \frac12[A, B] + \frac12\{\Delta A, \Delta B\}
+\end{equation}
+
+Since $[A, B]$ is anti-Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $([A, B])^\dagger = (AB - BA)^\dagger = (AB)^\dagger - (BA)^\dagger = B^\dagger A^\dagger - A^\dagger B^\dagger = BA - AB = -[A, B]$. Then, $[A, B]$ is anti-Hermitian.} and $[\Delta A, \Delta B]$ is Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $([\Delta A,\Delta B])^\dagger = \left( (A-\expected{A})(B-\expected{B}) - (B-\expected{B})(A-\expected{A}) \right)^\dagger =( (A-\expected{A})(B-\expected{B}))^\dagger - ((B-\expected{B})(A-\expected{A}))^\dagger = (B-\expected{B})^\dagger(A-\expected{A})^\dagger - (A-\expected{A})^\dagger(B-\expected{B})^\dagger = (B-\expected{B})(A-\expected{A}) - (A-\expected{A})(B-\expected{B}) = [\Delta A, \Delta B]$. Then, $[\Delta A, \Delta B]$ is Hermitian.}; and since the expectation value of a Hermitian operator is real\footnote{See \textbf{Section     \ref{expected_value_hermitian}} for proof.} and the expectation value of an anti-Hermitian operator is imaginary\footnote{See \textbf{Section     \ref{expected_value_anti_hermitian}} for proof.}, $\expected{\Delta A \Delta B}$ becomes equal to a real part $\frac12\expected{\{\Delta A, \Delta B\}}$ plus an imaginary part $\frac12\expected{[A,B]}$. Then:
+\begin{equation}
+    \left|\expected{\Delta A \Delta B}\right|^2 = \frac14 \left|\expected{[A, B]}\right|^2 + \frac14 \left|\expected{\{\Delta A , \Delta B\}}\right|^2 \geq \frac14 \left|\expected{[A, B]}\right|^2
+\end{equation}
+
+Plugging this into \textbf{Equation \ref{eqn:cauchy_expected}}, we obtain:
+\begin{equation}
+    \frac14 \left|\expected{[A, B]}\right|^2 \leq \expected{(\Delta A)^2}\expected{(\Delta B)^2}
+\end{equation}
+Now, taking the square root, we obtain the uncertainty relation:
+\begin{equation}
+    \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|^2
+\end{equation}
+
+\begin{definition}
+    The uncertainty relation between two Hermitian operators $A$ and $B$ is defined as:
+    \begin{equation}
+        \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|^2
+    \end{equation}
+\end{definition}
+
+\subsection{Expected value of a Hermitian operator} \label{expected_value_hermitian}
+
+From \textbf{Equation \ref{expected_value}}, we know that the expected value of an operator $A$ in a state $\ket{\phi}$ is $\braket{\phi|A|\phi} = \sum_i|c_i|^2\lambda_i$, where $c_i$ are the components of the vector $\ket{\phi}$ in the basis of eigenvectors $\psi_i$ of $A$, and $\lambda_i$ are the corresponding eigenvalues. If $A$ is Hermitian ($A^\dagger = A$):
+\begin{equation}
+    \braket{A\psi_i|\psi_i} = \lambda^*||\psi_i||^2
+\end{equation}
+\begin{equation}
+    \braket{\psi_i|A^\dagger\psi_i} = \braket{\psi_i|A\psi_i} = \lambda||\psi_i||^2
+\end{equation} 
+As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = \lambda$, so $\lambda$ must be pure real. Therefore, the expected value of $A$ must also be pure real.
+
+\subsection{Expected value of an anti-Hermitian operator} \label{expected_value_anti_hermitian}
+
+From \textbf{Equation \ref{expected_value}}, we know that the expected value of an operator $A$ in a state $\ket{\phi}$ is $\braket{\phi|A|\phi} = \sum_i|c_i|^2\lambda_i$, where $c_i$ are the components of the vector $\ket{\phi}$ in the basis of eigenvectors $\psi_i$ of $A$, and $\lambda_i$ are the corresponding eigenvalues. If $A$ is anti-Hermitian ($A^\dagger = -A$):
+\begin{equation}
+    \braket{A\psi_i|\psi_i} = \lambda^*||\psi_i||^2
+\end{equation}
+\begin{equation}
+    \braket{\psi_i|A^\dagger\psi_i} = -\braket{\psi_i|A\psi_i} = -\lambda||\psi_i||^2
+\end{equation} 
+As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = -\lambda$, so $\lambda$ must be pure imaginary. Therefore, the expected value of $A$ must also be pure imaginary.
