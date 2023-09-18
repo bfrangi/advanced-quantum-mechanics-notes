@@ -407,7 +407,28 @@ Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec
 
 \subsubsection{``Bases" not belonging to $\F$}
 
-Notice that, when working with continuous bases, we have introduced a continuous coefficient
+The bases that we have defined so far, are all in the wave function space $\F$. However, there are other bases that are not in $\F$, but are still useful for representing wave functions. Take the inverse fourier transform of the wave function, for example, which concerns the momentum and the position representations:
+\begin{equation}
+    \psi(x) = \frac{1}{\sqrt{2\pi\hbar}}\int \overline\psi(p)e^{ip x/\hbar}d p = \int \overline\psi(p)v_p(x)dp, \qquad v_p(x) = \frac{1}{\sqrt{2\pi\hbar}}e^{ip x/\hbar} \text{ (plane wave)}
+\end{equation}
+Notice that there is a certain parallelism with the continuous orthonormal basis here:
+\begin{equation}
+    \psi(\vec{\xi}) = \int c(\alpha) \omega_\alpha(\vec{\xi})d\alpha
+\end{equation}
+where:
+\begin{equation}
+    \alpha \to p \text{ (continuous index)}, \quad c(\alpha) \to \overline\psi(p), \quad \omega_\alpha(\vec{\xi}) \to v_p(x) \text{ (basis functions)}
+\end{equation}
+And the ``continuous coefficient'' function $\overline\psi$ can be found as:
+\begin{equation}
+    \overline\psi(p) = (v_p, \psi) = \int v_p^*(x)\psi(x)dx
+\end{equation}
+
+
+It would seem that the set of ``infinitely continuous'' $v_p$ functions is a basis for $\F$, however, the integral of $\left|v_p(x)\right|^2 = \frac{1}{2\pi\hbar}$ diverges, so $v_p(x)\notin \F$. The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_p(x)$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(x)$ which are used to describe a physical state.\footnote{\color{red}aclarar}
+
+{\color{red}Add delta function basis}
+
 
 
 
