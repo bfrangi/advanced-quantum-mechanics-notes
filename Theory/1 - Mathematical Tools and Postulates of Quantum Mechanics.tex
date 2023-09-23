@@ -430,7 +430,31 @@ It would seem that the set of ``infinitely continuous'' $v_p$ functions is a bas
 {\color{red}Add delta function basis}
 
 
+\subsection{Eigenvalues and eigenvectors of an operator}
 
+We can define the \textbf{eigenvectors of an operator} as:
+
+\begin{definition}
+    A state vector $\ket{\psi}$ is said to be an eigenvector (also called eigenket or eigenvector) of an operator $A$ if it is a solution of the eigenvalue equation:
+    \begin{equation}
+        A\ket{\psi} = a\ket{\psi}
+    \end{equation}
+    where $a$ is a complex number, called an eigenvalue of $A$.
+\end{definition}
+
+Some theorems regarding eigenvectors and eigenvalues are:
+\begin{theorem}
+    The eigenvalues of the inverse $A^{-1}$ of an operator $A$ are the inverse (with respect to the multiplication, $1/a$) of the eigenvalues $a$ of $A$. \textit{Proof:}
+    \begin{equation}
+        A\ket{\psi} = a\ket{\psi}\to A^{-1}A\ket{\psi} = aA^{-1}\ket{\psi} \to \ket{\psi} = a A^{-1}\ket{\psi}\to A^{-1}\ket{\psi} = \frac1a \ket{\psi}
+    \end{equation}
+\end{theorem}
+\begin{theorem}
+    For a Hermitian operator $A$, all of its eigenvalues are real and the eigenvectors corresponding to different eigenvalues are orthogonal\footnote{Proof in \textbf{Section \ref{eigenvalues_real_orthogonal}}.}.
+\end{theorem}
+\begin{theorem} \label{commuting_operator_base_thm}
+    If two Hermitian operators, $A$ and $B$, commute and if $A$ has no degenerate eigenvalue, then each eigenvector of $A$ is also an eigenvector of $B$. In addition, we can construct a common orthonormal basis that is made of the joint eigenvectors of $A$ and $B$\footnote{Proof in \textbf{Section \ref{commuting_operator_basis}}.}.
+\end{theorem}
 
 
 % As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.

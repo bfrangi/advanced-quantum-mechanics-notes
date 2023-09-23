@@ -185,7 +185,7 @@ From \textbf{Equation \ref{expected_value}}, we know that the expected value of 
 \begin{equation}
     \braket{\psi_i|A^\dagger\psi_i} = \braket{\psi_i|A\psi_i} = \lambda||\psi_i||^2
 \end{equation} 
-As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = \lambda$, so $\lambda$ must be pure real. Therefore, the expected value of $A$ must also be pure real.
+As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = \lambda$, so $\lambda$ must be pure real (or zero). Therefore, the expected value of $A$ must also be pure real.
 
 \subsection{Expected value of an anti-Hermitian operator} \label{expected_value_anti_hermitian}
 
@@ -196,4 +196,46 @@ From \textbf{Equation \ref{expected_value}}, we know that the expected value of 
 \begin{equation}
     \braket{\psi_i|A^\dagger\psi_i} = -\braket{\psi_i|A\psi_i} = -\lambda||\psi_i||^2
 \end{equation} 
-As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = -\lambda$, so $\lambda$ must be pure imaginary. Therefore, the expected value of $A$ must also be pure imaginary.
+As $\braket{A\psi_i|\psi_i} = \braket{\psi_i|A^\dagger \psi_i}$, this means that $\lambda^* = -\lambda$, so $\lambda$ must be pure imaginary (or zero). Therefore, the expected value of $A$ must also be pure imaginary.
+
+\subsection{Eigenvalues of a Hermitian operator are real and eigenvectors are orthogonal} \label{eigenvalues_real_orthogonal}
+
+For a Hermitian operator, all of its eigenvalues are real and the eigenvectors corresponding to different eigenvalues are orthogonal. \textit{Proof:}
+
+Note that:
+\begin{equation} \label{eigenvalues_real_orthogonal_1}
+    A\ket{\psi_n} = a_n\ket{\psi_n} \to \bra{\psi_m}A\ket{\psi_n} = a_n\braket{\psi_m|\psi_n}
+\end{equation}
+and:
+\begin{equation} \label{eigenvalues_real_orthogonal_2}
+    \bra{\psi_m} A^{\dagger} = (A\ket{\psi_m})^\dagger = (a_m\ket{\psi_m})^\dagger = a_m^*\bra{\psi_m} \to \bra{\psi_m}A^\dagger\ket{\psi_n} = a_m^*\braket{\psi_m|\psi_n} 
+\end{equation}
+
+Subtracting \textbf{Equation \ref{eigenvalues_real_orthogonal_2}} from \textbf{Equation \ref{eigenvalues_real_orthogonal_1}} and using the fact that $A$ is Hermitian ($A^\dagger = A$):
+\begin{equation}
+    \bra{\psi_m}A\ket{\psi_n} - \bra{\psi_m}A^\dagger\ket{\psi_n} = (a_n - a_m)\braket{\psi_m|\psi_n} = (a_n - a_m^*)\braket{\psi_m|\psi_n} = 0
+\end{equation}
+
+From this:
+\begin{itemize}
+    \item When $m = n$, we obtain $a_n = a_n^*$, so $a_n$ is real.
+    \item Since, in general, $a_n - a_m^* \neq 0$ when $n \neq m$, we have that $\braket{\psi_m|\psi_n} = 0$, so the eigenvectors are orthogonal.
+\end{itemize}
+
+\subsection{Common eigenvector basis of two commuting operators} \label{commuting_operator_basis}
+
+This section gives the proof of \textbf{Theorem \ref{commuting_operator_base_thm}}:
+
+Since $A$ has no degenerate eigenvalues\footnote{Degenerate eigenvalues are those that correspond to more than one eigenvector.}, to each eigenvalue of $A$ there corresponds only one eigenvector. We can write the eigenvalue equation as:
+
+\begin{equation}
+    A\ket{\phi_n} = a_n\ket{\phi_n}
+\end{equation}
+
+And since $A$ commutes with $B$:
+\begin{equation}
+    AB\ket{\phi_n} = BA\ket{\phi_n} = Ba_n\ket{\phi_n} = a_nB\ket{\phi_n}\to A (B\ket{\phi_n}) = a_n(B\ket{\phi_n})
+\end{equation}
+This means that $B\ket{\phi_n}$ is an eigenvector of $A$ with eigenvalue $a_n$. But since $A$ has no degenerate eigenvalues, $B\ket{\phi_n}$ must be proportional to $\ket{\phi_n}$, so that $B\ket{\phi_n} = b_n\ket{\phi_n}$. Therefore, $\ket{\phi_n}$ is also an eigenvector of $B$, with eigenvalue $b_n$.
+
+Since each eigenvector of $A$ is also an eigenvector of $B$ (and vice versa), both of these operators must have a common basis. This basis is unique; it is made of the eigenvectors of $A$, which are the same as the eigenvectors of $B$ (we say they are joint eigenvectors of $A$ and $B$). This theorem also holds for any number of mutually commuting Hermitian operators.
