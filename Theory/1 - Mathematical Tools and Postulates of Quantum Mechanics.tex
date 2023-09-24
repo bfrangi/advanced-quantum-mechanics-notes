@@ -429,6 +429,36 @@ It would seem that the set of ``infinitely continuous'' $v_p$ functions is a bas
 
 {\color{red}Add delta function basis}
 
+\subsection{Matrix formulation of quantum mechanics}
+\subsubsection{Matrix representation in discrete bases}
+
+Recall that, for a basis $\{\ket{\phi_n}\}$ of $\F$, we can write any $\psi\in\F$ as a linear combination of the basis vectors:
+
+\begin{equation}
+    \ket{\psi} = \sum_n c_n\ket{\phi_n}
+\end{equation}
+
+where $c_n = \braket{\phi_n|\psi}$ represents the projection of $\ket{\psi}$ onto $\ket{\phi_n}$. So, within the basis $\{\ket{\phi_n}\}$, the ket $\ket{\psi}$ is represented by the set of its components, $c_1, c_2, ...$, along $\ket{\phi_1}, \ket{\phi_2}, ...$, respectively. Hence, we can write the ket $\ket{\psi}$ as a column vector:
+\begin{equation}
+    \ket{\psi} \to \begin{pmatrix}
+        \braket{\phi_1|\psi} \\ \braket{\phi_2|\psi} \\ \vdots \\ \braket{\phi_n|\psi}
+    \end{pmatrix} = \begin{pmatrix}
+        c_1 \\ c_2 \\ \vdots \\ c_n
+    \end{pmatrix}
+\end{equation}
+The bra $\bra{\psi}$ is represented by the row vector:
+\begin{equation}
+    \bra{\psi} \to \begin{pmatrix}
+        \braket{\psi|\phi_1} & \braket{\psi|\phi_2} & \hdots & \braket{\psi|\phi_n}
+    \end{pmatrix} = \begin{pmatrix}
+        \braket{\phi_1|\psi}^* & \braket{\phi_2|\psi}^* & \hdots & \braket{\phi_n|\psi}^* 
+    \end{pmatrix} =
+    \begin{pmatrix}
+        c_1^* & c_2^* & \hdots & c_n^*
+    \end{pmatrix}
+\end{equation}
+
+Just as kets and bras are respresented by column and row vectors, respectively, operators are represented by square matrices.
 
 \subsection{Eigenvalues and eigenvectors of an operator}
 
