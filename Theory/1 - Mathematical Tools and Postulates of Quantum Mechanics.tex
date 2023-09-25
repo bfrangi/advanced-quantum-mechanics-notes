@@ -407,9 +407,11 @@ Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec
 
 \subsubsection{``Bases" not belonging to $\F$}
 
-The bases that we have defined so far, are all in the wave function space $\F$. However, there are other bases that are not in $\F$, but are still useful for representing wave functions. Take the inverse fourier transform of the wave function, for example, which concerns the momentum and the position representations:
+\textbf{Fourier transform}
+
+The bases that we have defined so far, are all in the wave function space $\F$. However, there are other bases that are not in $\F$, but are still useful for representing wave functions. Take the inverse fourier transform of the wave function, for example:
 \begin{equation}
-    \psi(x) = \frac{1}{\sqrt{2\pi\hbar}}\int \overline\psi(p)e^{ip x/\hbar}d p = \int \overline\psi(p)v_p(x)dp, \qquad v_p(x) = \frac{1}{\sqrt{2\pi\hbar}}e^{ip x/\hbar} \text{ (plane wave)}
+    \psi(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}\int \overline\psi(\vec{p})e^{i\vec{p}\cdot \vec{r}/\hbar}d \vec{p} = \int \overline\psi(\vec{p})v_{\vec{p}}(\vec{r})d\vec{p}, \qquad v_{\vec{p}}(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}e^{i\vec{p} \cdot\vec{r}/\hbar} \text{ (plane wave)}
 \end{equation}
 Notice that there is a certain parallelism with the continuous orthonormal basis here:
 \begin{equation}
@@ -417,17 +419,34 @@ Notice that there is a certain parallelism with the continuous orthonormal basis
 \end{equation}
 where:
 \begin{equation}
-    \alpha \to p \text{ (continuous index)}, \quad c(\alpha) \to \overline\psi(p), \quad \omega_\alpha(\vec{\xi}) \to v_p(x) \text{ (basis functions)}
+    \alpha \to \vec{p} \text{ (continuous index)}, \quad c(\alpha) \to \overline\psi(\vec{p}), \quad \omega_\alpha(\vec{\xi}) \to v_{\vec{p}}(\vec{r}) \text{ (basis functions)}
 \end{equation}
 And the ``continuous coefficient'' function $\overline\psi$ can be found as:
 \begin{equation}
-    \overline\psi(p) = (v_p, \psi) = \int v_p^*(x)\psi(x)dx
+    \overline\psi(\vec{p}) = (v_{\vec{p}}, \psi) = \int v_{\vec{p}}^*(\vec{r})\psi(\vec{r})d\vec{r}
 \end{equation}
 
 
-It would seem that the set of ``infinitely continuous'' $v_p$ functions is a basis for $\F$, however, the integral of $\left|v_p(x)\right|^2 = \frac{1}{2\pi\hbar}$ diverges, so $v_p(x)\notin \F$. The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_p(x)$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(x)$ which are used to describe a physical state.\footnote{\color{red}aclarar}
+It would seem that the set of ``infinitely continuous'' $v_{\vec{p}}$ functions is a basis for $\F$, however, the integral of $\left|v_{\vec{p}}(\vec{r})\right|^2 = \frac{1}{2\pi\hbar}$ diverges, so $v_{\vec{p}}(\vec{r})\notin \F$.
 
-{\color{red}Add delta function basis}
+\textbf{Delta function}
+
+In the same way, we can introduce the set of functions $\{\xi_{\vec{r}_0}(\vec{r})\}$ of $\vec{r}$, labelled by the continuous index $\vec{r}_0$ and defined as:
+\begin{equation}
+    \xi_{\vec{r}_0}(\vec{r}) = \delta(\vec{r} - \vec{r}_0)
+\end{equation}
+$\{\xi_{\vec{r}_0}(\vec{r})\}$ represents the set of delta functions centered at each of the points $\vec{r}_0$ of space. Clearly, $\xi_{\vec{r}_0}(\vec{r})$ is not square integrable, so $\xi_{\vec{r}_0}(\vec{r})\notin \F$. Then, consider the relations:
+\begin{equation} \label{delta_1}
+    \psi(\vec{r}) = \int d^3r_0\ \psi(\vec{r}_0)\delta(\vec{r} - \vec{r}_0) = \int d^3r_0\ \psi(\vec{r}_0)\xi_{\vec{r}_0}(\vec{r})
+\end{equation}
+\begin{equation} \label{delta_2}
+    \psi(\vec{r}_0) = (\xi_{\vec{r}_0}, \psi) = \int d^3r\ \delta(\vec{r}_0 - \vec{r})\psi(\vec{r}) = \int d^3r\ \xi^*_{\vec{r}_0}(\vec{r})\psi(\vec{r})
+\end{equation}
+
+\textbf{Equation \ref{delta_1}} expresses the fact that every function $\psi(\vec{r})\in\F$ can be expanded in terms of the $\xi_{\vec{r}_0}(\vec{r})$ functions in exactly one way. \textbf{Equation \ref{delta_2}} shows that the value of the ``continuous coefficient'' corresponding to $\xi_{\vec{r}_0}(\vec{r})$ is preciesly $\psi(\vec{r}_0)$. 
+
+The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_{\vec{p}}(\vec{r})$ or $\xi_{\vec{r}_0}(\vec{r})$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(\vec{r})$ which are used to describe a physical state.\footnote{\color{red}aclarar}
+
 
 \subsection{Matrix formulation of quantum mechanics}
 \subsubsection{Matrix representation in discrete bases}
@@ -485,6 +504,28 @@ Some theorems regarding eigenvectors and eigenvalues are:
 \begin{theorem} \label{commuting_operator_base_thm}
     If two Hermitian operators, $A$ and $B$, commute and if $A$ has no degenerate eigenvalue, then each eigenvector of $A$ is also an eigenvector of $B$. In addition, we can construct a common orthonormal basis that is made of the joint eigenvectors of $A$ and $B$\footnote{Proof in \textbf{Section \ref{commuting_operator_basis}}.}.
 \end{theorem}
+
+
+\subsection{Position representation of state space}
+
+In the position representation, the basis consists of an infinite set of vectors $\{\ket{\vec{r}}\}$, which are eigenkets of the position operator $\vec{R}$:
+\begin{equation}
+    \vec{R}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}
+\end{equation}
+where $\vec{r}$, the position vector, is the eigenvalue of the position operator $\vec{R}$.
+
+
+
+
+
+
+
+% NOTES: 
+
+% Complete set of commuting observables CSCO
+% Pauli matrices
+% RASHBA no
+
 
 
 % As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.
