@@ -572,6 +572,41 @@ Since $\vec{P}\ket{\vec{p}} = \vec{p}\ket{\vec{p}}$, we can write:
     \vec{P}^{\, n}\ket{\vec{p}} = \vec{p}\, ^n\ket{\vec{p}} \to \bra{\vec{p}\ '}\vec{P}^{\, n}\ket{\vec{p}} = \bra{\vec{p}\ '}\vec{p}\, ^n\ket{\vec{p}} \to \bra{\vec{p}\ '}\vec{P}^{\, n}\ket{\vec{p}} = \vec{p}\, ^n\delta(\vec{p} - \vec{p}\ ')
 \end{equation}
 
+\subsection{Connecting position and momentum representations}
+
+When changing from the $\{\vec{r}\}$ basis to the $\{\vec{p}\}$ basis, we encounter a transformation function $\braket{\vec{r}|\vec{p}}$. To find the expression for this transformation, let us establish the following relations:
+
+\begin{equation}
+    \braket{\vec{r}|\psi} = \bra{\vec{r}}\left(\int \ket{\vec{p}}\bra{\vec{p}}d^3p\right)\ket{\psi} = \int \braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi}\ d^3p = \int \braket{\vec{r}|\vec{p}}\Psi(\vec{p})\ d^3p
+\end{equation}
+which, as $\psi(\vec{r}) = \braket{\vec{r}|\psi}$, means:
+\begin{equation} \label{pos_mom}
+    \psi(\vec{r}) = \int \braket{\vec{r}|\vec{p}}\Psi(\vec{p})\ d^3p
+\end{equation}
+Similarly, we find:
+\begin{equation}
+    \Psi(\vec{p}) = \braket{\vec{p}|\psi} = \bra{\vec{p}}\left(\int \ket{\vec{r}}\bra{\vec{r}}d^3r\right)\ket{\psi} = \int \braket{\vec{p}|\vec{r}}\braket{\vec{r}|\psi} d^3r = \int \braket{\vec{p}|\vec{r}}\psi(\vec{r})\ d^3r
+\end{equation}
+\begin{equation} \label{mom_pos}
+    \Psi(\vec{p}) = \int \braket{\vec{p}|\vec{r}}\psi(\vec{r})\ d^3r
+\end{equation}
+
+\textbf{Equation \ref{pos_mom}} and \textbf{Equation \ref{mom_pos}} imply that $\phi(\vec{r})$ and $\Phi(\vec{p})$ are Fourier transforms of each other. In quantum mechanics, the Fourier transform of a function $f(\vec{r})$ is given as:
+\begin{equation}
+    f(\vec{r}) = \frac{1}{(2\pi\hbar)^{3/2}}\int e^{i\vec{p}\cdot \vec{r}/\hbar} g(\vec{p})\ d^3p
+\end{equation}
+Hence, the function $\braket{\vec{r}|\vec{p}}$ is given by:
+\begin{equation}
+    \braket{\vec{r}|\vec{p}} = \frac{1}{(2\pi\hbar)^{3/2}}e^{i\vec{p}\cdot \vec{r}/\hbar}
+\end{equation}
+
+This function transforms from the momentum to the position representation. The function corresponding to the inverse transformation, $\braket{\vec{p}|\vec{r}}$, is given by:
+\begin{equation}
+    \braket{\vec{p}|\vec{r}} = \braket{\vec{r}|\vec{p}}^* = \frac{1}{(2\pi\hbar)^{3/2}}e^{-i\vec{p}\cdot \vec{r}/\hbar}
+\end{equation}
+The quantity $|\braket{\vec{r}|\vec{p}}|^2 = \frac{1}{(2\pi\hbar)^3}$ represents the probability of finding the system at the point $\vec{r}$ when its momentum is $\vec{p}$.
+
+
 
 
 
