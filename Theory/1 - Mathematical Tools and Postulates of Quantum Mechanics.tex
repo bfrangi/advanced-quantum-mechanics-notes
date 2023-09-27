@@ -340,6 +340,7 @@ A \textbf{discrete orthonormal basis} is defined as:
     \begin{equation}
         c_i = \left(u_i(\vec{\xi}), \ \psi(\vec{\xi})\right) = \int u_i^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
     \end{equation}    
+    Note that, in a discrete orthonormal basis, all basis vectors $u_i$ are elements belonging to $\F$. In other words, every basis vector $u_i$ is a valid physical state for the system in the space $\F$. As we will see, this will \textit{not} be the case for continuous orthonormal ``bases''.
 \end{definition}
 
 For a discrete orthonormal basis, we can express the \textbf{scalar product in terms of the components} as:
@@ -356,7 +357,7 @@ With a similar proof as in \textbf{Section \ref{closure_relation_proof}}, we can
     = \int \left( \sum_i u_i^* (\vec{\xi}') u_i(\vec{\xi})\right)\psi(\vec{\xi}')d\vec{\xi}'
 \end{equation}
 
-Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec{\xi}'$ and zero for every other case, so we obtain the \textbf{closure relation for a discrete orthonormal basis}\footnote{$\delta(\vec{\xi}-\vec{\xi}')$ is known as Dirac's delta function, and it is equal to $1$ if $\vec{\xi} = \vec{\xi}'$ and $0$ otherwise.}:
+Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec{\xi}'$ and zero for every other case, so we obtain the \textbf{closure relation for a discrete orthonormal basis}\footnote{$\delta(\vec{\xi}-\vec{\xi}')$ is known as Dirac's delta function, and it is equal to $1$ if $\vec{\xi} = \vec{\xi}'$ and $0$ otherwise. It can also be expressed as the integral $\delta (\vec{\xi} - \vec{\xi}') = \frac{1}{(2\pi)^3}\int e^{i\vec{k}\cdot (\vec{\xi}-\vec{\xi}')}d^3k$.}:
 \begin{equation}
     \sum_i u^*(\vec{\xi}')u_i(\vec{\xi}) = \delta(\vec{\xi} - \vec{\xi}')
 \end{equation}
@@ -377,7 +378,8 @@ A \textbf{continuous orthonormal basis} is defined as:
     with the continuous coefficient being:
     \begin{equation}
         c(\alpha) = \left(\omega_\alpha(\vec{\xi}), \ \psi(\vec{\xi})\right) = \int \omega_\alpha^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
-    \end{equation}    
+    \end{equation}   
+    Note that, $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ implies that the functions $\omega_\alpha$ are not normaliseable\footnote{As $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ would imply that $\|\omega_\alpha\|^2 = \braket{\omega_\alpha(\vec{\xi})|\omega_\alpha(\vec{\xi})} = \delta(\alpha - \alpha) = \infty \neq 1$. So, it turns out that any basis in $\F$ has to be a discrete basis with an orthogonality condition expressed in terms of a Kronecker delta instead of a Dirac delta.}, so these functions are \textit{not} vectors in $\F$. Therefore, strictly speaking, they cannot be a basis for $\F$. In other words, basis vectors $\omega_\alpha$ are \textit{not} valid physical states for the system in the space $\F$.  Rather, they are a mathematical tool that can help us to perform calculations in certain scenarios, and are formalised in what is known as a rigged Hilbert space\footnote{See \href{https://physics.stackexchange.com/a/623416/283847}{this} and \href{https://physics.stackexchange.com/a/359982/283847}{this} post for more information.}. However, we will still refer to them as ``basis vectors'' for simplicity.
 \end{definition}
 
 For a continuous orthonormal basis, we can express the \textbf{scalar product in terms of the continuous coefficients} as:
@@ -405,15 +407,13 @@ Therefore, the term in the parenthesis must be equal to $1$ for $\vec{\xi} =\vec
     \int \omega_\alpha^*(\vec{\xi}')\omega_\alpha(\vec{\xi})d\alpha = \left( \omega_\alpha (\vec{\xi}'),\ \omega_\alpha (\vec{\xi}) \right) = \delta(\vec{\xi} - \vec{\xi}')
 \end{equation}
 
-\subsubsection{``Bases" not belonging to $\F$}
-
 \textbf{Fourier transform}
 
-The bases that we have defined so far, are all in the wave function space $\F$. However, there are other bases that are not in $\F$, but are still useful for representing wave functions. Take the inverse fourier transform of the wave function, for example:
+Take the inverse fourier transform of the position wave function, for example:
 \begin{equation}
     \psi(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}\int \overline\psi(\vec{p})e^{i\vec{p}\cdot \vec{r}/\hbar}d \vec{p} = \int \overline\psi(\vec{p})v_{\vec{p}}(\vec{r})d\vec{p}, \qquad v_{\vec{p}}(\vec{r}) = \frac{1}{\sqrt{2\pi\hbar}}e^{i\vec{p} \cdot\vec{r}/\hbar} \text{ (plane wave)}
 \end{equation}
-Notice that there is a certain parallelism with the continuous orthonormal basis here:
+Notice that this is the same as:
 \begin{equation}
     \psi(\vec{\xi}) = \int c(\alpha) \omega_\alpha(\vec{\xi})d\alpha
 \end{equation}
@@ -427,7 +427,7 @@ And the ``continuous coefficient'' function $\overline\psi$ can be found as:
 \end{equation}
 
 
-It would seem that the set of ``infinitely continuous'' $v_{\vec{p}}$ functions is a basis for $\F$, however, the integral of $\left|v_{\vec{p}}(\vec{r})\right|^2 = \frac{1}{2\pi\hbar}$ diverges, so $v_{\vec{p}}(\vec{r})\notin \F$.
+It would seem that the set of uncountable $v_{\vec{p}}$ functions is a basis for $\F$, however, the integral of $\left|v_{\vec{p}}(\vec{r})\right|^2 = \frac{1}{2\pi\hbar}$ diverges, so $v_{\vec{p}}(\vec{r})\notin \F$.
 
 \textbf{Delta function}
 
@@ -437,15 +437,16 @@ In the same way, we can introduce the set of functions $\{\xi_{\vec{r}_0}(\vec{r
 \end{equation}
 $\{\xi_{\vec{r}_0}(\vec{r})\}$ represents the set of delta functions centered at each of the points $\vec{r}_0$ of space. Clearly, $\xi_{\vec{r}_0}(\vec{r})$ is not square integrable, so $\xi_{\vec{r}_0}(\vec{r})\notin \F$. Then, consider the relations:
 \begin{equation} \label{delta_1}
-    \psi(\vec{r}) = \int d^3r_0\ \psi(\vec{r}_0)\delta(\vec{r} - \vec{r}_0) = \int d^3r_0\ \psi(\vec{r}_0)\xi_{\vec{r}_0}(\vec{r})
+    \psi(\vec{r}) = \int \psi(\vec{r}_0)\delta(\vec{r} - \vec{r}_0) \ d^3r_0 = \int \psi(\vec{r}_0)\xi_{\vec{r}_0}(\vec{r})\ d^3r_0
 \end{equation}
 \begin{equation} \label{delta_2}
-    \psi(\vec{r}_0) = (\xi_{\vec{r}_0}, \psi) = \int d^3r\ \delta(\vec{r}_0 - \vec{r})\psi(\vec{r}) = \int d^3r\ \xi^*_{\vec{r}_0}(\vec{r})\psi(\vec{r})
+    \psi(\vec{r}_0) = (\xi_{\vec{r}_0}, \psi) = \int \delta(\vec{r}_0 - \vec{r})\psi(\vec{r}) \ d^3r = \int \xi^*_{\vec{r}_0}(\vec{r})\psi(\vec{r}) \ d^3r
 \end{equation}
 
 \textbf{Equation \ref{delta_1}} expresses the fact that every function $\psi(\vec{r})\in\F$ can be expanded in terms of the $\xi_{\vec{r}_0}(\vec{r})$ functions in exactly one way. \textbf{Equation \ref{delta_2}} shows that the value of the ``continuous coefficient'' corresponding to $\xi_{\vec{r}_0}(\vec{r})$ is preciesly $\psi(\vec{r}_0)$. 
 
 The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_{\vec{p}}(\vec{r})$ or $\xi_{\vec{r}_0}(\vec{r})$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(\vec{r})$ which are used to describe a physical state.\footnote{\color{red}aclarar}
+
 
 
 \subsection{Matrix formulation of quantum mechanics}
@@ -512,8 +513,22 @@ In the position representation, the basis consists of an infinite set of vectors
 \begin{equation}
     \vec{R}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}
 \end{equation}
-where $\vec{r}$, the position vector, is the eigenvalue of the position operator $\vec{R}$.
+where $\vec{r}$, the position vector, is the eigenvalue of the position operator $\vec{R}$. The orthonormality and completeness relations are given by:
+\begin{equation}
+    \braket{\vec{r}|\vec{r}\ '} = \delta(\vec{r} - \vec{r}\ ')
+\end{equation} 
+\begin{equation}
+    \int \ket{\vec{r}}\bra{\vec{r}} d^3r = \Imat
+\end{equation}
 
+
+
+In three dimensions, the delta function can be expressed as:
+\begin{equation}
+    \delta (\vec{r} - \vec{r}\ ') = \frac{1}{(2\pi)^3}\int e^{i\vec{k}\cdot (\vec{r}-\vec{r}\ ')} d^3k
+\end{equation}
+
+So every state vector $\ket{\psi}$ can be expanded in terms of the position eigenkets $\ket{\vec{r}}$ as:
 
 
 
