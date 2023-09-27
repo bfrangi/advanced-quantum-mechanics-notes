@@ -513,7 +513,7 @@ In the position representation, the basis consists of an infinite set of vectors
 \begin{equation}
     \vec{R}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}
 \end{equation}
-where $\vec{r}$, the position vector, is the eigenvalue of the position operator $\vec{R}$. The orthonormality and completeness relations are given by:
+where $\vec{r}$, the position vector, is the eigenvalue of the position operator $\vec{R}$. The orthonormality and completeness relations are given by\footnote{Remember that elements of an uncountable set of functions such as this \textit{cannot} be elements of $\F$.}:
 \begin{equation}
     \braket{\vec{r}|\vec{r}\ '} = \delta(\vec{r} - \vec{r}\ ')
 \end{equation} 
@@ -521,15 +521,27 @@ where $\vec{r}$, the position vector, is the eigenvalue of the position operator
     \int \ket{\vec{r}}\bra{\vec{r}} d^3r = \Imat
 \end{equation}
 
-
-
 In three dimensions, the delta function can be expressed as:
 \begin{equation}
     \delta (\vec{r} - \vec{r}\ ') = \frac{1}{(2\pi)^3}\int e^{i\vec{k}\cdot (\vec{r}-\vec{r}\ ')} d^3k
 \end{equation}
 
 So every state vector $\ket{\psi}$ can be expanded in terms of the position eigenkets $\ket{\vec{r}}$ as:
+\begin{equation}
+    \ket{\psi} = \int \braket{\vec{r}|\psi} \ket{\vec{r}} d^3 r = \int \psi(\vec{r}) \ket{\vec{r}} d^3 r
+\end{equation}
 
+where $\psi(\vec{r}) = \braket{\vec{r}|\psi}$ denotes the components of $\psi$ in the $\{\ket{\vec{r}}\}$ basis. The quantity $\|\braket{\vec{r}|\psi}\|^2d^3 r = \|\psi(\vec{r})\|^2d^3r$ represents the probability of finding the system inside the volume element $d^3r$.
+
+Since $\vec{R}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}$, we can write:
+\begin{equation}
+    \vec{R}^{\, n}\ket{\vec{r}} = \vec{r}\, ^n\ket{\vec{r}} \to \bra{\vec{r}\ '}\vec{R}^{\, n}\ket{\vec{r}} = \bra{\vec{r}\ '}\vec{r}\, ^n\ket{\vec{r}} \to \bra{\vec{r}\ '}\vec{R}^{\, n}\ket{\vec{r}} = \vec{r}\, ^n\delta(\vec{r} - \vec{r}\ ')
+\end{equation}
+
+Note that the operator $\vec{R}$ is Hermitian, since:
+\begin{equation}
+    \braket{\phi|\vec{R}\,|\psi} = \int \braket{\vec{r}|\phi}^*\vec{r}\braket{\vec{r}|\phi} = \left[\int \braket{\vec{r}|\phi}\vec{r}\braket{\vec{r}|\phi}^*\right]^* = \braket{\psi|\vec{R}\,|\phi}^*
+\end{equation}
 
 
 
