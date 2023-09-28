@@ -1,4 +1,4 @@
-\section{Mathematical Tools of Quantum Mechanics. Postulates of Quantum Mechanics}
+\section{Mathematical Tools of Quantum Mechanics}
 
 \subsection{Hilbert Spaces}
 
@@ -657,69 +657,8 @@ With this, and the fact that the three degrees of freedom are independent, we ar
 It is important to note that, even though the particular expression of an operator in different representations may vary, the commutation relations for operators are representation independent\footnote{\color{red} Add proof}.
 
 
-
-
 % NOTES: 
 
 % Complete set of commuting observables CSCO
 % Pauli matrices
 % RASHBA no
-
-
-
-% As an example, take quantum mechanics on the real line for a particle with a harmonic oscillator potential. You can define states in the position or momentum eigenbasis, but it is most convenient to represent states as an infinite sum over the harmonic oscillator eigenstates. Each eigenstate can itself be written in a position or momentum representation if you want, with the energy eigenstates being given in the position representation by Hermite polynomials.
-
-% Or, take a hyrogen-like atom in three dimensions. The basis of atomic levels and orbitals is much more useful than the position or momentum bases, and the former also comes from the eigenstates of the Hamiltonian.
-
-% Finally, you can make useful quantities out of the position and momentum eigenstates even for Hamiltonians that have no potential energy term. For example, you can use [wave packets](https://en.wikipedia.org/wiki/Wave_packet) as basis states to more naturally talk about how things move through space over time. Position and momentum are great starting points but they are certainly not all that quantum theory has to offer.
-
-
-% Let's go back to the beginning of the chapter where we talked briefly about basis and representation. So far, we have been talking about Hilbert spaces very generally, and we have talked about performing algebraic operations with vectors in $\Hbt$ without even defining a basis for them. 
-
-% Probably, the most intuitive basis could be a geometrical basis of vectors such as $\vec{e}_x = (1, 0, 0)$, $\vec{e}_y = (0, 1, 0)$ and $\vec{e}_z = (0, 0, 1)$. However, for quantum mechanics, we use \textit{functions} to define our bases. Each of the functions of a basis is a basic state in which the system can be found. Any possible state that the system could be in can be written as a linear combination of the functions of the basis. That is how we build up wave functions, which define the state of a system and belong to the \textbf{wave function space}.
-
-% \begin{definition}\label{wavefunction_space}
-%     A wave function space is a Hilbert space $\Hbt$ whose vectors are complex functions $\psi$ (wave functions), which must fulfil the conditions:
-    
-%     \begin{itemize}
-%         \item they must be single valued and continuous.
-%         \item they must be infinitely differentiable and square integrable.
-%         \item they must be normaliseable by an arbitrary multiplicative constant in such a way that the area under the curve $|\psi|^2$ is exactly equal to $1$.
-%         \item they must have a modulus between $0$ and $1$ at any time $t$.
-%     \end{itemize}
-% \end{definition}
-
-% Although in itself it has no physical interpretation, the wave function of a particle, at a particular time, contains all the information that anybody at that time can have about the particle. For example, applying operators to it, we can obtain information about the particle's energy, position, speed, etc.
-
-% Furthermore, we interpret the square of the modulus of the wave function as a probability density function, giving us the probability of finding the particle at a time $t$ at position $\vec{x}$. The fact that $|\psi|^2$ is a probability density function is the reason for the requirements in \textbf{Definition \ref{wavefunction_space}}. 
-
-% In the wave function space, we can define the \textbf{inner product} as:
-
-% \begin{definition}
-%     We define the inner (dot, scalar) product of two vectors $\phi$ and $\psi$ of a wave function space as:
-%     \begin{equation}
-%         \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) \equiv \int\phi^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
-%     \end{equation}
-% \end{definition}
-
-% So, these wave functions are the ones composing the basis for our wave function space. How does this connect to what we saw about Dirac? a bra is a vector containing some components that, together with the functions of the basis, define a function within the wave function space. As a simplified example, imagine we have an orthonormal basis $B = \{\phi, \psi\}$. Then, a ket $\ket{f} = (2/\sqrt{5}, 1/\sqrt{5})$ would define the wave function $f(\vec{x}, t) = \frac{2}{\sqrt5}\ \phi + \frac{1}{\sqrt5}\ \psi$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-% \subsection{Physical meaning of the scalar product}
-
-% The scalar product $\braket{\psi}{\phi}$ can be interpreted in two ways:
-% \begin{enumerate}
-%     \item First, we can interpret it by analogy with vector algebra. The product $\braket{\psi}{\phi}$ represents the projection of $\ket{\phi}$ onto $\bra{\psi}$.
-%     \item When working with normalised states $\ket{\psi}$ and $\ket{\phi}$, the inner product $\braket{\psi}{\phi}$ represents the probability amplitude that the system's state $\ket{\psi}$ will, after measurement is performed on the system, be found in another state $\ket{\phi}$.
-% \end{enumerate}

@@ -1,0 +1,39 @@
+\section{Postulates of Quantum Mechanics}
+
+\subsection{Introduction}
+
+Quantum mechanics is based on a number of postulates, which themselves are based on a range of experimental observations. \textbf{These postulates cannot be derived}, and they result exclusively from experiment. They are the minimal set of assumptions that one needs in order to build the theory of quantum mechanics. \textbf{The validity of the postulates of quantum mechanics can only be determined inferentially}: the theory works extremely well, so the postulates must also be valid. This represents its experimental justification.
+
+\begin{postulate}
+    \textbf{State of a System:} The state of any physical system is specified, at each time $t$, by a state vector $\ket{\psi(t)}$ in a Hilbert space $\Hbt$; $\ket{\psi(t)}$ contains (and serves as the basis to extract) all the needed information about the system. Any superposition of state vectors is also a state vector.
+\end{postulate}
+
+\begin{postulate}
+    \textbf{Observables and Operators:} To every physical quantity $a$, called an observable or dynamical variable, there corresponds a linear Hermitian operator $A$ whose eigenvectors form a complete basis.
+\end{postulate}
+
+\begin{postulate}
+    \textbf{Measurements and Eigenvalues of Operators:} The measurement of an observable $a$ may be represented formally by the action of its operator $A$ on a state vector $\ket{\psi(t)}$. The only possible result of such a measurement is one of the eigenvalues $a_n$ (which are real) of the operator $A$. If the result of a measurement of $A$ on a state $\ket{\psi(t)}$ is $a_n$, the state of the system \textit{immediately after} the measurement changes to $\ket{\psi_n}$.
+\end{postulate}
+
+\begin{postulate}
+    \textbf{Probabilistic Outcome of Measurements:}
+    \begin{itemize}
+        \item \textbf{Discrete Spectra:} When measuring an observable $a$ of a system in a state $\ket{\psi}$, the probability of obtaining one of the non-degenerate eigenvalues $a_n$ of the corresponding operator $A$ is given by:
+        \begin{equation}
+            P_n(a_n) = \frac{|\braket{\psi_n|\psi}|^2}{\braket{\psi|\psi}} = |a_n|^2
+        \end{equation}
+        where $\ket{\psi_n}$ is the eigenstate of $A$ with the eigenvalue $a_n$ and we have assumed that the state is normalised. If the eigenvalue $a_n$ is $m$-degenerate, $P_n$ becomes:
+        \begin{equation}
+            P_n(a_n) = \frac{\sum_{j=1}^m|\braket{\psi_n^j|\psi}|^2}{\braket{\psi|\psi}} = \sum_{j=1}^m |a_n^{(j)}|^2
+        \end{equation}
+        where, again, we assume normalised states.
+
+        The act of measurement changes the state of the system from $\ket{\psi}$ to $\ket{\psi_n}$. If the system is already in an eigenstate $\ket{\psi_n}$ of $A$, a measurement of $a$ yields with certainty the corresponding eigenvalue $a_n$: $A\ket{\psi_n} = a_n\ket{\psi_n}$.
+        \item \textbf{Continuous Spectra:} we can extend the previous relations to continuous spectra to determine the probability density that a measurement of $A$ yields a value between $a$ and $a + da$ on a system which is initially in a state $\ket{\psi}$:
+        \begin{equation}
+            \frac{dP(a)}{da} = \frac{|\psi(a)|^2}{\braket{\psi|\psi}} = |\psi(a)|^2
+        \end{equation}
+        where, again, we assume that the state $\ket{\psi}$ is normalised.
+    \end{itemize}
+\end{postulate}
