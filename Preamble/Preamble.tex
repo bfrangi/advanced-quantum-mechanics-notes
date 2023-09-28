@@ -81,17 +81,34 @@
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 
-\declaretheoremstyle[name=Theorem,]{thmsty}
-\declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{theorem}{colback=LightRed}
+\usepackage[framemethod=TikZ]{mdframed}
 
-\declaretheoremstyle[name=Postulate,]{prosty}
-\declaretheorem[style=prosty,numberwithin=section]{postulate}
-\tcolorboxenvironment{postulate}{colback=LightOrange}
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightOrange, %
+  innertopmargin =12pt, innerbottommargin =10pt,
+  skipbelow= 0pt, skipabove=10pt, %
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{poststyle}
+\declaretheorem[style=poststyle]{postulate}
 
-\declaretheoremstyle[name=Definition,]{prcpsty}
-\declaretheorem[style=prcpsty,numberwithin=section]{definition}
-\tcolorboxenvironment{definition}{colback=LightBlue}
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightRed, %
+  innertopmargin =12pt, innerbottommargin =10pt,
+  skipbelow= 0pt, skipabove=10pt, %
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{thrmstyle}
+\declaretheorem[style=thrmstyle]{theorem}
+
+\declaretheoremstyle[
+preheadhook={\begin{mdframed}[backgroundcolor=LightBlue, %
+  innertopmargin =12pt, innerbottommargin =10pt,
+  skipbelow= 0pt, skipabove=10pt, %
+  roundcorner=5pt]},
+postfoothook=\end{mdframed}
+]{defstyle}
+\declaretheorem[style=defstyle]{definition}
 
 %TOC: Fill Table of Contents with Dots
 \usepackage{tocloft} %Fill ToC with dotted line
