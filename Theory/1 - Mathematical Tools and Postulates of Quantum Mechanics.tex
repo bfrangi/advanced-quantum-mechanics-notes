@@ -622,6 +622,41 @@ So, the momentum operator acting on the state $\ket{\psi}$ is expressed in the p
 \end{equation}
 acting on the wave function $\psi(\vec{r}) = \braket{\vec{r}|\psi}$. Thus, the momentum operator is represented by the differential operator $-i\hbar \vec{\nabla}$ in the position representation.
 
+\subsubsection{Canonical commutation relations}
+
+Calculating the separate terms of the $x$-component commutator of the operators $\vec{R}$ and $\vec{P}$ in the position representation, we find:
+\begin{equation}
+    XP_x\psi(\vec{r}) = -i\hbar x \frac{\partial \psi(\vec{r})}{\partial x}
+\end{equation}
+\begin{equation}
+    P_xX\psi(\vec{r}) = -i\hbar \frac{\partial}{\partial x}(x\psi(\vec{r})) = -i\hbar \psi(\vec{r}) - i \hbar x \frac{\partial \psi(\vec{r})}{\partial x}
+\end{equation}
+so that:
+\begin{equation}
+    [X,P_x]\psi(\vec{r}) = XP_x\psi(\vec{r}) - P_xX\psi(\vec{r}) = -i\hbar x \frac{\partial \psi(\vec{r})}{\partial x} + i\hbar \psi(\vec{r}) + i\hbar x \frac{\partial \psi(\vec{r})}{\partial x} = i\hbar \psi(\vec{r})
+\end{equation}
+Therefore:
+\begin{equation}
+    [X,P_x] = i\hbar
+\end{equation}
+Likewise, it can be shown for the $y$ and $z$ components:
+\begin{equation}
+    [Y,P_y] = i\hbar, \qquad [Z,P_z] = i\hbar
+\end{equation}
+
+We can also check that, crossing different components:
+\begin{equation}
+    [X, P_y] = [X, P_z] = [Y, P_x] = [Y, P_z] = [Z, P_x] = [Z, P_y] = 0
+\end{equation}
+
+With this, and the fact that the three degrees of freedom are independent, we arrive at the \textbf{canonical commutation relations}:
+\begin{equation}
+    [X_j, P_k] = i\hbar \delta_{jk}, \quad [X_j, X_k] = [P_j, P_k] = 0, \quad j,k = x,y,z
+\end{equation}
+
+It is important to note that, even though the particular expression of an operator in different representations may vary, the commutation relations for operators are representation independent\footnote{\color{red} Add proof}.
+
+
 
 
 % NOTES: 
