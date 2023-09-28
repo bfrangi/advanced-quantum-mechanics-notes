@@ -596,7 +596,7 @@ Similarly, we find:
     f(\vec{r}) = \frac{1}{(2\pi\hbar)^{3/2}}\int e^{i\vec{p}\cdot \vec{r}/\hbar} g(\vec{p})\ d^3p
 \end{equation}
 Hence, the function $\braket{\vec{r}|\vec{p}}$ is given by:
-\begin{equation}
+\begin{equation} \label{transform_1}
     \braket{\vec{r}|\vec{p}} = \frac{1}{(2\pi\hbar)^{3/2}}e^{i\vec{p}\cdot \vec{r}/\hbar}
 \end{equation}
 
@@ -606,7 +606,21 @@ This function transforms from the momentum to the position representation. The f
 \end{equation}
 The quantity $|\braket{\vec{r}|\vec{p}}|^2 = \frac{1}{(2\pi\hbar)^3}$ represents the probability of finding the system at the point $\vec{r}$ when its momentum is $\vec{p}$.
 
+\subsubsection{Momentum operator in the position representation}
 
+To determine the expression for the momentum operator $\vec{P}$ in the position representation, let us calculate:
+\begin{equation}
+    \braket{\vec{r}|\vec{P}|\psi} = \int \braket{\vec{r}|\vec{P}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we apply the closure relation.} \int \braket{\vec{r}|\vec{P}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used that $\vec{P}\ket{\psi} = \vec{p}\ket{\vec{p}}$.} \int \vec{p}\braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used the definition of the transformation function from the momentum to the position representation, defined in \textbf{Equation \ref{transform_1}}.} \frac{1}{(2\pi\hbar)^{3/2}} \int \vec{p}e^{i\vec{p}\cdot \vec{r}/\hbar}\Psi (\vec{p})d^3p
+\end{equation}
+Now, since $\vec{p}e^{i \vec{p}\cdot \vec{r}/\hbar} = -i\hbar \vec{\nabla}e^{i \vec{p}\cdot \vec{r}/\hbar}$, and using \textbf{Equation \ref{transform_1}}, we can write:
+\begin{equation}
+    \braket{\vec{r}|\vec{P}|\psi} = -i\hbar \vec{\nabla} \left( \frac{1}{(2\pi\hbar)^{3/2}}\int e^{i\vec{p}\cdot \vec{r}/\hbar}\Psi (\vec{p})d^3p\right) = -i\hbar \vec{\nabla} \left(\int \braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi} d^3p\right) = -i\hbar \vec{\nabla} \braket{\vec{r}|\psi} 
+\end{equation}
+So, the momentum operator acting on the state $\ket{\psi}$ is expressed in the position representation as the differential operator:
+\begin{equation}
+    \vec{P} = -i\hbar \vec{\nabla}
+\end{equation}
+acting on the wave function $\psi(\vec{r}) = \braket{\vec{r}|\psi}$. Thus, the momentum operator is represented by the differential operator $-i\hbar \vec{\nabla}$ in the position representation.
 
 
 
