@@ -4,6 +4,8 @@
 
 Quantum mechanics is based on a number of postulates, which themselves are based on a range of experimental observations. \textbf{These postulates cannot be derived}, and they result exclusively from experiment. They are the minimal set of assumptions that one needs in order to build the theory of quantum mechanics. \textbf{The validity of the postulates of quantum mechanics can only be determined inferentially}: the theory works extremely well, so the postulates must also be valid. This represents its experimental justification.
 
+The first four postulates concern the state of a system at a give time, whereas the last postulate concerns the time evolution of the system.
+
 \begin{postulate}
     \textbf{State of a System:} The state of any physical system is specified, at each time $t$, by a state vector $\ket{\psi(t)}$ in a Hilbert space $\Hbt$; $\ket{\psi(t)}$ contains (and serves as the basis to extract) all the needed information about the system. Any superposition of state vectors is also a state vector.
 \end{postulate}
@@ -28,16 +30,37 @@ Quantum mechanics is based on a number of postulates, which themselves are based
             P_n(a_n) = \frac{\sum_{j=1}^m|\braket{\psi_n^j|\psi}|^2}{\braket{\psi|\psi}} = \sum_{j=1}^m |a_n^{(j)}|^2
         \end{equation}
         where, again, we assume normalised states.
-
+        
         The act of measurement changes the state of the system from $\ket{\psi}$ to $\ket{\psi_n}$. If the system is already in an eigenstate $\ket{\psi_n}$ of $A$, a measurement of $a$ yields with certainty the corresponding eigenvalue $a_n$: $A\ket{\psi_n} = a_n\ket{\psi_n}$.
+
+        The mean value of an observable for a state $\ket{\psi}$ can be then calculated as:
+        \begin{equation*}
+            \braket{a}_\psi = \sum_n a_n P_n(a_n) = \sum_n a_n \sum_{j=1}^m |a_n^j|^2 = \sum_n a_n \sum_{j=1}^m \braket{\psi|\psi_n^j}\braket{\psi_n^j|\psi} = 
+        \end{equation*}
+        \begin{equation*}
+            = \sum_n \sum_{j=1}^m \braket{\psi|a_n|\psi_n^j}\braket{\psi_n^j|\psi} = \sum_n \sum_{j=1}^m \braket{\psi|A|\psi_n^j}\braket{\psi_n^j|\psi} = \bra{\psi}A \left[\sum_n \sum_{j=1}^m \ket{\psi_n^j}\bra{\psi_n^j}\right]\ket{\psi} =
+        \end{equation*}
+        \begin{equation}
+            = \bra{\psi}A\ket{\psi}
+        \end{equation}
+
         \item \textbf{Continuous Spectra:} we can extend the previous relations to continuous spectra to determine the probability density that a measurement of $A$ yields a value between $a$ and $a + da$ on a system which is initially in a state $\ket{\psi}$:
         \begin{equation}
-            \frac{dP(a)}{da} = \frac{|\psi(a)|^2}{\braket{\psi|\psi}} = |\psi(a)|^2
+            \frac{dP(a)}{da} = \frac{|\braket{\psi_a|\psi}|^2}{\braket{\psi|\psi}} = |\psi(a)|^2
         \end{equation}
-        where, again, we assume that the state $\ket{\psi}$ is normalised. The probability density for finding a particle between $x$ and $x + dx$ is given by:
+        where, again, we assume that the state $\ket{\psi}$ is normalised. 
+        
+        The mean value of an observable for a state $\ket{\psi}$ can be then calculated as:
+        \begin{equation*}
+            \braket{a}_\psi = \int a\, dP(a) = \int a|\psi(a)|^2\,da = \int a\,|\braket{\psi_a|\psi}|^2\,da = \int a\braket{\psi|\psi_a}\braket{\psi_a|\psi}\,da = 
+        \end{equation*}
+        \begin{equation*}
+            = \int \bra{\psi}a\ket{\psi_a}\braket{\psi_a|\psi}\,da = \int \bra{\psi}A\ket{\psi_a}\braket{\psi_a|\psi}\,da = \bra{\psi}A\left(\int\ket{\psi_a}\bra{\psi_a}\,da\right)\ket{\psi}
+        \end{equation*}
         \begin{equation}
-            \frac{dP(x)}{dx} = |\psi(x)|^2
+            = \braket{\psi|A|\psi}
         \end{equation}
+
     \end{itemize}
 \end{postulate}
 
