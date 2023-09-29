@@ -6,19 +6,19 @@ Quantum mechanics is based on a number of postulates, which themselves are based
 
 The first four postulates concern the state of a system at a give time, whereas the last postulate concerns the time evolution of the system.
 
-\begin{postulate}
+\begin{postulate} \label{post_1}
     \textbf{State of a System:} The state of any physical system is specified, at each time $t$, by a state vector $\ket{\psi(t)}$ in a Hilbert space $\Hbt$; $\ket{\psi(t)}$ contains (and serves as the basis to extract) all the needed information about the system. Any superposition of state vectors is also a state vector.
 \end{postulate}
 
-\begin{postulate}
+\begin{postulate} \label{post_2}
     \textbf{Observables and Operators:} To every physical quantity $a$, called an observable or dynamical variable, there corresponds a linear Hermitian operator $A$ whose eigenvectors form a complete basis.
 \end{postulate}
 
-\begin{postulate}
+\begin{postulate} \label{post_3}
     \textbf{Measurements and Eigenvalues of Operators:} The measurement of an observable $a$ may be represented formally by the action of its operator $A$ on a state vector $\ket{\psi(t)}$. The only possible result of such a measurement is one of the eigenvalues $a_n$ (which are real) of the operator $A$. If the result of a measurement of $A$ on a state $\ket{\psi(t)}$ is $a_n$, the state of the system \textit{immediately after} the measurement changes to $\ket{\psi_n}$.
 \end{postulate}
 
-\begin{postulate}
+\begin{postulate} \label{post_4}
     \textbf{Probabilistic Outcome of Measurements:}
     \begin{itemize}
         \item \textbf{Discrete Spectra:} When measuring an observable $a$ of a system in a state $\ket{\psi}$, the probability of obtaining one of the non-degenerate eigenvalues $a_n$ of the corresponding operator $A$ is given by:
@@ -64,7 +64,7 @@ The first four postulates concern the state of a system at a give time, whereas 
     \end{itemize}
 \end{postulate}
 
-\begin{postulate}
+\begin{postulate} \label{post_5}
     \textbf{Time Evolution of State Vectors:} The state vector $\ket{\psi(t)}$ of a system evolves in time according to the Schrödinger equation:
     \begin{equation}
         i\hbar\frac{\partial \ket{\psi(t)}}{\partial t} = H\ket{\psi(t)}
@@ -72,3 +72,33 @@ The first four postulates concern the state of a system at a give time, whereas 
     where $H$ is the Hamiltonian operator corresponding to the total energy of the system.
 \end{postulate}
 
+\subsection{Observables and operators}
+
+An observable is a dynamic variable that can be measured. According to \textbf{Postulate \ref{post_2}}, a Hermitian operator is associated with every physical observable. In previous sections, we have seen that the position representation of the linear momentum operator is given by:
+\begin{equation}
+    \vec{P} = -i\hbar\vec{\nabla}
+\end{equation}
+
+In general, any function $f(\vec{r}, \vec{p})$ can be ``quantized'' (made into a function of operators) by replacing $\vec{r}$ and $\vec{p}$ with the position and momentum operators $\vec{R}$ and $\vec{P}$, respectively:
+\begin{equation}
+    f(\vec{r}, \vec{p}) \rightarrow F(\vec{R}, \vec{P})
+\end{equation}
+
+Some examples of operators are shown in \textbf{Table \ref{operators}}.
+
+\begin{table}[htbp] \label{operators}
+    \def\arraystretch{1.5}
+    \centering
+    \begin{tabular}{lr}
+        \hline
+        \textbf{Observable} & \textbf{Corresponding Operator} \\
+        \hline
+        $\vec{r}$ & $\vec{R}$ \\
+        $\vec{p}$ & $\vec{P} = -\hbar \vec{\nabla}$ \\
+        $T = \frac{p^2}{2m}$ & $T = -\frac{\hbar^2}{2m}\nabla^2$ \\
+        $E = \frac{p^2}{2m} + V(\vec{r}, t)$ & $H = -\frac{\hbar^2}{2m}\nabla^2 + V(\vec{R}, t)$ \\
+        $\vec{L} = \vec{r}\times\vec{p}$ & $\vec{L} = -i\hbar\vec{R}\times\vec{\nabla}$ \\
+        \hline
+    \end{tabular}
+    \caption{Some observables and their corresponding operators.}
+\end{table}
