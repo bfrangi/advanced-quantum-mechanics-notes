@@ -102,3 +102,74 @@ Some examples of operators are shown in \textbf{Table \ref{operators}}.
     \end{tabular}
     \caption{Some observables and their corresponding operators.}
 \end{table}
+
+\subsection{Conservative systems}
+
+When the Hamiltonian of a system does not depend explicitly on time, the system is said to be \textbf{conservative}. In classical mechanics, the most important consequence of such a situation is the conservation of energy over time\footnote{Actually, eigenvectors \textit{can} change over time, but only by a phase.}. In other words, \textbf{the energy of the system is a constant of motion}. This also means that the eigenvalues and eigenvectors of the Hamiltonian operator are constant over time. Then, any state can be expanded in terms of the eigenvectors of the Hamiltonian operator:
+\begin{equation}
+    \ket{\psi(t)} = \sum_n c_n(t)\ket{\psi_n},\qquad c_n(t) = \braket{\psi_n|\psi(t)}
+\end{equation}
+In this case, the time evolution of the state vector $\ket{\psi(t)}$ is given by the time-dependent Schrödinger equation:
+
+\begin{equation}
+    i\hbar\frac{\partial \braket{\psi_n|\psi(t)}}{\partial t} = \braket{\psi_n|H|\psi(t)} \stackrel{\footnotemark}{\Longrightarrow}\footnotetext{Here, we use the eigenvalue equation: $\bra{\psi_n}H = E_n\bra{\psi_n}$ so that $\braket{\psi_n|H|\psi(t)} = E_n\braket{\psi_n|\psi(t)} =E_n c_n(t)$.} i\hbar\frac{\partial c_n(t)}{\partial t} = E_nc_n(t)
+\end{equation}
+which has the solution:
+\begin{equation}
+    c_n(t) = c_n(t_0)e^{-iE_n(t-t_0)/\hbar}
+\end{equation}
+Therefore:
+\begin{equation} \label{time_evolution_cons}
+    \ket{\psi(t)} = \sum_n c_n(t_0)e^{-iE_n(t-t_0)/\hbar}\ket{\psi_n}, \qquad c_n(t_0) = \braket{\psi_n|\psi(t_0)}
+\end{equation}
+and, for a continuous spectrum:
+\begin{equation}
+    \ket{\psi(t)} = \int c(E,t_0)e^{-iE(t-t_0)/\hbar}\ket{\psi_E}\,dE, \qquad c(E,t_0) = \braket{\psi_E|\psi(t_0)}
+\end{equation}
+
+\subsubsection{Stationary states}
+
+A \textbf{stationary state} $\ket{\psi(t)}$ is a state that does not present any \textit{observable}\footnote{Meaning that any measurement of any observable always yields the same value.} change over time. They exist only in conservative systems, although not all states in a conservative system are stationary. For a stationary state, it is verified that the probability density function does not change over time\footnote{Remember that, in general, the shape of the probability density function can change, but the state \textit{must} remain normalised. It is in the particular case of stationary states that the shape is maintained also.}, so:
+
+\begin{equation}
+    \|\ket{\psi(t)}\|^2 = \|\ket{\psi(t_0)}\|^2 \Longrightarrow \ket{\psi(t)} = \ket{\psi(t_0)}e^{i\alpha(t)}
+\end{equation}
+
+for a certain real function $\alpha(t)$. Using the time-dependent Schrödinger equation:
+
+\begin{equation}
+    i \hbar \frac{\partial \ket{\psi(t)}}{\partial t} = H  \ket{\psi(t)}
+\end{equation}
+
+we obtain\footnote{Note that $\ket{\psi(t_0)}$ is a constant, and can be taken out of the derivative.}:
+
+\begin{equation*}
+    i\hbar \frac{\partial \ket{\psi(t)}}{\partial t} = i \hbar \frac{\partial \left(\ket{\psi(t_0)}e^{i\alpha(t)}\right)}{\partial t} = i\hbar \ket{\psi(t_0)} \frac{\partial (e^{i\alpha(t)})}{\partial t} = i\hbar \ket{\psi(t_0)} i \alpha'(t)e^{i\alpha(t)} = 
+\end{equation*}
+\begin{equation}
+    = -\hbar \alpha'(t)\ket{\psi(t)} = H \ket{\psi(t)}
+\end{equation}
+Which means that $\ket{\psi(t)}$ is an eigenstate of the Hamiltonian operator with eigenvalue $-\hbar \alpha'(t)$. As the system is conservative, the eigenvectors evolve only by a phase and the eigenvalues of $H$ are constant, we have $\ket{\psi(t)}\to\ket{\psi_n}e^{i\alpha(t)}$ and $\alpha'(t)\to \alpha'$:
+
+\begin{equation}
+    -\hbar \alpha'\ket{\psi_n}e^{i\alpha(t)} = H \ket{\psi_n}e^{i\alpha(t)}
+\end{equation}
+
+It is now easy to see, looking at \textbf{Equation \ref{time_evolution_cons}}, that:
+\begin{equation}
+    \ket{\psi(t)} = \ket{\psi_n}e^{-iE_n(t-t_0)/\hbar}
+\end{equation}
+
+Therefore, we can define:
+
+\begin{definition}
+    Stationary states are eigenstates of the Hamiltonian of a conservative system. They evolve in time only by a phase, which is to say that they do not present any observable change over time.
+\end{definition}
+
+\subsubsection{Constants of motion}
+
+A \textbf{constant of motion} $a$ is an observable that does not depend explicitly on time, and whose operator $A$ commutes with $H$:
+\begin{equation}
+    \frac{dA}{dt} = 0,\qquad [H,A] = 0
+\end{equation}
+Then, by \textbf{Theorem \ref{commuting_operator_base_thm}}, there is always a system of common eigenvectors for $H$ and $A$.
