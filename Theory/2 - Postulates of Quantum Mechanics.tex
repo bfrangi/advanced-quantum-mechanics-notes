@@ -172,4 +172,13 @@ A \textbf{constant of motion} $a$ is an observable that does not depend explicit
 \begin{equation}
     \frac{dA}{dt} = 0,\qquad [H,A] = 0
 \end{equation}
-Then, by \textbf{Theorem \ref{commuting_operator_base_thm}}, there is always a system of common eigenvectors for $H$ and $A$.
+Then, by \textbf{Theorem \ref{commuting_operator_base_thm}}, there is always a system of common eigenvectors for $H$ and $A$. These eigenvectors are stationary states, and their eigenvalues are called \textbf{good quantum numbers}.
+
+\subsection{Superposition and interference}
+
+\textbf{Superposition} in quantum mechanics does not work in the way we would expect from classical mechanics. Take the double slit experiment as an example. According to the classical superposition principle, the light intensity distribution on the screen is given by the sum of the intensities of the two waves coming from the two slits. In quantum mechanics, however, the light intensity distribution on the screen is proportional to the \textit{square} of the sum of the amplitudes of the two waves coming from the two slits:
+\begin{equation}
+    I(\vec{r}, t) \propto \left|\psi_1(\vec{r}, t) + \psi_2(\vec{r}, t)\right|^2 = \left|\psi_1(\vec{r}, t)\right|^2 + \left|\psi_2(\vec{r}, t)\right|^2 + \boxed{\psi_1^*(\vec{r}, t)\psi_2(\vec{r}, t) + \psi_1(\vec{r}, t)\psi_2^*(\vec{r}, t)}
+\end{equation}
+
+This extra term that appears as a result of the interference of the partial amplitudes is the origin of the \textbf{interference} phenomena in quantum mechanics.
