@@ -97,7 +97,7 @@ Now we need to introduce \textit{raising} and \textit{lowering} operators $J_+$ 
     J_\pm = J_x \pm iJ_y
 \end{equation}
 This leads to:
-\begin{equation}
+\begin{equation} \label{eq:jx_and_jy_in_terms_of_jp_and_jm}
     J_x = \frac12(J_+ + J_-)\qquad J_y = \frac{1}{2i}(J_+ - J_-)
 \end{equation}
 hence:
@@ -272,3 +272,27 @@ So, we now have the raising and lowering operators completely defined:
         J_\pm\ket{j,m} = \hbar \sqrt{j(j+1)-m(m\pm1)}\ket{j,m\pm 1}
     \end{equation}
 \end{definition}
+
+\subsubsection{Matrix representation of angular momentum}
+
+The formalism we discussed in the previous section is completely general and independent on the choice of representation. There are many ways to represent the angular momentum operators and their eigenstates, and in this section we will discuss the matrix representation of angular momentum, where eigenkets and operators are represented by column and square matrices, respectively.
+
+Since $\vec{J}\,^2$ and $J_z$ commute, the set of their common eigenstates $\{\ket{j, m}\}$ can be chosen as a basis. This basis is discrete, orthonormal and complete. The orthonormality condition and the completeness relation can be expressed, respectively, as:
+\begin{equation}
+    \braket{j',m'|j,m} = \delta_{j',j}\delta_{m',m} \qquad\sum_{j}\sum_{m=-j}^{j}\ket{j,m}\bra{j,m} = \Imat
+\end{equation}
+The matrix elements of the $\vec{J}\,^2$ and $J_z$ operators in this basis are:
+\begin{equation}
+    \begin{split}
+        \bra{j',m'}\vec{J}\,^2\ket{j,m} &= \hbar^2j(j+1)\delta_{j',j}\delta_{m',m} \\
+        \bra{j',m'}J_z\ket{j,m} &= \hbar m\delta_{j',j}\delta_{m',m}
+    \end{split}
+\end{equation}
+Clearly, $\vec{J}\,^2$ and $J_z$ are diagonal in this basis, their diagonal elements being $\hbar^2j(j+1)$ and $\hbar m$, respectively. However, as $J_\pm$ do not commute with $\vec{J}\,^2$ and $J_z$, they are not diagonal in this basis. Their matrix elements are:
+\begin{equation}
+    \bra{j',m'}J_\pm\ket{j,m} = \hbar \sqrt{j(j+1)-m(m\pm 1)}\delta_{j',j}\delta_{m',m\pm 1} \\
+\end{equation}
+The matrices of $J_x$ and $J_y$ are obtained by adding and subtracting the matrices of $J_+$ and $J_-$, respectively, as seen in \textbf{Equation \ref{eq:jx_and_jy_in_terms_of_jp_and_jm}}:
+\begin{equation}
+    J_x = \frac12(J_+ + J_-)\qquad J_y = \frac{1}{2i}(J_+ - J_-)
+\end{equation}
