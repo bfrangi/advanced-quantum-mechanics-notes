@@ -140,12 +140,12 @@ If we rewrite \textbf{Equation \ref{eq:jz_jpm_eigenstates}} and \textbf{Equation
     \end{split}
 \end{equation}
 
-and if we compare with \textbf{Equation \ref{eq:angular_momentum_eigenstates}}, we can infer that $\alpha' = \alpha$ and $\beta' = \beta \pm 1$. In other words, the ket $J_\pm\ket{\alpha,\beta}$ is proportional to $\ket{\alpha, \beta\pm 1}$:
-\begin{equation}
-    J_\pm\ket{\alpha, \beta} = c_\pm\ket{\alpha, \beta\pm 1}
+and if we compare with \textbf{Equation \ref{eq:angular_momentum_eigenstates}}, we can infer that $\alpha' = \alpha$ and $\beta' = \beta \pm 1$. In other words, the ket $J_\pm\ket{\alpha,\beta}$ is proportional to $\ket{\alpha, \beta\pm 1}$ (any eigenket multiplied by a constant is also an eigenket, although it may not be normalised), and we can write:
+\begin{equation} \label{eq:j_p_and_j_m_eigenstates}
+    J_\pm\ket{\alpha, \beta} = C_{\alpha\beta}^\pm\ket{\alpha, \beta\pm 1}
 \end{equation}
 
-In other words, when the operators $J_\pm$ act on a ket $\ket{\alpha, \beta}$, they do not change the first quantum number $\alpha$, but they increase (or decrease) the second quantum number $\beta$ by one unit. Hence the names \textit{raising} and \textit{lowering} operators.
+So, when the operators $J_\pm$ act on a ket $\ket{\alpha, \beta}$, they do not change the first quantum number $\alpha$, but they increase (or decrease) the second quantum number $\beta$ by one unit. Hence the names \textit{raising} and \textit{lowering} operators.
 
 Note that, for a given eigenvalue $\alpha$ of $\vec{J}\,^2$, there exists an upper limit for the \textit{absolute value}\footnote{That is to say, $\beta$ is bounded from above \textit{and} below.} of the quantum number $\beta$. This is due to the fact that the operator $\vec{J}\,^2 - J_z^2$ is positive definite, as the matrix elements of $\vec{J}\,^2 - J_z^2 = J_x^2 + J_y^2 \geq 0$ are non-negative, so we can write:
 \begin{equation}
@@ -217,5 +217,58 @@ We can now summarize the results we have obtained so far:
     where $j = 0,\, 1/2,\, 1,\, 3/2,\, ...$ and $m = -j, -(j-1), \dots, j-1, j$. We see that the spectra of the angular momentum operators $\vec{J}\,^2$ and $J_z$ are discrete. Since the eigenstates corresponding to different angular momenta are orthogonal, and since the angular momentum spectra are discrete, the orthonormality condition is:
     \begin{equation}
         \braket{j',m'|j,m} = \delta_{j',j}\delta_{m',m}
+    \end{equation}
+\end{definition}
+
+Let us now determine the normalization constant $C_{\alpha\beta}^\pm$ in \textbf{Equation \ref{eq:j_p_and_j_m_eigenstates}}, which we can rewrite in terms of $j$ and $m$ as:
+\begin{equation}
+    J_\pm\ket{j,m} = C_{jm}^\pm\ket{j,m\pm 1}
+\end{equation}
+Since $\ket{j,m+1}$ is normalized:
+\begin{equation}
+    (J_+\ket{j,m})^\dagger (J_+\ket{j,m}) = |C_{jm}^+|^2\braket{j, m+1|j, m+1} = |C_{jm}^+|^2
+\end{equation}
+
+Since $J_+ = J_x + iJ_y$ and the operators $J_x$ and $J_y$ are Hermitian, we have:
+\begin{equation}
+    J_+^\dagger = (J_x+iJ_y)^\dagger = J_x^\dagger -iJ_y^\dagger = J_x - iJ_y = J_-
+\end{equation}
+So we can also write:
+\begin{equation}
+    \braket{j,m|J_-J_+|j,m} = \braket{j,m|J_+^\dagger J_+|j,m} = (J_+\ket{j,m})^\dagger (J_+\ket{j,m}) = |C_{jm}^+|^2
+\end{equation}
+
+But since $J_-J_+ = \vec{J}\,^2 - J_z^2 - \hbar J_z$ and $\ket{j,m}$ is orthonormal, we can also write:
+
+\begin{equation}
+    \begin{split}
+        |C_{jm}^+|^2 &= \braket{j,m|J_-J_+|j,m} = \braket{j,m|\vec{J}\,^2 - J_z^2 - \hbar J_z|j,m} = \\
+        &= \braket{j,m|\vec{J}\,^2|j,m} - \braket{j,m|J_z^2|j,m} - \hbar\braket{j,m|J_z|j,m} = \\
+        &= \braket{j,m|\hbar^2j(j+1)|j,m} - \braket{j,m|\hbar^2m^2|j,m} - \hbar\braket{j,m|\hbar m|j,m} = \\
+        &= \hbar^2j(j+1)\braket{j,m|j,m} - \hbar^2m^2\braket{j,m|j,m} - \hbar^2m\braket{j,m|j,m} = \\
+        &= \hbar^2j(j+1) - \hbar^2m^2 - \hbar^2m \\
+        &= \hbar^2(j(j+1)-m(m+1))
+    \end{split}
+\end{equation}
+
+So we conclude that\footnote{Note that here we would actually have to add a phase factor $e^{i\theta}$ so that $C_{jm}^+ = \hbar \sqrt{j(j+1)-m(m+1)}e^{i\theta}$. This is beacuse $C_{jm}^+$ is, in general terms, a complex number. As we have the freedom of choice, we take $C_{jm}^+$ to be real and positive. The same argument applies to $C_{jm}^-$.}:
+\begin{equation}
+    C_{jm}^+ = \hbar \sqrt{j(j+1)-m(m+1)}
+\end{equation}
+
+Similarly, we can obtain:
+\begin{equation}
+    C_{jm}^- = \hbar \sqrt{j(j+1)-m(m-1)}
+\end{equation}
+
+So, we now have the raising and lowering operators completely defined:
+\begin{definition}
+    The raising and lowering operators $J_+$ and $J_-$ are given by:
+    \begin{equation}
+        J_\pm = J_x \pm iJ_y
+    \end{equation}
+    Their action on a ket $\ket{j,m}$ raises or lowers the second quantum number $m$ by one unit, respectively:
+    \begin{equation}
+        J_\pm\ket{j,m} = \hbar \sqrt{j(j+1)-m(m\pm1)}\ket{j,m\pm 1}
     \end{equation}
 \end{definition}
