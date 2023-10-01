@@ -103,6 +103,14 @@ Some examples of operators are shown in \textbf{Table \ref{operators}}.
     \caption{Some observables and their corresponding operators.}
 \end{table}
 
+\subsubsection{Compatibility of observables}
+
+Two observables $a$ and $b$ are said to be \textbf{compatible} if their corresponding operators $A$ and $B$ commute. This means that there exists a common set of eigenvectors for both operators. In other words, if $\ket{\psi_n}$ is an eigenvector of $A$ with eigenvalue $a_n$, then it is also an eigenvector of $B$ with eigenvalue $b_n$.
+
+Two observables can only be measured simultaneously if they are compatible, and this is a fact that is tightly connected to \textbf{Postulate \ref{post_3}}: when we measure an observable (we can think of this as applying its operator to the state), we obtain one of the eigenvalues of the operator, and immediately the system changes to the eigenstate corresponding to that eigenvalue. In order to be able to measure two different observables at the same time, the system must be able to change to an eigenstate that is common to \textit{both} operators. This is only possible if the operators commute, because for two operators to share the basis of eigenvectors they \textit{must} commute.
+
+Furthermore, for commuting operators, it does not matter in what order we measure their corresponding observables. Measurement of one does not affect the measurement of the other. On the other hand, for non-commuting (incompatible) operators, measurement of one produces loss of information obtained from the measurement of the other.
+
 \subsection{Conservative systems}
 
 When the Hamiltonian of a system does not depend explicitly on time, the system is said to be \textbf{conservative}. In classical mechanics, the most important consequence of such a situation is the conservation of energy over time\footnote{Actually, eigenvectors \textit{can} change over time, but only by a phase.}. In other words, \textbf{the energy of the system is a constant of motion}. This also means that the eigenvalues and eigenvectors of the Hamiltonian operator are constant over time. Then, any state can be expanded in terms of the eigenvectors of the Hamiltonian operator:
