@@ -44,7 +44,7 @@ For a system of (spin-less) particles, the total angular momentum is defined as:
 \end{equation}
 
 The different cartesian components of the angular momentum operator are:
-\begin{equation}
+\begin{equation} \label{orbital_angular_momentum_operators}
     \begin{split}
         L_x &= YP_z - ZP_y = -i\hbar \left(Y\frac{\partial}{\partial z} - Z\frac{\partial}{\partial y}\right) \\
         L_y &= ZP_x - XP_z = -i\hbar \left(Z\frac{\partial}{\partial x} - X\frac{\partial}{\partial z}\right) \\
@@ -68,7 +68,7 @@ The commutation relations for the orbital angular momentum operators are:
     \end{split}
 \end{equation}
 
-\subsubsection{General formalism of angular momentum}
+\subsection{General formalism of angular momentum}
 
 We have just defined the orbital angular momentum. However there exists a more general formalism of angular momentum, which is the \textit{total} angular momentum. Its corresponding operator is $\vec{J}$, defined by its three components that satisfy:
 \begin{equation} \label{eq:commutation_relations_angular_momentum}
@@ -345,4 +345,69 @@ Since all the orientations of $\vec{J}\,^2$ on the surface of the cone are equal
         \braket{J_y} &= \braket{j,m|J_y|j,m} = \frac{1}{2i}\braket{j,m|(J_+ - J_-)|j,m} = \frac{1}{2i}\braket{j,m|J_+|j,m} - \frac{1}{2i}\braket{j,m|J_-|j,m} = \\
         &= \frac{\hbar}{2i}\sqrt{j(j+1)-m(m+1)}\braket{j,m|j,m+1} - \frac{\hbar}{2i}\sqrt{j(j+1)-m(m-1)}\braket{j,m|j,m-1} = 0
     \end{split}
+\end{equation}
+
+\subsection{Position representation of orbital angular momentum}
+
+As we already saw in a previous section, in the position representation, the orbital angular momentum operators are given in cartesian coordinates by \textbf{Equation \ref{orbital_angular_momentum_operators}}. However, it is more convenient to work in spherical (or polar) coordinates, since, as we shall see, the various angular momentum operators act only on the angular variables and and not on the $r$ variable. We can rewrite the angular momentum operators in spherical coordinates as:
+
+\begin{equation}
+    \begin{split}
+        L_x &= i\hbar \left(\sin\phi\frac{\partial}{\partial\theta} + \frac{\cos\phi}{\tan\theta}\frac{\partial}{\partial\phi}\right) \\
+        L_y &= i\hbar \left(-\cos\phi\frac{\partial}{\partial\theta} + \frac{\sin\phi}{\tan\theta}\frac{\partial}{\partial\phi}\right) \\
+        L_z &= -i\hbar \frac{\partial}{\partial\phi}
+    \end{split}
+\end{equation}
+
+We can also rewrite the $L_\pm$ and $L^2$ operators in spherical coordinates:
+\begin{equation}
+    \begin{split}
+        L_\pm &= \pm\hbar e^{\pm i\phi}\left(\frac{\partial}{\partial\theta} \pm i\cot\theta\frac{\partial}{\partial\phi}\right) \\
+        \vec{L}\,^2 &= -\hbar^2\left[\frac{\partial^2}{\partial \theta^2}+ \frac{1}{\tan \theta} \frac{\partial }{\partial \theta } + \frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \phi^2}\right]
+    \end{split}
+\end{equation}
+
+Then, the original eigenproblem:
+\begin{equation}
+    \begin{split}
+        \vec{L}\,^2\ket{l,m} &= \hbar^2l(l+1)\ket{l,m} \\
+        L_z\ket{l,m} &= \hbar m\ket{l,m}
+    \end{split}
+\end{equation}
+can be written in the $r$-representation as:
+\begin{equation}
+    \begin{split}
+        \vec{L}\,^2\psi_{l,m} (r, \theta, \phi) &= \hbar^2l(l+1)\psi_{l,m} (r, \theta, \phi) \\
+        L_z\psi_{l,m} (r, \theta, \phi) &= \hbar m\psi_{l,m} (r, \theta, \phi)
+    \end{split}
+\end{equation}
+where, as the operators act only on the angular variables, the eigenfunctions are separable:
+\begin{equation}
+    \psi_{l,m} (r, \theta, \phi) = R_{l}(r)Y_l^m(\theta, \phi)
+\end{equation}
+
+The solution to the angular part of this eigenproblem are \textbf{spherical harmonics}:
+\begin{equation}
+    \begin{split}
+        Y_l^m(\theta, \phi) &= \varepsilon\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-|m|)!}{(l+|m|)!}}P_l^m(\cos\theta)e^{im\phi} \\
+        \varepsilon &= \begin{cases}
+            (-1)^m & \text{if } m \geq 0 \\
+            1 & \text{if } m < 0
+        \end{cases}
+    \end{split}
+\end{equation}
+
+where $P_l^m(\cos\theta)$ are the \textbf{associated Legendre polynomials}, which are given by:
+\begin{equation}
+    P_l^m(x) = (1-x^2)^{|m|/2}\frac{d^{|m|}}{dx^{|m|}}P_l(x), \qquad P_l(x) = \frac{1}{2^ll!}\frac{d^l}{dx^l}(x^2-1)^l
+\end{equation}
+
+Spherical harmonics are joint eigenfunctions of the operators $\vec{L}\,^2$ and $L_z$, as both these operators commute. They are also functions with a well-defined parity, as they are eigenfunctions of the parity operator $P$:
+\begin{equation}
+    PY_l^m(\theta, \phi) = Y_l^m(\pi-\theta, \pi+\phi) = (-1)^lY_l^m(\theta, \phi)
+\end{equation}
+
+Also, the complex conjugate of a spherical harmonic is given by:
+\begin{equation}
+    \left[Y_l^{m}(\theta, \phi)\right]^* = (-1)^mY_l^{-m}(\theta, \phi)
 \end{equation}
