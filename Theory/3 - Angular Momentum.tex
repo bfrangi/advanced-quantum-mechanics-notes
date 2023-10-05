@@ -246,7 +246,7 @@ But since $J_-J_+ = \vec{J}\,^2 - J_z^2 - \hbar J_z$ and $\ket{j,m}$ is orthonor
         &= \braket{j,m|\vec{J}\,^2|j,m} - \braket{j,m|J_z^2|j,m} - \hbar\braket{j,m|J_z|j,m} = \\
         &= \braket{j,m|\hbar^2j(j+1)|j,m} - \braket{j,m|\hbar^2m^2|j,m} - \hbar\braket{j,m|\hbar m|j,m} = \\
         &= \hbar^2j(j+1)\braket{j,m|j,m} - \hbar^2m^2\braket{j,m|j,m} - \hbar^2m\braket{j,m|j,m} = \\
-        &= \hbar^2j(j+1) - \hbar^2m^2 - \hbar^2m \\
+        &= \hbar^2j(j+1) - \hbar^2m^2 - \hbar^2m = \\
         &= \hbar^2(j(j+1)-m(m+1))
     \end{split}
 \end{equation}
@@ -295,4 +295,54 @@ Clearly, $\vec{J}\,^2$ and $J_z$ are diagonal in this basis, their diagonal elem
 The matrices of $J_x$ and $J_y$ are obtained by adding and subtracting the matrices of $J_+$ and $J_-$, respectively, as seen in \textbf{Equation \ref{eq:jx_and_jy_in_terms_of_jp_and_jm}}:
 \begin{equation}
     J_x = \frac12(J_+ + J_-)\qquad J_y = \frac{1}{2i}(J_+ - J_-)
+\end{equation}
+
+\subsubsection{Geometrical representation of angular momentum}
+
+The expected value of the angular momentum operator for a state $\ket{j,m}$, denoted as $\braket{\vec{J}}$, is given by:
+\begin{equation}
+    \braket{\vec{J}} = \sqrt{\braket{\vec{J}\,^2}} = \sqrt{\braket{j,m|\vec{J}\,^2|j,m}} = \hbar\sqrt{j(j+1)}
+\end{equation}
+with $z$-component given by: 
+\begin{equation}
+    \braket{J_z} = \braket{j,m|J_z|j,m} = \hbar m
+\end{equation}
+
+Recalling that $J_x^2 + J_y^2 = \vec{J}\,^2 - J_z^2$, we can also give the component of the angular momentum that lies in the $xy$-plane as:
+\begin{equation}
+    \braket{J_{xy}} = \sqrt{\braket{J_x^2 + J_y^2}} = \sqrt{\braket{\vec{J}\,^2 - J_z^2}} = \hbar\sqrt{j(j+1) - m^2}
+\end{equation}
+
+As expected, it is verified that:
+\begin{equation}
+    \braket{J_{xy}}^2 + \braket{J_z}^2 = \left(\hbar \sqrt{j(j+1)-m^2}\right)^2+(\hbar m)^2 = \hbar^2j(j+1) = \braket{\vec{J}\,}^2
+\end{equation}   
+
+Graphically, we can show this with a diagram like the one on \textbf{Figure \ref{fig:angular_momentum_diagram}}, which shows the graphical representation of the angular momentum $j=2$ for the state $\ket{j,m} = \ket{2,m}$ with $m = -2, -1, 0, 1, 2$. 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/graphical_angular_momentum.png}
+    \caption{Graphical representation of the angular momentum $j = 2$ for the state $\ket{j,m} = \ket{2,m}$ with $m = -2, -1, 0, 1, 2$. The radius of the circle is $\hbar\sqrt{j(j+1)} = \hbar \sqrt{6}$.}
+    \label{fig:angular_momentum_diagram}
+\end{figure}
+
+In the classical sense, we can think of $\vec{J}\,^2$ as a vector whose endpoint lies on a sphere of radius $\hbar\sqrt{j(j+1)}$, rotating about the $z$-axis along the surface of a cone, and whose projection on the $z$-axis has length $\hbar m$. The angle $\theta$ between the $z$-axis and the vector $\vec{J}\,^2$ is given by:
+\begin{equation}
+    \cos\theta = \frac{\braket{J_z}}{\braket{\vec{J}\,}} = \frac{\hbar m}{\hbar\sqrt{j(j+1)}} = \frac{m}{\sqrt{j(j+1)}}
+\end{equation}
+Notice that, as the values of the quantum number $m$ are limited to $-j, -(j-1), ..., j-1, j$, the angle $\theta$ is also limited to a discrete set of $2j+1$ values.
+
+Since all the orientations of $\vec{J}\,^2$ on the surface of the cone are equaly likely, the projection of $\vec{J}\,^2$ on both the $x$-axes and $y$-axes averages out to zero. This can also be demostrated mathematically by calculating the expected values of $J_x$ and $J_y$ using \textbf{Equation \ref{eq:jx_and_jy_in_terms_of_jp_and_jm}}:
+\begin{equation}
+    \begin{split}
+        \braket{J_x} &= \braket{j,m|J_x|j,m} = \frac12\braket{j,m|(J_+ + J_-)|j,m} = \frac12\braket{j,m|J_+|j,m} + \frac12\braket{j,m|J_-|j,m} = \\
+        &= \frac{\hbar}{2}\sqrt{j(j+1)-m(m+1)}\braket{j,m|j,m+1} + \frac{\hbar}{2}\sqrt{j(j+1)-m(m-1)}\braket{j,m|j,m-1} = 0
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \braket{J_y} &= \braket{j,m|J_y|j,m} = \frac{1}{2i}\braket{j,m|(J_+ - J_-)|j,m} = \frac{1}{2i}\braket{j,m|J_+|j,m} - \frac{1}{2i}\braket{j,m|J_-|j,m} = \\
+        &= \frac{\hbar}{2i}\sqrt{j(j+1)-m(m+1)}\braket{j,m|j,m+1} - \frac{\hbar}{2i}\sqrt{j(j+1)-m(m-1)}\braket{j,m|j,m-1} = 0
+    \end{split}
 \end{equation}
