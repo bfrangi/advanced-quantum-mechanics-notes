@@ -70,7 +70,9 @@ The commutation relations for the orbital angular momentum operators are:
 
 \subsection{General formalism of angular momentum}
 
-We have just defined the orbital angular momentum. However there exists a more general formalism of angular momentum, which is the \textit{total} angular momentum. Its corresponding operator is $\vec{J}$, defined by its three components that satisfy:
+We have just defined the orbital angular momentum. However there exists a more general formalism of angular momentum, which is the \textit{total} angular momentum. Its corresponding operator is $\vec{J}$. In the case that the only contribution to the \textit{total} angular momentum is the \textit{orbital} angular momentum, then $\vec{J} = \vec{L}$. Thus, all we will see in this section can be identically applied to orbital angular momentum\footnote{In general, the total angular momentum is the sum of the \textit{orbital} angular momentum and the \textit{spin} angular momentum. The spin angular momentum is a purely quantum mechanical phenomenon, which we will discuss in \textbf{Section \ref{spin}}.}.
+
+$\vec{J}\,^2$ is defined by its three components that satisfy:
 \begin{equation} \label{eq:commutation_relations_angular_momentum}
     \begin{split}
         [J_x, J_y] &= i\hbar J_z \\
@@ -367,7 +369,7 @@ We can also rewrite the $L_\pm$ and $L^2$ operators in spherical coordinates:
     \end{split}
 \end{equation}
 
-Then, the original eigenproblem:
+Then, the original eigenproblem for a spinless particle can be written as:
 \begin{equation}
     \begin{split}
         \vec{L}\,^2\ket{l,m} &= \hbar^2l(l+1)\ket{l,m} \\
@@ -411,3 +413,74 @@ Also, the complex conjugate of a spherical harmonic is given by:
 \begin{equation}
     \left[Y_l^{m}(\theta, \phi)\right]^* = (-1)^mY_l^{-m}(\theta, \phi)
 \end{equation}
+
+\subsection{Spin angular momentum} \label{spin}
+
+Spin angular momentum is one of the most fundamental properties of an electron and other elementary particles, despite the fact that it has no classical analogue, in contrast to orbital angular momentum. Its existence was discovered in 1922 by Stern and Gerlach, who observed that a beam of ground-state silver atoms, which have no orbital angular momentum, split in two when passing through a non-uniform magnetic field. This unexpected result led them to postulate the existence of a new angular momentum phenomenon different from orbital angular momentum, and they called it \textbf{spin}.
+
+The theory of spin is identical to the general theory of angular momentum. By analogy with the vector $\vec{J}$, the spin is also represented by a vector operator $\vec{S}$ whose components $S_x$, $S_y$ and $S_z$ satisfy the commutation relations of angular momentum operators:
+\begin{equation}
+    [S_x, S_y] = i\hbar S_z, \qquad [S_y, S_z] = i\hbar S_x, \qquad [S_z, S_x] = i\hbar S_y
+\end{equation}
+
+In addition, $\vec{S}\,^2$ and $S_z$ commute; hence they have common eigenvectors. $\vec{S}\,^2$ and $S_z$ both act in the \textbf{spin state space}, $\varepsilon_s$, where they form a CSCO:
+\begin{equation}
+    \vec{S}\,^2 \ket{s, m_s} = \hbar^2s(s+1)\ket{s, m_s}, \qquad S_z \ket{s, m_s} = \hbar m_s\ket{s, m_s}
+\end{equation}
+
+where $m_s = -s, -(s-1), ..., s-1, s$ and $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$. Similarly, we have:
+\begin{equation}
+    S_\pm \ket{s, m_s} = \hbar \sqrt{s(s+1)-m_s(m_s\pm 1)}\ket{s, m_s\pm 1}
+\end{equation}
+where $S_\pm = S_x \pm iS_y$, and:
+\begin{equation}
+    \braket{S_x^2} = \braket{S_y^2} = \frac{\hbar^2}{2}\left[s(s+1) - m_s^2\right]
+\end{equation}
+
+The spin states form an orthonormal and complete basis:
+\begin{equation}
+    \braket{s', m_s'|s, m_s} = \delta_{s',s}\delta_{m_s',m_s} \qquad \sum_s\sum_{m_s=-s}^{s}\ket{s,m_s}\bra{s,m_s} = \Imat
+\end{equation}
+
+Note that the spin angular momentum is an \textbf{intrinsic property of the particle}. It has nothing to do with motion of the particle in space. All angular momentum related to the spatial dependence of the wave function is included in $\vec{L}$. Therefore, spin angular momentum cannot be described by any function of the position variables. 
+
+Every elementary particle has a \textit{specific} and \textit{immutable} value of $s$. For example, the electron has $s = 1/2$, the photon has $s = 1$, the proton has $s = 1/2$, the neutron has $s = 1/2$, etc. The value of $s$ is called the \textbf{spin quantum number}.
+
+\subsubsection{Quantum description of spin}
+
+Until now, we have studied the quantization of \textit{orbital variables}. With the position $\vec{r}$ and the momentum $\vec{p}$ of a particle such as the electron, we associated the observables $\vec{R}$ and $\vec{P}$ acting in the state space $\varepsilon_{\vec{r}}$, which is isomorphic to the space $\F$ of wave functions. All physical quantities are functions of the fundamental variables $\vec{r}$ and $\vec{p}$, and the quantization rules enable us to associate with them observables acting in $\vec{r}$. We shall call $\varepsilon_{\vec{r}}$ the \textit{orbital state space}.
+
+To these \textit{orbital variables} we have studied up until now, we will add the \textit{spin variables}, which satisfy the following postulates:
+
+\begin{postulate}
+    \textbf{The spin operator:} The spin operator $\vec{S}$ is an angular momentum vector operator whose components $S_x$, $S_y$ and $S_z$ satisfy the commutation relations of angular momentum operators:
+    \begin{equation}
+        [S_x, S_y] = i\hbar S_z, \qquad [S_y, S_z] = i\hbar S_x, \qquad [S_z, S_x] = i\hbar S_y
+    \end{equation}
+\end{postulate}
+
+\begin{postulate}
+    \textbf{Spin state space:} The spin operators act in a new space, the ``spin state space'' $\varepsilon_s$, where $\vec{S}\,^2$ and $S_z$ constitute a CSCO. The space $\varepsilon_s$ is thus spanned by the set of eigenstates $\ket{s,m_s}$ common to $\vec{S}\,^2$ and $S_z$:
+    \begin{equation}
+        \vec{S}\,^2 \ket{s, m_s} = \hbar^2s(s+1)\ket{s, m_s}, \qquad S_z \ket{s, m_s} = \hbar m_s\ket{s, m_s}
+    \end{equation}
+    where $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$ and $m_s = -s, -(s-1), ..., s-1, s$. A given particle is characterized by a unique value of $s$: this particle is said to have a spin $s$. The spin state space $\varepsilon_s$ is therefore always of finite dimension $(2s + 1)$, and all spin states are eigenvectors of $\vec{S}\,^2$ with the same eigenvalue $s(s + 1)\hbar^2$.
+    
+    % Similarly, we have:
+
+    % \begin{equation}
+    %     S_\pm \ket{s, m_s} = \hbar \sqrt{s(s+1)-m_s(m_s\pm 1)}\ket{s, m_s\pm 1}
+    % \end{equation}
+    % where $S_\pm = S_x \pm iS_y$, and:
+    % \begin{equation}
+    %     \braket{S_x^2} = \braket{S_y^2} = \frac{\hbar^2}{2}\left[s(s+1) - m_s^2\right]
+    % \end{equation}
+\end{postulate}
+
+\begin{postulate}
+    \textbf{The state space:} The state space $\varepsilon$ of a particle is the tensor product of the orbital state space $\varepsilon_{\vec{r}}$ and the spin state space $\varepsilon_s$:
+    \begin{equation}
+        \varepsilon = \varepsilon_{\vec{r}} \otimes \varepsilon_s
+    \end{equation}
+\end{postulate}
+

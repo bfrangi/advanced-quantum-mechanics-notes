@@ -656,6 +656,131 @@ With this, and the fact that the three degrees of freedom are independent, we ar
 
 It is important to note that, even though the particular expression of an operator in different representations may vary, the commutation relations for operators are representation independent\footnote{\color{red} Add proof}.
 
+\subsection{Tensor product of two vector spaces}
+
+Up to this point, we have always talked about the wave functions of a single particle. However, even in that case, one can consider a one-dimensional, two-dimensional or even three-dimensional wave function. It is clear that the particularisation of the general state space $\F$ is not the same for functions of one variables (we will call the 1D state space $\varepsilon_x$) as for functions of three variables (we will call the 3D state space, $\varepsilon_{\vec{r}}$). $\varepsilon_{\vec{r}}$ and $\varepsilon_x$ are therefore different spaces. Nevertheless, $\varepsilon_{\vec{r}}$ appears to be essentially a generalization of $\varepsilon_x$. Does there exist a more precise relation between these two spaces?
+
+In this section, we are going to define and study the operation of taking the tensor product of vector spaces, and apply it to state spaces. This will answer, in particular, the question we have just asked: $\varepsilon_{\vec{r}}$ can be constructed from $\varepsilon_x$ and another two spaces, $\varepsilon_y$ and $\varepsilon_z$, which are isomorphic to it\footnote{\color{red}clarify what this means}. 
+
+We give the following definition of the tensor product of two vector spaces:
+
+\begin{definition}
+    Let $\varepsilon_1$ and $\varepsilon_2$ be two\footnote{This definition can easily be extended to a finite number of vector spaces.} vector spaces, of (finite or infinite) dimension $N_1$ and $N_2$, respectively. Let vectors and operators belonging to $\varepsilon_1$ and $\varepsilon_2$ be denoted by an index $(1)$ or $(2)$, respectively. The vector space $\varepsilon = \varepsilon_1 \otimes \varepsilon_2$ is called the \textit{tensor product of} $\varepsilon_1$ \textit{and} if there is associated with each pair of vectors, $\ket{\psi(1)}$ belonging to $\varepsilon_1$ and $\ket{\psi(2)}$ belonging to $\varepsilon_2$, a vector belonging to $\varepsilon$, denoted by\footnote{This vector can be written as $\ket{\psi(1)}\otimes\ket{\psi(2)}$ or $\ket{\psi(2)}\otimes\ket{\psi(1)}$; the order is of no importance.}:
+    \begin{equation}
+        \ket{\psi(1)}\otimes\ket{\psi(2)} = \ket{\psi(1)\psi(2)} 
+    \end{equation}
+    which is called the tensor product of $\ket{\psi(1)}$ and $\ket{\psi(2)}$, and which satisfies the following conditions:
+    \begin{itemize}
+        \item It is \textit{linear} with respect to multiplication by complex numbers:
+        \begin{equation}
+            \alpha\left[\ket{\psi(1)}\otimes\ket{\psi(2)}\right] = \left[\alpha\ket{\psi(1)}\right]\otimes\ket{\psi(2)} = \ket{\psi(1)}\otimes(\alpha\ket{\psi(2)})
+        \end{equation}
+        \item It is \textit{distributive} with respect to vector addition:
+        \begin{equation}
+            \begin{split}
+                \ket{\psi(1)}\otimes \left[\ket{\chi_1(2)} + \ket{\chi_2(2)}\right] &= \ket{\psi(1)}\otimes\ket{\chi_1(2)} + \ket{\psi(1)}\otimes\ket{\chi_2(2)}\\
+                \left[\ket{\psi_1(1)} + \ket{\psi_2(1)}\right]\otimes\ket{\chi(2)} &= \ket{\psi_1(1)}\otimes\ket{\chi(2)} + \ket{\psi_2(1)}\otimes\ket{\chi(2)}   
+            \end{split}
+        \end{equation}
+        \item When a basis has been chosen for $\varepsilon_1$, $\{u_i(1)\}$, and for $\varepsilon_2$, $\{u_j(2)\}$, the set of vectors $\ket{u_i(1)}\otimes\ket{v_l(2)}$ constitutes a basis in $\varepsilon$. If $N_1$ and $N_2$ are finite, the dimensions of $\varepsilon$ is $N_1N_2$.
+    \end{itemize}
+\end{definition}
+
+\subsection{Vectors in the tensor product space}
+
+Let us consider a tensor product $\varepsilon = \varepsilon_1\otimes\varepsilon_2$. Let us also consider a vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ in $\varepsilon$. Whatever $\ket{\psi(1)}$ and $\ket{\chi(2)}$ may be, they can be expressed in the basis of their respective spaces, $\{\ket{u_i(1)}\}$ and $\{\ket{v_l(2)}\}$, as:
+\begin{equation}
+    \ket{\psi(1)} = \sum_i a_i\ket{u_i(1)}, \qquad \ket{\chi(2)} = \sum_l b_l\ket{v_l(2)}
+\end{equation}
+The expansion of the vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ in the basis $\{\ket{u_i(1)}\otimes \ket{v_l(2)}\}$ of $\varepsilon$ is then given by:
+\begin{equation} \label{tensor_product_vector}
+    \ket{\psi(1)}\otimes\ket{\chi(2)} = \sum_{i,l} a_ib_l\ket{u_i(1)}\otimes\ket{v_l(2)}
+\end{equation}
+
+Therefore, we obtain the following result:
+\begin{definition}
+    The components of a tensor product vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ are the products of the components of the two vectors of the product $\ket{\psi(1)}$ and $\ket{\chi(2)}$.
+\end{definition}
+
+Note that a general vector in the tensor product space $\varepsilon$ can be written as:
+\begin{equation} \label{general_tensor_product_vector}
+    \ket{\psi} = \sum_{i,l} c_{i,l}\ket{u_i(1)}\otimes\ket{v_l(2)}
+\end{equation}
+
+
+Thus, by comparing this expression with \textbf{Equation \ref{tensor_product_vector}}, we can see that there exist vectors in $\varepsilon$ that cannot be written as a tensor product of two vectors belonging to $\varepsilon_1$ and $\varepsilon_2$. This is because, in general, there are many cases where $c_{i,j}$ cannot be written as a product of two numbers $a_i$ and $b_j$. However, any arbitrary vector of $\varepsilon$ can always be decomposed into a \textit{linear combination} of tensor product vectors belonging to $\varepsilon_1$ and $\varepsilon_2$.
+
+\subsection{Scalar product in the tensor product space}
+
+The existence of the scalar product in $\varepsilon_1$ and $\varepsilon_2$ allows us to define one in $\varepsilon$ too.
+
+\begin{definition}
+    The scalar product of $\ket{\psi(1)\chi(2)} = \ket{\psi(1)}\otimes\ket{\chi(2)}$ and $\ket{\psi'(1)\chi'(2)} = \ket{\psi'(1)}\otimes\ket{\chi'(2)}$ is defined as:
+    \begin{equation}
+        \braket{\psi'(1)\chi'(2)|\psi(1)\chi(2)} = \braket{\psi'(1)|\psi(1)}\braket{\chi'(2)|\chi(2)}
+    \end{equation}
+    Notice, in particular, that the basis $\{\ket{u_i(1)v_l(2)} = \ket{u_i(1)}\otimes\ket{v_l(2)}\}$ of $\varepsilon$ is orthonormal if each of the bases of $\varepsilon_1$ and $\varepsilon_2$ is orthonormal:
+    \begin{equation}
+        \braket{u_{i'}(1)v_{l'}(2)|u_i(1)v_l(2)} = \braket{u_{i'}(1)|u_{i}(1)}\braket{v_{l'}(2)|v_l(2)} = \delta_{ii'}\delta_{ll'}
+    \end{equation}
+\end{definition}
+
+\subsection{Tensor product of operators}
+
+We define operators inside the tensor product space in the following way:
+
+\begin{definition} \label{tensor_product_operator}
+    Consider a linear operator $A(1)$ defined in $\varepsilon_1$. We associate it with a linear operator $\tilde{A}(1)$ defined in $\varepsilon$, which we call the extension of $A(1)$ in $\varepsilon$, and which is characterized in the following way: when $\tilde{A}(1)$ acts on a vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ of $\varepsilon$, one obtains, by definition:
+    \begin{equation}
+        \tilde{A}(1)\left[\ket{\psi(1)}\otimes\ket{\chi(2)}\right] = \left[A(1)\ket{\psi(1)}\right]\otimes\ket{\chi(2)}
+    \end{equation}
+    We obtain an analogous definition for an operator $\tilde{B}(2)$ initially defined in $\varepsilon_2$:
+    \begin{equation}
+        \tilde{B}(2)\left[\ket{\psi(1)}\otimes\ket{\chi(2)}\right] = \ket{\psi(1)}\otimes\left[B(2)\ket{\chi(2)}\right]
+    \end{equation}
+\end{definition}
+Then, the action of $\tilde{A}(1)$ on an arbitrary vector of $\varepsilon$ is given by:
+\begin{equation}
+    \tilde{A}(1)\ket{\psi} = \tilde{A}(1)\left(\sum_{i,l} c_{i,l}\ket{u_i(1)}\otimes\ket{v_l(2)}\right) = \sum_{i,l} c_{i,l}\left[A(1)\ket{u_i(1)}\right]\otimes\ket{v_l(2)}
+\end{equation}
+and the action of $\tilde{B}(2)$ is given by:
+\begin{equation}
+    \tilde{B}(2)\ket{\psi} = \tilde{B}(2)\left(\sum_{i,l} c_{i,l}\ket{u_i(1)}\otimes\ket{v_l(2)}\right) = \sum_{i,l} c_{i,l}\ket{u_i(1)}\otimes\left[B(2)\ket{v_l(2)}\right]
+\end{equation}
+
+Therefore, we obtain:
+\begin{definition} \label{tensor_product_operator_2}
+    Let $A(1)$ and $B(2)$ be two linear operators acting, respectively, in $\varepsilon_1$ and $\varepsilon_2$. Their tensor product $A(1)\otimes B(2)$ is the linear operator acting in $\varepsilon$, defined by the following relation which describes its action on the tensor product vectors:
+    \begin{equation}
+        \left[A(1)\otimes B(2)\right]\left[\ket{\psi(1)}\otimes\ket{\chi(2)}\right] = \left[A(1)\ket{\psi(1)}\right]\otimes\left[B(2)\ket{\chi(2)}\right]
+    \end{equation}
+\end{definition}
+
+\textbf{Comment on extension of operators:} The extensions of operators are special cases of tensor products. If $\Imat(1)$ and $\Imat(2)$ are the identity operators in $\varepsilon_1$ and $\varepsilon_2$, respectively, then:
+\begin{equation}
+    \begin{split}
+        \tilde{A}(1) &= A(1)\otimes \Imat(2)\\
+        \tilde{B}(2) &= \Imat(1)\otimes B(2)
+    \end{split}
+\end{equation}
+By combining these expressions with \textbf{Definition \ref{tensor_product_operator_2}}, it is now very easy to deduce the expressions in \textbf{Definition \ref{tensor_product_operator}}.
+
+It is also easy to show that any pair of such operators commute in $\varepsilon$, by looking at the action of $\tilde{A}(1)\tilde{B}(2)$ and $\tilde{B}(2)\tilde{A}(1)$ on an arbitrary vector of the basis of $\varepsilon$:
+\begin{equation}
+    \left.
+        \begin{split}
+            \tilde{A}(1)\tilde{B}(2)\ket{u_i(1)}\otimes\ket{v_l(2)} &= \tilde{A}(1)\left[\ket{u_i(1)}\otimes\left[B(2)\ket{v_l(2)}\right]\right] =\\
+            &= \left[A(1)\ket{u_i(1)}\right]\otimes\left[B(2)\ket{v_l(2)}\right] \\
+            \tilde{B}(2)\tilde{A}(1)\ket{u_i(1)}\otimes\ket{v_l(2)} &= \tilde{B}(2)\left[\left[A(1)\ket{u_i(1)}\right]\otimes\ket{v_l(2)}\right] =\\
+            &= \left[A(1)\ket{u_i(1)}\right]\otimes\left[B(2)\ket{v_l(2)}\right]
+        \end{split}
+    \ \right\} \longrightarrow \tilde{A}(1)\tilde{B}(2) = \tilde{B}(2)\tilde{A}(1)
+\end{equation}
+
+As the result of the action of both operator products on the basis vectors is the same, the operators commute:
+\begin{equation}
+    [\tilde{A}(1), \tilde{B}(2)] = 0
+\end{equation}
 
 % NOTES: 
 
