@@ -649,7 +649,7 @@ We can also check that, crossing different components:
     [X, P_y] = [X, P_z] = [Y, P_x] = [Y, P_z] = [Z, P_x] = [Z, P_y] = 0
 \end{equation}
 
-With this, and the fact that the three degrees of freedom are independent, we arrive at the \textbf{canonical commutation relations}:
+With this, and the fact that the three degrees of freedom are independent\footnote{See the \textbf{Comment on the three-dimensional state space} in \textbf{Section \ref{tensor_product_of_operators}}.}, we arrive at the \textbf{canonical commutation relations}\footnote{For simplicity of notation, we use $X_x= X$, $X_y=Y$ and $X_z=Z$.}:
 \begin{equation}
     [X_j, P_k] = i\hbar \delta_{jk}, \quad [X_j, X_k] = [P_j, P_k] = 0, \quad j,k = x,y,z
 \end{equation}
@@ -665,7 +665,7 @@ In this section, we are going to define and study the operation of taking the te
 We give the following definition of the tensor product of two vector spaces:
 
 \begin{definition}
-    Let $\varepsilon_1$ and $\varepsilon_2$ be two\footnote{This definition can easily be extended to a finite number of vector spaces.} vector spaces, of (finite or infinite) dimension $N_1$ and $N_2$, respectively. Let vectors and operators belonging to $\varepsilon_1$ and $\varepsilon_2$ be denoted by an index $(1)$ or $(2)$, respectively. The vector space $\varepsilon = \varepsilon_1 \otimes \varepsilon_2$ is called the \textit{tensor product of} $\varepsilon_1$ \textit{and} if there is associated with each pair of vectors, $\ket{\psi(1)}$ belonging to $\varepsilon_1$ and $\ket{\psi(2)}$ belonging to $\varepsilon_2$, a vector belonging to $\varepsilon$, denoted by\footnote{This vector can be written as $\ket{\psi(1)}\otimes\ket{\psi(2)}$ or $\ket{\psi(2)}\otimes\ket{\psi(1)}$; the order is of no importance.}:
+    Let $\varepsilon_1$ and $\varepsilon_2$ be two\footnote{This definition can easily be extended to a finite number of vector spaces.} vector spaces, of (finite or infinite) dimension $N_1$ and $N_2$, respectively. Let vectors and operators belonging to $\varepsilon_1$ and $\varepsilon_2$ be denoted by an index $(1)$ or $(2)$, respectively. The vector space $\varepsilon = \varepsilon_1 \otimes \varepsilon_2$ is called the \textit{tensor product of} $\varepsilon_1$ \textit{and} $\varepsilon_2$ if there is associated with each pair of vectors, $\ket{\psi(1)}$ belonging to $\varepsilon_1$ and $\ket{\psi(2)}$ belonging to $\varepsilon_2$, a vector belonging to $\varepsilon$, denoted by\footnote{This vector can be written as $\ket{\psi(1)}\otimes\ket{\psi(2)}$ or $\ket{\psi(2)}\otimes\ket{\psi(1)}$; the order is of no importance.}:
     \begin{equation}
         \ket{\psi(1)}\otimes\ket{\psi(2)} = \ket{\psi(1)\psi(2)} 
     \end{equation}
@@ -725,7 +725,7 @@ The existence of the scalar product in $\varepsilon_1$ and $\varepsilon_2$ allow
     \end{equation}
 \end{definition}
 
-\subsection{Tensor product of operators}
+\subsection{Tensor product of operators} \label{tensor_product_of_operators}
 
 We define operators inside the tensor product space in the following way:
 
@@ -756,7 +756,9 @@ Therefore, we obtain:
     \end{equation}
 \end{definition}
 
-\textbf{Comment on extension of operators:} The extensions of operators are special cases of tensor products. If $\Imat(1)$ and $\Imat(2)$ are the identity operators in $\varepsilon_1$ and $\varepsilon_2$, respectively, then:
+\textbf{Comment on extension of operators} 
+
+The extensions of operators are special cases of tensor products. If $\Imat(1)$ and $\Imat(2)$ are the identity operators in $\varepsilon_1$ and $\varepsilon_2$, respectively, then:
 \begin{equation}
     \begin{split}
         \tilde{A}(1) &= A(1)\otimes \Imat(2)\\
@@ -781,6 +783,48 @@ As the result of the action of both operator products on the basis vectors is th
 \begin{equation}
     [\tilde{A}(1), \tilde{B}(2)] = 0
 \end{equation}
+
+\textbf{Comment on the three-dimensional state space}
+
+Going back to what we said earlier about the state space $\varepsilon_{\vec{r}}$ being a generalization of $\varepsilon_x$, we can now see that this is true. In fact, we can write:
+\begin{equation}
+    \varepsilon_{\vec{r}} = \varepsilon_x \otimes \varepsilon_y \otimes \varepsilon_z
+\end{equation}
+which means that every vector in $\varepsilon_{\vec{r}}$ is the tensor product of three vectors: one in each of those three spaces. We can simplify the notation by writing:
+\begin{equation}
+    \ket{x, y, z} = \ket{x}\otimes\ket{y}\otimes\ket{z}
+\end{equation}
+
+Then, we can also see that the operators $X$, $Y$ and $Z$ can actually be extended in $\varepsilon_{\vec{r}}$ as:
+\begin{equation} \label{extension_operators_XYZ}
+    \tilde X = X\otimes\Imat\otimes\Imat, \qquad \tilde Y = \Imat\otimes Y\otimes\Imat, \qquad \tilde Z = \Imat\otimes\Imat\otimes Z
+\end{equation}
+We usually forget the tilde when we are working in $\varepsilon_{\vec{r}}$, and write directly $X$, $Y$ and $Z$, for simplicity, but in order to understand fully what we are doing, we must remember the expressions in \textbf{Equation \ref{extension_operators_XYZ}}. These give us new insight into the nature of these operators. $X$, $Y$ and $Z$ commute because, as we can clearly see from these results, they actually act independently on different state spaces.
+
+In fact, as we proved in the previous \textit{comment on extension of operators}, any pair of operators $\tilde A(1)$ and $\tilde B(2)$ in $\varepsilon$, that originally come from their respective operators $A(1)$ and $B(2)$ acting on different spaces $\varepsilon_1$ and $\varepsilon_2$, commute in $\varepsilon = \varepsilon_1\otimes \varepsilon_2$. If we look back at \textbf{Theorem \ref{commuting_operator_base_thm}}, we can provide further proof of this commutation relation between $\tilde A(1)$ and $\tilde B(2)$ by showing that they always have common eigenvectors: let $\ket{\psi_n(1)}$ be an eigenvector of $A(1)$ in $\varepsilon_1$ and $\ket{\chi_n(2)}$ an eigenvector of $B(2)$ in $\varepsilon_2$, with eigenvalues $\lambda_n(1)$ and $\lambda_n(2)$ respectively. Then:
+\begin{equation}
+    \begin{split}
+        \tilde A(1)\left[\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}\right] &= \left[A(1)\ket{\psi_n(1)}\right]\otimes\ket{\chi_n(2)} =\\
+        &= \left[\lambda_n(1)\ket{\psi_n(1)}\right]\otimes\ket{\chi_n(2)} = \\
+        &= \lambda_n(1)\left[\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}\right]
+    \end{split}
+\end{equation}
+
+so that $\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}$ is an eigenvector of $\tilde A(1)$ with eigenvalue $\lambda_n(1)$. But we can also find the same relation for $\tilde B(2)$:
+
+\begin{equation}
+    \begin{split}
+        \tilde B(2)\left[\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}\right] &= \ket{\psi_n(1)}\otimes\left[B(2)\ket{\chi_n(2)}\right] =\\
+        &= \ket{\psi_n(1)}\otimes\left[\lambda_n(2)\ket{\chi_n(2)}\right] = \\
+        &= \lambda_n(2)\left[\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}\right]
+    \end{split}
+\end{equation}
+
+so that $\ket{\psi_n(1)}\otimes\ket{\chi_n(2)}$ is also an eigenvector of $\tilde B(2)$ with eigenvalue $\lambda_n(2)$. Thus, $\tilde A(1)$ and $\tilde B(2)$ have common eigenvectors, and therefore commute.
+
+\textit{Note:} this does \textit{not} mean that any pair of commuting operators, which have common eigenvectors, can be extended in a tensor product space. For example, as we will see in coming sections, the operators $\vec{L}\,^2$ and $L_z$ commute, and have common eigenvectors, but they cannot be extended in a separate tensor product space, because they both act on the same space $\varepsilon_{\vec{r}}$.
+
+
 
 % NOTES: 
 
