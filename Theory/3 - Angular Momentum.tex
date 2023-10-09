@@ -270,7 +270,7 @@ So, we now have the raising and lowering operators completely defined:
         J_\pm = J_x \pm iJ_y
     \end{equation}
     Their action on a ket $\ket{j,m}$ raises or lowers the second quantum number $m$ by one unit, respectively:
-    \begin{equation}
+    \begin{equation} \label{eq:raising_and_lowering_operators_J}
         J_\pm\ket{j,m} = \hbar \sqrt{j(j+1)-m(m\pm1)}\ket{j,m\pm 1}
     \end{equation}
 \end{definition}
@@ -416,35 +416,25 @@ Also, the complex conjugate of a spherical harmonic is given by:
 
 \subsection{Spin angular momentum} \label{spin}
 
-Spin angular momentum is one of the most fundamental properties of an electron and other elementary particles, despite the fact that it has no classical analogue, in contrast to orbital angular momentum. Its existence was discovered in 1922 by Stern and Gerlach, who observed that a beam of ground-state silver atoms, which have no orbital angular momentum, split in two when passing through a non-uniform magnetic field. This unexpected result led them to postulate the existence of a new angular momentum phenomenon different from orbital angular momentum, and they called it \textbf{spin}.
+Spin angular momentum is one of the most fundamental properties of an electron and other elementary particles, despite the fact that it has no classical analogue, in contrast to orbital angular momentum. Its existence was discovered in 1922 by Stern and Gerlach, who observed that a beam of ground-state silver atoms, which have no orbital angular momentum, split in two when passing through a non-uniform magnetic field. This unexpected result, caused by the spin angular momentum of the $5s$ valence electron, led them to postulate the existence of a new angular momentum phenomenon different from orbital angular momentum, and they called it \textbf{spin}. The theory of spin is identical to the general theory of angular momentum and, by analogy with the vector $\vec{J}$, the spin is also represented by a vector operator $\vec{S}$.
 
-The theory of spin is identical to the general theory of angular momentum. By analogy with the vector $\vec{J}$, the spin is also represented by a vector operator $\vec{S}$ whose components $S_x$, $S_y$ and $S_z$ satisfy the commutation relations of angular momentum operators:
+From the classical theory of electromagnetism, an orbital magnetic dipole moment is generated with the orbital motion of a particle of charge $q$:
 \begin{equation}
-    [S_x, S_y] = i\hbar S_z, \qquad [S_y, S_z] = i\hbar S_x, \qquad [S_z, S_x] = i\hbar S_y
+    \vec{\mu}_L = \frac{q}{2mc}\vec{L}
+\end{equation}
+where $\vec{L}$ is the orbital angular momentum of the particle, $m$ its mass, and $c$ the speed of light. Similarly, if we follow a classical analysis, we can define the \textbf{spin magnetic dipole moment} of a particle as:
+\begin{equation} \label{spin_magnetic_dipole_moment_pre}
+    \vec{\mu}_S = \frac{q}{2mc}\vec{S}
 \end{equation}
 
-In addition, $\vec{S}\,^2$ and $S_z$ commute; hence they have common eigenvectors. $\vec{S}\,^2$ and $S_z$ both act in the \textbf{spin state space}, $\varepsilon_s$, where they form a CSCO:
+Although this expression cannot be derived classically, as there is no classical equivalent of spin, it can still be postulated by analogy to the orbital magnetic dipole moment. However, there is one correction that we need to make to \textbf{Equation \ref{spin_magnetic_dipole_moment_pre}}: it turns out that, for the electron, the orbital magnetic dipole moment is actually twice its classical expression. For other particles, this ratio, which we call gyromagnetic ratio (or Landé factor) $g_s$, can vary. Taking this effect into account, we obtain\footnote{The ratio $g_s$ can be obtained using Dirac's relativistic quantum theory.}:
 \begin{equation}
-    \vec{S}\,^2 \ket{s, m_s} = \hbar^2s(s+1)\ket{s, m_s}, \qquad S_z \ket{s, m_s} = \hbar m_s\ket{s, m_s}
+    \vec{\mu}_S = g_s\frac{q}{2mc}\vec{S}
 \end{equation}
 
-where $m_s = -s, -(s-1), ..., s-1, s$ and $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$. Similarly, we have:
-\begin{equation}
-    S_\pm \ket{s, m_s} = \hbar \sqrt{s(s+1)-m_s(m_s\pm 1)}\ket{s, m_s\pm 1}
-\end{equation}
-where $S_\pm = S_x \pm iS_y$, and:
-\begin{equation}
-    \braket{S_x^2} = \braket{S_y^2} = \frac{\hbar^2}{2}\left[s(s+1) - m_s^2\right]
-\end{equation}
+When the electron is placed in a magnetic field $\vec{B}$ and if the field is inhomogeneous, a force will be exerted on the electron's intrinsic dipole moment; the direction and magnitude of the force depend on the relative orientation of the field and the dipole. This force tends to align $\vec{\mu}_S$  along $\vec{b}$, producing a precessional motion of $\vec{\mu}_S$ around $\vec{b}$.
 
-The spin states form an orthonormal and complete basis:
-\begin{equation}
-    \braket{s', m_s'|s, m_s} = \delta_{s',s}\delta_{m_s',m_s} \qquad \sum_s\sum_{m_s=-s}^{s}\ket{s,m_s}\bra{s,m_s} = \Imat
-\end{equation}
 
-Note that the spin angular momentum is an \textbf{intrinsic property of the particle}. It has nothing to do with motion of the particle in space. All angular momentum related to the spatial dependence of the wave function is included in $\vec{L}$. Therefore, spin angular momentum cannot be described by any function of the position variables. 
-
-Every elementary particle has a \textit{specific} and \textit{immutable} value of $s$. For example, the electron has $s = 1/2$, the photon has $s = 1$, the proton has $s = 1/2$, the neutron has $s = 1/2$, etc. The value of $s$ is called the \textbf{spin quantum number}.
 
 \subsubsection{Quantum description of spin}
 
@@ -464,24 +454,176 @@ To these \textit{orbital variables} we have studied up until now, we will add th
     \begin{equation}
         \vec{S}\,^2 \ket{s, m_s} = \hbar^2s(s+1)\ket{s, m_s}, \qquad S_z \ket{s, m_s} = \hbar m_s\ket{s, m_s}
     \end{equation}
-    where $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$ and $m_s = -s, -(s-1), ..., s-1, s$. A given particle is characterized by a unique value of $s$: this particle is said to have a spin $s$. The spin state space $\varepsilon_s$ is therefore always of finite dimension $(2s + 1)$, and all spin states are eigenvectors of $\vec{S}\,^2$ with the same eigenvalue $s(s + 1)\hbar^2$.
+    where $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$ and $m_s = -s, -(s-1), ..., s-1, s$. A given particle is characterized by a \textit{unique}, \textit{specific} and \textit{immutable} value\footnote{For example, the electron has $s = 1/2$, the photon has $s = 1$, the proton has $s = 1/2$, the neutron has $s = 1/2$, etc. The value of $s$ is called the \textbf{spin quantum number}.} of $s$: this particle is said to have a spin $s$. The spin state space $\varepsilon_s$ is therefore always of finite dimension $(2s + 1)$, and all spin states are eigenvectors of $\vec{S}\,^2$ with the same eigenvalue $s(s + 1)\hbar^2$.
     
-    % Similarly, we have:
+    Similarly, we have:
 
-    % \begin{equation}
-    %     S_\pm \ket{s, m_s} = \hbar \sqrt{s(s+1)-m_s(m_s\pm 1)}\ket{s, m_s\pm 1}
-    % \end{equation}
-    % where $S_\pm = S_x \pm iS_y$, and:
-    % \begin{equation}
-    %     \braket{S_x^2} = \braket{S_y^2} = \frac{\hbar^2}{2}\left[s(s+1) - m_s^2\right]
-    % \end{equation}
+    \begin{equation} \label{eq:spin_pm_ops}
+        S_\pm \ket{s, m_s} = \hbar \sqrt{s(s+1)-m_s(m_s\pm 1)}\ket{s, m_s\pm 1}
+    \end{equation}
+    where $S_\pm = S_x \pm iS_y$, and:
+    \begin{equation}
+        \braket{S_x^2} = \braket{S_y^2} = \frac{\hbar^2}{2}\left[s(s+1) - m_s^2\right]
+    \end{equation}
+
+    The spin states form an orthonormal and complete basis:
+    \begin{equation}
+        \braket{s', m_s'|s, m_s} = \delta_{s',s}\delta_{m_s',m_s} \qquad \sum_s\sum_{m_s=-s}^{s}\ket{s,m_s}\bra{s,m_s} = \Imat
+    \end{equation}
 \end{postulate}
 
-\begin{postulate}
+\begin{postulate} \label{postulate:tensor_product}
     \textbf{The state space:} The state space $\varepsilon$ of a particle is the tensor product of the orbital state space $\varepsilon_{\vec{r}}$ and the spin state space $\varepsilon_s$:
     \begin{equation}
         \varepsilon = \varepsilon_{\vec{r}} \otimes \varepsilon_s
     \end{equation}
 \end{postulate}
+
+Note that the spin angular momentum is an \textbf{intrinsic property of the particle}. It has nothing to do with motion of the particle in space. All angular momentum related to the spatial dependence of the wave function is included in $\vec{L}$. Therefore, spin angular momentum cannot be described by any function of the position variables. An important consequence of \textbf{Postulate \ref{postulate:tensor_product}} related to this is that all \textit{orbital observables} commute with all \textit{spin observables}, as they act on different state spaces. Spin operators act on the spin part and leave the spatial part unchanged, and vice versa. In other words, the spin of a particle and its orbital motion do not affect each other. 
+
+\subsubsection{Spin 1/2}
+
+In the case of a particle of spin $s=1/2$, the spin state $\varepsilon_s$ is two-dimensional, as we have two possible values of $m_s = \pm 1/2$. In this space, we will consider the orthonormal basis of eigenstates common to $\vec{S}\,^2$ and $S_z$:
+\begin{itemize}
+    \item For $s=1/2$ and $m_s=1/2$, we have $\ket{1/2, 1/2} = \ket{\uparrow}=\ket{+}$
+    \item For $s=1/2$ and $m_s=-1/2$, we have $\ket{1/2, -1/2} = \ket{\downarrow}=\ket{-}$
+\end{itemize}
+
+With this basis, we can write the eigenvaue equations from \textbf{Equation \ref{eigenstates_of_S2_and_Sz}} as:
+\begin{equation} \label{eq:spin_1/2_eigenstates}
+    \vec{S}\,^2\ket{\pm} =\frac{3}{4}\hbar^2\ket{\pm}, \qquad S_z\ket{\pm} = \pm\frac{1}{2}\hbar\ket{\pm}
+\end{equation}
+
+\textbf{Matrix representation}
+
+Note from \textbf{Equation \ref{eq:spin_1/2_eigenstates}} that \textit{all} kets of the basis of $\varepsilon_s$ are eigenvectors of $\vec{S}\,^2$ with the same eigenvalue $3\hbar^2/4$. This causes $\vec{S}\,^2$ to be proportional to the unity operator $\Imat$ of $\varepsilon_s$:
+\begin{equation}
+    \vec{S}\,^2 = \frac{3}{4}\hbar^2\Imat
+\end{equation}
+
+We can also see this by taking the matrix elements of $\vec{S}\,^2$ explicitly:
+\begin{equation}
+    \vec{S}\,^2 = \begin{pmatrix}
+        \braket{+|\vec{S}\,^2|+} & \braket{+|\vec{S}\,^2|-} \\
+        \braket{-|\vec{S}\,^2|+} & \braket{-|\vec{S}\,^2|-}
+    \end{pmatrix} = \begin{pmatrix}
+        \frac34\hbar^2\braket{+|+} & \frac34\hbar^2\braket{+|-} \\
+        \frac34\hbar^2\braket{-|+} & \frac34\hbar^2\braket{-|-}
+    \end{pmatrix} =\frac{3}{4}\hbar^2\begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix} = \frac{3}{4}\hbar^2\Imat
+\end{equation}
+
+The matrix of $S_z$ can also be obtained easily from the eigenvalue equation:
+\begin{equation}
+    S_z = \begin{pmatrix}
+        \braket{+|S_z|+} & \braket{+|S_z|-} \\
+        \braket{-|S_z|+} & \braket{-|S_z|-}
+    \end{pmatrix} = \begin{pmatrix}
+        \frac12\hbar\braket{+|+} & -\frac12\hbar\braket{+|-} \\
+        \frac12\hbar\braket{-|+} & -\frac12\hbar\braket{-|-}
+    \end{pmatrix} =\frac{\hbar}{2}\begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+\end{equation}
+
+From \textbf{Equation \ref{eq:spin_pm_ops}}, we can obtain:
+\begin{equation}
+    \begin{split}
+        S_+\ket{+} &= 0 \\
+        S_+\ket{-} &= \hbar \sqrt{\frac12\left(\frac12+1\right)-\left(-\frac12\right)\left(\left(-\frac12\right)+1\right)}\ket{+} = \hbar\ket{+} \\
+        S_-\ket{+} &= \hbar \sqrt{\frac12\left(\frac12+1\right)-\frac12\left(\frac12-1\right)}\ket{-} = \hbar\ket{-} \\
+        S_-\ket{-} &= 0
+    \end{split}
+\end{equation}
+
+Therefore, the matrices of $S_+$ and $S_-$ are:
+\begin{equation}
+    S_+ = \begin{pmatrix}
+        \braket{+|S_+|+} & \braket{+|S_+|-} \\
+        \braket{-|S_+|+} & \braket{-|S_+|-}
+    \end{pmatrix} = \begin{pmatrix}
+        0 & \hbar\braket{+|+} \\
+        0 & \hbar\braket{-|+}
+    \end{pmatrix} = \hbar\begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    S_- = \begin{pmatrix}
+        \braket{+|S_-|+} & \braket{+|S_-|-} \\
+        \braket{-|S_-|+} & \braket{-|S_-|-}
+    \end{pmatrix} = \begin{pmatrix}
+        \hbar\braket{+|-} & 0 \\
+        \hbar\braket{-|-} & 0
+    \end{pmatrix} = \hbar\begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix}
+\end{equation}
+
+And since $S_x = \frac12(S_+ + S_-)$ and $S_y = \frac{1}{2i}(S_+ - S_-)$, we can obtain the matrices of $S_x$ and $S_y$:
+\begin{equation}
+    S_x = \frac{\hbar}{2}\begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}, \qquad S_y = \frac{\hbar}{2}\begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
+\end{equation}
+
+We can express the joint eigenvectors of $\vec{S}\,^2$ and $S_z$ in terms of two-element column matrices known as \textit{spinnors}:
+\begin{equation}
+    \ket{+} = \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix}, \qquad \ket{-} = \begin{pmatrix}
+        0 \\
+        1
+    \end{pmatrix}
+\end{equation}
+
+Any vector in the state space $\varepsilon_s$ can be written as a linear combination of the basis vectors $\ket{\pm}$:
+\begin{equation}
+    \ket{\psi} = c_+\ket{+} + c_-\ket{-}
+\end{equation}
+where $c_\pm$ are complex numbers. We can also write $\ket{\psi}$ in the form:
+\begin{equation}
+    \ket{\psi} = \begin{pmatrix}
+        c_+ \\
+        c_-
+    \end{pmatrix}
+\end{equation}
+
+\textbf{Pauli matrices}
+
+When $s=1/2$, it is convenient to introduce the \textbf{Pauli matrices}, $\sigma_x$, $\sigma_y$ and $\sigma_z$, which are defined as:
+\begin{equation}
+    \vec{S} = \frac{\hbar}{2}\vec{\sigma}
+\end{equation}
+
+So that:
+\begin{equation}
+    \frac{\hbar}{2}\sqrt{S_x^2+S_y^2+S_z^2} = \sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\longrightarrow \sqrt{\left(\frac{\hbar}{2}S_x\right)^2+\left(\frac{\hbar}{2}S_y\right)^2+\left(\frac{\hbar}{2}S_z\right)^2} = \sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\to
+\end{equation}
+
+Finally:
+\begin{equation}
+    \sigma_x = \frac{\hbar}{2}S_x = \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}, \qquad \sigma_y = \frac{\hbar}{2}S_y = \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}, \qquad \sigma_z = \frac{\hbar}{2}S_z = \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix} 
+\end{equation}
 
 
