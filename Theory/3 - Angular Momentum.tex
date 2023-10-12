@@ -204,7 +204,7 @@ Which means that $\beta_\text{max}$ is either an integer or a half-odd-integer. 
 hence, we can express $\alpha$ as:
 \begin{equation}
     \alpha = j(j+1)
-\end{equation}m = -j, -j+1, \dots, j-1, j
+\end{equation}
 And we can infer that the values of $m$ lie between $-j$ and $j$:
 \begin{equation}
     -j \leq m \leq j
@@ -353,7 +353,7 @@ Since all the orientations of $\vec{J}\,^2$ on the surface of the cone are equal
 
 As we already saw in a previous section, in the position representation, the orbital angular momentum operators are given in cartesian coordinates by \textbf{Equation \ref{orbital_angular_momentum_operators}}. However, it is more convenient to work in spherical (or polar) coordinates, since, as we shall see, the various angular momentum operators act only on the angular variables and and not on the $r$ variable. We can rewrite the angular momentum operators in spherical coordinates as:
 
-\begin{equation}
+\begin{equation} \label{LxLyLz}
     \begin{split}
         L_x &= i\hbar \left(\sin\phi\frac{\partial}{\partial\theta} + \frac{\cos\phi}{\tan\theta}\frac{\partial}{\partial\phi}\right) \\
         L_y &= i\hbar \left(-\cos\phi\frac{\partial}{\partial\theta} + \frac{\sin\phi}{\tan\theta}\frac{\partial}{\partial\phi}\right) \\
@@ -370,14 +370,14 @@ We can also rewrite the $L_\pm$ and $L^2$ operators in spherical coordinates:
 \end{equation}
 
 Then, the original eigenproblem for a spinless particle can be written as:
-\begin{equation}
+\begin{equation} 
     \begin{split}
         \vec{L}\,^2\ket{l,m} &= \hbar^2l(l+1)\ket{l,m} \\
         L_z\ket{l,m} &= \hbar m\ket{l,m}
     \end{split}
 \end{equation}
 can be written in the $r$-representation as:
-\begin{equation}
+\begin{equation} 
     \begin{split}
         \vec{L}\,^2\psi_{l,m} (r, \theta, \phi) &= \hbar^2l(l+1)\psi_{l,m} (r, \theta, \phi) \\
         L_z\psi_{l,m} (r, \theta, \phi) &= \hbar m\psi_{l,m} (r, \theta, \phi)
@@ -404,7 +404,16 @@ where $P_l^m(\cos\theta)$ are the \textbf{associated Legendre polynomials}, whic
     P_l^m(x) = (1-x^2)^{|m|/2}\frac{d^{|m|}}{dx^{|m|}}P_l(x), \qquad P_l(x) = \frac{1}{2^ll!}\frac{d^l}{dx^l}(x^2-1)^l
 \end{equation}
 
-Spherical harmonics are joint eigenfunctions of the operators $\vec{L}\,^2$ and $L_z$, as both these operators commute. They are also functions with a well-defined parity, as they are eigenfunctions of the parity operator $P$:
+Spherical harmonics are joint eigenfunctions of the operators $\vec{L}\,^2$ and $L_z$, as both these operators commute. We can therefore write:
+\begin{equation} \label{spherical_eig_eqn}
+    \begin{split}
+        \vec{L}\,^2Y_l^m(\theta, \phi) &= \hbar^2l(l+1)Y_l^m(\theta, \phi) \\
+        L_zY_l^m(\theta, \phi) &= \hbar mY_l^m(\theta, \phi)
+    \end{split}
+\end{equation}
+
+
+They are also functions with a well-defined parity, as they are eigenfunctions of the parity operator $P$:
 \begin{equation}
     PY_l^m(\theta, \phi) = Y_l^m(\pi-\theta, \pi+\phi) = (-1)^lY_l^m(\theta, \phi)
 \end{equation}
@@ -414,22 +423,48 @@ Also, the complex conjugate of a spherical harmonic is given by:
     \left[Y_l^{m}(\theta, \phi)\right]^* = (-1)^mY_l^{-m}(\theta, \phi)
 \end{equation}
 
+\subsubsection{Values of $m$ and $l$}
+
+Using $L_z = -i\hbar \partial /\partial\phi$ (from \textbf{Equation \ref{LxLyLz}}), we can rewrite \textbf{Equation \ref{spherical_eig_eqn}} as:
+\begin{equation}
+    -i\hbar \frac{\partial}{\partial\phi}Y_l^m(\theta, \phi) = \hbar mY_l^m(\theta, \phi)
+\end{equation}
+
+From this, we obtain that $Y_l^m(\theta, \phi) = F_l^m(\theta) e^{im\phi}$. However, as wave functions must be continuous at all points in space, we must impose that:
+\begin{equation}
+    Y_l^m(\theta, \phi=0) = Y_l^m(\theta, \phi=2\pi) \longrightarrow 1 = e^{2\pi mi}
+\end{equation}
+We already had from the general formalism of angular momentum that $m$ had to be either integral or half-integral. Now, we have this additional condition that restricts $m$ to being strictly integer, as half-integer values of $m$ would result in $e^{2\pi mi}=-1$. But, if $m$ is integral, then $l$ must also be integral. Therefore, we can now define:
+
+\begin{definition}
+    The eigenvalues of $\vec{L}\,^2$ and $L_z$ corresponding to the joint eigenvectors $\ket{l,m}$ are given, respectively, by $\hbar^2l(l+1)$ and $\hbar m$:
+    \begin{equation}
+        \vec{L}\,^2\ket{l,m} = \hbar^2l(l+1)\ket{l,m}\qquad L_z\ket{l,m} = \hbar m\ket{l,m}
+    \end{equation}
+    where $l = 0,\, 1,\, 2,\, 3,\, ...$ and $m = -l, -(l-1), \dots, l-1, l$. We see that the spectra of the orbital angular momentum operators $\vec{L}\,^2$ and $L_z$ are discrete. Since the eigenstates corresponding to different angular momenta are orthogonal, and since the angular momentum spectra are discrete, the orthonormality condition is:
+    \begin{equation}
+        \braket{l',m'|l,m} = \delta_{l',l}\delta_{m',m}
+    \end{equation}
+
+    Note that the $m$ we use here is different to the one used in the general angular momentum $\vec{J}$. In order to tell them apart, this one we are using here is often denoted as $m_l$.
+\end{definition}
+
 \subsection{Spin angular momentum} \label{spin}
 
 Spin angular momentum is one of the most fundamental properties of an electron and other elementary particles, despite the fact that it has no classical analogue, in contrast to orbital angular momentum. Its existence was discovered in 1922 by Stern and Gerlach, who observed that a beam of ground-state silver atoms, which have no orbital angular momentum, split in two when passing through a non-uniform magnetic field. This unexpected result, caused by the spin angular momentum of the $5s$ valence electron, led them to postulate the existence of a new angular momentum phenomenon different from orbital angular momentum, and they called it \textbf{spin}. The theory of spin is identical to the general theory of angular momentum and, by analogy with the vector $\vec{J}$, the spin is also represented by a vector operator $\vec{S}$.
 
 From the classical theory of electromagnetism, an orbital magnetic dipole moment is generated with the orbital motion of a particle of charge $q$:
-\begin{equation}
-    \vec{\mu}_L = \frac{q}{2mc}\vec{L}
+\begin{equation} \label{orbital_magnetic_dipole_moment}
+    \vec{\mu}_L = \frac{q}{2m}\vec{L}
 \end{equation}
 where $\vec{L}$ is the orbital angular momentum of the particle, $m$ its mass, and $c$ the speed of light. Similarly, if we follow a classical analysis, we can define the \textbf{spin magnetic dipole moment} of a particle as:
 \begin{equation} \label{spin_magnetic_dipole_moment_pre}
-    \vec{\mu}_S = \frac{q}{2mc}\vec{S}
+    \vec{\mu}_S = \frac{q}{2m}\vec{S}
 \end{equation}
 
-Although this expression cannot be derived classically, as there is no classical equivalent of spin, it can still be postulated by analogy to the orbital magnetic dipole moment. However, there is one correction that we need to make to \textbf{Equation \ref{spin_magnetic_dipole_moment_pre}}: it turns out that, for the electron, the orbital magnetic dipole moment is actually twice its classical expression. For other particles, this ratio, which we call gyromagnetic ratio (or Landé factor) $g_s$, can vary. Taking this effect into account, we obtain\footnote{The ratio $g_s$ can be obtained using Dirac's relativistic quantum theory.}:
-\begin{equation}
-    \vec{\mu}_S = g_s\frac{q}{2mc}\vec{S}
+Although this expression cannot be derived classically, as there is no classical equivalent of spin, it can still be postulated by analogy to the orbital magnetic dipole moment. However, there is one correction that we need to make to \textbf{Equation \ref{spin_magnetic_dipole_moment_pre}}: it turns out that, for the electron, the orbital magnetic dipole moment is actually twice its classical expression. For other particles, this ratio, which we call gyromagnetic ratio (or Landé factor) $g_s$, can vary. Taking this effect into account, we obtain\footnote{The ratio $g_s$ can be obtained using Dirac's relativistic quantum theory. For the electron, $g_s = 2$.}:
+\begin{equation} \label{spin_magnetic_dipole_moment}
+    \vec{\mu}_S = g_s\frac{q}{2m}\vec{S}
 \end{equation}
 
 When the electron is placed in a magnetic field $\vec{B}$ and if the field is inhomogeneous, a force will be exerted on the electron's intrinsic dipole moment; the direction and magnitude of the force depend on the relative orientation of the field and the dipole. This force tends to align $\vec{\mu}_S$  along $\vec{b}$, producing a precessional motion of $\vec{\mu}_S$ around $\vec{b}$.
@@ -451,7 +486,7 @@ To these \textit{orbital variables} we have studied up until now, we will add th
 
 \begin{postulate}
     \textbf{Spin state space:} The spin operators act in a new space, the ``spin state space'' $\varepsilon_s$, where $\vec{S}\,^2$ and $S_z$ constitute a CSCO. The space $\varepsilon_s$ is thus spanned by the set of eigenstates $\ket{s,m_s}$ common to $\vec{S}\,^2$ and $S_z$:
-    \begin{equation}
+    \begin{equation} \label{eigenstates_of_S2_and_Sz}
         \vec{S}\,^2 \ket{s, m_s} = \hbar^2s(s+1)\ket{s, m_s}, \qquad S_z \ket{s, m_s} = \hbar m_s\ket{s, m_s}
     \end{equation}
     where $s = 0,\, 1/2,\, 1,\, 3/2,\, ...$ and $m_s = -s, -(s-1), ..., s-1, s$. A given particle is characterized by a \textit{unique}, \textit{specific} and \textit{immutable} value\footnote{For example, the electron has $s = 1/2$, the photon has $s = 1$, the proton has $s = 1/2$, the neutron has $s = 1/2$, etc. The value of $s$ is called the \textbf{spin quantum number}.} of $s$: this particle is said to have a spin $s$. The spin state space $\varepsilon_s$ is therefore always of finite dimension $(2s + 1)$, and all spin states are eigenvectors of $\vec{S}\,^2$ with the same eigenvalue $s(s + 1)\hbar^2$.
@@ -628,11 +663,11 @@ Finally:
 
 \subsubsection{Spin-orbit coupling}
 
-Spin-orbit coupling in hydrogen is an effect that arises from the interaction between the electron's spin magnetic moment, $\vec{\mu}_S = -e\vec{S}/(m_ec)$, and the proton's orbtial magnetic field $\vec{B}$.
+Spin-orbit coupling in hydrogen is an effect that arises from the interaction between the electron's spin magnetic moment, $\vec{\mu}_S$, and the proton's orbtial magnetic field $\vec{B}$.
 
 The origin of the magnetic field experienced by the electron moving at $\vec{v}$ in a circular orbit around the proton can be explained classically as follows. The electron, within its rest frame, sees the proton moving at $-\vec{v}$ in a circular orbit around it (\textbf{Figure \ref{fig:spin_orbit_coupling}}). From classical electrodynamics, the magnetic field experienced by the electron is:
 \begin{equation} \label{eq:magnetic_field}
-    \vec{B} = -\frac{1}{c}\vec{v}\times \vec{E} = -\frac{1}{m_ec}\vec{p}\times \vec{E} = \frac{1}{m_ec}\vec{E}\times \vec{p}
+    \vec{B} = -\frac{\vec{v}}{c^2}\times \vec{E} = -\frac{\vec{p}}{m_ec^2}\times \vec{E} = \frac{\vec{E}}{m_ec^2}\times \vec{p}
 \end{equation}
 where $\vec{p} = m_e\vec{v}$ is the linear momentum of the electron and $\vec{E}$ is the electric field generated by the proton, which is given by:
 \begin{equation}
@@ -653,36 +688,223 @@ For a more general problem of hydrogen-like atoms (those with one valence electr
 
 So the magnetic field of the nucleus calculated in the rest frame of the electron is obtained by inserting \textbf{Equation \ref{eq:electric_field}} into \textbf{Equation \ref{eq:magnetic_field}}:
 \begin{equation}
-    \vec{B} = \frac{1}{m_ec}\vec{E}\times \vec{p} = \frac{1}{em_ec}\frac{1}{r}\frac{dV}{dr}\vec{r}\times \vec{p} = \frac{1}{em_ec}\frac{1}{r}\frac{dV}{dr}\vec{L}
+    \vec{B} = \frac{\vec{E}}{m_ec^2}\times \vec{p} = \frac{1}{em_ec^2}\frac{1}{r}\frac{dV}{dr}\,\vec{r}\times \vec{p} = \frac{1}{em_ec^2}\frac{1}{r}\frac{dV}{dr}\,\vec{L}
 \end{equation}
 
-where $\vec{L} = \vec{r}\times \vec{p}$ is the orbital angular momentum of the electron. The interaction of the electron's spin dipole moment $\vec{\mu}_S$ with the orbital magnetic field $\vec{B}$ of the nucleus gives rise to the following interaction energy:
+where $\vec{L} = \vec{r}\times \vec{p}$ is the orbital angular momentum of the electron. The interaction of the electron's spin dipole moment $\vec{\mu}_S = -e\vec{S}/m_e$ with the orbital magnetic field $\vec{B}$ of the nucleus gives rise to the following interaction energy:
 \begin{equation}
-    W_{SO} = -\vec{\mu}_S \cdot \vec{B} = \frac{e}{m_ec}\vec{S}\cdot \vec{B} = \frac{1}{m_e^2c^2}\frac{1}{r} \frac{dV}{dr}\vec{S}\cdot \vec{L}
+    H_{SO} = -\vec{\mu}_S \cdot \vec{B} = \frac{e}{m_e}\,\vec{S}\cdot \vec{B} = \frac{1}{m_e^2c^2}\frac{1}{r} \frac{dV}{dr}\,\vec{S}\cdot \vec{L}
 \end{equation}
 
-This energy turns out to be twice the observed spin-orbit interaction energy. This is due to the fact that $W_{SO}$ was calculated within the rest frame of the electron. This frame is not inertial, for the electron accelerates while moving in a circular orbit around the nucleus. For a correct treatment, we must transform to the rest frame of the nucleus (i.e., the lab frame). This transformation, which involves a relativistic transformation of velocities, gives rise to an additional motion resulting from the precession of $\vec{\mu}_S$; this is known as the \textit{Thomas precession}. The precession of the electron's spin moment is a relativistic effect which occurs even in the absence of an external magnetic field. The transformation back to the rest frame of the nucleus leads to a reduction of the interaction energy computed before by a factor of $2$:
+This energy turns out to be twice the observed spin-orbit interaction energy. This is due to the fact that $H_{SO}$ was calculated within the rest frame of the electron. This frame is not inertial, for the electron accelerates while moving in a circular orbit around the nucleus. For a correct treatment, we must transform to the rest frame of the nucleus (i.e., the lab frame). This transformation, which involves a relativistic transformation of velocities, gives rise to an additional motion resulting from the precession of $\vec{\mu}_S$; this is known as the \textit{Thomas precession}. The precession of the electron's spin moment is a relativistic effect which occurs even in the absence of an external magnetic field. The transformation back to the rest frame of the nucleus leads to a reduction of the interaction energy computed before by a factor of $2$:
 \begin{equation}
-    W_{SO} = \frac{1}{2m_e^2c^2}\frac{1}{r} \frac{dV}{dr}\vec{S}\cdot \vec{L}
+    H_{SO} = \frac{1}{2m_e^2c^2}\frac{1}{r} \frac{dV}{dr}\,\vec{S}\cdot \vec{L}
 \end{equation}
 
 In order to obtain the quantum mechanical expression from this classically obtained result, one need only replace the classical quantities $\vec{S}$ and $\vec{L}$ by their quantum mechanical operators.
 
 For a hydrogen's electron, $V(r)=-e^2/r$ and $dV/dr=e^2/r^2$, so that:
 \begin{equation}
-    W_{SO} = \frac{e^2}{2m_e^2c^2}\frac{1}{r^3}\vec{S}\cdot \vec{L}
+    H_{SO} = \frac{e^2}{2m_e^2c^2}\frac{1}{r^3}\,\vec{S}\cdot \vec{L}
 \end{equation}
 
-If we consider only this energy, we can find the energy eigenvalues by taking $\vec{S}\cdot \vec{L} = \frac{1}{2}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2)$, which comes from expanding $\vec{J}\,^2 = (\vec{L}+\vec{S})^2$:
+If we consider only this as a standalone Hamiltonian, we can find the energy eigenvalues by taking $\vec{S}\cdot \vec{L} = \frac{1}{2}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2)$, which comes from expanding $\vec{J}\,^2 = (\vec{L}+\vec{S})^2$:
 \begin{equation}
-    W_{SO} = \frac{e^2}{4m_e^2c^2}\frac{1}{r^3}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2) \longrightarrow E_{SO} = \frac{\hbar^2}{4m_e^2c^2}\frac{e^2}{r^3}\ (j(j+1)-l(l+1)-s(s+1))
+    H_{SO} = \frac{e^2}{4m_e^2c^2}\frac{1}{r^3}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2) \longrightarrow E_{SO} = \frac{\hbar^2}{4m_e^2c^2}\frac{e^2}{r^3}\ (j(j+1)-l(l+1)-s(s+1))
 \end{equation}
 
-The scales of energies associated with the spin-orbit coupling are about two order of magnitude smaller than the energies associated with the discrete atomic levels, so we can consider this energy $W_{SO}$ as a perturbation to the Hamiltonian of the hydrogen atom and use stationary perturbation theory to calculate corrections due to the spin-orbit coupling:
+In terms of the Bohr magneton $\mu_B = e\hbar/2m_e$:
+\begin{equation}
+    E_{SO} = \frac{\mu_B^2}{c^2r^3} \left[j(j+1)-s(s+1)-l(l+1)\right]
+\end{equation}
+
+The scales of energies associated with the spin-orbit coupling are about two orders of magnitude smaller than the energies associated with the discrete atomic levels, so we can consider this energy $H_{SO}$ as a \textit{perturbation} to the Hamiltonian of the hydrogen atom and use \textit{stationary perturbation theory}\footnote{We will discuss this in more detail in the next chapter.} to calculate corrections due to the spin-orbit coupling:
 \begin{equation}
     H = H_0 + H_{SO} = \frac{\vec{p}\,^2}{2m_e}-\frac{e^2}{r} + \frac{e^2}{2m_e^2c^2}\frac{1}{r^3}\vec{S}\cdot \vec{L}
 \end{equation}
 
 where $H_0$ is the unperturbed Hamiltonian and $H_{SO}$ is the spin-orbit coupling perturbation.
 
+\subsubsection{The Zeeman effect}
 
+As we have discussed in previous sections, the electron posesses both an orbital magnetic dipole moment, $\vec{\mu}_L$, and a spin magnetic dipole moment, $\vec{\mu}_S$. Both of these moments give rise to two energy terms when the electron is submitted to a magnetic field $\vec{B}$, $-\vec{\mu}_L\cdot \vec{B}$ and $-\vec{\mu}_S\cdot \vec{B}$, whose sum we call the Zeeman energy. Using \textbf{Equation \ref{orbital_magnetic_dipole_moment}} and \textbf{Equation \ref{spin_magnetic_dipole_moment}}, we can write the Zeeman energy as\footnote{Here, we have used the fact that $g_s = 2$ and $q=-e$ for the electron.}:
+\begin{equation}
+    H_Z = -\vec{\mu}_L\cdot \vec{B} - \vec{\mu}_S\cdot \vec{B} = \frac{e}{2m_e}\vec{L}\cdot \vec{B} + \frac{e}{m_e}\vec{S}\cdot \vec{B} = \frac{e}{2m_e}\left(\vec{L}+2\vec{S}\right)\cdot \vec{B}
+\end{equation}
+
+We can write this in terms of Bohr's magneton $\mu_B = \frac{e\hbar}{2m_e}$ as:
+\begin{equation}
+    H_Z = \frac{\mu_B }{\hbar}\left(\vec{L}+2\vec{S}\right)\cdot \vec{B}
+\end{equation}
+
+What we have just described is the energy corresponding to the so called \textbf{anomalous Zeeman effect}, which takes into account the spin of the electron. The \textbf{normal Zeeman effect} is the case where we only consider the orbital angular momentum of the electron, which yields the following expression for the energy:
+\begin{equation}
+    H_Z = \frac{\mu_B}{\hbar}\,\vec{L}\cdot \vec{B}
+\end{equation}
+
+\textbf{The normal Zeeman effect}
+
+Let us first consider the normal Zeeman effect. For simplicity, we shall take $\vec{B} = B\vec{e}_z$, so that:
+\begin{equation}
+    H_z = \frac{\mu_B B}{\hbar}\,L_z
+\end{equation}
+
+Solving the eigenvalue equation for the total energy $H = H_0+H_Z$, we find:
+\begin{equation}
+    \begin{split}
+        H\ket{n,l,m_l} &= (H_0+H_Z)\ket{n,l,m_l} = H_0\ket{n,l,m_l} + \frac{\mu_B B}{\hbar}\,L_z\ket{n,l,m_l} = \\
+        &= E_n^0\ket{n,l,m_l} + \frac{\mu_B B}{\hbar}\,\hbar m_l\ket{n,l,m_l} = \left( E_n^0 + m_l\mu_B B \right)\ket{n,l,m_l}
+    \end{split}
+\end{equation}
+
+Therefore, the difference between two consecutive energy levels for each value of $n$ is given by:
+\begin{equation}
+    \Delta E = \mu_B B
+\end{equation}
+
+Take the example of $n=2$, where we have $l = 0, 1$:
+\begin{itemize}
+    \item When $l=0$, we will only have one value of $m_l$, which is $m_l = 0$. Therefore, we will only have a single energy level:
+    \begin{itemize}
+        \item[$\to$] $E_{0,0} = E_2^0$
+    \end{itemize}
+    \item When $l=1$, we will have three possible values of $m_l$, which are $m_l = -1, 0, 1$. Therefore, we will obtain three energy levels:
+    \begin{itemize}
+        \item[$\to$] $E_{1,-1} = E_2^0 - \mu_B B$
+        \item[$\to$] $E_{1,0} = E_2^0$
+        \item[$\to$] $E_{1,1} = E_2^0 + \mu_B B$
+    \end{itemize}
+\end{itemize}
+
+Overall, we have just three \textit{unique} values of the energy. Experimentally, the way we would expect to see this is by observing the splitting of the spectral lines of the atom in the presence of a magnetic field. Instead of seeing \textit{one} line, we would see \textit{three} energy levels: one corresponding to the original level and two at the levels shifted by $\pm \mu_B B$. In general, we would see $2l+1$ lines, corresponding to the $2l+1$ possible values of $m_l$, so that we would always have an odd number of lines in any spectra.
+
+
+\textbf{The anomalous Zeeman effect}
+
+Unfortunately, in many cases the results of the normal Zeeman effect disagree with the experimental observations. For instance, spectral lines can sometimes split into an \textit{even} number of levels, which could never happen according to the normal Zeeman effect. Why, then, does this happen? The answer, of course, is \textit{spin}. We will now see the two different cases of anomalous Zeeman effect, depending on the strength of the magnetic field $\vec{B}$.
+
+\textit{a) Strong} $\vec{B}$
+
+Let us again consider $\vec{B} = B\vec{e}_z$, so that:
+\begin{equation}
+    H_Z = \frac{\mu_B B}{\hbar}\left(L_z+2S_z\right)
+\end{equation}
+
+In order to find a general result considering spin, it is also important to take into account the spin-orbit coupling effects. Therefore, we need to include the term $H_{SO}$ in our Hamiltonian, so that the eigenvalue equation for the general anomalous Zeeman effect becomes:
+\begin{equation}
+    \begin{split}
+        H\ket{n,l,m_l,m_s} &= (H_0+H_Z)\ket{n,l,m_l,m_s} = \\
+        &= H_0\ket{n,l,m_l,m_s}+\frac{\mu_B B}{\hbar}\left(L_z+2S_z\right)\ket{n,l,m_l,m_s} = \\
+        &= E_n^0\ket{n,l,m_l,m_s} + \frac{\mu_B B}{\hbar}\left(\hbar m_l+2\hbar m_s\right)\ket{n,l,m_l,m_s} = \\
+        &= \left[E_n^0+  (m_l+2m_s)\mu_B B\right] \ket{n,l,m_l,m_s}
+    \end{split}
+\end{equation}
+
+Therefore, the energy levels $E_n^0$ are shifted by:
+\begin{equation}
+    \Delta E = (m_l+2m_s)\mu_B B 
+\end{equation}
+
+Take the same example as before of $n=2$, where we have $l = 0, 1$. The electron has spin $s=1/2$, so $m_s=\pm 1/2$. Then:
+\begin{itemize}
+    \item When $l=0$, we will only have one value of $m_l$, which is $m_l = 0$. However, we now have to consider $m_s$, which is has two possible values, $\pm 1/2$. Therefore, we will obtain two different energy levels:
+    \begin{itemize}
+        \item[$\to$] $E_{0,0,\frac12} = E_2^0 +\mu_B B$
+        \item[$\to$] $E_{0,0,-\frac12} = E_2^0 -\mu_B B$
+    \end{itemize}
+    \item When $l=1$, we will have three possible values of $m_l$, which are $m_l = -1, 0, 1$. For each of the values of $m_l$, we have two possible values of $m_s$, so we will obtain six different energy levels for $l=1$:
+    \begin{itemize}
+        \item[$\to$] $E_{1,1,\frac12} = E_2^0 + 2\mu_B B$
+        \item[$\to$] $E_{1,0,\frac12} = E_2^0 + \mu_B B$
+        \item[$\to$] $E_{1,-1,\frac12} = E_2^0$
+        \item[$\to$] $E_{1,1,-\frac12} = E_2^0$
+        \item[$\to$] $E_{1,0,-\frac12} = E_2^0 - \mu_B B$
+        \item[$\to$] $E_{1,-1,-\frac12} = E_2^0 - 2\mu_B B$
+    \end{itemize}
+\end{itemize}
+
+Overall, we have \textit{five} unique values of the energy, which is two more than what we expected from the normal Zeeman effect. There is still an odd number of energy levels. However, if we computed the energy levels for $n = 1$, we will have only the case $l=0$, which will give the same levels as the $l=0$ case for $n=2$ that we just computed, which were only two. That is, $n=1$ will show an \textit{even} number of energy levels. Both these cases ($n=1$ and $n=2$) are shown in \textbf{Figure \ref{fig:strong_B_zeeman}}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/strong_B_zeeman.png}
+    \caption{Energy level splitting in the absence of a magnetic field (left) and in the presence of a strong magnetic field $\vec{B}$ (right).}
+    \label{fig:strong_B_zeeman}
+\end{figure}
+
+\textit{a) Weak} $\vec{B}$
+
+In the case where we have a weak magnetic field $\vec{B}$, we can no longer neglect the spin-orbit coupling effects\footnote{In reality, we should consider not only the spin-orbit coupling, but also the relativistic correction. Both of these together conform the \textit{fine structure} of hydrogen. However, for simplicity, we will only consider the spin-orbit coupling effects in our analysis.}. Then, the best eigenstates to use are $\ket{n,l,j,m_j}$, as they are simultaneous eigenstates of $H_0$ and $H_{SO}$. It is therefore necessary to rewrite $H_Z$ so that $\vec{S}$ and $\vec{L}$ only appear as square operators\footnote{\color{red}Why?}. To do this, let us first consider:
+\begin{equation}
+    \vec{J} = \vec{S} + \vec{L} \longrightarrow \vec{L} = \vec{J} - \vec{S}
+\end{equation}
+Then:
+\begin{equation}
+    \vec{L}\,^2 = \vec{J}\,^2 - \vec{S}\,^2 - \vec{J}\cdot \vec{S} - \vec{S}\cdot \vec{J} \stackrel{\footnotemark}{=}\footnotetext{Remember that, as $\vec{L}$ and $\vec{S}$ commute (they act on different spaces $\varepsilon_{\vec{r}}$ and $\varepsilon_s$), then $\vec{J}$ and $\vec{S}$ also commute: $\vec{J}\cdot\vec{S}-\vec{S}\cdot\vec{J} = (\vec{L} + \vec{S})\cdot \vec{S} - \vec{S}\cdot (\vec{L} + \vec{S}) = \vec{L}\cdot \vec{S} + \vec{S}\,^2 - \vec{S}\cdot\vec{L} - \vec{S}\,^2=0$. } \vec{J}\,^2 - \vec{S}\,^2 -2\vec{J}\cdot \vec{S} \longrightarrow \vec{J}\cdot \vec{S} = \frac{\vec{J}\,^2 - \vec{S}\,^2 - \vec{L}\,^2}{2}
+\end{equation}
+
+Therefore:
+\begin{equation}
+    \begin{split}
+        H_Z &= \frac{\mu_B}{\hbar} \left(\vec{L}+ 2\vec{S}\right)\cdot \vec{B} = \frac{\mu_B}{\hbar} \left(\vec{J}+ \vec{S}\right)\cdot \vec{B} = \frac{\mu_B}{\hbar} \left(1+ \frac{\vec{S}}{\vec{J}}\right)\vec{J}\cdot \vec{B} = \\
+        &= \frac{\mu_B}{\hbar} \left(1+ \frac{\vec{J}\cdot \vec{S}}{\vec{J}\,^2}\right)\vec{J}\cdot \vec{B} = \frac{\mu_B}{\hbar} \left(1+ \frac{\vec{J}\,^2 - \vec{S}\,^2 - \vec{L}\,^2}{2\vec{J}\,^2}\right)\vec{J}\cdot \vec{B}
+    \end{split}
+\end{equation}
+
+
+Then, we write the eigenvalue equation, assuming that $\vec{J}\,||\vec{B}$\footnote{\color{red}We are computing the energy when the electrons are exposed to $\vec{B}$, which causes their spin angular momentum to align with the magnetc field. Why do we assume the whole angular momentum is aligned?}:
+\begin{equation}
+    \begin{split}
+        H\ket{n,l,j,m_j} &= (H_0+H_{SO}+H_Z)\ket{n,l,j,m_j} =\\
+        &= E_n^0\ket{n,l,j,m_j} + E_{SO}\ket{n,l,j,m_j} + \frac{\mu_B}{\hbar} \left(1+ \frac{\vec{J}\,^2 - \vec{S}\,^2 - \vec{L}\,^2}{2\vec{J}\,^2}\right)\vec{J}\cdot \vec{B} \ket{n,l,j,m_j} = \\
+        &= \left[ E_n^0 + E_{SO} + \frac{\mu_B}{\hbar}\left(1+\frac{j(j+1)-s(s+1)-l(l+1)}{2j(j+1)}\right)\hbar m_jB\right]\ket{n,l,j,m_j}=\\
+        &= \left[E_n^0 + E_{SO} + g_jm_j\mu_B B\right]\ket{n,l,j,m_j}
+    \end{split}
+\end{equation}
+
+Therefore, the energy levels are shifted by two terms: $E_{SO}$, corresponding to spin-orbit coupling and $E_Z = g_jm_j\mu_B B$, corresponding to the Zeeman effect, where $g_j$ is called the Landé factor and is defined as:
+\begin{equation}
+    g_j = 1 + \frac{j(j+1) - s(s+1)-l(l+1)}{2j(j+1)}
+\end{equation}
+
+Recall from the discussion about spin-orbit coupling that:
+\begin{equation}
+    E_{SO} = \frac{\mu_B^2}{c^2r^3} \left[j(j+1)-s(s+1)-l(l+1)\right]
+\end{equation}
+
+Therefore, the effect of the magnetic field on the atom is to split the energy levels first due to the spin-orbit cupling effect, and then to further split those lines due to the Zeeman effect by an amount equal to:
+\begin{equation}
+    \Delta E_Z = B\mu_B\Delta m_jg_j
+\end{equation}
+
+Take the simple example where $n=1$, where we have $l = 0$. The electron has spin $s=1/2$, so $m_s=\pm 1/2$. We also have two different values of $j$, which are $j = l+s = \frac12$ and $j = l - s = -\frac12$. Then\footnote{\color{red}Check all this}:
+\begin{itemize}
+    \item When $j=\frac12$, we will have a spin-orbit coupling energy of:
+    \begin{equation}
+        E_{SO,\frac12} = \frac{\mu_B^2}{c^2r^3}\left[\frac12 \left(\frac12+1\right)-\frac12\left(\frac12+1\right)-0\left(0+1\right)\right] = 0
+    \end{equation}
+    and a Landé factor of:
+    \begin{equation}
+        g_{j=\frac12} = 1+\frac{\frac12 \left(\frac12+1\right)-\frac12\left(\frac12+1\right)-0\left(0+1\right)}{2\cdot \frac12 \left(\frac12+1\right)} = 1
+    \end{equation}
+    Therefore, for the two possible values of $m_j$, we will obtain:
+    \begin{itemize}
+        \item[$\to$] $E_{0,0,\frac12} = E_n^0+\frac{\mu_B B}{2}$
+        \item[$\to$] $E_{0,0,-\frac12} = E_n^0-\frac{\mu_B B}{2}$
+    \end{itemize}
+    \item When $j=-\frac12$, we will have a spin-orbit coupling energy of:
+    \begin{equation}
+        E_{SO,\frac12} = \frac{\mu_B^2}{c^2r^3}\left[-\frac12 \left(-\frac12+1\right)-\frac12\left(\frac12+1\right)-0\left(0+1\right)\right] = -\frac{\mu_B^2}{c^2r^3}
+    \end{equation}
+    and a Landé factor of:
+    \begin{equation}
+        g_{j=\frac12} = 1+\frac{-\frac12 \left(-\frac12+1\right)-\frac12\left(\frac12+1\right)-0\left(0+1\right)}{2\cdot \left(-\frac12\right) \left(-\frac12+1\right)} = 3
+    \end{equation}
+    Therefore, for the two possible values of $m_j$, we will obtain:
+    \begin{itemize}
+        \item[$\to$] $E_{0,0,\frac12} = E_n^0 -\frac{\mu_B^2}{c^2r^3}+\frac{3}{2}\mu_B B$
+        \item[$\to$] $E_{0,0,-\frac12} = E_n^0-\frac{\mu_B^2}{c^2r^3}-\frac{3}{2}\mu_B B$
+    \end{itemize}
+\end{itemize}
+
+Overall, just for $n=1$, we have \textit{four} unique values of the energy, due to the spin-orbit coupling effect.
