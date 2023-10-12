@@ -92,7 +92,7 @@ This gives us all the equations to solve in order to find the coefficients of th
         H_0\ket{\psi_n^{(1)}} + W\ket{\psi_n^{(0)}} = E_n^{(0)}\ket{\psi_n^{(1)}} + E_n^{(1)}\ket{\psi_n^{(0)}}
     \end{equation}
     \item Second order in $\lambda$:
-    \begin{equation}
+    \begin{equation} \label{second_order_correction_eig_eqn}
         H_0\ket{\psi_n^{(2)}} + W\ket{\psi_n^{(1)}} = E_n^{(0)}\ket{\psi_n^{(2)}} + E_n^{(1)}\ket{\psi_n^{(1)}} + E_n^{(2)}\ket{\psi_n^{(0)}}
     \end{equation}
     $$
@@ -149,7 +149,7 @@ Therefore:
 \end{equation}
 And, finally:
 \begin{equation}
-    \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+    \ket{\psi_n^{(1)}} = \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
 \end{equation}
 
 Unlike the formula for the energy shift, the correction to the eigenstates involves in general an infinite sum mixing all the states of the unperturbed system. We speak of the perturbation mixing the unperturbed eigenstates.
@@ -166,11 +166,45 @@ We can now completely define the first order correction:
         E_n = E_n^{(0)} + \braket{\psi_n^{(0)}|H_p|\psi_n^{(0)}}
     \end{equation}
     Furthermore, the first order correction to the eigenstate is given by:
-    \begin{equation}
-        \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+    \begin{equation} \label{first_order_correction_ket}
+        \ket{\psi_n^{(1)}} = \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
     \end{equation}
     where again we have $W = \lambda^{-1}H_p$, so that the total corrected eigenket is:
     \begin{equation}
         \ket{\psi_n} = \ket{\psi_n^{(0)}} + \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|H_p|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+    \end{equation}
+\end{definition}
+
+\subsubsection{Second order correction}
+
+If we multiply both sides of \textbf{Equation \ref{second_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\phi_n^{(0)}$ on the left.}:
+\begin{equation}
+    \begin{split}
+        &\braket{\psi_n^{(0)}|H_0|\psi_n^{(2)}} + \braket{\psi_n^{(0)}|W|\psi_n^{(1)}} = \braket{\psi_n^{(0)}|E_n^{(0)}|\psi_n^{(2)}} + \braket{\psi_n^{(0)}|E_n^{(1)}|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|E_n^{(2)}|\psi_n^{(0)}}\\
+        &\longrightarrow \cancelto{\ 0}{E_n^{(0)}\braket{\psi_n^{(0)}|\psi_n^{(2)}}} + \braket{\psi_n^{(0)}|W|\psi_n^{(1)}} = \cancelto{\ 0}{E_n^{(0)}\braket{\psi_n^{(0)}|\psi_n^{(2)}}} + \cancelto{\ 0}{E_n^{(1)}\braket{\psi_n^{(0)}|\psi_n^{(1)}}} + E_n^{(2)}\cancelto{\ 1}{\braket{\psi_n^{(0)}|\psi_n^{(0)}}}\\
+        &\longrightarrow \braket{\psi_n^{(0)}|W|\psi_n^{(1)}} = E_n^{(2)}
+    \end{split}
+\end{equation}
+Therefore:
+\begin{equation}
+    E_n^{(2)} = \braket{\psi_n^{(0)}|W|\psi_n^{(1)}} 
+\end{equation}
+
+Combining this expression with \textbf{Equation \ref{first_order_correction_ket}} (and using that $W$ is Hermitian), we can obtain:
+\begin{equation}
+    \begin{split}
+        E_n^{(2)} &= \bra{\psi_n^{(0)}}W \left(\sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}\right) = \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\braket{\psi_n^{(0)}|W|\psi_m^{(0)}} = \\
+        &= \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}^* = \sum_{m\neq n} \frac{\left|\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}\right|^2}{E_n^{(0)} - E_m^{(0)}} \\
+    \end{split}
+\end{equation}
+Finally, we can define:
+\begin{definition}
+    The second correction to the energy is given by:
+    \begin{equation}
+        E_n^{(2)} = \sum_{m\neq n} \frac{\left|\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}\right|^2}{E_n^{(0)} - E_m^{(0)}}
+    \end{equation}
+    where $W = \lambda^{-1}H_p$, so that the total energy corrected to the second order is:
+    \begin{equation}
+        E_n = E_n^{(0)} + \braket{\psi_n^{(0)}|H_p|\psi_n^{(0)}} + \sum_{m\neq n} \frac{\left|\braket{\psi_m^{(0)}|H_p|\psi_n^{(0)}}\right|^2}{E_n^{(0)} - E_m^{(0)}}
     \end{equation}
 \end{definition}
