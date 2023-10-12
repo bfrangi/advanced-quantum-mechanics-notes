@@ -1,0 +1,176 @@
+\section{Approximation Methods for Stationary States in Quantum Mechanics}
+
+Solving a general quantum mechanical problem involves finding the Hamiltonian of a system and solving the Schrödinger Equation to find energies and states. However, most problems encountered in quantum mechanics cannot be solved exactly. Exact solutions of the Schrödinger equation exist only for a few idealized systems\footnote{For example, for the \textit{quantum harmonic oscillator}, the \textit{quantum anharmonic oscillator}, the \textit{infinite square well}, the \textit{free particle}, and the \textit{hydrogen atom} can be solved exactly. However, the \textit{spin-orbital interactions}, the \textit{Zeeman effect} or the \textit{hyperfine split} cannot.}. To solve general problems, one must resort to approximation methods.
+
+In this chapter we consider approximation methods that deal with \textit{stationary states} corresponding to \textit{time-independent} Hamiltonians. To study problems of stationary states, we focus on two approximation methods: \textbf{time-independent perturbation theory} and the \textbf{variational method}.
+
+\subsection{Perturbation theory}
+
+Perturbation theory provides a method to approximate energy eigenvalues and eigenstates of Hamiltonians of the form:
+\begin{equation}
+    H = H_0 + H_p
+\end{equation}
+where $H_0$ is the Hamiltonian of an exactly solvable system (unperturbed system) and $H_p$ is a small time-independent perturbation. In other words, perturbation theory enables us to obtain solutions for systems that are ``close'' to exactly solvable systems.
+
+For a general (possibly degenerate\footnote{Degeneracy is indexed by $i$.}) case, the discrete eigenvalues and eigenstates of the unperturbed Hamiltonian can be defined as:
+\begin{equation}
+    H_0 \ket{{\psi_n^i}^{(0)}} = E_n^{(0)} \ket{{\psi_n^i}^{(0)}} 
+\end{equation}
+where the states are assumed to be orthonormal. We can also write the eigenvalue equation for the perturbed system:
+\begin{equation}
+    H \ket{\psi_n^i} = E_n\ket{\psi_n^i} 
+\end{equation}
+The idea is to determine the small corrections required so that $\ket{{\psi_n^i}^{(0)}}\to \ket{\psi_n^i}$ and $E_n^{(0)}\to E_n$. Of course, this can only be accomplished if $H_p$ is ``small enough'' (we will quantify this later) so that $\ket{{\psi_n^i}^{(0)}}$ are close to $\ket{\psi_n^i}$. It is common to write this using a dimensionless parameter $\lambda << 1$ so that:
+\begin{equation}
+    H_p = \lambda W
+\end{equation}
+Then, we can rewrite the perturbed Hamiltonian as:
+\begin{equation}
+    H = H_0 + \lambda W
+\end{equation}
+
+Depending on whether the unperturbed system has any degenerate eigenvalues or not, we have two different ways of treating the problem. We shall discuss both cases separately.
+
+\subsection{Non-degenerate perturbation theory}
+
+
+Let us assume that we have a system with an unperturbed and non-degenerate Hamiltonian $H_0$, the eigenvalue problem for which is solved and the spectrum of which is discrete:
+\begin{equation}
+    H_0 \ket{\psi_p^{(0)}} = E_p^0\ket{\psi_p^{(0)}}
+\end{equation}
+The eigenstates $\ket{\psi_p^{(0)}}$ form a complete orthonormal basis:
+\begin{equation}
+    \braket{\psi_n^{(0)}|\psi_p^{(0)}} = \delta_{np} \qquad \sum_p \ket{\psi_p^{(0)}}\bra{\psi_p^{(0)}} = \Imat
+\end{equation}
+We can also write the perturbed eigenproblem for the Hamiltonian $H(\lambda) = H_0 + \lambda W$ as:
+\begin{equation}
+    H(\lambda)\ket{\psi_n(\lambda)} = E_n(\lambda)\ket{\psi_n(\lambda)}
+\end{equation}
+The main idea of perturbation theory consists in now assuming that the perturbed eigenvalues and eigenstates can both be expanded in power series in the parameter $\lambda$:
+\begin{equation} \label{expansions_pert}
+    \begin{split}
+        E_n(\lambda) &= E_n^{(0)} + \lambda E_n^{(1)} + \lambda^2 E_n^{(2)} + \cdots = \sum_{k=0}^\infty E_n^{(k)}\lambda^k\\
+        \ket{\psi_n(\lambda)} &= \ket{\psi_n^{(0)}} + \lambda \ket{\psi_n^{(1)}} + \lambda^2\ket{\psi_n^{(2)}} + \cdots = \sum_{k=0}^\infty \ket{\psi_n^{(k)}}\lambda^k
+    \end{split}
+\end{equation}
+The parameters $E_n^{(k)}$ and $\ket{\psi_n^{(k)}}$ are the $k$-th corrections to the eigenenergies and the eigenstates, respectively. We need to make two remarks here. First, one might think that, whenever the perturbation is sufficiently weak, the expansions in \textbf{Equation \ref{expansions_pert}} always exist. Unfortunately, this is not always the case. In some cases where the perturbation is small, $E_n(\lambda)$ and $\ket{\psi_n(\lambda)}$ are not expandable in powers of $\lambda$. Second, these series are frequently not convergent. However, when $\lambda$ is small, the first few terms do provide a reliable description of the system. So in practice, we keep only one or two terms in these expansions; hence the problem of nonconvergence of these series is avoided. Note that when $\lambda=0$, the expressions in \textbf{Equation \ref{expansions_pert}} yield the unperturbed solutions: $E_n = E n^{(0)}$ and $\ket{\psi_n} = \ket{\psi_n^{(0)}}$.
+
+The job of perturbation theory then reduces to the calculation of $E_n^{(1)}$, $E_n^{(2)}$, $\cdots$ and $\ket{\psi_n^{(1)}}$, $\ket{\psi_n^{(2)}}$, $\cdots$. We shall only be concerned in this section with the determination of the first and second corrections to the energy, as well as the first correction to the eigenkets.
+
+As we assumed that the unperturbed states were non-degenerate, we can write:
+\begin{equation}
+    \begin{split}
+        E_n(\lambda)\ket{\psi_n(\lambda)} &= \left(E_n^{(0)} + \lambda E_n^{(1)} + \lambda^2 E_n^{(2)} + \cdots\right)\left(\ket{\psi_n^{(0)}} + \lambda \ket{\psi_n^{(1)}} + \lambda^2\ket{\psi_n^{(2)}} + \cdots\right) = \\
+        &\begin{split}
+            = E_n^{(0)}\ket{\psi_n^{(0)}} &+ \left[E_n^{(0)}\ket{\psi_n^{(1)}} + E_n^{(1)}\ket{\psi_n^{(0)}}\right] \lambda + \\ 
+            &+ \left[E_n^{(0)}\ket{\psi_n^{(2)}} + E_n^{(1)}\ket{\psi_n^{(1)}} + E_n^{(2)}\ket{\psi_n^{(0)}}\right] \lambda^2 + \cdots =
+        \end{split} \\
+        &= E_n^{(0)}\ket{\psi_n^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a\sum_{i=0}^a\sum_{j=0}^{a}E_n^{(i)}\ket{\psi_n^{(j)}}\delta_{i+j,a}\right)
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        H(\lambda)\ket{\psi_n(\lambda)} &= \left(H_0+\lambda W\right)\left(\ket{\psi_n^{(0)}} + \lambda \ket{\psi_n^{(1)}} + \lambda^2\ket{\psi_n^{(2)}} + \cdots\right) = \\
+        &= H_0\ket{\psi_n^{(0)}} + \left[H_0\ket{\psi_n^{(1)}} + W\ket{\psi_n^{(0)}}\right] \lambda + \left[H_0\ket{\psi_n^{(2)}} + W\ket{\psi_n^{(1)}}\right] \lambda^2 + \cdots =\\
+        &= H_0\ket{\psi_n^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{\psi_n^{(a)}} + W \ket{\psi_n^{(a-1)}}\right]\right)
+    \end{split}
+\end{equation}
+
+Therefore, as $E_n(\lambda)\ket{\psi_n(\lambda)} = H(\lambda)\ket{\psi_n(\lambda)}$, we have:
+\begin{equation}
+    E_n^{(0)}\ket{\psi_n^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a\sum_{i=0}^{a}\sum_{j=0}^{a}E_n^{(i)}\ket{\psi_n^{(j)}}\delta_{i+j,a}\right) = H_0\ket{\psi_n^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{\psi_n^{(a)}} + W \ket{\psi_n^{(a-1)}}\right]\right)
+\end{equation}
+
+This gives us all the equations to solve in order to find the coefficients of the expansion:
+\begin{itemize}
+    \item Zero order\footnote{The zero order correction is trivial, as it is just the eigenvalue equation for the unperturbed system.} in $\lambda$:
+    \begin{equation}
+        H_0\ket{\psi_n^{(0)}} = E_n^{(0)}\ket{\psi_n^{(0)}}
+    \end{equation}
+    \item First order in $\lambda$:
+    \begin{equation} \label{first_order_correction_eig_eqn}
+        H_0\ket{\psi_n^{(1)}} + W\ket{\psi_n^{(0)}} = E_n^{(0)}\ket{\psi_n^{(1)}} + E_n^{(1)}\ket{\psi_n^{(0)}}
+    \end{equation}
+    \item Second order in $\lambda$:
+    \begin{equation}
+        H_0\ket{\psi_n^{(2)}} + W\ket{\psi_n^{(1)}} = E_n^{(0)}\ket{\psi_n^{(2)}} + E_n^{(1)}\ket{\psi_n^{(1)}} + E_n^{(2)}\ket{\psi_n^{(0)}}
+    \end{equation}
+    $$
+    \vdots
+    $$
+    \item $a$-th order in $\lambda$:
+    \begin{equation}
+        H_0\ket{\psi_n^{(a)}} + W \ket{\psi_n^{(a-1)}} = \sum_{i=0}^{a}\sum_{j=0}^{a}E_n^{(i)}\ket{\psi_n^{(j)}}\delta_{i+j,a}
+    \end{equation}
+\end{itemize} 
+
+Note that, since $\ket{\psi_n^{(0)}}\simeq \ket{\psi_n(\lambda)}$, we can normalise $\ket{\psi_n(\lambda)}$ so that $\braket{\psi_n^{(0)}|\psi_n(\lambda)} = 1$. Then:
+\begin{equation}
+    1 = \braket{\psi_n^{(0)}|\psi_n(\lambda)} = \braket{\psi_n^{(0)}|\psi_n^{(0)}} + \lambda \braket{\psi_n^{(0)}|\psi_n^{(1)}} + \lambda^2\braket{\psi_n^{(0)}|\psi_n^{(2)}} + \cdots = 1 + \sum_{k=1}^\infty \braket{\psi_n^{(0)}|\psi_n^{(k)}}\lambda^k
+\end{equation}
+Therefore:
+\begin{equation} \label{orthonormal_perturbation_terms}
+    \sum_{k=1}^\infty \braket{\psi_n^{(0)}|\psi_n^{(k)}}\lambda^k = 0 \quad\longrightarrow\quad \braket{\psi_n^{(0)}|\psi_n^{(k)}} = 0,\quad \forall k = 1, 2, 3, ...
+\end{equation}
+
+
+\subsubsection{First order correction}
+
+If we multiply both sides of \textbf{Equation \ref{first_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\phi_n^{(0)}$ on the left.}:
+\begin{equation}
+    \begin{split}
+        &\braket{\psi_n^{(0)}|H_0|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|W|\psi_n^{(0)}} = \braket{\psi_n^{(0)}|E_n^{(0)}|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|E_n^{(1)}|\psi_n^{(0)}}\\
+        &\longrightarrow \cancelto{\ 0}{E_n^{(0)}\braket{\psi_n^{(0)}|\psi_n^{(1)}}} + \braket{\psi_n^{(0)}|W|\psi_n^{(0)}} = \cancelto{\ 0}{E_n^{(0)}\braket{\psi_n^{(0)}|\psi_n^{(1)}}} + E_n^{(1)}\cancelto{\ 1}{\braket{\psi_n^{(0)}|\psi_n^{(0)}}} \\
+        &\longrightarrow \braket{\psi_n^{(0)}|W|\psi_n^{(0)}} = E_n^{(1)}
+    \end{split}
+\end{equation}
+
+Therefore:
+\begin{equation}
+    E_n^{(1)} = \braket{\psi_n^{(0)}|W|\psi_n^{(0)}}
+\end{equation}
+This energy shift must be small compared to the level spacing in the unperturbed system. Note that, for some systems, the first order correction $E_n^{(1)}$ vanishes exactly. In such cases, one needs to consider higher order terms. We will later discuss the second order correction.
+
+In order to determine the first order correction to the eigenstates, we can take advantage of the fact that the unperturbed states form a complete orthonormal basis:
+\begin{equation}
+    \ket{\psi_n^{(1)}} = \left(\sum_m \ket{\psi_m^{(0)}}\bra{\psi_m^{(0)}}\right)\ket{\psi_n^{(1)}} = \sum_m \braket{\psi_m^{(0)}|\psi_n^{(1)}}\ket{\psi_m^{(0)}} = \sum_{m\neq n} \braket{\psi_m^{(0)}|\psi_n^{(1)}}\ket{\psi_m^{(0)}}
+\end{equation}
+Note that the term $m = n$ does not contribute as, from \textbf{Equation \ref{orthonormal_perturbation_terms}}, we know that $\braket{\psi_n^{(0)}|\psi_n^{(1)}} = 0$. Multiplying \textbf{Equation \ref{first_order_correction_eig_eqn}} on both sides by $\ket{\psi_m^{(0)}}$, we can find the coefficient $\braket{\psi_m^{(0)}|\psi_n^{(1)}}$:
+\begin{equation}
+    \begin{split}
+        &\braket{\psi_m^{(0)}|H_0|\psi_n^{(1)}} + \braket{\psi_m^{(0)}|W|\psi_n^{(0)}} = \braket{\psi_m^{(0)}|E_n^{(0)}|\psi_n^{(1)}} + \braket{\psi_m^{(0)}|E_n^{(1)}|\psi_n^{(0)}}\\
+        &\longrightarrow E_m^{(0)}\braket{\psi_m^{(0)}|\psi_n^{(1)}} + \braket{\psi_m^{(0)}|W|\psi_n^{(0)}} = E_n^{(0)}\braket{\psi_m^{(0)}|\psi_n^{(1)}} + \cancelto{\ 0}{E_n^{(1)}\braket{\psi_m^{(0)}|\psi_n^{(0)}}} \\
+        &\longrightarrow \braket{\psi_m^{(0)}|W|\psi_n^{(0)}} = \left(E_n^{(0)} - E_m^{(0)}\right)\braket{\psi_m^{(0)}|\psi_n^{(1)}}
+    \end{split}
+\end{equation}
+Therefore:
+\begin{equation}
+    \braket{\psi_m^{(0)}|\psi_n^{(1)}} = \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}
+\end{equation}
+And, finally:
+\begin{equation}
+    \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+\end{equation}
+
+Unlike the formula for the energy shift, the correction to the eigenstates involves in general an infinite sum mixing all the states of the unperturbed system. We speak of the perturbation mixing the unperturbed eigenstates.
+
+
+We can now completely define the first order correction:
+\begin{definition}
+    The first order correction to the energy is defined as:
+    \begin{equation}
+        E_n^{(1)} = \braket{\psi_n^{(0)}|W|\psi_n^{(0)}}
+    \end{equation}
+    where $W = \lambda^{-1}H_p$, so that the total energy corrected to the first order is:
+    \begin{equation}
+        E_n = E_n^{(0)} + \braket{\psi_n^{(0)}|H_p|\psi_n^{(0)}}
+    \end{equation}
+    Furthermore, the first order correction to the eigenstate is given by:
+    \begin{equation}
+        \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+    \end{equation}
+    where again we have $W = \lambda^{-1}H_p$, so that the total corrected eigenket is:
+    \begin{equation}
+        \ket{\psi_n} = \ket{\psi_n^{(0)}} + \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|H_p|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
+    \end{equation}
+\end{definition}
