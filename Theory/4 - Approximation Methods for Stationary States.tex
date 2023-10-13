@@ -4,7 +4,7 @@ Solving a general quantum mechanical problem involves finding the Hamiltonian of
 
 In this chapter we consider approximation methods that deal with \textit{stationary states} corresponding to \textit{time-independent} Hamiltonians. To study problems of stationary states, we focus on two approximation methods: \textbf{time-independent perturbation theory} and the \textbf{variational method}.
 
-\subsection{Perturbation theory}
+\subsection{Introduction to perturbation theory}
 
 Perturbation theory provides a method to approximate energy eigenvalues and eigenstates of Hamiltonians of the form:
 \begin{equation}
@@ -208,3 +208,87 @@ Finally, we can define:
         E_n = E_n^{(0)} + \braket{\psi_n^{(0)}|H_p|\psi_n^{(0)}} + \sum_{m\neq n} \frac{\left|\braket{\psi_m^{(0)}|H_p|\psi_n^{(0)}}\right|^2}{E_n^{(0)} - E_m^{(0)}}
     \end{equation}
 \end{definition}
+
+\subsection{Degenerate perturbation theory}
+
+
+Let us consider a $g_p$-degenerate eigenvalue, $E_p^{(0)}$, of the unperturbed Hamiltonian, $H_0$, with eigenstates $\ket{{\psi_p^i}^{(0)}}$, where $i = 1, 2, 3, \dots , g_p$ is the index identifying each of the $g_p$ degenerate states\footnote{The $i$ stands for one or more quanutm numbers that the energy is independent of.}. The eigenvalue equation is written as:
+\begin{equation}
+    H_0 \ket{{\psi_p^i}^{(0)}} = E_p^{(0)} \ket{{\psi_p^i}^{(0)}}
+\end{equation}
+The eigenstates $\ket{{\psi_p^i}^{(0)}}$ form a complete orthonormal basis:
+\begin{equation}
+    \braket{{\psi_n^i}^{(0)}|{\psi_p^j}^{(0)}} = \delta_{np}\delta_{ij} \qquad \sum_p\sum_j \ket{{\psi_p^j}^{(0)}}\bra{{\psi_p^j}^{(0)}} = \Imat
+\end{equation}
+
+As we will see, the effect of a perturbation on a degenerate level is to remove some or all of the degeneracy. We say that the degeneracy is \textit{lifted}. In other words, the perturbation can (it may not) split the level $E_n^{(0)}$ into distinct sublevels. Therefore, when writing the general perturbed eigenproblem for the Hamiltonian $H(\lambda) = H_0 + \lambda W$, we must add the degeneracy index $i$ to the energy:
+\begin{equation}
+    H(\lambda)\ket{{\psi_n^i}(\lambda)} = E_n^i(\lambda)\ket{{\psi_n^i}(\lambda)}
+\end{equation}
+As before, we assume that the perturbed eigenvalues and eigenstates can both be expanded in power series in the parameter $\lambda$:
+\begin{equation}
+    \begin{split}
+        {E_n^i}(\lambda) &= E_n^{(0)} + \lambda {E_n^i}^{(1)} + \lambda^2 {E_n^i}^{(2)} + \cdots = E_n^{(0)} + \sum_{k=1}^\infty {E_n^i}^{(k)}\lambda^k\\
+        \ket{{\psi_n^i}(\lambda)} &= \ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots = \sum_{k=0}^\infty \ket{{\psi_n^i}^{(k)}}\lambda^k
+    \end{split}
+\end{equation}
+
+This leads to similar results as in the non-degenerate case:
+\begin{equation}
+    \begin{split}
+        E_n^i(\lambda)\ket{\psi_n^i(\lambda)} &= \left(E_n^{(0)} + \lambda {E_n^i}^{(1)} + \lambda^2 {E_n^i}^{(2)} + \cdots\right)\left(\ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots\right) = \\
+        &\begin{split}
+            = E_n^{(0)}\ket{{\psi_n^i}^{(0)}} &+ \left[E_n^{(0)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(0)}}\right] \lambda + \\ 
+            &+ \left[E_n^{(0)}\ket{{\psi_n^i}^{(2)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(2)}\ket{{\psi_n^i}^{(0)}}\right] \lambda^2 + \cdots =
+        \end{split} \\
+        &= E_n^{(0)}\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a\left[E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}\right]\right)
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        H(\lambda)\ket{{\psi_n^i}(\lambda)} &= \left(H_0+\lambda W\right)\left(\ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots\right) = \\
+        &= H_0\ket{{\psi_n^i}^{(0)}} + \left[H_0\ket{{\psi_n^i}^{(1)}} + W\ket{{\psi_n^i}^{(0)}}\right] \lambda + \left[H_0\ket{{\psi_n^i}^{(2)}} + W\ket{{\psi_n^i}^{(1)}}\right] \lambda^2 + \cdots =\\
+        &= H_0\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}}\right]\right)
+    \end{split}
+\end{equation}
+
+Therefore, as $E_n^i(\lambda)\ket{\psi_n^i(\lambda)} = H(\lambda)\ket{\psi_n^i(\lambda)}$, we have:
+\begin{equation}
+    \begin{split}
+        E_n^{(0)}\ket{{\psi_n^i}^{(0)}} &+ \sum_{a=1}^\infty \left(\lambda^a\left[E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}\right]\right) = \\
+        &= H_0\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}}\right]\right)
+    \end{split}
+\end{equation}
+
+
+
+In this analysis, as is usually done, we will only consider the first order correction of the energy and the zero order correction to the eigenstates.
+\begin{itemize}
+    \item Zero order in $\lambda$:
+    \begin{equation}
+        H_0\ket{{\psi_n^i}^{(0)}} = E_n^{(0)}\ket{{\psi_n^i}^{(0)}}
+    \end{equation}
+    \item First order in $\lambda$:
+    \begin{equation} \label{first_order_correction_eig_eqn}
+        H_0\ket{{\psi_n^i}^{(1)}} + W\ket{{\psi_n^i}^{(0)}} = E_n^{(0)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(0)}}
+    \end{equation}
+    $$
+    \vdots
+    $$
+    \item $a$-th order in $\lambda$:
+    \begin{equation}
+        H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}} =E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}
+    \end{equation}
+\end{itemize}
+
+Here also, since $\ket{{\psi_n^i}^{(0)}}\simeq \ket{\psi_n^i(\lambda)}$, we can normalise $\ket{{\psi_n^i}(\lambda)}$ so that $\braket{{\psi_n^i}^{(0)}|\psi_n^i(\lambda)} = 1$. Then:
+\begin{equation}
+    1 = \braket{{\psi_n^i}^{(0)}|\psi_n^i(\lambda)} = \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(0)}} + \lambda \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(1)}} + \lambda^2\braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(2)}} + \cdots = 1 + \sum_{k=1}^\infty \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}}\lambda^k
+\end{equation}
+Therefore:
+\begin{equation} 
+    \sum_{k=1}^\infty \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}}\lambda^k = 0 \quad\longrightarrow\quad \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}} = 0,\quad \forall k = 1, 2, 3, ...
+\end{equation}
+
+\subsubsection{Zero order correction}
+
