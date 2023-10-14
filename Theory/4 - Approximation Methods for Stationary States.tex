@@ -211,84 +211,104 @@ Finally, we can define:
 
 \subsection{Degenerate perturbation theory}
 
+The method we described before is valid for cases in which the eigenenergies are non-degenerate. However, for perturbing degenerate eigenenergies and their corresponding eigenstates, we must apply a different theory\footnote{Note that, if we have only \textit{some} degenerate eigenvalues, then we apply degenerate perturbation theory only to those degenerate eigenenergies and their states, and we apply normal perturbation theory to the remaining non-degenerate eigenvalues and eigenstates.\color{red} Check}. As we will see, the effect of a perturbation on a degenerate level is to remove some or all of the degeneracy. We say that the degeneracy is \textit{lifted}. In other words, the perturbation can (it may not) split the level $E_p^{(0)}$ into distinct sublevels. 
 
-Let us consider a $g_p$-degenerate eigenvalue, $E_p^{(0)}$, of the unperturbed Hamiltonian, $H_0$, with eigenstates $\ket{{\psi_p^i}^{(0)}}$, where $i = 1, 2, 3, \dots , g_p$ is the index identifying each of the $g_p$ degenerate states\footnote{The $i$ stands for one or more quanutm numbers that the energy is independent of.}. The eigenvalue equation is written as:
+Let us consider a $g_p$-degenerate eigenvalue, $E_p^{(0)}$, of the unperturbed Hamiltonian, $H_0$, with eigenstates $\ket{{\psi_p^i}^{(0)}}$, where $i = 1, 2, 3, \dots , g_p$ is the index identifying each of the $g_p$ degenerate states\footnote{The $i$ stands for one or more quanutm numbers that the energy is independent of.}. The eigenvalue equation for the degenerate eigenenergy is written as:
 \begin{equation}
     H_0 \ket{{\psi_p^i}^{(0)}} = E_p^{(0)} \ket{{\psi_p^i}^{(0)}}
 \end{equation}
-The eigenstates $\ket{{\psi_p^i}^{(0)}}$ form a complete orthonormal basis:
+The eigenstates $\ket{{\psi_p^i}^{(0)}}$ corresponding to $E_p^{(0)}$ form a degenerate $g_p$-dimensional subpace of the full state space, in which they conform a complete orthonormal basis:
 \begin{equation}
-    \braket{{\psi_n^i}^{(0)}|{\psi_p^j}^{(0)}} = \delta_{np}\delta_{ij} \qquad \sum_p\sum_j \ket{{\psi_p^j}^{(0)}}\bra{{\psi_p^j}^{(0)}} = \Imat
+    \braket{{\psi_p^i}^{(0)}|{\psi_p^j}^{(0)}} = \delta_{ij} \qquad \sum_{i=1}^{g_p} \ket{{\psi_p^i}^{(0)}}\bra{{\psi_p^i}^{(0)}} = \Imat
+\end{equation}
+Note that any set of $g_p$ linearly independent vectors in the degenerate subspace will conform a basis for the degenerate subspace. The choice is arbitrary until we subject the wave functions to the requirement that the change in them under the action of the applied perturbation should be small. Therefore, the zero order approximation consists in finding the correct linear combination of the initial vectors $\{\ket{{\psi_n^i}^{(0)}}\}$ such that this condition is met. For a general zero order correction of the eigenvectors of the degenerate subspace, we can write\footnote{This index-less $\ket{\psi_n^{(0)}}$ represents the \textit{general ``shape''} of the zero order correction to the eigenstates. We will later find that, as a result of our calculations, this separates into $g_p$ distinct definitions for each of the $g_p$ eigenstates of the zero correction. For now, however, it makes no sense to carry an index labeling each of those, as we cannot yet distinguish between them.}:
+\begin{equation} \label{zero_order_approx_initial_def}
+    \ket{\psi_n^{(0)}} = \sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}}
+\end{equation}
+From this point to the end of this section, we will use the index $p$ to denote the initial eigenstates $\{\ket{{\psi_p^i}^{(0)}}\}$ corresponding to the degenerate eigenvalue $E_p^{(0)}$ that were obtained directly from solving the unperturbed system. We will use the index $n$ to denote the zero order approximation of the eigenstates $\{\ket{{\psi_n^i}^{(0)}}\}$ of the perturbed Hamiltonian, which are just a linear combination of $\{\ket{{\psi_p^i}^{(0)}}\}$. By definition, $\{\ket{{\psi_n^i}^{(0)}}\}$ are eigenstates of the unperturbed system and {\color{red}almost or complete?} eigenstates of the perturbed system.
+
+Considering orthonormality, we can determine the following relation concerning the coefficients:
+\begin{equation}
+    1 = \braket{{\psi_n^k}^{(0)}|{\psi_n^k}^{(0)}} = \sum_{k=1}^{g_p} |a_k|^2
 \end{equation}
 
-As we will see, the effect of a perturbation on a degenerate level is to remove some or all of the degeneracy. We say that the degeneracy is \textit{lifted}. In other words, the perturbation can (it may not) split the level $E_n^{(0)}$ into distinct sublevels. Therefore, when writing the general perturbed eigenproblem for the Hamiltonian $H(\lambda) = H_0 + \lambda W$, we must add the degeneracy index $i$ to the energy:
-\begin{equation}
-    H(\lambda)\ket{{\psi_n^i}(\lambda)} = E_n^i(\lambda)\ket{{\psi_n^i}(\lambda)}
-\end{equation}
-As before, we assume that the perturbed eigenvalues and eigenstates can both be expanded in power series in the parameter $\lambda$:
+Let us now rewrite the eigenvalue equation for the perturbed Hamiltonian using the expression from \textbf{Equation \ref{zero_order_approx_initial_def}} {\color{red}Why do we introduce directly $\ket{\psi_n^{(0)}}$? This is related to the above question}:
 \begin{equation}
     \begin{split}
-        {E_n^i}(\lambda) &= E_n^{(0)} + \lambda {E_n^i}^{(1)} + \lambda^2 {E_n^i}^{(2)} + \cdots = E_n^{(0)} + \sum_{k=1}^\infty {E_n^i}^{(k)}\lambda^k\\
-        \ket{{\psi_n^i}(\lambda)} &= \ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots = \sum_{k=0}^\infty \ket{{\psi_n^i}^{(k)}}\lambda^k
+        H\ket{\psi_n^{(0)}} = E_n\ket{\psi_n^{(0)}} &\longrightarrow (H_0 + H_p)\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} = E_n\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} \\
+        &\longrightarrow \sum_{k=1}^{g_p} a_k\left[H_0\ket{{\psi_p^k}^{(0)}} + H_p\ket{{\psi_p^k}^{(0)}}\right] = E_n\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} \\ 
+        &\longrightarrow \sum_{k=1}^{g_p} a_k\left[E_n^{(0)}\ket{{\psi_p^k}^{(0)}} + H_p\ket{{\psi_p^k}^{(0)}}\right] = E_n\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} \\ 
+    \end{split}
+\end{equation}
+Multiplying both sides of this equation by $\bra{{\psi_p^j}^{(0)}}$ yields:
+\begin{equation}
+    \begin{split}
+        \sum_{k=1}^{g_p} a_k&\left[E_n^{(0)}\braket{{\psi_p^j}^{(0)}|{\psi_p^k}^{(0)}} + \braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}}\right] = E_n\sum_{k=1}^{g_p} a_k\braket{{\psi_p^j}^{(0)}|{\psi_p^k}^{(0)}} \\ 
+        &\longrightarrow \sum_{k=1}^{g_p} a_k\left[E_n^{(0)}\delta_{k,j} + \braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}}\right] = E_n\sum_{k=1}^{g_p} a_k\delta_{k,j} \\ 
+        &\longrightarrow a_jE_n^{(0)} + \sum_{k=1}^{g_p} a_k\braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}} = a_j E_n \\ 
     \end{split}
 \end{equation}
 
-This leads to similar results as in the non-degenerate case:
+If we denote $H_{p_{jk}} = \braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}}$ and $E_n^{(1)}=E_n - E_n^{(0)}$, we can write this as:
 \begin{equation}
-    \begin{split}
-        E_n^i(\lambda)\ket{\psi_n^i(\lambda)} &= \left(E_n^{(0)} + \lambda {E_n^i}^{(1)} + \lambda^2 {E_n^i}^{(2)} + \cdots\right)\left(\ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots\right) = \\
-        &\begin{split}
-            = E_n^{(0)}\ket{{\psi_n^i}^{(0)}} &+ \left[E_n^{(0)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(0)}}\right] \lambda + \\ 
-            &+ \left[E_n^{(0)}\ket{{\psi_n^i}^{(2)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(2)}\ket{{\psi_n^i}^{(0)}}\right] \lambda^2 + \cdots =
-        \end{split} \\
-        &= E_n^{(0)}\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a\left[E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}\right]\right)
-    \end{split}
-\end{equation}
-\begin{equation}
-    \begin{split}
-        H(\lambda)\ket{{\psi_n^i}(\lambda)} &= \left(H_0+\lambda W\right)\left(\ket{{\psi_n^i}^{(0)}} + \lambda \ket{{\psi_n^i}^{(1)}} + \lambda^2\ket{{\psi_n^i}^{(2)}} + \cdots\right) = \\
-        &= H_0\ket{{\psi_n^i}^{(0)}} + \left[H_0\ket{{\psi_n^i}^{(1)}} + W\ket{{\psi_n^i}^{(0)}}\right] \lambda + \left[H_0\ket{{\psi_n^i}^{(2)}} + W\ket{{\psi_n^i}^{(1)}}\right] \lambda^2 + \cdots =\\
-        &= H_0\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}}\right]\right)
-    \end{split}
+    \sum_{k=1}^{g_p} a_k\left(H_{p_{jk}}-\delta_{k,j} E_n^{(1)}\right) = 0
 \end{equation}
 
-Therefore, as $E_n^i(\lambda)\ket{\psi_n^i(\lambda)} = H(\lambda)\ket{\psi_n^i(\lambda)}$, we have:
+which, considering $j = 1, 2, 3, \dots, g_p$, gives a system of $g_p$ linear equations for the coefficients $a_k$. These coefficients are non-vanishing only when the determinant $|H_{p_{jk}}-\delta_{k,j} E_n^{(1)}|$ is zero:
 \begin{equation}
-    \begin{split}
-        E_n^{(0)}\ket{{\psi_n^i}^{(0)}} &+ \sum_{a=1}^\infty \left(\lambda^a\left[E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}\right]\right) = \\
-        &= H_0\ket{{\psi_n^i}^{(0)}} + \sum_{a=1}^\infty \left(\lambda^a \left[H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}}\right]\right)
-    \end{split}
+    \left|\ \begin{matrix}
+        H_{p_{11}} - E_n^{(1)} & H_{p_{12}} & \cdots & H_{p_{1g_p}} \\
+        H_{p_{21}} & H_{p_{22}}- E_n^{(1)} & \cdots & H_{p_{2g_p}} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        H_{p_{g_p1}} & H_{p_{g_p2}} & \cdots & H_{p_{g_pg_p}}- E_n^{(1)} \\
+    \end{matrix}\ \right| = 0
 \end{equation}
 
+This determinant is a $g_p$-th degree equation in $E_n^{(1)}$, which in general has $g_p$ different roots ${E_n^i}^{(1)}$ (some may not be different), each of which is the first order correction to the energy corresponding to the $i$-th eigenvector of the degenerate eigenvalue $E_n^{(0)}$ of the unperturbed system. Similarly to when we find the characteristic polynomial $P(\lambda)$ of a matrix $A$ and solve $P(\lambda)=0$ to find the eigenvectors, once we have the first order corrections of the energy we substitute the different values into the system of equations:
+\begin{equation}
+    \begin{bmatrix}
+        H_{p_{11}} - {E_n^i}^{(1)} & H_{p_{12}} & \cdots & H_{p_{1g_p}} \\
+        H_{p_{21}} & H_{p_{22}}- {E_n^i}^{(1)} & \cdots & H_{p_{2g_p}} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        H_{p_{g_p1}} & H_{p_{g_p2}} & \cdots & H_{p_{g_pg_p}}- {E_n^i}^{(1)} \\
+    \end{bmatrix}\cdot \begin{bmatrix}
+        a_1^i \\ a_2^i \\ \vdots \\ a_{g_p}^i 
+    \end{bmatrix} = \begin{bmatrix}
+        0 \\ 0 \\ \vdots \\ 0 
+    \end{bmatrix}
+\end{equation}
+To find the coefficients $a_k$. The $i$-th root ${E_n^i}^{(0)}$ allows us to find the coefficients $a_k^i$ for the zero order correction of the eigenstate $\ket{{\psi_n^i}^{(0)}}$, such that:
+\begin{equation}
+    \ket{{\psi_n^i}^{(0)}} = \sum_{k=1}^{g_p} a_k^i\ket{{\psi_p^k}^{(0)}}, \qquad i = 1, 2, 3, \dots, g_p
+\end{equation}
+In general, the roots ${E_n^i}^{(0)}$ are different, so the $g_p$-degenerate level $E_n^{(0)}$ is split into $g_p$ different levels $E_n^i = E_n^{(0)} + {E_n^i}^{(1)}$. In this way, the perturbation lifts the degeneracy, depending on whether all the roots or only some of them are different.
 
-
-In this analysis, as is usually done, we will only consider the first order correction of the energy and the zero order correction to the eigenstates.
-\begin{itemize}
-    \item Zero order in $\lambda$:
+In summary, the degenerate perturbation method consists of the following steps:
+\begin{enumerate}
+    \item For each of the $g_p$-fold degenerate levels, determine the $g_p\times g_p$ matrix of the perturbation $H_p$:
     \begin{equation}
-        H_0\ket{{\psi_n^i}^{(0)}} = E_n^{(0)}\ket{{\psi_n^i}^{(0)}}
+        H_p = \begin{pmatrix}
+        H_{p_{11}} & H_{p_{12}} & \cdots & H_{p_{1g_p}} \\
+        H_{p_{21}} & H_{p_{22}} & \cdots & H_{p_{2g_p}} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        H_{p_{g_p1}} & H_{p_{g_p2}} & \cdots & H_{p_{g_pg_p}} \\
+        \end{pmatrix}
     \end{equation}
-    \item First order in $\lambda$:
-    \begin{equation} \label{first_order_correction_eig_eqn}
-        H_0\ket{{\psi_n^i}^{(1)}} + W\ket{{\psi_n^i}^{(0)}} = E_n^{(0)}\ket{{\psi_n^i}^{(1)}} + {E_n^i}^{(1)}\ket{{\psi_n^i}^{(0)}}
-    \end{equation}
-    $$
-    \vdots
-    $$
-    \item $a$-th order in $\lambda$:
+    where $H_{p_{jk}} = \braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}}$.
+    \item Diagonalize this matrix and find the $g_p$ eigenvalues ${E_n^i}^{(1)}$ ($i = 1, 2, 3, \dots, g_p$) and their corresponding eigenvectors:
     \begin{equation}
-        H_0\ket{{\psi_n^i}^{(a)}} + W \ket{{\psi_n^i}^{(a-1)}} =E_n^{(0)}\ket{{\psi_n^i}^{(a)}} + \sum_{l=1}^a\sum_{j=0}^{a}{E_n^i}^{(l)}\ket{{\psi_n^i}^{(j)}}\delta_{l+j,a}
+        \vec{a}\,^i = \begin{pmatrix}
+            a_1^i \\ a_2^i \\ \vdots \\ a_{g_p}^i 
+        \end{pmatrix},\qquad (i = 1, 2, 3, \dots, g_p)
+    \end{equation} 
+    \item Finally, the first order corrections to the energy for the $g_p$ eigenstates corresponding to the original degenerate level are given by:
+    \begin{equation}
+        E_n^i = E_n^{(0)} + {E_n^i}^{(1)},\qquad (i = 1, 2, 3, \dots, g_p)
     \end{equation}
-\end{itemize}
+    And the corresponding eigenvectors are given to order zero as:
+    \begin{equation}
+        \ket{{\psi_n^i}^{(0)}} = \sum_{k=1}^{g_p} a_k^i\ket{{\psi_p^k}^{(0)}}, \qquad i = 1, 2, 3, \dots, g_p
+    \end{equation}
+\end{enumerate}
 
-Here also, since $\ket{{\psi_n^i}^{(0)}}\simeq \ket{\psi_n^i(\lambda)}$, we can normalise $\ket{{\psi_n^i}(\lambda)}$ so that $\braket{{\psi_n^i}^{(0)}|\psi_n^i(\lambda)} = 1$. Then:
-\begin{equation}
-    1 = \braket{{\psi_n^i}^{(0)}|\psi_n^i(\lambda)} = \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(0)}} + \lambda \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(1)}} + \lambda^2\braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(2)}} + \cdots = 1 + \sum_{k=1}^\infty \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}}\lambda^k
-\end{equation}
-Therefore:
-\begin{equation} 
-    \sum_{k=1}^\infty \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}}\lambda^k = 0 \quad\longrightarrow\quad \braket{{\psi_n^i}^{(0)}|{\psi_n^i}^{(k)}} = 0,\quad \forall k = 1, 2, 3, ...
-\end{equation}
-
-\subsubsection{Zero order correction}
-
+Just as for non-degenerate levels, the method described in this section is valid only if the matrix elements of the perturbation are much smaller than the differences between the energy of the level under study and those of the other levels (this conclusion would have been evident if we had calculated higher-order corrections).
