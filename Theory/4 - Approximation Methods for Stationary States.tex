@@ -116,7 +116,7 @@ Therefore:
 
 \subsubsection{First order correction}
 
-If we multiply both sides of \textbf{Equation \ref{first_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\phi_n^{(0)}$ on the left.}:
+If we multiply both sides of \textbf{Equation \ref{first_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\psi_n^{(0)}$ on the left.}:
 \begin{equation}
     \begin{split}
         &\braket{\psi_n^{(0)}|H_0|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|W|\psi_n^{(0)}} = \braket{\psi_n^{(0)}|E_n^{(0)}|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|E_n^{(1)}|\psi_n^{(0)}}\\
@@ -277,7 +277,7 @@ This determinant is a $g_p$-th degree equation in $E_n^{(1)}$, which in general 
         0 \\ 0 \\ \vdots \\ 0 
     \end{bmatrix}
 \end{equation}
-To find the coefficients $a_k$. The $i$-th root ${E_n^i}^{(0)}$ allows us to find the coefficients $a_k^i$ for the zero order correction of the eigenstate $\ket{{\psi_n^i}^{(0)}}$, such that:
+To find the coefficients $a_k$. The $i$-th root ${E_n^i}^{(1)}$ allows us to find the coefficients $a_k^i$ for the zero order correction of the eigenstate $\ket{{\psi_n^i}^{(0)}}$, such that:
 \begin{equation}
     \ket{{\psi_n^i}^{(0)}} = \sum_{k=1}^{g_p} a_k^i\ket{{\psi_p^k}^{(0)}}, \qquad i = 1, 2, 3, \dots, g_p
 \end{equation}
@@ -312,3 +312,63 @@ In summary, the degenerate perturbation method consists of the following steps:
 \end{enumerate}
 
 Just as for non-degenerate levels, the method described in this section is valid only if the matrix elements of the perturbation are much smaller than the differences between the energy of the level under study and those of the other levels (this conclusion would have been evident if we had calculated higher-order corrections).
+
+\subsubsection{The Stark effect}
+
+The Stark effect is an example where degenerate perturbation can be applied to solve a quantum mechanical problem. It is related to the interaction of the electric dipole of the hydrogen atom with an external electric field.
+
+In the absence of an external magnetic field, the first excited state of the hydrogen atom, $n=2$, is fourfold degenerate: the states $\ket{n,l,m} = \ket{200}, \ket{210}, \ket{211}, \ket{21-1}$ have the same energy $E_2 = -R_y/4$, where $R_y = \mu e^4 / (2\hbar^2) = 13.6 eV$ is the Rydberg constant. 
+
+Consider now a hydrogen atom placed in a uniform static electric field $\vec{\mathcal{E}}$ parallel to the $z$ axis. To the Hamiltonian of the Hydrogen atom, we must add the Stark Hamiltonian $W_S$, which describes the interaction energy of the electric dipole of the atom $\vec{d} = -e\vec{r}$ with the electric field $\vec{\mathcal{E}} = \mathcal{E}\vec{e}_z$. We can write $W_S$ as:
+\begin{equation}
+    W_S = -\vec{d}\cdot \vec{\mathcal{E}} = e\vec{r}\cdot \vec{\mathcal{E}} = e\mathcal{E}Z
+\end{equation}
+
+To calculate the first order correction to the energies, we need to determine and then diagonalise the $4\times 4$ matrix elements $W_{s_{l'm'lm}} = \braket{2l'm'|W_s|2lm}$. For calculating the matrix elements\footnote{We use that $z = r\cos\theta$.}: 
+\begin{equation}
+    \begin{split}
+        \braket{2l'm'|W_s|2lm} &= e\mathcal{E} \braket{2l'm'|Z|2lm} = \\
+        &= e\mathcal{E} \int_{0}^{\infty}dr\int_{0}^{\pi}d\theta\int_{0}^{2\pi}d\phi \cdot r^2\sin\theta \cdot \left[\psi_{l',m'}(r,\theta,\phi)\right]^*\cdot r\cos\theta \cdot\psi_{l,m}(r,\theta,\phi) = \\
+        &= e\mathcal{E} \int_{0}^{\infty}dr\cdot r^3\int_{0}^{\pi}d\theta\cdot \sin\theta\cos\theta\int_{0}^{2\pi}d\phi \cdot \left[\psi_{l',m'}(r,\theta,\phi)\right]^*\cdot \psi_{l,m}(r,\theta,\phi)
+    \end{split}
+\end{equation}
+Using that $\psi_{l,m}(r,\theta,\phi) = R_l(r)Y_l^m(\theta, \phi)$, we obtain:
+\begin{equation}
+    \begin{split}
+        \braket{2l'm'|W_s|2lm} &= e\mathcal{E} \int_{0}^{\infty}dr\cdot r^3\int_{0}^{\pi}d\theta\cdot \sin\theta\cos\theta\int_{0}^{2\pi}d\phi \cdot \left[R_{l'}(r)Y_{l'}^{m'}(\theta, \phi)\right]^*\cdot R_l(r)Y_l^m(\theta, \phi) = \\
+        &= e\mathcal{E} \int_{0}^{\infty}dr\cdot r^3\, R_{l'}^*(r)R_l(r)\int_{0}^{\pi}d\theta\cdot \sin\theta\cos\theta\int_{0}^{2\pi}d\phi \left[Y_{l'}^{m'}(\theta, \phi)\right]^*\, Y_l^m(\theta, \phi) \\
+    \end{split}
+\end{equation}
+
+From here, we can easily see that the only non-zero matrix elements are those for which $m' = m$\footnote{Clarify this, which is stated in Zetilli.}. Therefore, the only non-vanishing matrix elements will be those between any combination of the states $\ket{200}$ and $\ket{210}$. Furthermore, taking into account the parity of spherical harmonics, from \textbf{Equation \ref{parity_spherical_harmonics}}, and the fact that the operator $Z$ is odd, we can see that the only non-zero matrix elements are those for which $l' = l\pm 1$. Therefore, the only matrix element that does not vanish (its complex conjugate matrix element does not vanish either, of course), is:
+\begin{equation}
+    \begin{split}
+        \braket{200|W_s|210} &= e\mathcal{E} \int_{0}^{\infty}dr\cdot r^3\, R_0^*(r)R_1(r)\int_{0}^{\pi}d\theta\cdot \sin\theta\cos\theta\int_{0}^{2\pi}d\phi \left[Y_0^0(\theta, \phi)\right]^*\, Y_1^0(\theta, \phi) = -3e\mathcal{E}a_0\\
+    \end{split}
+\end{equation}
+
+where $a_0 = \frac{\hbar^2}{\mu e^2}$ is the Bohr radius. Therefore, the matrix of the perturbation is:
+
+\begin{equation}
+    W_s = -3e\mathcal{E}a_0\begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}
+\end{equation}
+
+Diagonalizing this matrix leads to the following eigenvalues:
+\begin{equation}
+    {E_2^1}^{(1)} = -3e\mathcal{E}a_0,\qquad {E_2^2}^{(1)} = {E_2^3}^{(1)} = 0, \qquad {E_2^4}^{(1)} = 3e\mathcal{E}a_0
+\end{equation}
+
+The corrections eigenvectors to the zeroth order are:
+\begin{equation}
+    \begin{split}
+        \ket{{\psi_2^1}^{(0)}} = \frac{1}{\sqrt{2}} \left(\ket{200} + \ket{210}\right), \qquad \ket{{\psi_2^2}^{(0)}} = \ket{211},\\
+        \ket{{\psi_2^3}^{(0)}} = \ket{21-1}, \qquad \ket{{\psi_2^4}^{(0)}} = \frac{1}{\sqrt{2}} \left(\ket{200} - \ket{210}\right),\\
+    \end{split}
+\end{equation}
+
+As we can see, this perturbation has only partially removed the degeneracy of the $n= 2$ level; the states $\ket{211}$ and $\ket{21-1}$ still have the same energy.
