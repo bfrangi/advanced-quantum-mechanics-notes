@@ -372,3 +372,37 @@ The corrections eigenvectors to the zeroth order are:
 \end{equation}
 
 As we can see, this perturbation has only partially removed the degeneracy of the $n= 2$ level; the states $\ket{211}$ and $\ket{21-1}$ still have the same energy.
+
+\subsection{The variational method}
+
+The variational method is used for finding approximate solutions to problems that cannot be solved exactly. It is based upon the fact that the energy of any trial wave function $\psi_T$ is an upper bound to the true ground state energy of the system. The variational method consists in choosing a trial wave function $\psi_T$ that depends on one or more parameters, and then minimizing the expectation value of the energy with respect to these parameters. The minimum value of the energy is an upper bound to the true ground state energy of the system. The closer the trial wave function is to the true ground state wave function, the closer the upper bound is to the true ground state energy.
+
+Consider a system described by a Hamiltonian $H$, with a complete set of eigenstates $\{\ket{n}\}$ and corresponding eigenvalues $\{E_n\}$ ordered in increasing value:
+\begin{equation}
+    E_1 < E_2 < E_3 < \dots
+\end{equation}
+An arbitrary state $\ket{n}$ can be expanded as a linear superposition
+\begin{equation}
+    \ket{\psi} = \sum_n c_n\ket{n},\text{ with }c_n = \braket{n|\psi}
+\end{equation}
+Then, we can compute the expectation value of the energy as:
+\begin{equation}
+    \braket{E} = \frac{\braket{\psi|H|\psi}}{\braket{\psi|\psi}} = \frac{\sum_n |c_n|^2 E_n }{\sum_n |c_n|^2} \geq \frac{\sum_n |c_n|^2 E_1 }{\sum_n |c_n|^2} = E_1
+\end{equation}
+where we have used the fact that $E_n \geq E_1$ for $n>1$. Therefore, the expectation value of the energy for any state is an upper bound to the ground state energy $E_1$. This is the basis of the variational method, which gives way to the following procedure:
+\begin{enumerate}
+    \item Choose a trial state $\ket{\psi_T}$ that depends on one or more parameters $\alpha_1, \alpha_2, \cdots, \alpha_r$.
+    \item Compute:
+    \begin{equation}
+        E (\alpha_1, \alpha_2, \cdots, \alpha_r) = \frac{\braket{\psi_T|H|\psi_T}}{\braket{\psi_T|\psi_T}}
+    \end{equation}
+    \item Minimize $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$ with respect to the variational parameters $\alpha_1, \alpha_2, \cdots, \alpha_r$ by solving the equations:
+    \begin{equation}
+        \frac{\partial E}{\partial \alpha_i} = 0, \qquad i = 1, 2, \cdots, r
+    \end{equation}
+    \item Evaluate the averge energy of the system using the values of the variational parameters that minimize $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$.
+    \item The minimum value of the energy that we obtain is an upper bound to the true ground state energy of the system.
+\end{enumerate}
+
+A good trial function incorporates as many of the features of the exact wavefunction as possible, some of which can be deduced from symmetry arguments. Note that the variational method is aimed at optimising the estimate of the \textit{energy} of the energy. It may not necessarily give a good approximation to the true \textit{wave function}, and could give poor results if used to calculate things other than the energy.
+
