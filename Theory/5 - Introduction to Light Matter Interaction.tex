@@ -6,7 +6,7 @@ To study the structure of molecular and atomic systems, we need to know how elec
 
 Time-dependent perturbation theory is most useful for studying processes of absorption and emission of radiation by atoms or, more generally, for treating the transitions of quantum systems from one energy level to another.
 
-\subsection{Time dependent perturbation theory}
+\subsection{Time dependent perturbation theory} \label{sec:time-dep-pert-thry}
 
 For systems with time-dependent Hamiltonians the energy is not conserved and thus there are no stationary states. Solving the Schrödinger equations is then very difficult. However, in the case where the time-dependent part is small, progress can be made applying \textbf{time dependent perturbation theory}. One example of this is the interaction of a quantum system, like an atom, with electromagnetic radiation. The objective of this method is to compute how the system transitions in time between states in an initially prescribed basis (usually the eigenstates of the time-independent free Hamiltonian).
 
@@ -119,7 +119,7 @@ Plugging this into \textbf{Equation \ref{eq:time_dependent_perturbation_2}}, we 
         i\hbar \sum_{q=0}^\infty \lambda^q\frac{d b_n^{(q)}(t)}{dt}  &= \sum_{q=0}^\infty\sum_{k} \lambda^{q+1}e^{i\omega_{nk}t}W_{nk}(t)  b_k^{(q)}(t)
     \end{split}
 \end{equation}
-Now, matching the terms of equal power in $\lambda$, we can obtain a set of equations that give us the corrections of $b_n(t)$ at the different orders. For example, for the zeroth order ($q = 0$), we have:
+Now, matching the terms of equal power in $\lambda$, we can obtain a set of equations that give us the corrections of $b_n(t)$ at the different orders. For example, for the zeroth order (terms multiplying $\lambda^0$), we have:
 \begin{equation}
     i\hbar \frac{db_n^{(0)}(t)}{dt} = 0,
 \end{equation}
@@ -127,7 +127,7 @@ which means that $b_n^{(0)}(t)$ are constant functions:
 \begin{equation}
     b_n^{(0)} \equiv \text{const.}
 \end{equation}
-As we are initially in the state $\ket{\phi_i}$, these coefficients at time $t=0$, and for any $t$ (as they are constan), must be equal to $\delta_{ni}$.
+As we are initially in the state $\ket{\phi_i}$, these coefficients at time $t=0$, and for any $t$ (as they are constant), must be equal to $\delta_{ni}$.
 \begin{equation}
     b_n^{(0)} = \delta_{ni}
 \end{equation}
@@ -175,11 +175,11 @@ We can then write:
 
 The initial state of the system is $\ket{\phi_i}$. Therefore, in the initial instant when the perturbation is applied the only term in the expansion of the $b_n(t)$ coefficients that is non-zero, for any $n$-eigenstate and $q$-order, is the zeroth order coefficient for $n = i$. In other words:
 \begin{equation}
-    \left.
+    \left\{
     \begin{matrix}
         b_n^{(0)}(0) =& \delta_{ni}&\\
         b_n^{(q)}(0) =& 0,& \forall q > 0 \\
-    \end{matrix}\right\} 
+    \end{matrix}\right.
 \end{equation}
 Then, using \textbf{Equation \ref{recursive_bn}}, we obtain:
 \begin{equation}
@@ -312,3 +312,65 @@ Therefore, combining the conditions from \textbf{Equation \ref{condition_1}} and
 \begin{equation}
     \frac{1}{\omega_{fi}} \ll \frac{1}{\left|{H_p}_{fi}\right|}
 \end{equation}
+
+\subsubsection{Coupling between discrete states: Rabi's formula}
+
+In this section, we will study the oscillations of a system between two discrete states when they are exposed to a sinusoidal resonant perturbation for a long time, for which the previous limiting conditions are not met. 
+
+For these cases, as the first order solution is insufficient, in principle it would be possible to simply find higher order terms to obtain a better expression. However, such a method would lead to unnecessarily long calculations. In this section, we shall see that it is possible to solve the problem in a quicker and more elegant way by considering the fact that the resonance condition implies that only the two discrete states $\ket{\phi_i}$ and $\ket{\phi_f}$ are effetively coupled by the perturbation. In other words, the only possible transitions (with non-negligible probability) are between these two states. 
+
+Back in \textbf{Section \ref{sec:time-dep-pert-thry}}, we replaced all the coefficients $b_k(t)$ of \textbf{Equation \ref{eq:time_dependent_perturbation_2}} by their expansion in $\lambda$:
+\begin{equation}
+    b_k(t) = \sum_{q=0}^\infty \lambda^q b_k^{(q)}(t),
+\end{equation}
+In this case, we will simply neglect all terms $k \neq i, f$ and leave $b_i(t)$ and $b_f(t)$ as they are:
+\begin{equation}
+    \begin{split}
+        i \hbar\frac{db_i(t)}{dt} &= \lambda\sum_{k} e^{i\omega_{ik}t}W_{ik}(t)b_k(t) =\\
+        &= \cancel{\lambda\sum_{k\neq i,f} e^{i\omega_{ik}t}W_{ik}(t)b_k(t)} + e^{i\omega_{ii}t} {H_p}_{ii}(t)b_i (t) + e^{i\omega_{if}t} {H_p}_{if}(t)b_f (t),
+    \end{split}
+\end{equation}
+where we have used that $H_p(t) = \lambda W(t)$. Since the perturbation is sinusoidal, we have $H_p(t) = H_p \sin \omega t$. Therefore, using this and the fact that $\omega_{if} = -\omega_{fi}$:
+\begin{equation}
+    \begin{split}
+        i \hbar\frac{db_i(t)}{dt} &= \cancelto{1}{e^{i\omega_{ii}t}} {H_p}_{ii}\sin(\omega t)b_i (t) + e^{-i\omega_{fi}t} {H_p}_{if}\sin(\omega t)b_f (t) =\\
+        &= {H_p}_{ii}\left(\frac{e^{i\omega t}- e^{-i\omega t}}{2i}\right)b_i (t) + e^{-i\omega_{fi}t} {H_p}_{if}\left(\frac{e^{i\omega t}- e^{-i\omega t}}{2i}\right)b_f (t) =\\
+        &= \frac{1}{2i}\left\{{H_p}_{ii}\left(e^{i\omega t}- e^{-i\omega t}\right)b_i (t) + e^{-i\omega_{fi}t} {H_p}_{if}\left(e^{i\omega t}- e^{-i\omega t}\right)b_f (t)\right\} =\\
+        &= \frac{1}{2i}\left\{{H_p}_{ii} b_i (t) \left(e^{i\omega t}- e^{-i\omega t}\right) + {H_p}_{if}b_f (t) \left(e^{i(\omega - \omega_{fi}) t}- e^{-i(\omega + \omega_{fi}) t}\right)\right\}\\
+    \end{split}
+\end{equation}
+
+Finally, if we do the same for $b_f(t)$, we obtain the following system of differential equations:
+\begin{equation}
+    \left\{\ 
+    \begin{aligned}
+        i \hbar\frac{db_i(t)}{dt} &= \frac{1}{2i}\left\{{H_p}_{ii} b_i (t) \left(e^{i\omega t}- e^{-i\omega t}\right) + {H_p}_{if}b_f (t) \left(e^{i(\omega - \omega_{fi}) t}- e^{-i(\omega + \omega_{fi}) t}\right)\right\}\\
+        i \hbar\frac{db_f(t)}{dt} &= \frac{1}{2i}\left\{{H_p}_{fi}b_i (t) \left(e^{i(\omega + \omega_{if}) t}- e^{-i(\omega - \omega_{if}) t}\right) + {H_p}_{ff} b_f (t) \left(e^{i\omega t}- e^{-i\omega t}\right)\right\}
+    \end{aligned}\right.
+\end{equation}
+
+On the right-hand side of these equations, certain coefficients of $b_i(t)$ and $b_f(t)$ are proportional to $e^{\pm i(\omega-\omega_{fi})t}$, so they oscillate slowly in time when $\omega\simeq \omega_{fi}$. On the other hand, the coefficients proportional to either $e^{\pm i\omega t}$ or $e^{\pm i(\omega+\omega_{fi})t}$ oscillate much more rapidly. Here, we will use the so called ``secular approximation'', which consists in neglecting the second type of terms, which average to zero when integrated over a large number of periods. The remaining ones (called ``secular terms'') are then those whose coefficients are reduced to constants for $\omega = \omega_{fi}$.
+
+Note that, for the preceding argument to be valid, it is necessary for the temporal variation of a term $e^{i\omega t}b_{i,f}(t)$ to be due principally to the exponential, and not to the component $b_{i,f}(t)$. Since $\omega$ is very close to $\omega_{fi}$, this means that $b_{i,f}(t)$ must not vary significantly over a time interval of the order of $1/|\omega_{fi}|$. This is indeed true with the assumptions we have made, that is, with $H_p \ll H_0$. The variations of $b_{i,f}(t)$ (which are constants if $H_p= 0$) are due to the presence of the perturbation $H_p$, and are appreciable for times of the order of $\hbar / |{H_p}_{if}|$. Since, by hypothesis ${H_p}_{if}\ll\hbar |\omega_{fi}|$, this time is much greater $1/|\omega_{fi}|$.
+
+In conclusion, the secular approximation leads to the following system of equations:
+\begin{equation}
+    \left\{\ 
+    \begin{aligned}
+        \frac{db_i(t)}{dt} &= -\frac{1}{2\hbar}\ e^{i(\omega - \omega_{fi}) t}{H_p}_{if}b_f (t)\\
+        \frac{db_f(t)}{dt} &= \frac{1}{2\hbar}\ e^{-i(\omega - \omega_{if}) t}{H_p}_{fi}b_i (t) 
+    \end{aligned}\right.,
+\end{equation}
+whose solution gives \textbf{Rabi's formula}, defined below:
+\begin{definition}
+    Rabi's formula gives the probability of a system in an initial state $\ket{\phi_i}$ to transition to a state $\ket{\phi_f}$ when submitted to a resonant perturbation $H_p(t) = H_p \sin(\omega t)$, where $\omega \simeq \omega_{fi}$. It is given by the expression:
+    \begin{equation}
+        \mathcal{P}_{if}(t;\omega) = \frac{|{H_p}_{if}|^2}{|{H_p}_{if}|^2 + \hbar^2(\omega-\omega_{fi})^2} \sin \left[\frac{t}{2}\sqrt{\frac{|{H_p}_{fi}|^2}{\hbar} + (\omega-\omega_{fi})^2}\ \right]
+    \end{equation}
+\end{definition}
+
+Rabi's formula measures the magnitude of the resonance phenomenon. Note that, when $\omega=\omega_{fi}$, however small the perturbation is, it can cause the system to move completely to the final state $\ket{\phi_f}$, irrespective of the magnitude of $H_p$. The only effect of the magnitude of $H_p$ is to make the transition faster (for larger $H_p$) or slower (for smaller $H_p$).
+
+Note also that the probability is an oscillating function of time. For certain periodic time intervals, the probability of transition is zero, and the system has returned to the initial state $\ket{\phi_i}$
+
+Finally, we can see that this expression is valid both for $t\to \infty$ and $t\to 0$, and it remains always bounded between $0$ and $1$.
