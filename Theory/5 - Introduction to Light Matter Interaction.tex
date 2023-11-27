@@ -363,7 +363,7 @@ In conclusion, the secular approximation leads to the following system of equati
 \end{equation}
 whose solution gives \textbf{Rabi's formula}, defined below:
 \begin{definition}
-    Rabi's formula gives the probability of a system in an initial state $\ket{\phi_i}$ to transition to a state $\ket{\phi_f}$ when submitted to a resonant perturbation $H_p(t) = H_p \sin(\omega t)$, where $\omega \simeq \omega_{fi}$. It is given by the expression:
+    Rabi's formula gives the probability of a system in an initial state $\ket{\phi_i}$ transitioning to a state $\ket{\phi_f}$ when submitted to a resonant perturbation $H_p(t) = H_p \sin(\omega t)$, where $\omega \simeq \omega_{fi}$. It is given by the expression:
     \begin{equation}
         \mathcal{P}_{if}(t;\omega) = \frac{|{H_p}_{if}|^2}{|{H_p}_{if}|^2 + \hbar^2(\omega-\omega_{fi})^2} \sin \left[\frac{t}{2}\sqrt{\frac{|{H_p}_{fi}|^2}{\hbar} + (\omega-\omega_{fi})^2}\ \right]
     \end{equation}
@@ -374,3 +374,32 @@ Rabi's formula measures the magnitude of the resonance phenomenon. Note that, wh
 Note also that the probability is an oscillating function of time. For certain periodic time intervals, the probability of transition is zero, and the system has returned to the initial state $\ket{\phi_i}$
 
 Finally, we can see that this expression is valid both for $t\to \infty$ and $t\to 0$, and it remains always bounded between $0$ and $1$.
+
+\subsection{Interaction of an atom with an electromagnetic wave}
+
+Consider a plane electromagnetic wave\footnote{This result can be generalised for any electromagnetic field.}, of wave vector $\vec k$ parallel to the $y$-axis and angular frequency $\omega$. In this configuration, as shown on \textbf{Figure \ref{fig:plane_em_wave}}, the electric field of the plane wave is parallel to the $z$-axis, and its magnetic field is parallel to the $x$-axis.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/plane_em_wave.png}
+    \caption{The electric field $\vec{E}$ and the magnetic field $\vec B$ of a plane wave of wave vector $\vec k$.}
+    \label{fig:plane_em_wave}
+\end{figure}
+
+From electromagnetism, we have that, for a specific choice of gauge, consisting of a vector potential $\vec A(\vec r, t)$ and a scalar potential $U(\vec r, t)$, we have:
+\begin{equation} \label{potential_electric_magnetic}
+    \begin{split}
+        \vec{B}(\vec r, t) &= \vec{\nabla} \times \vec A(\vec r, t)\\
+        \vec{E}(\vec r, t) &= -\nabla U(\vec r, t) - \frac{\partial}{\partial t} A(\vec r, t)\\
+    \end{split}
+\end{equation}
+
+It is always possible to make the scalar potential zero, so that the vector potential is given by:
+\begin{equation}
+    \vec A(\vec r, t) = \mathcal{A}_0 \vec{e_z}e^{i(ky-\omega t)} + \mathcal{A}_0^* \vec{e_z}e^{-i(ky-\omega t)}
+\end{equation}
+where $\mathcal{A}_0$ is a complex constant whose argument depends on the choice of the time origin. Then, using \textbf{Equation \ref{potential_electric_magnetic}}, we obtain:
+
+
+{\color{red}Finish!!}
+
