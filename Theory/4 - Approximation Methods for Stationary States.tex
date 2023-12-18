@@ -1,6 +1,6 @@
 \section{Approximation Methods for Stationary States in Quantum Mechanics}
 
-Solving a general quantum mechanical problem involves finding the Hamiltonian of a system and solving the Schrödinger Equation to find energies and states. However, most problems encountered in quantum mechanics cannot be solved exactly. Exact solutions of the Schrödinger equation exist only for a few idealized systems\footnote{For example, for the \textit{quantum harmonic oscillator}, the \textit{quantum anharmonic oscillator}, the \textit{infinite square well}, the \textit{free particle}, and the \textit{hydrogen atom} can be solved exactly. However, the \textit{spin-orbital interactions}, the \textit{Zeeman effect} or the \textit{hyperfine split} cannot.}. To solve general problems, one must resort to approximation methods.
+Solving a general quantum mechanical problem involves finding the Hamiltonian of a system and solving the Schrödinger Equation to find energies and states. However, most problems encountered in quantum mechanics cannot be solved exactly. Exact solutions of the Schrödinger equation exist only for a few idealised systems\footnote{For example, for the \textit{quantum harmonic oscillator}, the \textit{quantum anharmonic oscillator}, the \textit{infinite square well}, the \textit{free particle}, and the \textit{hydrogen atom} can be solved exactly. However, the \textit{spin-orbital interactions}, the \textit{Zeeman effect} or the \textit{hyperfine split} cannot.}. To solve general problems, one must resort to approximation methods.
 
 In this chapter we consider approximation methods that deal with \textit{stationary states} corresponding to \textit{time-independent} Hamiltonians. To study problems of stationary states, we focus on two approximation methods: \textbf{time-independent perturbation theory} and the \textbf{variational method}.
 
@@ -295,7 +295,7 @@ In summary, the degenerate perturbation method consists of the following steps:
         \end{pmatrix}
     \end{equation}
     where $H_{p_{jk}} = \braket{{\psi_p^j}^{(0)}|H_p|{\psi_p^k}^{(0)}}$.
-    \item Diagonalize this matrix and find the $g_p$ eigenvalues ${E_n^i}^{(1)}$ ($i = 1, 2, 3, \dots, g_p$) and their corresponding eigenvectors:
+    \item Diagonalise this matrix and find the $g_p$ eigenvalues ${E_n^i}^{(1)}$ ($i = 1, 2, 3, \dots, g_p$) and their corresponding eigenvectors:
     \begin{equation}
         \vec{a}\,^i = \begin{pmatrix}
             a_1^i \\ a_2^i \\ \vdots \\ a_{g_p}^i 
@@ -396,15 +396,15 @@ where we have used the fact that $E_n \geq E_1$ for $n>1$. Therefore, the expect
     \begin{equation}
         E (\alpha_1, \alpha_2, \cdots, \alpha_r) = \frac{\braket{\psi_T|H|\psi_T}}{\braket{\psi_T|\psi_T}}
     \end{equation}
-    \item Minimize $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$ with respect to the variational parameters $\alpha_1, \alpha_2, \cdots, \alpha_r$ by solving the equations:
+    \item Minimise $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$ with respect to the variational parameters $\alpha_1, \alpha_2, \cdots, \alpha_r$ by solving the equations:
     \begin{equation}
         \frac{\partial E}{\partial \alpha_i} = 0, \qquad i = 1, 2, \cdots, r
     \end{equation}
-    \item Evaluate the averge energy of the system using the values of the variational parameters that minimize $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$.
+    \item Evaluate the averge energy of the system using the values of the variational parameters that minimise $E (\alpha_1, \alpha_2, \cdots, \alpha_r)$.
     \item The minimum value of the energy that we obtain is an upper bound to the true ground state energy of the system.
 \end{enumerate}
 
-A good trial function incorporates as many of the features of the exact wavefunction as possible, some of which can be deduced from symmetry arguments. Note that the variational method is aimed at optimising the estimate of the \textit{energy} of the energy. It may not necessarily give a good approximation to the true \textit{wave function}, and could give poor results if used to calculate things other than the energy.
+A good trial function incorporates as many of the features of the exact wave function as possible, some of which can be deduced from symmetry arguments. Note that the variational method is aimed at optimising the estimate of the \textit{energy} of the energy. It may not necessarily give a good approximation to the true \textit{wave function}, and could give poor results if used to calculate things other than the energy.
 
 
 % Dw = 4pi/t -> Heisenberg time-energy uncertainty principle

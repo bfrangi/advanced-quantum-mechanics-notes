@@ -1,0 +1,386 @@
+\section{Identical Particles and Many Electron Atoms}
+
+\subsection{Identical particles}
+
+In quantum mechanics, two particles are said to be identcal if they have the same intrinsic properties, such as mass, spin, and charge. Identical particles cannot be distinguished from each other in any experiment. For example, all electrons in the universe are considered identical, as are all protons and hydrogen atoms. However, particles with the same mass and spin, but different charges (like an electron and a positron) are not identical.
+
+An important implication of identical particles is that when a physical system contains two identical particles, swapping their roles does not alter the system's properties or evolution. This definition is independent of experimental conditions, emphasizing the fundamental nature of identical particles in physics\footnote{This is to say that, even if, in a given experiment, the charges of the particles are not measured, an electron and a positron can never be treated like identical particles}.
+
+In \textit{classical mechanics}, having identical particles poses no problem. If we have a system with two completely interchangeable particles, we can still label one of them with the index ``$1$'', and the other one with the index ``$2$'', and treat them as if they were completely different. If each particle follows a trajectory, we can always follow each one and distinguish it from the other one. The Lagrangian and the Hamiltonian of the system are invariant under the exchange of the indices, but one need only choose one of the possible descriptions at the initial moment and simply ignore the other; no ambiguity introduced.
+
+In quantum mechanics, however, the situation is radically different, as particles no longer have well defined trajectories. Even if, at time $t_0$, the wave functions of two identical particles are completely separated, their subsequent time evolution may mix them. It is therefore easy to ``lose track'' of particles. When we detect a particle in a region of space in which another identical particle also has non-zero position probability, we have no way of knowing which of the two particles we really measured. The numbering of particles then easily becomes ambiguous when their positions are measured, since there exist several different paths by which the system can end up in the same measured state. 
+
+\subsection{Permutation operators for $2$ particles}
+
+In this section, we shall introduce permutation operators to simplify the calculations and reasoning in what follows.
+
+Consider a system composed of two particles with the same spin $s$. Here it is not necessary for these two particles to be identical; it is sufficient that their individual state spaces be isomorphic\footnote{In other words, their individual state spaces should have the same dimensions. They should have the same structure, so that we can identify each element of the state space of particle ``$1$'' with exactly one element from the state space of particle ``$2$''. Both state spaces are the same after a simple \textit{renaming} of the elements.}. We denote the particles with the indices ``$1$'' (for example, a proton) and ``$2$'' (for example, an electron).
+
+We choose a basis, $\{\ket{u_i}\}$, in the state space $\mathcal{E}(1)$ of the first particle. Since the state space $\mathcal{E}(2)$ of the second particle is isomorphic to $\mathcal{E}(1)$ (both particles have the same spin $s = \frac{1}{2}$), it can be spanned by the same basis. Then, we can construct the tensor product space $\mathcal{E} = \mathcal{E}(1) \otimes \mathcal{E}(2)$ of the system, with basis:
+\begin{equation}
+    \{\ket{1:u_i;\ 2: u_j}\}
+\end{equation}
+Note that the order of the vectors in a tensor product is irrelevant, so we have:
+\begin{equation}
+    \ket{1:u_i;\ 2: u_j} \equiv \ket{2:u_j;\ 1: u_i}
+\end{equation}
+However:
+\begin{equation}
+    \ket{1:u_i;\ 2: u_j} \neq \ket{1:u_j;\ 2: u_i}
+\end{equation}
+The permutation operator $P_{21}$ is then defined as the linear operator whose action on the basis vectors is given by:
+\begin{equation}
+    P_{21}\ket{1:u_i;\ 2: u_j} = \ket{2:u_i;\ 1: u_j} = \ket{1: u_j;\ 2:u_i}
+\end{equation} 
+Clearly, the permutation operator is \textit{its own inverse}:
+
+\begin{equation}
+    P_{21}\left(P_{21}\ket{1:u_i;\ 2: u_j}\right) = P_{21}\ket{1: u_j;\ 2:u_i} = \ket{1:u_i;\ 2: u_j} \longrightarrow \left(P_{21}\right)^2 = 1
+\end{equation} 
+
+Also, it is \textit{Hermitian}:
+\begin{equation}
+    \begin{cases}
+        \braket{1:u_{i'};\ 2:u_{j'}| P_{21} | 1:u_i ;\ 2: u_j} = \braket{1:u_{i'};\ 2:u_{j'}| 1:u_j ;\ 2: u_i} = \delta_{i'j}\delta_{ij'}\\ 
+        \braket{1:u_{i'};\ 2:u_{j'}| P_{21}^\dagger | 1:u_i ;\ 2: u_j} = \left(\braket{1:u_i ;\ 2: u_j| P_{21} | 1:u_{i'};\ 2:u_{j'}}\right)^* = \delta_{i'j}\delta_{ij'}\\ 
+    \end{cases} \longrightarrow\quad  P_{21}^\dagger = P_{21},
+\end{equation}
+which means it is also \textit{unitary}:
+\begin{equation}
+    P_{21}^\dagger P_{21} = P_{21}P_{21}^\dagger = 1
+\end{equation}
+
+The fact that permutation operators are unitary means that their eigenvalues are either $1$ or $-1$. Eigenvectors of the permutation operators are classified according to the eigenvalue they correspond to:
+\begin{itemize}
+    \item \textbf{Symmetric eigenkets} are those that correspond to the eigenvalue $+1$.
+    \begin{equation}
+        P_{21}\ket{\psi_S} = \ket{\psi_S}
+    \end{equation}
+    \item \textbf{Antisymmetric eigenkets} are those that correspond to the eigenvalue $-1$.
+    \begin{equation}
+        P_{21}\ket{\psi_A} = -\ket{\psi_A}
+    \end{equation}
+\end{itemize}
+
+At this point, it is useful to introduce the following two projector operators\footnote{Remember from \textbf{Section \ref{sec:lin-ops}} that the definition of a projector operator $A$ is that $A^2 = A$ (it is idempotent).}:
+\begin{itemize}
+    \item The \textbf{symmetriser} projects onto the subspace of symmetric  kets:
+    \begin{equation}
+        S\equiv \frac{1 + P_{12}}{2}
+    \end{equation}
+    \item The \textbf{antisymmetriser} projects onto the subspace of antisymmetric  kets:
+    \begin{equation}
+        A\equiv\frac{1-P_{12}}{2}
+    \end{equation}
+\end{itemize}
+
+Since the projector operator is Hermitian, so are $A$ and $B$. Furthermore, we can check that they project onto orthogonal subspaces\footnote{The subspace of symmetric kets is orthogonal to that of antisymmetric kets.} by checking that $AS = SA = 0$:
+\begin{equation}
+    SA = \frac{1+P_{21}}{2}\frac{1-P_{21}}{2} = \frac{1 + P_{21}- P_{21} - P_{21}P_{21}}{2} = 0
+\end{equation}
+\begin{equation}
+    AS = \frac{1-P_{21}}{2}\frac{1+P_{21}}{2} = \frac{1 + P_{21}- P_{21} - P_{21}P_{21}}{2} = 0
+\end{equation}
+
+And it is also easy to check that the subspaces of symmetric kets and antisymmetric  kets are supplementary, as $A+S = \Imat$. 
+
+It is now easy to see that, for an arbitrary ket $\ket{\psi}$ of state space, $A\ket{\psi}$ is antisymmetric and $S\ket{\psi}$ is symmetric. Then:
+\begin{equation}
+    P_{21}A\ket{\psi} = -A\ket{\psi}, \qquad P_{21}S\ket{\psi} = S\ket{\psi}
+\end{equation}
+
+Since the subspaces of symmetric and antisymmetric kets are orthogonal, we can always write this arbitrary ket $\ket{\psi}$ as a combination of a symmetric ket and an antisymmetric ket\footnote{This is a nice mathematical result, but as we will see later in \textbf{Postulate \ref{symmetrisation}}, physical systems \textit{must} be either completely symmetric or completely antisymmetric. There are no asymmetric physical kets.}:
+\begin{equation}
+    \ket{\psi} = \Imat\ket{\psi} = \left(A + S\right)\ket{\psi} = A\ket{\psi} + S\ket{\psi}
+\end{equation} 
+
+\subsection{Permutation operators for $N$ particles}
+
+In the state space of a system composed of $N$ identical particles, $N!$ permutation operators can be defined (one of which is the identity operator). If $N$ is greater than $2$, the properties of these operators are more complex than those of $P_{21}$.
+
+For example, consider a system with $N=3$ particles with the same spin $s$, as in the case we considered with $2$ particles. In this case, we will have the basis:
+\begin{equation}
+    \{\ket{1:u_i;\ 2: u_j;\ 3: u_k}\}
+\end{equation}
+
+We will then have $3! = 6$ permutation operators:
+\begin{equation}
+    P_{123} = \Imat,\quad P_{312}, \quad P_{231}, \quad P_{132}, \quad P_{213}, \quad P_{321},
+\end{equation}
+where:
+\begin{equation}
+    P_{npq}\ket{1:u_i;\ 2: u_j;\ 3: u_k} \equiv \ket{n:u_i;\ p: u_j\ q: u_k}
+\end{equation}
+
+We can also define \textit{transposition operators}, $T_{npq}$, which are permutations that only exchange two particles. These are the basis for the definition of symmetric and antisymmetric kets in systems of $N$ identical particles:
+
+\begin{definition}
+    Let $T_\alpha$ be an arbitrary transposition in a system of $N$ identical particles in a state space $\mathcal{E}$. We define \textit{symmetric} and \textit{antisymmetric} eigenkets, $\ket{\psi_S}$ and $\ket{\psi_A}$, as follows:
+    \begin{equation}
+        T_\alpha\ket{\psi_S} = \ket{\psi_S}\qquad P_\alpha\ket{\psi_A} = -\ket{\psi_A}
+    \end{equation}
+    The space of symmetric kets $\mathcal{E}_S$ and the space of antisymmetric kets $\mathcal{E}_A$ are subspaces of the whole state space $\mathcal{E}$. They are orthogonal to each other and supplementary, since $\mathcal{E} = \mathcal{E}_S \oplus \mathcal{E}_A$.
+\end{definition}
+
+Permutation (and, thus, transposition) operators have the following properties:
+\begin{itemize}
+    \item The product of any pair of permutation operators is another permutation operator. For example:
+    \begin{equation}
+        \begin{split}
+            P_{312}P_{132}\ket{1:u_i;\ 2:u_j;\ 3:u_k} &= P_{312}\ket{1:u_i;\ 3:u_j;\ 2:u_k} = P_{312}\ket{1:u_i;\ 2:u_k;\ 3:u_j} = \\
+            &= \ket{3:u_i;\ 2:u_j;\ 1:u_k} = P_{321}\ket{1:u_i;\ 2:u_j;\ 3:u_k} \rightarrow\\
+            &\rightarrow P_{312}P_{132} = P_{321}
+        \end{split}
+    \end{equation}
+    \item Each permutation operator has an inverse, which is also a permutation operator.
+    \begin{equation}
+        \begin{split}
+            P_{123}^{-1} = P_{123}; \qquad P_{312}^{-1} = P_{231};\qquad P_{231}^{-1} = P_{312}\\
+            P_{132}^{-1} = P_{132}; \qquad P_{213}^{-1} = P_{213};\qquad P_{321}^{-1} = P_{321}\\
+        \end{split}
+    \end{equation}
+    \item Any permutation operator can be broken down as a product of transposition operators:
+    \begin{equation}
+        P_{312} = P_{132}P_{213} = P_{321}P_{132} = \cdots
+    \end{equation}
+    This decomposition is not unique. However, for a given permutation, it can be shown that the parity of the number of transpositions into which it can be broken down is always the same. This is called the \textit{parity of the permutation}:
+    $$
+    \text{Even}: P_{123}, P_{312}, P_{231}\qquad
+    \text{Odd}: P_{132}, P_{213}, P_{321}
+    $$
+    For any given number of particles $N$, there are always the same number of even and odd permutations.
+\end{itemize}
+
+For an arbitrary number of particles $N$, we can define the eigenkets of permutation operators as:
+
+\begin{definition}
+    Let $P_\alpha$ be an arbitrary permutation of $N$ identical particles in a state space $\mathcal{E}$. We define \textit{symmetric} and \textit{antisymmetric} eigenkets, $\ket{\psi_S}$ and $\ket{\psi_A}$, as follows:
+    \begin{equation}
+        P_\alpha\ket{\psi_S} = \ket{\psi_S}\qquad P_\alpha\ket{\psi_A} = \varepsilon_\alpha\ket{\psi_A}
+    \end{equation}
+    where\footnote{Note that this $\varepsilon_\alpha$ arises from the fact that \textit{all transpositions on an antisymmetric ket give an eigenvalue of} $-1$. If the parity of $P_\alpha$ is even, it means $P_\alpha$ is equivalent to applying an even number of transpositions, which means its eigenvalue will be $(-1)^{2k} = 1$, for some arbitrary $k\in\N$. On the other hand, if the parity of $P_\alpha$ is odd, it means $P_\alpha$ is equivalent to applying an odd number of transpositions, which means its eigenvalue will be $(-1)^{2k + 1} = -1$, for some arbitrary $k\in\N$.}:
+    \begin{equation}
+        \varepsilon_\alpha = \begin{cases}
+            +1;\ P_\alpha\text{ is even}\\
+            -1;\ P_\alpha\text{ is odd}
+        \end{cases}
+    \end{equation} 
+
+    The space of symmetric kets $\mathcal{E}_S$ and the space of antisymmetric kets $\mathcal{E}_A$ are subspaces of the whole state space $\mathcal{E}$. They are orthogonal to each other and supplementary, since $\mathcal{E} = \mathcal{E}_S \oplus \mathcal{E}_A$.
+\end{definition}
+ 
+We can also generalise the definition of the symmetriser and the antisymmetriser:
+
+\begin{definition}
+    For a system of $N$ particles, we define the \textbf{symmetriser}, which projects any ket onto $\mathcal{E}_S$, as:
+    \begin{equation}
+        S \equiv \frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha
+    \end{equation}
+    and the \textbf{antisymmetriser}, which projects any ket onto $\mathcal{E}_A$:
+    \begin{equation}
+        A \equiv \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha
+    \end{equation}
+
+    These verify:
+    \begin{equation}
+        P_\alpha S\ket{\psi} = S\ket{\psi}, \qquad P_\alpha A\ket{\psi} = \varepsilon_\alpha A\ket{\psi}
+    \end{equation}
+
+    Since $P_\alpha$ are Hermitian, so are $S$ and $A$:
+    \begin{equation}
+        A^\dagger = A,\qquad S^\dagger = S
+    \end{equation}
+\end{definition}
+
+We can see that $S$ and $A$ are projection operators:
+\begin{equation}
+    S^2 =\frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha S = \frac{S}{N!}\sum_{\alpha=1}^{N!} 1 = S
+\end{equation}
+\begin{equation}
+    A^2 =\frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha A = \frac{A}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha^2 = A
+\end{equation}
+
+And that $\mathcal{E}_S$ and $\mathcal{E}_A$ are orthogonal:
+\begin{equation}
+    AS = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha S = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha S = \frac{S}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha  \stackrel{\footnotemark}{=}\footnotetext{Remember that there are the same number of even $\varepsilon_\alpha=1$ and odd $\varepsilon_\alpha=-1$ permutations.} 0
+\end{equation}
+
+\section{Symmetrisation Postulate}
+
+All these theoretical concepts around permutations are the basis for postulating the \textbf{symmetrisation postulate}. We have seen that the ket of a system of $N$ identical particles is either symmetric or antisymmetric under the interchange of any pair of particles (transposition) $T_\alpha$:
+\begin{equation}
+    T_\alpha \ket{\psi} = \pm \ket{\psi} 
+\end{equation}
+
+This is the very basis for the symmetrisation postulate, which states the following:
+
+\begin{postulate} \label{symmetrisation}
+    \textbf{Symmetrisation Postulate:} 
+    \begin{itemize}
+        \item In nature, the states of systems containing $N$ identical particles are either totally symmetric or totally antisymmetric under the interchange of any pair of particles. States with mixed symmetry do not exist | they are not physical kets\footnote{\color{red}add intuition behind this regarding $|\psi (a, b)|^2 = |\psi(b, a)|^2\to \psi (a, b) = \pm\psi(b, a)$}.
+        \item Particles with \textbf{integral spins}, or \textbf{bosons}, have \textbf{symmetric} states.
+        \item Particles with \textbf{half-odd-integral spins}, or \textbf{fermions}, have \textbf{antisymmetric states}.    
+    \end{itemize}
+\end{postulate}
+
+This new postulate which we have introduced considerably restricts the class of mathematical kets able to describe a physical state: these kets must be symmetric for bosons, or antisymmetric for fermions.
+
+For composite particles (particles composed of other particles), the symmetrisation postulate also applies. All we have to do is add the spin of all the constituents. If the sum is an integer number, the composite particle will be a boson; while if the sum is a half-odd-integer, the composite particle will be a fermion.
+
+\section{Construction of physical kets}
+
+Based on the preceding discussion one can formulate the rule for constructing a unique physical ket corresponding to a given physical state of a system of $N$ identical particles. The process is simple:
+\begin{enumerate}
+    \item Number the $N$ particles arbitrarily and construct a ket corresponding to a given physical state and to the numbers given to the particles.
+    \item Apply $S$ or $A$ to this ket, depending on whether the particles are bosons or fermions.
+    \item Normalize the resulting ket.
+\end{enumerate}
+
+\subsection{System of $2$ particles}
+
+Let us take the example of a system of two identical particles in two different states $\ket{\varphi}\neq \ket{\chi}$. Following the process we defined in the previous section, we construct a ket matching this state:
+\begin{equation}
+    \ket{u} = \ket{1:\varphi;\ 2:\chi}
+\end{equation} 
+
+\begin{itemize}
+    \item If the particle is a \textbf{boson}, we symmetrise this ket applying $S$:
+    \begin{equation}
+        \ket{\varphi;\, \chi} = S\ket{u} = \frac{1 + P_{21}}{2}\ket{u} = \frac{\ket{1:\varphi;\ 2:\chi} + \ket{1:\chi;\ 2:\varphi}}{2}
+    \end{equation}
+
+    Finally we normalise (assuming $\ket{u}$ is normalised):
+    \begin{equation}
+        \ket{\varphi;\, \chi}_\text{boson} = \frac{\ket{1:\varphi;\ 2:\chi} + \ket{1:\chi;\ 2:\varphi}}{\sqrt{2}}
+    \end{equation}
+    \item If the particle is a \textbf{fermion}, we antisymmetrise this ket applying $A$:
+    \begin{equation}
+        \ket{\varphi;\, \chi} = S\ket{u} = \frac{1 - P_{21}}{2}\ket{u} = \frac{\ket{1:\varphi;\ 2:\chi} - \ket{1:\chi;\ 2:\varphi}}{2}
+    \end{equation}
+
+    Finally we normalise (assuming $\ket{u}$ is normalised):
+    \begin{equation}
+        \ket{\varphi;\, \chi}_\text{fermion} = \frac{\ket{1:\varphi;\ 2:\chi} - \ket{1:\chi;\ 2:\varphi}}{\sqrt{2}}
+    \end{equation}
+\end{itemize}
+
+Note that, in the case that the two identical particles are in the same state, $\ket{\varphi} = \ket{\chi}$, we have:
+\begin{equation}
+    \ket{\varphi;\, \varphi}_\text{boson} = \frac{\ket{1:\varphi;\ 2:\varphi} + \ket{1:\varphi;\ 2:\varphi}}{\sqrt{2}} = \ket{1:\varphi;\ 2:\varphi}
+\end{equation}
+\begin{equation}
+    \ket{\varphi;\, \varphi}_\text{fermion} = \frac{\ket{1:\varphi;\ 2:\varphi} - \ket{1:\varphi;\ 2:\varphi}}{\sqrt{2}} = 0
+\end{equation}
+
+What does this zero mean? Well, we have just obtained the \textbf{Pauli Exclusion Principle}: there exists no ket in which two fermions are in the same individual state. 
+
+\subsection{System of $3$ particles}
+
+Let us now consider the example of a system of \textit{three} identical particles in \textit{three} different states $\ket{\varphi}\neq \ket{\chi}\neq \ket{\psi}$. Following the same process as before, we construct a ket matching this state:
+\begin{equation}
+    \ket{u} = \ket{1:\varphi;\ 2:\chi;\ 3: \psi}
+\end{equation} 
+
+\begin{itemize}
+    \item If the particle is a \textbf{boson}, we symmetrise this ket applying $S$:
+    \begin{equation}
+        \begin{split}
+            \ket{\varphi;\, \chi;\, \psi} &= S\ket{u} = \frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha\ket{u} = \\
+            &= \frac{1}{6} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. +\\ 
+            &+ \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} + \ket{1:\chi;\ 2:\varphi;\ 3: \psi} + \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
+        \end{split}
+    \end{equation}
+
+    Finally we normalise (assuming $\ket{u}$ is normalised):
+    \begin{equation}
+        \begin{split}
+            \ket{\varphi;\, \chi;\, \psi} &= \frac{1}{ \sqrt{6}} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. +\\ 
+            &+ \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} + \ket{1:\chi;\ 2:\varphi;\ 3: \psi} + \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
+        \end{split}
+    \end{equation}
+    
+    If two of the three states coincide ($\ket{\varphi} = \ket{\chi}$), then:
+    \begin{equation}
+        \ket{\varphi;\, \varphi;\, \psi} = \frac{1}{ \sqrt{3}} \left(\ket{1:\varphi;\ 2:\varphi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \varphi} + \ket{1:\varphi;\ 2:\psi;\ 3: \varphi}\right)
+    \end{equation}
+
+    If all three states coincide ($\ket{\varphi} = \ket{\chi}=\ket{\psi}$), then:
+    \begin{equation}
+        \ket{\varphi;\, \varphi;\, \varphi} = \ket{1:\varphi;\ 2:\varphi;\ 3: \varphi}
+    \end{equation}
+
+    \item If the particle is a \textbf{fermion}, we antisymmetrise this ket applying $A$:
+    \begin{equation}
+        \begin{split}
+            \ket{\varphi;\, \chi;\ \psi} &= S\ket{u} = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha\ket{u} = \\
+            &= \frac{1}{6} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. -\\ 
+            &- \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} - \ket{1:\chi;\ 2:\varphi;\ 3: \psi} - \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
+        \end{split}
+    \end{equation}
+
+    Finally we normalise (assuming $\ket{u}$ is normalised):
+    \begin{equation} \label{fermion-ket}
+        \begin{split}
+            \ket{\varphi;\, \chi;\, \psi} &= \frac{1}{ \sqrt{6}} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. -\\ 
+            &- \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} - \ket{1:\chi;\ 2:\varphi;\ 3: \psi} - \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
+        \end{split}
+    \end{equation}
+
+    It is easy to check that, if any two states coincide, the wave function becomes zero. 
+\end{itemize}
+
+It is evident that, the larger the number of particles, the longer and more unwieldy that the expressions become. For \textbf{fermions}, there exists a simple notation that simplifies all this for us by using determinants. If we look at \textbf{Equation \ref{fermion-ket}}, we see that the combinations that appear are exactly the same as those that are present in a determinant, signs included. Understanding the product here as a tensor product, we can then write:
+\begin{equation}
+    \ket{\varphi;\, \chi;\, \psi} = \frac{1}{\sqrt{6}}\left|\begin{matrix}
+        \ket{1:\varphi} & \ket{1:\chi} & \ket{1:\psi} \\
+        \ket{2:\varphi} & \ket{2:\chi} & \ket{2:\psi} \\
+        \ket{3:\varphi} & \ket{3:\chi} & \ket{3:\psi} \\
+    \end{matrix}\right|
+\end{equation}
+
+It is now even clearer to see that, if any two states or more are equal, we will have as many equal columns as equal states. This will immediately make the determinant go to zero.
+
+It is also possible to extend the same notation to \textbf{bosons}, but forgetting all the minus signs in the determinant.
+
+\subsection{Systems of $N$ particles}
+
+We can generalise our discussion in the previous two sections for a system of $N$ identical particles:
+
+\begin{definition}
+    For a system of $N$ identical particles, we can construct a physical ket $\ket{\phi_1,\phi_2,...,\phi_N}$ for a certain physical state in the following way:
+    \begin{itemize}
+        \item If the particles are \textbf{fermions}, we use the \textit{Slater Determinant} to construct an \textbf{antisymmetric ket}:
+        \begin{equation}
+            \ket{\phi_1;\phi_2;...;\phi_N} = \frac{1}{\sqrt{N!}}\left|\begin{matrix}
+                \ket{1:\phi_1} & \ket{1:\phi_2} & \cdots & \ket{1:\phi_N}\\
+                \ket{2:\phi_1} & \ket{2:\phi_2} & \cdots & \ket{2:\phi_N}\\
+                \vdots & \vdots & \ddots & \vdots \\
+                \ket{N:\phi_1} & \ket{N:\phi_2} & \cdots & \ket{N:\phi_N}\\
+            \end{matrix}\right|
+        \end{equation}
+        \item If the particles are \textbf{bosons}, we use the \textit{Slater Determinant} to construct an \textbf{symmetric ket} by turning all the minus signs into positive signs.
+    \end{itemize}
+\end{definition}
+
+\subsection{Systems with spin}
+
+We have seen that when the Schrödinger equation involves the spin, the wave function of a single particle $\ket{\Psi}$ is equal to the product of the spatial part $\ket{\psi}$ and the spin part $\ket{\chi}$: $\ket{\Psi} = \ket{\psi}\otimes\ket{\chi}$. The wave function of a system of $N$ particles, which have spins, is the product of the spatial part and the spin part:
+\begin{equation}
+    \ket{\Psi_1;\Psi_2;...;\Psi_N} = \ket{\psi_1;\psi_2;...;\psi_N}\otimes \ket{\chi_1;\chi_2;...;\chi_N}
+\end{equation}
+
+This wave function must satisfy the appropriate symmetry requirements when the $N$ particles are identical. In the case of a system of $N$ identical \textbf{bosons}, the wave function must be symmetric; hence the spatial and spin parts must have the same parity:
+\begin{equation}
+    \ket{\Psi_1;\Psi_2;...;\Psi_N}_S = \begin{cases}
+        \ket{\psi_1;\psi_2;...;\psi_N}_S\otimes \ket{\chi_1;\chi_2;...;\chi_N}_S\\
+        \ket{\psi_1;\psi_2;...;\psi_N}_A\otimes \ket{\chi_1;\chi_2;...;\chi_N}_A\\
+    \end{cases}
+\end{equation}
+
+In the case of a system of $N$ identical \textbf{fermions}, however, the space and spin parts must have different parities, leading to an overall wave function that is antisymmetric:
+\begin{equation}
+    \ket{\Psi_1;\Psi_2;...;\Psi_N}_A = \begin{cases}
+        \ket{\psi_1;\psi_2;...;\psi_N}_A\otimes \ket{\chi_1;\chi_2;...;\chi_N}_S\\
+        \ket{\psi_1;\psi_2;...;\psi_N}_S\otimes \ket{\chi_1;\chi_2;...;\chi_N}_A\\
+    \end{cases}
+\end{equation}

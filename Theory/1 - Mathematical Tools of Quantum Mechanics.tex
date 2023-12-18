@@ -138,7 +138,7 @@ Some properties that arise naturally from the Dirac notation:
 \end{equation}
 
 
-\subsection{Linear operators}
+\subsection{Linear operators} \label{sec:lin-ops}
 
 A linear map is defined as:
 
@@ -161,7 +161,7 @@ In the quantum mechanical context, we can see them as entities that transform a 
     \begin{equation}
         \{A, B\} \equiv AB + BA
     \end{equation}
-    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional to $\ket{\phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$.\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$.}
+    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional (parallel) to $\ket{\phi}$. It ``projects'' the vector $\ket{\psi}$ onto $\ket{phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$.\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$. Note that any projector operator $P_\phi$ fulfils $P_\phi^2 = \ket{\phi}\bra{\phi}\ket{\phi}\bra{\phi} = \ket{\phi}\bra{\phi} = P_\phi$. In fact, this property completely characterises projection operators.}
     \item \textbf{Inverse:} assuming it exists, the inverse operator $A^{-1}$ of the operator $A$, when applied to $A$, gives the identity operator. Also, $A$ is the inverse of $A^{-1}$, so that $AA^{-1} = A^{-1}A = \Imat$.
     \item \textbf{Hermitian conjugation:} the hermitian conjugate (or adjoint) $A^\dagger$ of an operator $A$ is obtained by interchanging the columns of the operator by its rows, and taking the complex conjugate of all elements. For example:
     \begin{equation}
@@ -249,7 +249,7 @@ we have:
 
 \subsection{Closure relation}
 
-For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfills the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
+For a set of vectors to form a basis of a Hilbert space $\Hbt$, they must fulfil the \textbf{closure relation} (also known as the completeness relation). In simple terms, if the set of vectors fulfils the closure relation, it means that with those vectors you can reach all possible directions in $\Hbt$, and any $\ket{\psi}\in\Hbt$ is a linear combination of those basis vectors. In our general Hilbert space:
 
 \begin{definition}
     A set of vectors $\{\ket{A_1}, \ket{A_2}, ...\}$ in a Hilbert space $\Hbt$ form a basis for $\Hbt$ if and only if they fulfil the closure relation:
@@ -658,7 +658,7 @@ It is important to note that, even though the particular expression of an operat
 
 \subsection{Tensor product of two vector spaces}
 
-Up to this point, we have always talked about the wave functions of a single particle. However, even in that case, one can consider a one-dimensional, two-dimensional or even three-dimensional wave function. It is clear that the particularisation of the general state space $\F$ is not the same for functions of one variables (we will call the 1D state space $\varepsilon_x$) as for functions of three variables (we will call the 3D state space, $\varepsilon_{\vec{r}}$). $\varepsilon_{\vec{r}}$ and $\varepsilon_x$ are therefore different spaces. Nevertheless, $\varepsilon_{\vec{r}}$ appears to be essentially a generalization of $\varepsilon_x$. Does there exist a more precise relation between these two spaces?
+Up to this point, we have always talked about the wave functions of a single particle. However, even in that case, one can consider a one-dimensional, two-dimensional or even three-dimensional wave function. It is clear that the particularisation of the general state space $\F$ is not the same for functions of one variables (we will call the 1D state space $\varepsilon_x$) as for functions of three variables (we will call the 3D state space, $\varepsilon_{\vec{r}}$). $\varepsilon_{\vec{r}}$ and $\varepsilon_x$ are therefore different spaces. Nevertheless, $\varepsilon_{\vec{r}}$ appears to be essentially a generalisation of $\varepsilon_x$. Does there exist a more precise relation between these two spaces?
 
 In this section, we are going to define and study the operation of taking the tensor product of vector spaces, and apply it to state spaces. This will answer, in particular, the question we have just asked: $\varepsilon_{\vec{r}}$ can be constructed from $\varepsilon_x$ and another two spaces, $\varepsilon_y$ and $\varepsilon_z$, which are isomorphic to it\footnote{\color{red}clarify what this means}. 
 
@@ -730,7 +730,7 @@ The existence of the scalar product in $\varepsilon_1$ and $\varepsilon_2$ allow
 We define operators inside the tensor product space in the following way:
 
 \begin{definition} \label{tensor_product_operator}
-    Consider a linear operator $A(1)$ defined in $\varepsilon_1$. We associate it with a linear operator $\tilde{A}(1)$ defined in $\varepsilon$, which we call the extension of $A(1)$ in $\varepsilon$, and which is characterized in the following way: when $\tilde{A}(1)$ acts on a vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ of $\varepsilon$, one obtains, by definition:
+    Consider a linear operator $A(1)$ defined in $\varepsilon_1$. We associate it with a linear operator $\tilde{A}(1)$ defined in $\varepsilon$, which we call the extension of $A(1)$ in $\varepsilon$, and which is characterised in the following way: when $\tilde{A}(1)$ acts on a vector $\ket{\psi(1)}\otimes\ket{\chi(2)}$ of $\varepsilon$, one obtains, by definition:
     \begin{equation}
         \tilde{A}(1)\left[\ket{\psi(1)}\otimes\ket{\chi(2)}\right] = \left[A(1)\ket{\psi(1)}\right]\otimes\ket{\chi(2)}
     \end{equation}
@@ -786,7 +786,7 @@ As the result of the action of both operator products on the basis vectors is th
 
 \textbf{Comment on the three-dimensional state space}
 
-Going back to what we said earlier about the state space $\varepsilon_{\vec{r}}$ being a generalization of $\varepsilon_x$, we can now see that this is true. In fact, we can write:
+Going back to what we said earlier about the state space $\varepsilon_{\vec{r}}$ being a generalisation of $\varepsilon_x$, we can now see that this is true. In fact, we can write:
 \begin{equation}
     \varepsilon_{\vec{r}} = \varepsilon_x \otimes \varepsilon_y \otimes \varepsilon_z
 \end{equation}
