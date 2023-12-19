@@ -116,7 +116,7 @@ Therefore:
 
 \subsubsection{First order correction}
 
-If we multiply both sides of \textbf{Equation \ref{first_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\psi_n^{(0)}$ on the left.}:
+If we multiply both sides of \textbf{Equation \ref{first_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\bra{\psi_n^{(0)}}$ on the left.}:
 \begin{equation}
     \begin{split}
         &\braket{\psi_n^{(0)}|H_0|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|W|\psi_n^{(0)}} = \braket{\psi_n^{(0)}|E_n^{(0)}|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|E_n^{(1)}|\psi_n^{(0)}}\\
@@ -135,7 +135,7 @@ In order to determine the first order correction to the eigenstates, we can take
 \begin{equation}
     \ket{\psi_n^{(1)}} = \left(\sum_m \ket{\psi_m^{(0)}}\bra{\psi_m^{(0)}}\right)\ket{\psi_n^{(1)}} = \sum_m \braket{\psi_m^{(0)}|\psi_n^{(1)}}\ket{\psi_m^{(0)}} = \sum_{m\neq n} \braket{\psi_m^{(0)}|\psi_n^{(1)}}\ket{\psi_m^{(0)}}
 \end{equation}
-Note that the term $m = n$ does not contribute as, from \textbf{Equation \ref{orthonormal_perturbation_terms}}, we know that $\braket{\psi_n^{(0)}|\psi_n^{(1)}} = 0$. Multiplying \textbf{Equation \ref{first_order_correction_eig_eqn}} on both sides by $\ket{\psi_m^{(0)}}$, we can find the coefficient $\braket{\psi_m^{(0)}|\psi_n^{(1)}}$:
+Note that the term $m = n$ does not contribute as, from \textbf{Equation \ref{orthonormal_perturbation_terms}}, we know that $\braket{\psi_n^{(0)}|\psi_n^{(1)}} = 0$. Multiplying \textbf{Equation \ref{first_order_correction_eig_eqn}} on both sides by $\bra{\psi_m^{(0)}}$, we can find the coefficient $\braket{\psi_m^{(0)}|\psi_n^{(1)}}$:
 \begin{equation}
     \begin{split}
         &\braket{\psi_m^{(0)}|H_0|\psi_n^{(1)}} + \braket{\psi_m^{(0)}|W|\psi_n^{(0)}} = \braket{\psi_m^{(0)}|E_n^{(0)}|\psi_n^{(1)}} + \braket{\psi_m^{(0)}|E_n^{(1)}|\psi_n^{(0)}}\\
@@ -152,7 +152,7 @@ And, finally:
     \ket{\psi_n^{(1)}} = \sum_{m\neq n} \frac{\braket{\psi_m^{(0)}|W|\psi_n^{(0)}}}{E_n^{(0)} - E_m^{(0)}}\ket{\psi_m^{(0)}}
 \end{equation}
 
-Unlike the formula for the energy shift, the correction to the eigenstates involves in general an infinite sum mixing all the states of the unperturbed system. We speak of the perturbation mixing the unperturbed eigenstates.
+Unlike the formula for the energy shift, the correction to the eigenstates involves in general an infinite sum \textit{mixing} all the states of the unperturbed system. We speak of the perturbation \textit{mixing} the unperturbed eigenstates.
 
 
 We can now completely define the first order correction:
@@ -177,7 +177,7 @@ We can now completely define the first order correction:
 
 \subsubsection{Second order correction}
 
-If we multiply both sides of \textbf{Equation \ref{second_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\phi_n^{(0)}$ on the left.}:
+If we multiply both sides of \textbf{Equation \ref{second_order_correction_eig_eqn}} by $\bra{\psi_n^{(0)}}$, we find\footnote{Remember that $H_0$ is Hermitian, so it can be applied to its eigenstate $\bra{\psi_n^{(0)}}$ on the left.}:
 \begin{equation}
     \begin{split}
         &\braket{\psi_n^{(0)}|H_0|\psi_n^{(2)}} + \braket{\psi_n^{(0)}|W|\psi_n^{(1)}} = \braket{\psi_n^{(0)}|E_n^{(0)}|\psi_n^{(2)}} + \braket{\psi_n^{(0)}|E_n^{(1)}|\psi_n^{(1)}} + \braket{\psi_n^{(0)}|E_n^{(2)}|\psi_n^{(0)}}\\
@@ -211,9 +211,10 @@ Finally, we can define:
 
 \subsection{Degenerate perturbation theory}
 
-The method we described before is valid for cases in which the eigenenergies are non-degenerate. However, for perturbing degenerate eigenenergies and their corresponding eigenstates, we must apply a different theory\footnote{Note that, if we have only \textit{some} degenerate eigenvalues, then we apply degenerate perturbation theory only to those degenerate eigenenergies and their states, and we apply normal perturbation theory to the remaining non-degenerate eigenvalues and eigenstates.\color{red} Check}. As we will see, the effect of a perturbation on a degenerate level is to remove some or all of the degeneracy. We say that the degeneracy is \textit{lifted}. In other words, the perturbation can (it may not) split the level $E_p^{(0)}$ into distinct sublevels. 
+The method we described before is valid for cases in which the eigenenergies are non-degenerate. However, for perturbing degenerate eigenenergies and their corresponding eigenstates, we must apply a different theory\footnote{Note that, if we have only \textit{some} degenerate eigenvalues, then we apply degenerate perturbation theory only to those degenerate eigenenergies and their states, and we apply normal perturbation theory to the remaining non-degenerate eigenvalues and eigenstates.}. % CHECK 
+As we will see, the effect of a perturbation on a degenerate level is to remove some or all of the degeneracy. We say that the degeneracy is \textit{lifted}. In other words, the perturbation can (it may not) split the level $E_p^{(0)}$ into distinct sublevels. 
 
-Let us consider a $g_p$-degenerate eigenvalue, $E_p^{(0)}$, of the unperturbed Hamiltonian, $H_0$, with eigenstates $\ket{{\psi_p^i}^{(0)}}$, where $i = 1, 2, 3, \dots , g_p$ is the index identifying each of the $g_p$ degenerate states\footnote{The $i$ stands for one or more quanutm numbers that the energy is independent of.}. The eigenvalue equation for the degenerate eigenenergy is written as:
+Let us consider a $g_p$-degenerate eigenvalue, $E_p^{(0)}$, of the unperturbed Hamiltonian, $H_0$, with eigenstates $\ket{{\psi_p^i}^{(0)}}$, where $i = 1, 2, 3, \dots , g_p$ is the index identifying each of the $g_p$ degenerate states\footnote{The $i$ stands for one or more quantum numbers that the energy is independent of.}. The eigenvalue equation for the degenerate eigenenergy is written as:
 \begin{equation}
     H_0 \ket{{\psi_p^i}^{(0)}} = E_p^{(0)} \ket{{\psi_p^i}^{(0)}}
 \end{equation}
@@ -225,14 +226,14 @@ Note that any set of $g_p$ linearly independent vectors in the degenerate subspa
 \begin{equation} \label{zero_order_approx_initial_def}
     \ket{\psi_n^{(0)}} = \sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}}
 \end{equation}
-From this point to the end of this section, we will use the index $p$ to denote the initial eigenstates $\{\ket{{\psi_p^i}^{(0)}}\}$ corresponding to the degenerate eigenvalue $E_p^{(0)}$ that were obtained directly from solving the unperturbed system. We will use the index $n$ to denote the zero order approximation of the eigenstates $\{\ket{{\psi_n^i}^{(0)}}\}$ of the perturbed Hamiltonian, which are just a linear combination of $\{\ket{{\psi_p^i}^{(0)}}\}$. By definition, $\{\ket{{\psi_n^i}^{(0)}}\}$ are eigenstates of the unperturbed system and {\color{red}almost or complete?} eigenstates of the perturbed system.
+From this point to the end of this section, we will use the index $p$ to denote the initial eigenstates $\{\ket{{\psi_p^i}^{(0)}}\}$ corresponding to the degenerate eigenvalue $E_p^{(0)}$ that were obtained directly from solving the unperturbed system. We will use the index $n$ to denote the zero order approximation of the eigenstates $\{\ket{{\psi_n^i}^{(0)}}\}$ of the perturbed Hamiltonian, which are just a specific linear combination of $\{\ket{{\psi_p^i}^{(0)}}\}$ such that the change under the action of the perturbation is small. By definition, $\{\ket{{\psi_n^i}^{(0)}}\}$ are eigenstates of the unperturbed system and (almost) eigenstates of the perturbed system. % CHECK: What is the importance of this `almost`?
 
-Considering orthonormality, we can determine the following relation concerning the coefficients:
+Considering orthonormality, we can determine the following relation concerning the coefficients for the linear combination in \textbf{Equation \ref{zero_order_approx_initial_def}}:
 \begin{equation}
     1 = \braket{{\psi_n^k}^{(0)}|{\psi_n^k}^{(0)}} = \sum_{k=1}^{g_p} |a_k|^2
 \end{equation}
 
-Let us now rewrite the eigenvalue equation for the perturbed Hamiltonian using the expression from \textbf{Equation \ref{zero_order_approx_initial_def}} {\color{red}Why do we introduce directly $\ket{\psi_n^{(0)}}$? This is related to the above question}:
+Let us now rewrite the eigenvalue equation for the perturbed Hamiltonian using the expression from \textbf{Equation \ref{zero_order_approx_initial_def}}:% CHECK: Why do we introduce directly $\ket{\psi_n^{(0)}}$? This is related to the above question.
 \begin{equation}
     \begin{split}
         H\ket{\psi_n^{(0)}} = E_n\ket{\psi_n^{(0)}} &\longrightarrow (H_0 + H_p)\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} = E_n\sum_{k=1}^{g_p} a_k\ket{{\psi_p^k}^{(0)}} \\
@@ -299,11 +300,11 @@ In summary, the degenerate perturbation method consists of the following steps:
     \begin{equation}
         \vec{a}\,^i = \begin{pmatrix}
             a_1^i \\ a_2^i \\ \vdots \\ a_{g_p}^i 
-        \end{pmatrix},\qquad (i = 1, 2, 3, \dots, g_p)
+        \end{pmatrix},\qquad i = 1, 2, 3, \dots, g_p
     \end{equation} 
     \item Finally, the first order corrections to the energy for the $g_p$ eigenstates corresponding to the original degenerate level are given by:
     \begin{equation}
-        E_n^i = E_n^{(0)} + {E_n^i}^{(1)},\qquad (i = 1, 2, 3, \dots, g_p)
+        E_n^i = E_n^{(0)} + {E_n^i}^{(1)},\qquad i = 1, 2, 3, \dots, g_p
     \end{equation}
     And the corresponding eigenvectors are given to order zero as:
     \begin{equation}
@@ -340,7 +341,7 @@ Using that $\psi_{l,m}(r,\theta,\phi) = R_l(r)Y_l^m(\theta, \phi)$, we obtain:
     \end{split}
 \end{equation}
 
-From here, we can easily see that the only non-zero matrix elements are those for which $m' = m$\footnote{Clarify this, which is stated in Zetilli.}. Therefore, the only non-vanishing matrix elements will be those between any combination of the states $\ket{200}$ and $\ket{210}$. Furthermore, taking into account the parity of spherical harmonics, from \textbf{Equation \ref{parity_spherical_harmonics}}, and the fact that the operator $Z$ is odd, we can see that the only non-zero matrix elements are those for which $l' = l\pm 1$. Therefore, the only matrix element that does not vanish (its complex conjugate matrix element does not vanish either, of course), is:
+From here, we can easily see that the only non-zero matrix elements are those for which\footnote{This is because $Y_l^m(\cos \theta) = A_l^mP_l^m(\cos \theta)e^{im\phi}$, so the integral in $\phi$ becomes a multiple of $\int_0^{2\pi}e^{i(m-m')\phi}d\phi$, which is only non-zero for $m=m'$.} $m' = m$. Therefore, the only non-vanishing matrix elements will be those between any combination of the states $\ket{200}$ and $\ket{210}$. Furthermore, taking into account the parity of spherical harmonics, from \textbf{Equation \ref{parity_spherical_harmonics}}, and the fact that the operator $Z$ is odd, we can see that the only non-zero matrix elements are those for which $l' = l\pm 1$. Therefore, the only matrix element that does not vanish (its complex conjugate matrix element does not vanish either, of course), is:
 \begin{equation}
     \begin{split}
         \braket{200|W_s|210} &= e\mathcal{E} \int_{0}^{\infty}dr\cdot r^3\, R_0^*(r)R_1(r)\int_{0}^{\pi}d\theta\cdot \sin\theta\cos\theta\int_{0}^{2\pi}d\phi \left[Y_0^0(\theta, \phi)\right]^*\, Y_1^0(\theta, \phi) = -3e\mathcal{E}a_0\\

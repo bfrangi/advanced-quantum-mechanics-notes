@@ -5,11 +5,11 @@
 \textbf{Hilbert spaces}, also known as \textbf{complex vector spaces}, are defined in \textbf{Definition \ref{hilbert_spaces}}.
 
 \begin{definition} \label{hilbert_spaces}
-    A Hilbert space $\Hbt$ consists of a set of vectors $\psi$, $\psi$, $\chi$, ... and a set of scalars $a$, $b$, $c$, ... which satisfy the following four properties:
+    A Hilbert space $\Hbt$ consists of a set of vectors $\psi$, $\phi$, $\chi$, ... and a set of scalars $a$, $b$, $c$, ... which satisfy the following four properties:
 
     \begin{enumerate}
         \item \textbf{$\Hbt$ is a linear space}\footnote{See \textbf{Definition \ref{linear_vector_space}} for the definition of linear vector space.}.
-        \item \textbf{$\Hbt$ has a defined scalar product that is strictly positive}. The scalar product of an element $\psi$ with another element $\phi$ is in general a complex number, denoted by $(\psi,\ \phi)$. The scalar product satisfies the following properties\footnote{\textbf{Note:} Watch out for the order! Since the scalar product is a complex number, the quantity $(\psi,\ \phi) = \psi^*\phi$ is generall not equal to $(\phi,\ \psi) = \phi^*\psi$.}:
+        \item \textbf{$\Hbt$ has a defined scalar product that is strictly positive}. The scalar product of an element $\psi$ with another element $\phi$ is in general a complex number, denoted by $(\psi,\ \phi)$. The scalar product satisfies the following properties\footnote{\textbf{Note:} Watch out for the order! Since the scalar product is a complex number, the quantity $(\psi,\ \phi) = \psi^*\phi$ is generally not equal to $(\phi,\ \psi) = \phi^*\psi$.}:
         \begin{equation}
             (\psi,\ \phi) = (\phi,\ \psi)^*
         \end{equation}
@@ -27,7 +27,7 @@
     \end{enumerate}
 \end{definition}
 
-We should note that in a scalar product $(\phi, \ \psi)$, the second factor, $\psi$, belongs to the Hilbert space $\Hbt$, while the first factor, $\phi$, belongs to its dual Hilbert space $\Hbt^*$\footnote{More on the dual space in the next section.}. The distinction between $\Hbt$ and $\Hbt^*$ is due to the fact that, as mentioned above, the scalar product is not commutative: $(\psi, \ \phi) \neq (\phi, \ \psi)$; the order matters!
+We should note that in a scalar product $(\phi, \ \psi)$, the second factor, $\psi$, belongs to the Hilbert space $\Hbt$, while the first factor, $\phi$, belongs to its dual Hilbert space\footnote{More on the dual space in the next section.} $\Hbt^*$. The distinction between $\Hbt$ and $\Hbt^*$ is due to the fact that, as mentioned above, the scalar product is not commutative: $(\psi, \ \phi) \neq (\phi, \ \psi)$; the order matters!
 
 \subsection{The dual space} \label{dualspace}
 
@@ -37,7 +37,7 @@ Given any Hilbert space $\Hbt$, one can construct another complex vector space $
     Given a Hilbert space $\Hbt$, the dual space $\Hbt^*$ is the vector space of all linear functionals in $\Hbt$.
 \end{definition}
 
-Therefore, all linear functionals $L: \Hbt\to \C$ live in $\Hbt^*$ ($L\in V^*$).
+Therefore, all linear functionals $L: \Hbt\to \C$ live in $\Hbt^*$ ($L\in \Hbt^*$).
 
 The reason that the dual space is so interesting for quantum mechanics is that our goal as quantum physicists is to build a mathematical model for the real world, and in the end we want to be able to extract useful values and predictions from this model. For example, we may want to know the probability of getting a certain energy; or the average position we expect in a certain state. All these are scalar values, that we need to extract from a quantum state $\ket{\psi}$, so we know we will need a linear functional someplace or other!
 
@@ -57,13 +57,13 @@ Bra vectors are operators that linearly map elements of $\Hbt$ into complex numb
 \begin{equation}
     \begin{matrix}
     \bra{\phi}: & \Hbt & \rightarrow & \C\\
-    \bra{\phi}: & \ket{\psi} & \rightarrow & \braket{\phi}{\psi}\\
+    \bra{\phi}: & \ket{\psi} & \rightarrow & \braket{\phi|\psi}\\
     \end{matrix}
 \end{equation}
 
 \subsubsection{Inner product and bra-ket notation}
 
-Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they look suspiciously like an inner product in this notation: $\braket{\phi}{\psi}$. If we go back at how our $L_x$ operator in $\R^2$ acts on a column vector:
+Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they look suspiciously like an inner product in this notation: $\braket{\phi|\psi}$. If you have not done so already, go read the Appendix \textbf{Section \ref{linfunct}}, because we are going to use the example of the $L_x$ operator in $\R^2$ that acts on a column vector, which we introduced in that section:
 
 \begin{equation}
     L_x\begin{bmatrix}
@@ -71,7 +71,7 @@ Notice that, when we put a bra and a ket together ($\bra{\phi}\ket{\psi}$), they
     \end{bmatrix} =
     \begin{bmatrix}
         1 & 0 \\
-    \end{bmatrix}\cdot
+    \end{bmatrix}
     \begin{bmatrix}
         a \\ b
     \end{bmatrix} = 1 \cdot a + 0\cdot b = a
@@ -113,7 +113,7 @@ In our example of $L_x$, we have that $\vec{\phi} = \vec{x} = [1\ 0]^T$:
 
 This is the reason for the suggestive notation for bra vectors: they are operators whose action on a ket is mathematically equivalent to taking the inner product with said ket:
 \begin{equation}
-    \bra{\phi}\ket{\psi} = \braket{\phi}{\psi}
+    \bra{\phi}\ket{\psi} = \braket{\phi|\psi}
 \end{equation}
 
 That is the power of bra-ket notation: it has the Riesz Representation Theorem baked right into it. Whatever you do, breaking apart inner products and putting together bras and kets, you will always have something that makes mathematical sense. Although bra and the inner product are two entities that are completely different mathematically, the bra-ket notation makes their connection completely seamless, thanks to the Riesz Representation Theorem.
@@ -125,16 +125,16 @@ That is the power of bra-ket notation: it has the Riesz Representation Theorem b
 Some properties that arise naturally from the Dirac notation:
 
 \begin{equation}
-    \braket{\psi}{\lambda_1\phi_1+\lambda_2\phi_2} = \lambda_1\braket{\psi}{\phi_1} + \lambda_2\braket{\psi}{\phi_2}
+    \braket{\psi|\lambda_1\phi_1+\lambda_2\phi_2} = \lambda_1\braket{\psi|\phi_1} + \lambda_2\braket{\psi|\phi_2}
 \end{equation}
 \begin{equation}
-    \braket{\lambda_1\psi+\lambda_2\psi_2}{\phi} = \lambda_1^*\braket{\psi_1}{\phi} + \lambda_2^*\braket{\psi_2}{\phi}
+    \braket{\lambda_1\psi+\lambda_2\psi_2|\phi} = \lambda_1^*\braket{\psi_1|\phi} + \lambda_2^*\braket{\psi_2|\phi}
 \end{equation}
 \begin{equation}
-    \braket{\psi}{\phi} = \braket{\phi}{\psi}^*
+    \braket{\psi|\phi} = \braket{\phi|\psi}^*
 \end{equation}
 \begin{equation}
-    \braket{\psi}{\psi}\text{ is real, positive and only zero if }\ket{\psi} = 0
+    \braket{\psi|\psi}\text{ is real, positive and only zero if }\ket{\psi} = 0
 \end{equation}
 
 
@@ -161,7 +161,7 @@ In the quantum mechanical context, we can see them as entities that transform a 
     \begin{equation}
         \{A, B\} \equiv AB + BA
     \end{equation}
-    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional (parallel) to $\ket{\phi}$. It ``projects'' the vector $\ket{\psi}$ onto $\ket{phi}$. The coefficient of proportionality is the scalar product $\braket{\phi}{\psi}$.\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi}{\psi} = \braket{\phi}{\psi}\ket{\phi}$. Note that any projector operator $P_\phi$ fulfils $P_\phi^2 = \ket{\phi}\bra{\phi}\ket{\phi}\bra{\phi} = \ket{\phi}\bra{\phi} = P_\phi$. In fact, this property completely characterises projection operators.}
+    \item \textbf{Projector:} $P_\phi = \ket{\phi}\bra{\phi}$. The projector operator $P_\phi$ acting on a ket $\ket{\psi}$ gives a new ket that is proportional (parallel) to $\ket{\phi}$. It ``projects'' the vector $\ket{\psi}$ onto $\ket{\phi}$. The coefficient of proportionality is the scalar product\footnote{\textit{Proof:} $P_\phi\ket{\psi} = \ket{\phi}\bra{\phi}\ket{\psi} = \ket{\phi}\braket{\phi|\psi} = \braket{\phi|\psi}\ket{\phi}$. Note that any projector operator $P_\phi$ fulfils $P_\phi^2 = \ket{\phi}\bra{\phi}\ket{\phi}\bra{\phi} = \ket{\phi}\bra{\phi} = P_\phi$. In fact, this property completely characterises projection operators.} $\braket{\phi|\psi}$.
     \item \textbf{Inverse:} assuming it exists, the inverse operator $A^{-1}$ of the operator $A$, when applied to $A$, gives the identity operator. Also, $A$ is the inverse of $A^{-1}$, so that $AA^{-1} = A^{-1}A = \Imat$.
     \item \textbf{Hermitian conjugation:} the hermitian conjugate (or adjoint) $A^\dagger$ of an operator $A$ is obtained by interchanging the columns of the operator by its rows, and taking the complex conjugate of all elements. For example:
     \begin{equation}
@@ -180,7 +180,7 @@ In the quantum mechanical context, we can see them as entities that transform a 
         \item[b)] $\left(\lambda A\right)^\dagger = \lambda^*A^\dagger$.
         \item[c)] $\left(A + B\right)^\dagger = A^\dagger + B^\dagger$.
         \item[d)] $\left(A B\right)^\dagger = B^\dagger A^\dagger$.
-        \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$.\footnote{\textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi}{u}^*\braket{v}{\phi}^* = \braket{u}{\psi}\braket{\phi}{v} = \braket{\phi}{v}\braket{u}{\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$}
+        \item [e)] $\left(\ket{u}\bra{v}\right)^\dagger = \ket{v}\bra{u}$.\footnote{\textit{Proof:} $\bra{\phi}\left(\ket{u}\bra{v}\right)^\dagger\ket{\psi} = \left[\bra{\psi}\left(\ket{u}\bra{v}\right)\ket{\phi}\right]^* = \braket{\psi|u}^*\braket{v|\phi}^* = \braket{u|\psi}\braket{\phi|v} = \braket{\phi|v}\braket{u|\psi} = \bra{\phi}\left(\ket{v}\bra{u}\right)\ket{\psi}$. This means all projector operators are self-adjoint!}
     \end{enumerate}
     The adjoint of a bra is its ket, and the adjoint of a ket is its bra.
     To obtain the hermitian conjugate of an expression:
@@ -230,12 +230,12 @@ Note that the matrix element of an operator $A$ between $\ket{\psi}$ and $\ket{\
     \end{equation}
 \end{definition}
 
-It is easy to see that, if $\psi$ is chosen to be an eigenvector of $A$, then the expected value of $A$ in the state $\ket{\psi}$ is equal to the eigenvalue $\lambda$ of $A$ corresponding to the eigenvector $\ket{\psi}$:
+It is easy to see that, if $\ket{\psi}$ is chosen to be a normalised eigenvector of $A$, then the expected value of $A$ in the state $\ket{\psi}$ is equal to the eigenvalue $\lambda$ of $A$ corresponding to the eigenvector $\ket{\psi}$:
 \begin{equation}
     \braket{\psi|A|\psi} = \bra{\psi} (A \ket{\psi}) = \bra{\psi} (\lambda \ket{\psi}) = \lambda\braket{\psi|\psi} = \lambda
 \end{equation}
 
-This means that, for an arbitrary vector $\phi$ expressed as a linear combination of eigenvectors $\psi_i$ of $A$:
+This means that, for an arbitrary vector $\ket{\phi}$ expressed as a linear combination of eigenvectors $\ket{\psi_i}$ of $A$:
 \begin{equation}
     \ket{\phi} = \sum_i c_i\ket{\psi_i}
 \end{equation}
@@ -272,13 +272,13 @@ If $\{\ket{\psi_i}\}$ is a basis for a Hilbert space $\Hbt$ (in particular, the 
 \end{equation}
 so that we have\footnote{$\delta_{ij}$ is known as Kronecker's delta, and is equal to $1$ if $i=j$ and $0$ otherwise.}:
 \begin{equation}
-    \braket{\psi_i}{\Psi} = \sum_j c_i \braket{\psi_i}{\Psi} = \sum_j c_i\delta_{ij} = c_i
+    \braket{\psi_i|\Psi} = \sum_j c_i \braket{\psi_i|\Psi} = \sum_j c_i\delta_{ij} = c_i
 \end{equation}
 The choice of basis is arbitrary, and depending on the choice we make, we obtain different representations of state space. There are many different representations, which often have to do with physical properties of the system. 
 
 If you are familiar with basic quantum mechanics, you will probably have seen the position representation of the wave function, $\Psi\left(\vec{r}\right)$. This representation of state space is particularly useful for working with position in a quantum system. However, it is not the \textit{only} representation of state space that can have. What does this mean? Well, here, there is an important concept to understand, which is the difference between a vector and its representation: a vector is a mathematical entity that, once defined, is the same all the time, no matter where we look at it from or which basis we express it in. Its representation, however, may differ, depending on which basis we choose to represent it in. If the basis changes, the coordinates will also change, even though the vector is still the same.
 
-For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
+For example, a vector $\vec{v}_B = (a, b)$ expressed in the basis $B=\{(1, 0),\ (0, 1)\}$ will change to $\vec{v}_{B'} = (b/2, a)$ when expressed in the basis $B'=\{(0, 2),\ (1, 0)\}$. The coordinates of the vector have changed, but we can see that both representations refer to the same vector:
 
 \begin{equation}
     \vec{v}_B = a\cdot \begin{pmatrix}
@@ -302,7 +302,7 @@ When studying quantum mechanical systems, we need a way to represent quantum sta
 
 As we mentioned before, the choice of a representation is, in principle, arbitrary. In fact, it depends on the particular problem being studied: in each case, one chooses the representation that leads to the simplest calculations. 
 
-Most useful bases come as eigenstates of some pertinent operator\footnote{More on this later{\color{red}add link}, but the idea is that, if we represent the state space in the basis of eigenstates (analogous to eigenvectors) of an operator, then that operator will be expressed in that basis as a diagonal matrix, where the elements of the diagonals are the eigenvalues of the operator. This makes calculations very easy.}. So far, we have mentioned the position and the momentum representation. These bases deal with the position and momentum operators, but you can think of many others. For example, the eigenstates of the Hamiltonian for some physical system are often used, especially when solving the Schrödinger equation. These might also be infinite dimensional but can be discrete, as opposed to the continuous bases of position and momentum.
+Most useful bases come as eigenstates of some pertinent operator\footnote{We will see some examples when we talk about angular momentum, but the idea is that, if we represent the state space in the basis of eigenstates (analogous to eigenvectors) of an operator, then that operator will be expressed in that basis as a diagonal matrix, where the elements of the diagonals are the eigenvalues of the operator. This makes calculations very easy.}. So far, we have mentioned the position and the momentum representation. These bases deal with the position and momentum operators, but you can think of many others. For example, the eigenstates of the Hamiltonian for some physical system are often used, especially when solving the Schrödinger equation. These might also be infinite dimensional but can be discrete, as opposed to the continuous bases of position and momentum.
 
 \subsubsection{General representation}
 
@@ -340,7 +340,7 @@ A \textbf{discrete orthonormal basis} is defined as:
     \begin{equation}
         c_i = \left(u_i(\vec{\xi}), \ \psi(\vec{\xi})\right) = \int u_i^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
     \end{equation}    
-    Note that, in a discrete orthonormal basis, all basis vectors $u_i$ are elements belonging to $\F$. In other words, every basis vector $u_i$ is a valid physical state for the system in the space $\F$. As we will see, this will \textit{not} be the case for continuous orthonormal ``bases''.
+    Note that, in a discrete orthonormal basis, all basis vectors $u_i$ are elements belonging to $\F$. In other words, every basis vector $u_i$ is a valid physical state for the system in the space $\F$. As we will see, this will \textit{not} be the case for continuous orthonormal ``bases''\footnote{We will soon justify the use of ``$\cdot$'' here.}.
 \end{definition}
 
 For a discrete orthonormal basis, we can express the \textbf{scalar product in terms of the components} as:
@@ -379,12 +379,12 @@ A \textbf{continuous orthonormal basis} is defined as:
     \begin{equation}
         c(\alpha) = \left(\omega_\alpha(\vec{\xi}), \ \psi(\vec{\xi})\right) = \int \omega_\alpha^*(\vec{\xi})\psi(\vec{\xi})d\vec{\xi}
     \end{equation}   
-    Note that, $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ implies that the functions $\omega_\alpha$ are not normaliseable\footnote{As $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ would imply that $\|\omega_\alpha\|^2 = \braket{\omega_\alpha(\vec{\xi})|\omega_\alpha(\vec{\xi})} = \delta(\alpha - \alpha) = \infty \neq 1$. So, it turns out that any basis in $\F$ has to be a discrete basis with an orthogonality condition expressed in terms of a Kronecker delta instead of a Dirac delta.}, so these functions are \textit{not} vectors in $\F$. Therefore, strictly speaking, they cannot be a basis for $\F$. In other words, basis vectors $\omega_\alpha$ are \textit{not} valid physical states for the system in the space $\F$.  Rather, they are a mathematical tool that can help us to perform calculations in certain scenarios, and are formalised in what is known as a rigged Hilbert space\footnote{See \href{https://physics.stackexchange.com/a/623416/283847}{this} and \href{https://physics.stackexchange.com/a/359982/283847}{this} post for more information.}. However, we will still refer to them as ``basis vectors'' for simplicity.
+    Note that, $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ implies that the functions $\omega_\alpha$ are not normaliseable\footnote{As $\braket{\omega_\alpha(\vec{\xi})|\omega_{\alpha'}(\vec{\xi})} = \delta(\alpha - \alpha')$ would imply that $\|\omega_\alpha\|^2 = \braket{\omega_\alpha(\vec{\xi})|\omega_\alpha(\vec{\xi})} = \delta(\alpha - \alpha) = \infty \neq 1$. So, it turns out that any basis in $\F$ has to be a discrete basis with an orthogonality condition expressed in terms of a Kronecker delta instead of a Dirac delta.}, so these functions are \textit{not} vectors in $\F$. Therefore, strictly speaking, they cannot be a basis for $\F$. In other words, basis vectors $\omega_\alpha$ are \textit{not} valid physical states for the system in the space $\F$.  Rather, they are a mathematical tool that can help us to perform calculations in certain scenarios, and are formalised in what is known as a rigged Hilbert space\footnote{See \href{https://physics.stackexchange.com/a/623416/283847}{this} (\underline{https://shorturl.at/efqO2}) and \href{https://physics.stackexchange.com/a/359982/283847}{this} (\underline{https://shorturl.at/kqGU0}) post for more information.}. However, we will still refer to them as ``basis vectors'' for simplicity.
 \end{definition}
 
 For a continuous orthonormal basis, we can express the \textbf{scalar product in terms of the continuous coefficients} as:
 \begin{equation*}
-    \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) = \left(\int b(\alpha) \omega_\alpha(\vec{\xi})d\alpha, \ \int c(\alpha') \omega_{\alpha'}(\vec{\xi})d\alpha'\right) = \sum_{i, \ j} b^*_i c_j \left(u_i(\vec{\xi}), \ u_j(\vec{\xi})\right) = 
+    \left(\phi(\vec{\xi}), \ \psi(\vec{\xi})\right) = \left(\int b(\alpha) \omega_\alpha(\vec{\xi})d\alpha, \ \int c(\alpha') \omega_{\alpha'}(\vec{\xi})d\alpha'\right) =  
 \end{equation*}
 \begin{equation*}
     = \int\left(\int b^*(\alpha)c(\alpha') (\omega_\alpha(\vec{\xi}), \omega_{\alpha'}(\vec{\xi}))d\alpha\right) d\alpha' = \int\left(\int b^*(\alpha)c(\alpha') \delta(\alpha-\alpha') d\alpha\right) d\alpha'
@@ -440,19 +440,19 @@ $\{\xi_{\vec{r}_0}(\vec{r})\}$ represents the set of delta functions centered at
     \psi(\vec{r}) = \int \psi(\vec{r}_0)\delta(\vec{r} - \vec{r}_0) \ d^3r_0 = \int \psi(\vec{r}_0)\xi_{\vec{r}_0}(\vec{r})\ d^3r_0
 \end{equation}
 \begin{equation} \label{delta_2}
-    \psi(\vec{r}_0) = (\xi_{\vec{r}_0}, \psi) = \int \delta(\vec{r}_0 - \vec{r})\psi(\vec{r}) \ d^3r = \int \xi^*_{\vec{r}_0}(\vec{r})\psi(\vec{r}) \ d^3r
+    \psi(\vec{r}_0) = (\xi_{\vec{r}_0}, \psi) = \int \delta(\vec{r} - \vec{r}_0)\psi(\vec{r}) \ d^3r = \int \xi^*_{\vec{r}_0}(\vec{r})\psi(\vec{r}) \ d^3r
 \end{equation}
 
 \textbf{Equation \ref{delta_1}} expresses the fact that every function $\psi(\vec{r})\in\F$ can be expanded in terms of the $\xi_{\vec{r}_0}(\vec{r})$ functions in exactly one way. \textbf{Equation \ref{delta_2}} shows that the value of the ``continuous coefficient'' corresponding to $\xi_{\vec{r}_0}(\vec{r})$ is preciesly $\psi(\vec{r}_0)$. 
 
-The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_{\vec{p}}(\vec{r})$ or $\xi_{\vec{r}_0}(\vec{r})$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(\vec{r})$ which are used to describe a physical state.\footnote{\color{red}aclarar}
+The usefulness of the continuous bases that we have just introduced is revealed more clearly in what follows. However, we must not lose sight of the following point: a physical state must always correspond to a square-integrable wave function. In no case can $v_{\vec{p}}(\vec{r})$ or $\xi_{\vec{r}_0}(\vec{r})$ represent the state of a particle. These functions are nothing more than intermediaries, very useful in calculations involving operations on the wave functions $\psi(\vec{r})$ which are used to describe a physical state.
 
 
 
 \subsection{Matrix formulation of quantum mechanics}
 \subsubsection{Matrix representation in discrete bases}
 
-Recall that, for a basis $\{\ket{\phi_n}\}$ of $\F$, we can write any $\psi\in\F$ as a linear combination of the basis vectors:
+Recall that, for a basis $\{\ket{\phi_n}\}$ of $\F$, we can write any $\ket{\psi}\in\F$ as a linear combination of the basis vectors:
 
 \begin{equation}
     \ket{\psi} = \sum_n c_n\ket{\phi_n}
@@ -485,7 +485,7 @@ Just as kets and bras are respresented by column and row vectors, respectively, 
 We can define the \textbf{eigenvectors of an operator} as:
 
 \begin{definition}
-    A state vector $\ket{\psi}$ is said to be an eigenvector (also called eigenket or eigenvector) of an operator $A$ if it is a solution of the eigenvalue equation:
+    A state vector $\ket{\psi}$ is said to be an eigenvector (also called eigenket or eigenstate) of an operator $A$ if it is a solution of the eigenvalue equation:
     \begin{equation}
         A\ket{\psi} = a\ket{\psi}
     \end{equation}
@@ -526,7 +526,7 @@ And every state vector $\ket{\psi}$ can be expanded in terms of the position eig
     \ket{\psi} = \int \braket{\vec{r}|\psi} \ket{\vec{r}} d^3 r = \int \psi(\vec{r}) \ket{\vec{r}} d^3 r
 \end{equation}
 
-where the \textbf{wave function} $\psi(\vec{r}) = \braket{\vec{r}|\psi}$ denotes the components of $\psi$ in the $\{\ket{\vec{r}}\}$ basis. The quantity $|\braket{\vec{r}|\psi}|^2d^3 r = |\psi(\vec{r})|^2d^3r$ represents the probability of finding the system inside the volume element $d^3r$.
+where the \textbf{wave function} $\psi(\vec{r}) = \braket{\vec{r}|\psi}$ denotes the components of $\ket{\psi}$ in the $\{\ket{\vec{r}}\}$ basis. The quantity $|\braket{\vec{r}|\psi}|^2d^3 r = |\psi(\vec{r})|^2d^3r$ represents the probability of finding the system inside the volume element $d^3r$.
 
 The scalar product between two state vectors $\ket{\psi}$ and $\ket{\phi}$ can be written as:
 \begin{equation}
@@ -560,7 +560,7 @@ And every state vector $\ket{\psi}$ can be expanded in terms of the momentum eig
 \begin{equation}
     \ket{\psi} = \int \braket{\vec{p}|\psi} \ket{\vec{p}} d^3 p = \int \Psi(\vec{p}) \ket{\vec{p}} d^3 p
 \end{equation}
-where the expansion coefficient $\Psi(\vec{p}) = \braket{\vec{p}|\psi}$ is the \textbf{momentum space wave function}. The quantity $|\braket{\vec{p}|\psi}|^2d^3 p = |\Psi(\vec{p})|^2d^3p$ represents the probability of finding the system's momentum inside the volume element $d^3p$ located between $\vec{p}$ and $\vec{p} + d\vec{p}$.
+where the expansion coefficient $\Psi(\vec{p}) = \braket{\vec{p}|\psi}$ is the \textbf{momentum space wave function}. The quantity $|\braket{\vec{p}|\psi}|^2d^3 p = |\Psi(\vec{p})|^2d^3p$ represents the probability of finding the system's momentum inside the momentum volume element $d^3p$ located between $\vec{p}$ and $\vec{p} + d\vec{p}$.
 
 The scalar product between two state vectors $\ket{\psi}$ and $\ket{\phi}$ can be written as:
 \begin{equation}
@@ -591,7 +591,7 @@ Similarly, we find:
     \Psi(\vec{p}) = \int \braket{\vec{p}|\vec{r}}\psi(\vec{r})\ d^3r
 \end{equation}
 
-\textbf{Equation \ref{pos_mom}} and \textbf{Equation \ref{mom_pos}} imply that $\phi(\vec{r})$ and $\Phi(\vec{p})$ are Fourier transforms of each other. In quantum mechanics, the Fourier transform of a function $f(\vec{r})$ is given as:
+\textbf{Equation \ref{pos_mom}} and \textbf{Equation \ref{mom_pos}} imply that $\psi(\vec{r})$ and $\Psi(\vec{p})$ are Fourier transforms of each other. In quantum mechanics, the Fourier transform of a function $f(\vec{r})$ is given as:
 \begin{equation}
     f(\vec{r}) = \frac{1}{(2\pi\hbar)^{3/2}}\int e^{i\vec{p}\cdot \vec{r}/\hbar} g(\vec{p})\ d^3p
 \end{equation}
@@ -609,9 +609,13 @@ The quantity $|\braket{\vec{r}|\vec{p}}|^2 = \frac{1}{(2\pi\hbar)^3}$ represents
 \subsubsection{Momentum operator in the position representation}
 
 To determine the expression for the momentum operator $\vec{P}$ in the position representation, let us calculate:
+\begin{equation*}
+    \braket{\vec{r}|\vec{P}|\psi} \stackrel{\footnotemark}{=}\footnotetext{Here, we insert the closure relation.} \bra{\vec{r}|\vec{P}}\left(\int \ket{\vec{p}}\bra{\vec{p}}d^3p\right)\ket{\psi} =  \int \braket{\vec{r}|\vec{P}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used that $\vec{P}\ket{\psi} =\vec{p}\ket{\vec{p}}$.}
+\end{equation*}
 \begin{equation}
-    \braket{\vec{r}|\vec{P}|\psi} = \int \braket{\vec{r}|\vec{P}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we apply the closure relation.} \int \braket{\vec{r}|\vec{P}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used that $\vec{P}\ket{\psi} = \vec{p}\ket{\vec{p}}$.} \int \vec{p}\braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used the definition of the transformation function from the momentum to the position representation, defined in \textbf{Equation \ref{transform_1}}.} \frac{1}{(2\pi\hbar)^{3/2}} \int \vec{p}e^{i\vec{p}\cdot \vec{r}/\hbar}\Psi (\vec{p})d^3p
+    = \int \vec{p}\braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi}d^3p \stackrel{\footnotemark}{=}\footnotetext{Here, we have used the definition of the transformation function from the momentum to the position representation, defined in \textbf{Equation \ref{transform_1}}.} \frac{1}{(2\pi\hbar)^{3/2}} \int \vec{p}e^{i\vec{p}\cdot \vec{r}/\hbar}\Psi (\vec{p})d^3p
 \end{equation}
+
 Now, since $\vec{p}e^{i \vec{p}\cdot \vec{r}/\hbar} = -i\hbar \vec{\nabla}e^{i \vec{p}\cdot \vec{r}/\hbar}$, and using \textbf{Equation \ref{transform_1}}, we can write:
 \begin{equation}
     \braket{\vec{r}|\vec{P}|\psi} = -i\hbar \vec{\nabla} \left( \frac{1}{(2\pi\hbar)^{3/2}}\int e^{i\vec{p}\cdot \vec{r}/\hbar}\Psi (\vec{p})d^3p\right) = -i\hbar \vec{\nabla} \left(\int \braket{\vec{r}|\vec{p}}\braket{\vec{p}|\psi} d^3p\right) = -i\hbar \vec{\nabla} \braket{\vec{r}|\psi} 
@@ -654,13 +658,13 @@ With this, and the fact that the three degrees of freedom are independent\footno
     [X_j, P_k] = i\hbar \delta_{jk}, \quad [X_j, X_k] = [P_j, P_k] = 0, \quad j,k = x,y,z
 \end{equation}
 
-It is important to note that, even though the particular expression of an operator in different representations may vary, the commutation relations for operators are representation independent\footnote{\color{red} Add proof}.
+It is important to note that, even though the particular expression of an operator in different representations may vary, it can be shown that the commutation relations for operators are representation independent.
 
 \subsection{Tensor product of two vector spaces}
 
 Up to this point, we have always talked about the wave functions of a single particle. However, even in that case, one can consider a one-dimensional, two-dimensional or even three-dimensional wave function. It is clear that the particularisation of the general state space $\F$ is not the same for functions of one variables (we will call the 1D state space $\varepsilon_x$) as for functions of three variables (we will call the 3D state space, $\varepsilon_{\vec{r}}$). $\varepsilon_{\vec{r}}$ and $\varepsilon_x$ are therefore different spaces. Nevertheless, $\varepsilon_{\vec{r}}$ appears to be essentially a generalisation of $\varepsilon_x$. Does there exist a more precise relation between these two spaces?
 
-In this section, we are going to define and study the operation of taking the tensor product of vector spaces, and apply it to state spaces. This will answer, in particular, the question we have just asked: $\varepsilon_{\vec{r}}$ can be constructed from $\varepsilon_x$ and another two spaces, $\varepsilon_y$ and $\varepsilon_z$, which are isomorphic to it\footnote{\color{red}clarify what this means}. 
+In this section, we are going to define and study the operation of taking the tensor product of vector spaces, and apply it to state spaces. This will answer, in particular, the question we have just asked: $\varepsilon_{\vec{r}}$ can be constructed from $\varepsilon_x$ and another two spaces, $\varepsilon_y$ and $\varepsilon_z$, which are isomorphic\footnote{In simple terms words, isomorphic spaces ``have the same structure''. Elements in isomorphic spaces can be mapped one-to-one.} to it. 
 
 We give the following definition of the tensor product of two vector spaces:
 
@@ -682,7 +686,7 @@ We give the following definition of the tensor product of two vector spaces:
                 \left[\ket{\psi_1(1)} + \ket{\psi_2(1)}\right]\otimes\ket{\chi(2)} &= \ket{\psi_1(1)}\otimes\ket{\chi(2)} + \ket{\psi_2(1)}\otimes\ket{\chi(2)}   
             \end{split}
         \end{equation}
-        \item When a basis has been chosen for $\varepsilon_1$, $\{u_i(1)\}$, and for $\varepsilon_2$, $\{u_j(2)\}$, the set of vectors $\ket{u_i(1)}\otimes\ket{v_l(2)}$ constitutes a basis in $\varepsilon$. If $N_1$ and $N_2$ are finite, the dimensions of $\varepsilon$ is $N_1N_2$.
+        \item When a basis has been chosen for $\varepsilon_1$, $\{u_i(1)\}$, and for $\varepsilon_2$, $\{u_j(2)\}$, the set of vectors $\ket{u_i(1)}\otimes\ket{v_l(2)}$ constitutes a basis in $\varepsilon$. If $N_1$ and $N_2$ are finite, the dimension of $\varepsilon$ is $N_1N_2$.
     \end{itemize}
 \end{definition}
 

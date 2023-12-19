@@ -2,7 +2,7 @@
 
 \subsection{Introduction}
 
-Quantum mechanics is based on a number of postulates, which themselves are based on a range of experimental observations. \textbf{These postulates cannot be derived}, and they result exclusively from experiment. They are the minimal set of assumptions that one needs in order to build the theory of quantum mechanics. \textbf{The validity of the postulates of quantum mechanics can only be determined inferentially}: the theory works extremely well, so the postulates must also be valid. This represents its experimental justification.
+Quantum mechanics is based on a number of postulates, which themselves are based on a range of experimental observations. \textbf{These postulates cannot be derived}, and they result exclusively from experiment. They are the minimal set of assumptions that one needs in order to build the theory of quantum mechanics. \textbf{The validity of the postulates of quantum mechanics can only be determined inferentially}: the theory works extremely well when predicting experimental results, so the postulates must also be valid. This represents its experimental justification.
 
 The first four postulates concern the state of a system at a give time, whereas the last postulate concerns the time evolution of the system.
 
@@ -23,11 +23,11 @@ The first four postulates concern the state of a system at a give time, whereas 
     \begin{itemize}
         \item \textbf{Discrete Spectra:} When measuring an observable $a$ of a system in a state $\ket{\psi}$, the probability of obtaining one of the non-degenerate eigenvalues $a_n$ of the corresponding operator $A$ is given by:
         \begin{equation}
-            P_n(a_n) = \frac{|\braket{\psi_n|\psi}|^2}{\braket{\psi|\psi}} = |a_n|^2
+            P_n(a_n) = \frac{|\braket{\psi_n|\psi}|^2}{\braket{\psi|\psi}} = |\braket{\psi_n|\psi}|^2
         \end{equation}
         where $\ket{\psi_n}$ is the eigenstate of $A$ with the eigenvalue $a_n$ and we have assumed that the state is normalised. If the eigenvalue $a_n$ is $m$-degenerate, $P_n$ becomes:
         \begin{equation}
-            P_n(a_n) = \frac{\sum_{j=1}^m|\braket{\psi_n^j|\psi}|^2}{\braket{\psi|\psi}} = \sum_{j=1}^m |a_n^{(j)}|^2
+            P_n(a_n) = \frac{\sum_{j=1}^m|\braket{\psi_n^j|\psi}|^2}{\braket{\psi|\psi}} = \sum_{j=1}^m |\braket{\psi_n^j|\psi}|^2
         \end{equation}
         where, again, we assume normalised states.
         
@@ -35,7 +35,7 @@ The first four postulates concern the state of a system at a give time, whereas 
 
         The mean value of an observable for a state $\ket{\psi}$ can be then calculated as:
         \begin{equation*}
-            \braket{a}_\psi = \sum_n a_n P_n(a_n) = \sum_n a_n \sum_{j=1}^m |a_n^j|^2 = \sum_n a_n \sum_{j=1}^m \braket{\psi|\psi_n^j}\braket{\psi_n^j|\psi} = 
+            \braket{a}_\psi = \sum_n a_n P_n(a_n) = \sum_n a_n \sum_{j=1}^m |\braket{\psi_n^j|\psi}|^2 = \sum_n a_n \sum_{j=1}^m \braket{\psi|\psi_n^j}\braket{\psi_n^j|\psi} = 
         \end{equation*}
         \begin{equation*}
             = \sum_n \sum_{j=1}^m \braket{\psi|a_n|\psi_n^j}\braket{\psi_n^j|\psi} = \sum_n \sum_{j=1}^m \braket{\psi|A|\psi_n^j}\braket{\psi_n^j|\psi} = \bra{\psi}A \left[\sum_n \sum_{j=1}^m \ket{\psi_n^j}\bra{\psi_n^j}\right]\ket{\psi} =
@@ -46,13 +46,13 @@ The first four postulates concern the state of a system at a give time, whereas 
 
         \item \textbf{Continuous Spectra:} we can extend the previous relations to continuous spectra to determine the probability density that a measurement of $A$ yields a value between $a$ and $a + da$ on a system which is initially in a state $\ket{\psi}$:
         \begin{equation}
-            \frac{dP(a)}{da} = \frac{|\braket{\psi_a|\psi}|^2}{\braket{\psi|\psi}} = |\psi(a)|^2
+            \frac{dP(a)}{da} = \frac{|\braket{\psi_a|\psi}|^2}{\braket{\psi|\psi}} = |\braket{\psi_a|\psi}|^2
         \end{equation}
         where, again, we assume that the state $\ket{\psi}$ is normalised. 
         
         The mean value of an observable for a state $\ket{\psi}$ can be then calculated as:
         \begin{equation*}
-            \braket{a}_\psi = \int a\, dP(a) = \int a|\psi(a)|^2\,da = \int a\,|\braket{\psi_a|\psi}|^2\,da = \int a\braket{\psi|\psi_a}\braket{\psi_a|\psi}\,da = 
+            \braket{a}_\psi = \int a\, dP(a) = \int a\,|\braket{\psi_a|\psi}|^2\,da = \int a\braket{\psi|\psi_a}\braket{\psi_a|\psi}\,da = 
         \end{equation*}
         \begin{equation*}
             = \int \bra{\psi}a\ket{\psi_a}\braket{\psi_a|\psi}\,da = \int \bra{\psi}A\ket{\psi_a}\braket{\psi_a|\psi}\,da = \bra{\psi}A\left(\int\ket{\psi_a}\bra{\psi_a}\,da\right)\ket{\psi}
@@ -79,7 +79,7 @@ An observable is a dynamic variable that can be measured. According to \textbf{P
     \vec{P} = -i\hbar\vec{\nabla}
 \end{equation}
 
-In general, any function $f(\vec{r}, \vec{p})$ can be ``quantised'' (made into a function of operators) by replacing $\vec{r}$ and $\vec{p}$ with the position and momentum operators $\vec{R}$ and $\vec{P}$, respectively:
+In general, any function $f(\vec{r}, \vec{p})$ can be ``quantised'' (made into a function of quantum operators) by replacing $\vec{r}$ and $\vec{p}$ with the position and momentum operators $\vec{R}$ and $\vec{P}$, respectively:
 \begin{equation}
     f(\vec{r}, \vec{p}) \rightarrow F(\vec{R}, \vec{P})
 \end{equation}
@@ -109,11 +109,11 @@ Two observables $a$ and $b$ are said to be \textbf{compatible} if their correspo
 
 Two observables can only be measured simultaneously if they are compatible, and this is a fact that is tightly connected to \textbf{Postulate \ref{post_3}}: when we measure an observable (we can think of this as applying its operator to the state), we obtain one of the eigenvalues of the operator, and immediately the system changes to the eigenstate corresponding to that eigenvalue. In order to be able to measure two different observables at the same time, the system must be able to change to an eigenstate that is common to \textit{both} operators. This is only possible if the operators commute, because for two operators to share the basis of eigenvectors they \textit{must} commute.
 
-Furthermore, for commuting operators, it does not matter in what order we measure their corresponding observables. Measurement of one does not affect the measurement of the other. On the other hand, for non-commuting (incompatible) operators, measurement of one produces loss of information obtained from the measurement of the other.
+Furthermore, for commuting operators, it does not matter in what order we measure their corresponding observables. Measurement of one does not affect the measurement of the other. On the other hand, for non-commuting (incompatible) operators, measurement of one produces loss of information for the measurement of the other.
 
 \subsection{Conservative systems}
 
-When the Hamiltonian of a system does not depend explicitly on time, the system is said to be \textbf{conservative}. In classical mechanics, the most important consequence of such a situation is the conservation of energy over time\footnote{Actually, eigenvectors \textit{can} change over time, but only by a phase.}. In other words, \textbf{the energy of the system is a constant of motion}. This also means that the eigenvalues and eigenvectors of the Hamiltonian operator are constant over time. Then, any state can be expanded in terms of the eigenvectors of the Hamiltonian operator:
+When the Hamiltonian of a system does not depend explicitly on time, the system is said to be \textbf{conservative}. In classical mechanics, the most important consequence of such a situation is the conservation of energy over time. This also means that the eigenvalues and eigenvectors of the Hamiltonian operator are constant over time\footnote{Actually, eigenvectors \textit{can} change over time, but only by a phase.}. In other words, \textbf{the energy of the system is a constant of motion}. Then, any state can be expanded in terms of the eigenvectors of the Hamiltonian operator:
 \begin{equation}
     \ket{\psi(t)} = \sum_n c_n(t)\ket{\psi_n},\qquad c_n(t) = \braket{\psi_n|\psi(t)}
 \end{equation}

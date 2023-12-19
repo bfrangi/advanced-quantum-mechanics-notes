@@ -23,8 +23,7 @@ The definition of linear vector space is as follows:
                 \item The product of a scalar with a vector gives another vector. In general, if $\psi$ and $\phi$ are two vectors of the space, any linear combination $a\psi + b\phi$ is also a vector of the space, $a$ and $b$ being scalars.
                 \item Distributivity with respect to addition: a $(\psi + \phi) = a \psi + a \phi$, and $(a + b)\psi = a\psi + b\psi$.
                 \item Associativity with respect to multiplication of scalars: $a (b \psi) = (ab)\psi$
-                \item For each element $\psi$ there must exist a unitary scalar $I$ and a zero scalar ``$0$" such that $I\psi = \psi I = \psi$ and $\psi 0 = 0\psi = O$.
-                (2.3)
+                \item For each element $\psi$ there must exist a unitary scalar $I$ and a zero scalar $0$ such that $I\psi = \psi I = \psi$ and $\psi 0 = 0\psi = O$.
             \end{itemize}
         \end{enumerate}
     \end{itemize}
@@ -62,7 +61,7 @@ so that:
     \end{bmatrix} =
     \begin{bmatrix}
         1 & 0 \\
-    \end{bmatrix}\cdot
+    \end{bmatrix}
     \begin{bmatrix}
         a \\ b
     \end{bmatrix} = a
@@ -89,9 +88,9 @@ If $B = \{\psi_1, \psi_2, ...\}$ is a basis for a Hilbert space $\Hbt$, we can w
 \begin{equation}
     \ket{\psi} = \sum_i c_i\ket{A_i}
 \end{equation}
-Where the coefficients are $c_i = \braket{A_i}{\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i}{\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i}{A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
+Where the coefficients are $c_i = \braket{A_i|\psi}$\footnote{\textit{Proof:} As $A_i$ form an orthonormal basis: $\braket{A_i|\psi} = \bra{A_i}\sum_jc_i\ket{A_j} = \sum_jc_i\braket{A_i|A_j} = \sum_jc_i\delta_{ij} = c_i$}. If we substitute this expression:
 \begin{equation}
-    \ket{\psi} = \sum_i \braket{A_i}{\psi}\ket{A_i}
+    \ket{\psi} = \sum_i \braket{A_i|\psi}\ket{A_i}
 \end{equation}
 As the coefficient is a complex number, we can move it to the end of the expression and separate the inner product:
 \begin{equation}
@@ -109,26 +108,28 @@ The inverse argument is easy to follow.
 
 \subsection{Uncertainty relation between two operators} \label{uncertainty_relation}
 
-An interesting application of commutator algebra is to derive a general relation giving the uncertainty product of two Hermitian operators, $A$ and $B$. Let $\expected{A}$ and $\expected{B}$ be the expected values of the operators $A$ and $B$, respectively, with respect to the normalised state vector $\ket{\psi}$. Introducing the operators $\Delta A$ and $\Delta B$ as:
+An interesting application of commutator algebra is to derive a general relation giving the uncertainty product of two Hermitian operators, $A$ and $B$. Let $\braket{A} = \braket{\psi|A|\psi}$ and $\braket{B}=\braket{\psi|B|\psi}$ be the expected values of the operators $A$ and $B$, respectively, with respect to the normalised state vector $\ket{\psi}$. Let $\braket{\hat A} = \braket{A}\Imat$ and $\braket{\hat B} = \braket{B}\Imat$. Introducing the operators $\Delta A$ and $\Delta B$ as:
 \begin{equation} \label{eqn:uncertainty_def}
-    \Delta A = A - \expected{A}, \qquad \Delta B = B - \expected{B},
+    \Delta A = A - \braket{\hat A}, \qquad \Delta B = B - \braket{\hat B},
 \end{equation}
-we have $(\Delta A)^2 = A^2 - 2A\expected{A} + \expected{A}^2$ and $(\Delta B)^2 = B^2 - 2B\expected{B} + \expected{B}^2$, and hence:
+we have $(\Delta A)^2 = A^2 - 2A\braket{\hat A} + \braket{\hat A}^2$. therefore:
 \begin{equation}
-    \Braket{\psi|(\Delta A)^2|\psi} = \expected{(\Delta A)^2} = \expected{A^2 - 2A\expected{A} + \expected{A}^2} = \expected{A^2} - 2\expected{A}\expected{A} + \expected{A}^2 = \expected{A^2} - \expected{A}^2
+    \Braket{\psi|(\Delta A)^2|\psi} = \expected{(\Delta A)^2} = \expected{A^2 - 2A\braket{\hat A} + \braket{\hat A}^2} = \expected{A^2} - 2\braket{\hat A}\braket{\hat A} + \braket{\hat A}^2 = \expected{A^2} - \braket{\hat A}^2
 \end{equation}
+
+Similarly:
 \begin{equation}
-    \Braket{\psi|(\Delta B)^2|\psi} = \expected{(\Delta B)^2} = \expected{B^2 - 2B\expected{B} + \expected{B}^2} = \expected{B^2} - 2\expected{B}\expected{B} + \expected{B}^2 = \expected{B^2} - \expected{B}^2
+    \Braket{\psi|(\Delta B)^2|\psi} = \expected{B^2} - \braket{\hat B}^2
 \end{equation}
 Then, we can write the uncertainties as:
 \begin{equation}
-    \Delta A = \sqrt{\expected{(\Delta A)^2}} = \sqrt{\expected{A^2} - \expected{A}^2}, \qquad \Delta B = \sqrt{\expected{(\Delta B)^2}} = \sqrt{\expected{B^2} - \expected{B}^2}
+    \Delta A = \sqrt{\expected{(\Delta A)^2}} = \sqrt{\expected{A^2} - \braket{\hat A}^2}, \qquad \Delta B = \sqrt{\expected{(\Delta B)^2}} = \sqrt{\expected{B^2} - \braket{\hat B}^2}
 \end{equation}
 Writing the action of the operators in \textbf{Equation \ref{eqn:uncertainty_def}} on the state vector $\ket{\psi}$, we have:
 \begin{equation}
-    \ket{\chi} = \Delta A\ket{\psi} = (A - \expected{A})\ket{\psi}, \qquad \ket{\phi} = \Delta B\ket{\psi} = (B - \expected{B})\ket{\psi}
+    \ket{\chi} = \Delta A\ket{\psi} = (A - \braket{\hat A})\ket{\psi}, \qquad \ket{\phi} = \Delta B\ket{\psi} = (B - \braket{\hat B})\ket{\psi}
 \end{equation}
-The Cauchy-Schwarz inequality\footnote{See for more on this inequality in \href{https://mathworld.wolfram.com/SchwarzsInequality.html}{this} article.} gives us:
+The Cauchy-Schwarz inequality\footnote{See for more on this inequality in \href{https://mathworld.wolfram.com/SchwarzsInequality.html}{this} article: \underline{https://shorturl.at/eIKZ9}.} gives us:
 \begin{equation}
     \left|\braket{\chi|\phi}\right|^2 \leq \braket{\chi|\chi}\braket{\phi|\phi}
 \end{equation}
@@ -150,12 +151,12 @@ We can write the $\Delta A \Delta B$ terms of this equation as:
 \begin{equation}
     \Delta A \Delta B = 2\cdot \frac12\Delta A \Delta B + \frac12\Delta B \Delta A - \frac12\Delta B \Delta A = \frac12[\Delta A, \Delta B] + \frac12\{\Delta A, \Delta B\}
 \end{equation}
-Since $[\Delta A, \Delta B] = [A, B]$\footnote{\color{red}Check this}:
+Since $[\Delta A, \Delta B] = [A, B]$\footnote{\textit{Proof:} $[\Delta A, \Delta B] = [A, B] + [\braket{A}, \braket{B}] + [\braket{B}, A] + [B, \braket{A}] = [A, B] + \braket{A}\braket{B}\cancel{[\Imat, \Imat]} + \braket{B}\cancel{[\Imat, A]} + \braket{A}\cancel{[B, \Imat]} = [A, B]$.}:
 \begin{equation}
     \Delta A \Delta B = \frac12[A, B] + \frac12\{\Delta A, \Delta B\}
 \end{equation}
 
-Since $[A, B]$ is anti-Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $([A, B])^\dagger = (AB - BA)^\dagger = (AB)^\dagger - (BA)^\dagger = B^\dagger A^\dagger - A^\dagger B^\dagger = BA - AB = -[A, B]$. Then, $[A, B]$ is anti-Hermitian.} and $[\Delta A, \Delta B]$ is Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $([\Delta A,\Delta B])^\dagger = \left( (A-\expected{A})(B-\expected{B}) - (B-\expected{B})(A-\expected{A}) \right)^\dagger =( (A-\expected{A})(B-\expected{B}))^\dagger - ((B-\expected{B})(A-\expected{A}))^\dagger = (B-\expected{B})^\dagger(A-\expected{A})^\dagger - (A-\expected{A})^\dagger(B-\expected{B})^\dagger = (B-\expected{B})(A-\expected{A}) - (A-\expected{A})(B-\expected{B}) = [\Delta A, \Delta B]$. Then, $[\Delta A, \Delta B]$ is Hermitian.}; and since the expectation value of a Hermitian operator is real\footnote{See \textbf{Section     \ref{expected_value_hermitian}} for proof.} and the expectation value of an anti-Hermitian operator is imaginary\footnote{See \textbf{Section     \ref{expected_value_anti_hermitian}} for proof.}, $\expected{\Delta A \Delta B}$ becomes equal to a real part $\frac12\expected{\{\Delta A, \Delta B\}}$ plus an imaginary part $\frac12\expected{[A,B]}$. Then:
+Since $[A, B]$ is anti-Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $([A, B])^\dagger = (AB - BA)^\dagger = (AB)^\dagger - (BA)^\dagger = B^\dagger A^\dagger - A^\dagger B^\dagger = BA - AB = -[A, B]$. Then, $[A, B]$ is anti-Hermitian.} and $\{\Delta A, \Delta B\}$ is Hermitian\footnote{\textit{Proof:} As $A$ and $B$ are Hermitian, then $(\{A, B\})^\dagger = (AB + BA)^\dagger = (AB)^\dagger + (BA)^\dagger = B^\dagger A^\dagger + A^\dagger B^\dagger = BA + AB = \{A, B\}$. Then, $\{A, B\}$ is Hermitian.} and since the expectation value of a Hermitian operator is real\footnote{See \textbf{Section     \ref{expected_value_hermitian}} for proof.} and the expectation value of an anti-Hermitian operator is imaginary\footnote{See \textbf{Section     \ref{expected_value_anti_hermitian}} for proof.}, $\expected{\Delta A \Delta B}$ becomes equal to a real part $\frac12\expected{\{\Delta A, \Delta B\}}$ plus an imaginary part $\frac12\expected{[A,B]}$. Then:
 \begin{equation}
     \left|\expected{\Delta A \Delta B}\right|^2 = \frac14 \left|\expected{[A, B]}\right|^2 + \frac14 \left|\expected{\{\Delta A , \Delta B\}}\right|^2 \geq \frac14 \left|\expected{[A, B]}\right|^2
 \end{equation}
@@ -166,13 +167,13 @@ Plugging this into \textbf{Equation \ref{eqn:cauchy_expected}}, we obtain:
 \end{equation}
 Now, taking the square root, we obtain the uncertainty relation:
 \begin{equation}
-    \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|^2
+    \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|
 \end{equation}
 
 \begin{definition}
     The uncertainty relation between two Hermitian operators $A$ and $B$ is defined as:
     \begin{equation}
-        \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|^2
+        \Delta A\Delta B \geq \frac12 \left|\expected{[A, B]}\right|
     \end{equation}
 \end{definition}
 
@@ -213,7 +214,7 @@ and:
 
 Subtracting \textbf{Equation \ref{eigenvalues_real_orthogonal_2}} from \textbf{Equation \ref{eigenvalues_real_orthogonal_1}} and using the fact that $A$ is Hermitian ($A^\dagger = A$):
 \begin{equation}
-    \bra{\psi_m}A\ket{\psi_n} - \bra{\psi_m}A^\dagger\ket{\psi_n} = (a_n - a_m)\braket{\psi_m|\psi_n} = (a_n - a_m^*)\braket{\psi_m|\psi_n} = 0
+    \bra{\psi_m}A\ket{\psi_n} - \bra{\psi_m}A^\dagger\ket{\psi_n} = (a_n - a_m^*)\braket{\psi_m|\psi_n} = 0
 \end{equation}
 
 From this:

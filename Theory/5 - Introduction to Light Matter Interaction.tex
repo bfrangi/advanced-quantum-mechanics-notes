@@ -42,7 +42,7 @@ At time $t$, we can obtain the probability of finding the system in a state $\ke
 \begin{equation}
     \mathcal{P}_{if} = \left|\braket{\phi_f|\psi(t)}\right|^2
 \end{equation}
-As $\ket{\phi_f}$ is an eigenvector of $H_0$, this formula is basically giving us the time dependent coefficient $c_f(t) = \braket{\phi_f|\psi(t)}$ corresponding $\ket{\phi_f}$ for the expansion of $\ket{\psi(t)}$ in the basis of the eigenstates of $H_0$, at time $t$:
+As $\ket{\phi_f}$ is an eigenvector of $H_0$, this formula is basically giving us the time dependent coefficient $c_f(t) = \braket{\phi_f|\psi(t)}$ corresponding to $\ket{\phi_f}$ for the expansion of $\ket{\psi(t)}$ in the basis of the eigenstates of $H_0$, at time $t$:
 \begin{equation}
     \ket{\psi(t)} = \sum_n c_n(t) \ket{\phi_n}
 \end{equation}
@@ -63,7 +63,7 @@ Using now the fact that $\ket{\phi_k}$ are eigenstates of the unperturbed Hamilt
         i\hbar \sum_n\frac{dc_n(t)}{dt} \ket{\phi_n} &= \sum_{n,k} \ket{\phi_n}\left[E_k\delta_{nk} + \lambda\braket{\phi_n| W(t)|\phi_k}\right]c_k(t)\\
     \end{split}
 \end{equation}
-Therefore, the first in the sum appears only for $n=k$ and we can write:
+Therefore, the first term in the sum appears only for $n=k$ and we can write:
 \begin{equation}
     i\hbar \sum_n\frac{dc_n(t)}{dt} \ket{\phi_n} = \sum_n \ket{\phi_n} \left(E_nc_n(t) + \lambda\sum_k \braket{\phi_n|W(t)|\phi_k}c_k(t) \right)\\
 \end{equation}
@@ -375,6 +375,7 @@ Note also that the probability is an oscillating function of time. For certain p
 
 Finally, we can see that this expression is valid both for $t\to \infty$ and $t\to 0$, and it remains always bounded between $0$ and $1$.
 
+\iffalse
 \subsection{Interaction of an atom with an electromagnetic wave}
 
 Consider a plane electromagnetic wave\footnote{This result can be generalised for any electromagnetic field.}, of wave vector $\vec k$ parallel to the $y$-axis and angular frequency $\omega$. In this configuration, as shown on \textbf{Figure \ref{fig:plane_em_wave}}, the electric field of the plane wave is parallel to the $z$-axis, and its magnetic field is parallel to the $x$-axis.
@@ -400,6 +401,5 @@ It is always possible to make the scalar potential zero, so that the vector pote
 \end{equation}
 where $\mathcal{A}_0$ is a complex constant whose argument depends on the choice of the time origin. Then, using \textbf{Equation \ref{potential_electric_magnetic}}, we obtain:
 
-
-{\color{red}Finish!!}
-
+% CHECK: Finish this section!!
+\fi

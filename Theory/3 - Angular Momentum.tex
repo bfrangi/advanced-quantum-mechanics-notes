@@ -81,7 +81,7 @@ $\vec{J}\,^2$ is defined by its three components that satisfy:
     \end{split}\qquad \vec{J}\,^2 = J_x^2 + J_y^2 + J_z^2\qquad [\vec{J}\,^2, J_k] = 0\quad (k = x, y, z)
 \end{equation}
 
-Thanks to these commutation relations, we know that we cannot measure the three components of the total angular momentum simultaneously. However, we \textit{can} simultaneously measure the total angular momentum squared $J^2$ and one of its components. There is possibility to find simultaneous eigenstates of $J^2$ and any component of $J$. However, we can only choose one component of $J$ to be measured simultaneously with $J^2$. By convention, we choose $J_z$, so that we work with a basis of eigenvectors that is common to $J^2$ and $J_z$ in all our calculations\footnote{Note that this is just a convention. There is \textit{nothing} special about the $z$ direction compared to $x$ and $y$.}.
+Thanks to these commutation relations, we know that we cannot measure the three components of the total angular momentum simultaneously. However, we \textit{can} simultaneously measure the total angular momentum squared $J^2$ and one of its components. It is possible to find simultaneous eigenstates of $J^2$ and any component of $J$. However, we can only choose one component of $J$ to be measured simultaneously with $J^2$. By convention, we choose $J_z$, so that we work with a basis of eigenvectors that is common to $J^2$ and $J_z$ in all our calculations\footnote{Note that this is just a convention. There is \textit{nothing} special about the $z$ direction compared to $x$ and $y$.}.
 
 \textit{Eigenstates of the total angular momentum operators}
 
@@ -151,7 +151,7 @@ So, when the operators $J_\pm$ act on a ket $\ket{\alpha, \beta}$, they do not c
 
 Note that, for a given eigenvalue $\alpha$ of $\vec{J}\,^2$, there exists an upper limit for the \textit{absolute value}\footnote{That is to say, $\beta$ is bounded from above \textit{and} below.} of the quantum number $\beta$. This is due to the fact that the operator $\vec{J}\,^2 - J_z^2$ is positive definite, as the matrix elements of $\vec{J}\,^2 - J_z^2 = J_x^2 + J_y^2 \geq 0$ are non-negative, so we can write:
 \begin{equation}
-    \braket{\alpha, \beta| \vec{J}\,^2 - J_z^2 | \alpha, \beta} = \hbar^2(\alpha - \beta^2) \geq 0\quad \Longrightarrow\quad \alpha \geq\beta^2
+    \braket{\alpha, \beta|\left( \vec{J}\,^2 - J_z^2 \right)| \alpha, \beta} = \hbar^2(\alpha - \beta^2) \geq 0\quad \Longrightarrow\quad \alpha \geq\beta^2
 \end{equation} 
 
 Since $\beta$ has an upper limit, $\beta_\text{max}$, there must exist a state $\ket{\alpha, \beta_\text{max}}$ which cannot be raised further:
@@ -164,12 +164,12 @@ Using this, along with \textbf{Equation \ref{j_p_and_j_m_products}}, we can obta
     J_-J_+\ket{\alpha,\beta_\text{max}} = (\vec{J}\,^2 - J_z^2 - \hbar J_z)\ket{\alpha,\beta_\text{max}} = \hbar^2(\alpha-\beta_\text{max}^2 - \beta_\text{max})\ket{\alpha,\beta_\text{max}} = 0
 \end{equation}
 hence:
-\begin{equation}
+\begin{equation}\label{eq:alpha_beta_max}
     \alpha = \beta_\text{max}(\beta_\text{max} + 1)
 \end{equation}
 
 Since $\beta$ has a lower limit, $\beta_\text{min}$, there must exist a state $\ket{\alpha, \beta_\text{min}}$ which cannot be lowered further, which we reach after $n$ successive applications of $J_-$ on $\ket{\alpha, \beta_\text{max}}$:
-\begin{equation} \label{eq:alpha_beta_max}
+\begin{equation} 
     J_-\ket{\alpha, \beta_\text{min}} = 0
 \end{equation}
 
@@ -467,7 +467,7 @@ Although this expression cannot be derived classically, as there is no classical
     \vec{\mu}_S = g_s\frac{q}{2m}\vec{S}
 \end{equation}
 
-When the electron is placed in a magnetic field $\vec{B}$ and if the field is inhomogeneous, a force will be exerted on the electron's intrinsic dipole moment; the direction and magnitude of the force depend on the relative orientation of the field and the dipole. This force tends to align $\vec{\mu}_S$  along $\vec{b}$, producing a precessional motion of $\vec{\mu}_S$ around $\vec{b}$.
+When the electron is placed in a magnetic field $\vec{B}$ and if the field is inhomogeneous, a force will be exerted on the electron's intrinsic dipole moment; the direction and magnitude of the force depend on the relative orientation of the field and the dipole. This force tends to align $\vec{\mu}_S$  along $\vec{B}$, producing a precessional motion of $\vec{\mu}_S$ around $\vec{B}$.
 
 
 
@@ -644,18 +644,18 @@ When $s=1/2$, it is convenient to introduce the \textbf{Pauli matrices}, $\sigma
 
 So that:
 \begin{equation}
-    \frac{\hbar}{2}\sqrt{S_x^2+S_y^2+S_z^2} = \sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\longrightarrow \sqrt{\left(\frac{\hbar}{2}S_x\right)^2+\left(\frac{\hbar}{2}S_y\right)^2+\left(\frac{\hbar}{2}S_z\right)^2} = \sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\to
+    \sqrt{S_x^2+S_y^2+S_z^2} = \frac{\hbar}{2}\sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\longrightarrow \sqrt{\left(\frac{2}{\hbar}S_x\right)^2+\left(\frac{2}{\hbar}S_y\right)^2+\left(\frac{2}{\hbar}S_z\right)^2} = \sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2}\to
 \end{equation}
 
 Finally:
 \begin{equation}
-    \sigma_x = \frac{\hbar}{2}S_x = \begin{pmatrix}
+    \sigma_x = \frac{2}{\hbar}S_x = \begin{pmatrix}
         0 & 1 \\
         1 & 0
-    \end{pmatrix}, \qquad \sigma_y = \frac{\hbar}{2}S_y = \begin{pmatrix}
+    \end{pmatrix}, \qquad \sigma_y = \frac{2}{\hbar}S_y = \begin{pmatrix}
         0 & -i \\
         i & 0
-    \end{pmatrix}, \qquad \sigma_z = \frac{\hbar}{2}S_z = \begin{pmatrix}
+    \end{pmatrix}, \qquad \sigma_z = \frac{2}{\hbar}S_z = \begin{pmatrix}
         1 & 0 \\
         0 & -1
     \end{pmatrix} 
@@ -710,7 +710,7 @@ For a hydrogen's electron, $V(r)=-e^2/r$ and $dV/dr=e^2/r^2$, so that:
 
 If we consider only this as a standalone Hamiltonian, we can find the energy eigenvalues by taking $\vec{S}\cdot \vec{L} = \frac{1}{2}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2)$, which comes from expanding $\vec{J}\,^2 = (\vec{L}+\vec{S})^2$:
 \begin{equation}
-    H_{SO} = \frac{e^2}{4m_e^2c^2}\frac{1}{r^3}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2) \longrightarrow E_{SO} = \frac{\hbar^2}{4m_e^2c^2}\frac{e^2}{r^3}\ (j(j+1)-l(l+1)-s(s+1))
+    H_{SO} = \frac{e^2}{4m_e^2c^2}\frac{1}{r^3}(\vec{J}\,^2 - \vec{L}\,^2 - \vec{S}\,^2) \stackrel{\footnotemark}{\longrightarrow}\footnotetext{Here, we have taken $\braket{l,m_l,s,m_s|H_{SO}|l,m_l,s,m_s} = E_{SO}\braket{l,m_l,s,m_s|l,m_l,s,m_s} = E_{SO}$.} E_{SO} = \frac{\hbar^2}{4m_e^2c^2}\frac{e^2}{r^3}\ (j(j+1)-l(l+1)-s(s+1))
 \end{equation}
 
 In terms of the Bohr magneton $\mu_B = e\hbar/2m_e$:
@@ -720,7 +720,7 @@ In terms of the Bohr magneton $\mu_B = e\hbar/2m_e$:
 
 The scales of energies associated with the spin-orbit coupling are about two orders of magnitude smaller than the energies associated with the discrete atomic levels, so we can consider this energy $H_{SO}$ as a \textit{perturbation} to the Hamiltonian of the hydrogen atom and use \textit{stationary perturbation theory}\footnote{We will discuss this in more detail in the next chapter.} to calculate corrections due to the spin-orbit coupling:
 \begin{equation}
-    H = H_0 + H_{SO} = \frac{\vec{p}\,^2}{2m_e}-\frac{e^2}{r} + \frac{e^2}{2m_e^2c^2}\frac{1}{r^3}\vec{S}\cdot \vec{L}
+    H = H_0 + H_{SO} = \frac{\vec{p}\,^2}{2m_e}-\frac{e^2}{r} + \frac{\mu_B^2}{c^2r^3}\frac{\vec{S}\cdot \vec{L}}{\hbar^2}
 \end{equation}
 
 where $H_0$ is the unperturbed Hamiltonian and $H_{SO}$ is the spin-orbit coupling perturbation.
@@ -746,7 +746,7 @@ What we have just described is the energy corresponding to the so called \textbf
 
 Let us first consider the normal Zeeman effect. For simplicity, we shall take $\vec{B} = B\vec{e}_z$, so that:
 \begin{equation}
-    H_z = \frac{\mu_B B}{\hbar}\,L_z
+    H_Z = \frac{\mu_B B}{\hbar}\,L_z
 \end{equation}
 
 Solving the eigenvalue equation for the total energy $H = H_0+H_Z$, we find:
@@ -823,7 +823,7 @@ Take the same example as before of $n=2$, where we have $l = 0, 1$. The electron
     \end{itemize}
 \end{itemize}
 
-Overall, we have \textit{five} unique values of the energy, which is two more than what we expected from the normal Zeeman effect. There is still an odd number of energy levels. However, if we computed the energy levels for $n = 1$, we will have only the case $l=0$, which will give the same levels as the $l=0$ case for $n=2$ that we just computed, which were only two. That is, $n=1$ will show an \textit{even} number of energy levels. Both these cases ($n=1$ and $n=2$) are shown in \textbf{Figure \ref{fig:strong_B_zeeman}}.
+Overall, we have \textit{five} unique values of the energy, which is two more than what we expected from the normal Zeeman effect. That is still an odd number of energy levels for $n=2$. However, note that for $n = 1$, we would have the same calculations we just did\footnote{Of course, replacing $E_2^0$ by $E_1^0$.}, but only considering the case $l=0$, which will give the same \textit{two} levels as the $l=0$ case for $n=2$ that we just computed. That is, $n=1$ will show an \textit{even} number of energy levels. Both these cases ($n=1$ and $n=2$) are shown in \textbf{Figure \ref{fig:strong_B_zeeman}}.
 
 \begin{figure}[htbp]
     \centering
@@ -834,7 +834,7 @@ Overall, we have \textit{five} unique values of the energy, which is two more th
 
 \textit{a) Weak} $\vec{B}$
 
-In the case where we have a weak magnetic field $\vec{B}$, we can no longer neglect the spin-orbit coupling effects\footnote{In reality, we should consider not only the spin-orbit coupling, but also the relativistic correction. Both of these together conform the \textit{fine structure} of hydrogen. However, for simplicity, we will only consider the spin-orbit coupling effects in our analysis.}. Then, the best eigenstates to use are $\ket{n,l,j,m_j}$, as they are simultaneous eigenstates of $H_0$ and $H_{SO}$. It is therefore necessary to rewrite $H_Z$ so that $\vec{S}$ and $\vec{L}$ only appear as square operators\footnote{\color{red}Why?}. To do this, let us first consider:
+In the case where we have a weak magnetic field $\vec{B}$, we can no longer neglect the spin-orbit coupling effects\footnote{In reality, we should consider not only the spin-orbit coupling, but also the relativistic correction. Both of these together conform the \textit{fine structure} of hydrogen. However, for simplicity, we will only consider the spin-orbit coupling effects in our analysis.}. In order to use the simultaneous eigenstates of $H_0$ and $H_{SO}$, we need to rewrite $H_Z$ so that $\vec{S}$ and $\vec{L}$ only appear as square operators\footnote{We do not have a common basis of eigenvectors for $\vec J$, $\vec S$ and $\vec L$, only for their squares!}. To do this, let us first consider:
 \begin{equation}
     \vec{J} = \vec{S} + \vec{L} \longrightarrow \vec{L} = \vec{J} - \vec{S}
 \end{equation}
@@ -852,7 +852,7 @@ Therefore:
 \end{equation}
 
 
-Then, we write the eigenvalue equation, assuming that $\vec{J}\,||\vec{B}$\footnote{\color{red}We are computing the energy when the electrons are exposed to $\vec{B}$, which causes their spin angular momentum to align with the magnetc field. Why do we assume the whole angular momentum is aligned?}:
+Then, we write the eigenvalue equation, assuming that $\vec{J}\,||\vec{B}$:% CHECK: We are computing the energy when the electrons are exposed to $\vec{B}$, which causes their spin angular momentum to align with the magnetic field. Why do we assume the whole angular momentum is aligned?
 \begin{equation}
     \begin{split}
         H\ket{n,l,j,m_j} &= (H_0+H_{SO}+H_Z)\ket{n,l,j,m_j} =\\
@@ -872,12 +872,12 @@ Recall from the discussion about spin-orbit coupling that:
     E_{SO} = \frac{\mu_B^2}{c^2r^3} \left[j(j+1)-s(s+1)-l(l+1)\right]
 \end{equation}
 
-Therefore, the effect of the magnetic field on the atom is to split the energy levels first due to the spin-orbit cupling effect, and then to further split those lines due to the Zeeman effect by an amount equal to:
+Therefore, the effect of the magnetic field on the atom is to split the energy levels first due to the spin-orbit coupling effect, and then to further split those lines due to the Zeeman effect by an amount equal to:
 \begin{equation}
     \Delta E_Z = B\mu_B\Delta m_jg_j
 \end{equation}
 
-Take the simple example where $n=1$, where we have $l = 0$. The electron has spin $s=1/2$, so $m_s=\pm 1/2$. We also have two different values of $j$, which are $j = l+s = \frac12$ and $j = l - s = -\frac12$. Then\footnote{\color{red}Check all this}:
+Take the simple example where $n=1$, where we have $l = 0$. The electron has spin $s=1/2$, so $m_s=\pm 1/2$. We also have two different values of $j$, which are $j = l+s = \frac12$ and $j = l - s = -\frac12$. Then: % CHECK: all this
 \begin{itemize}
     \item When $j=\frac12$, we will have a spin-orbit coupling energy of:
     \begin{equation}
@@ -889,8 +889,8 @@ Take the simple example where $n=1$, where we have $l = 0$. The electron has spi
     \end{equation}
     Therefore, for the two possible values of $m_j$, we will obtain:
     \begin{itemize}
-        \item[$\to$] $E_{0,0,\frac12} = E_n^0+\frac{\mu_B B}{2}$
-        \item[$\to$] $E_{0,0,-\frac12} = E_n^0-\frac{\mu_B B}{2}$
+        \item[$\to$] $E_{0,0,\frac12} = E_1^0+\frac{\mu_B B}{2}$
+        \item[$\to$] $E_{0,0,-\frac12} = E_1^0-\frac{\mu_B B}{2}$
     \end{itemize}
     \item When $j=-\frac12$, we will have a spin-orbit coupling energy of:
     \begin{equation}
@@ -902,8 +902,8 @@ Take the simple example where $n=1$, where we have $l = 0$. The electron has spi
     \end{equation}
     Therefore, for the two possible values of $m_j$, we will obtain:
     \begin{itemize}
-        \item[$\to$] $E_{0,0,\frac12} = E_n^0 -\frac{\mu_B^2}{c^2r^3}+\frac{3}{2}\mu_B B$
-        \item[$\to$] $E_{0,0,-\frac12} = E_n^0-\frac{\mu_B^2}{c^2r^3}-\frac{3}{2}\mu_B B$
+        \item[$\to$] $E_{0,0,\frac12} = E_1^0 -\frac{\mu_B^2}{c^2r^3}+\frac{3}{2}\mu_B B$
+        \item[$\to$] $E_{0,0,-\frac12} = E_1^0-\frac{\mu_B^2}{c^2r^3}-\frac{3}{2}\mu_B B$
     \end{itemize}
 \end{itemize}
 

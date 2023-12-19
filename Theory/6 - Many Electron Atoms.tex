@@ -4,7 +4,7 @@
 
 In quantum mechanics, two particles are said to be identcal if they have the same intrinsic properties, such as mass, spin, and charge. Identical particles cannot be distinguished from each other in any experiment. For example, all electrons in the universe are considered identical, as are all protons and hydrogen atoms. However, particles with the same mass and spin, but different charges (like an electron and a positron) are not identical.
 
-An important implication of identical particles is that when a physical system contains two identical particles, swapping their roles does not alter the system's properties or evolution. This definition is independent of experimental conditions, emphasizing the fundamental nature of identical particles in physics\footnote{This is to say that, even if, in a given experiment, the charges of the particles are not measured, an electron and a positron can never be treated like identical particles}.
+An important implication of identical particles is that when a physical system contains two identical particles, swapping their roles does not alter the system's properties or evolution. This definition is independent of experimental conditions, emphasizing the fundamental nature of identical particles in physics\footnote{This is to say that, even if, in a given experiment, the charges of the particles are not measured, an electron and a positron can never be treated like identical particles.}.
 
 In \textit{classical mechanics}, having identical particles poses no problem. If we have a system with two completely interchangeable particles, we can still label one of them with the index ``$1$'', and the other one with the index ``$2$'', and treat them as if they were completely different. If each particle follows a trajectory, we can always follow each one and distinguish it from the other one. The Lagrangian and the Hamiltonian of the system are invariant under the exchange of the indices, but one need only choose one of the possible descriptions at the initial moment and simply ignore the other; no ambiguity introduced.
 
@@ -35,7 +35,7 @@ The permutation operator $P_{21}$ is then defined as the linear operator whose a
 Clearly, the permutation operator is \textit{its own inverse}:
 
 \begin{equation}
-    P_{21}\left(P_{21}\ket{1:u_i;\ 2: u_j}\right) = P_{21}\ket{1: u_j;\ 2:u_i} = \ket{1:u_i;\ 2: u_j} \longrightarrow \left(P_{21}\right)^2 = 1
+    P_{21}\left(P_{21}\ket{1:u_i;\ 2: u_j}\right) = P_{21}\ket{1: u_j;\ 2:u_i} = \ket{1:u_i;\ 2: u_j} \longrightarrow \left(P_{21}\right)^2 = \Imat
 \end{equation} 
 
 Also, it is \textit{Hermitian}:
@@ -45,9 +45,9 @@ Also, it is \textit{Hermitian}:
         \braket{1:u_{i'};\ 2:u_{j'}| P_{21}^\dagger | 1:u_i ;\ 2: u_j} = \left(\braket{1:u_i ;\ 2: u_j| P_{21} | 1:u_{i'};\ 2:u_{j'}}\right)^* = \delta_{i'j}\delta_{ij'}\\ 
     \end{cases} \longrightarrow\quad  P_{21}^\dagger = P_{21},
 \end{equation}
-which means it is also \textit{unitary}:
+which means that, since it is also its own inverse, it is also \textit{unitary}:
 \begin{equation}
-    P_{21}^\dagger P_{21} = P_{21}P_{21}^\dagger = 1
+    P_{21}^\dagger P_{21} = P_{21}P_{21}^\dagger = \Imat
 \end{equation}
 
 The fact that permutation operators are unitary means that their eigenvalues are either $1$ or $-1$. Eigenvectors of the permutation operators are classified according to the eigenvalue they correspond to:
@@ -141,7 +141,7 @@ Permutation (and, thus, transposition) operators have the following properties:
     \end{equation}
     \item Any permutation operator can be broken down as a product of transposition operators:
     \begin{equation}
-        P_{312} = P_{132}P_{213} = P_{321}P_{132} = \cdots
+        P_{312} = T_{132}T_{213} = T_{321}T_{132} = \cdots
     \end{equation}
     This decomposition is not unique. However, for a given permutation, it can be shown that the parity of the number of transpositions into which it can be broken down is always the same. This is called the \textit{parity of the permutation}:
     $$
@@ -154,7 +154,7 @@ Permutation (and, thus, transposition) operators have the following properties:
 For an arbitrary number of particles $N$, we can define the eigenkets of permutation operators as:
 
 \begin{definition}
-    Let $P_\alpha$ be an arbitrary permutation of $N$ identical particles in a state space $\mathcal{E}$. We define \textit{symmetric} and \textit{antisymmetric} eigenkets, $\ket{\psi_S}$ and $\ket{\psi_A}$, as follows:
+    Let $P_\alpha$ be an arbitrary permutation of $N$ identical particles in a state space $\mathcal{E}$. We define \textit{symmetric} and \textit{antisymmetric} eigenkets, $\ket{\psi_S}$ and $\ket{\psi_A}$. Then:
     \begin{equation}
         P_\alpha\ket{\psi_S} = \ket{\psi_S}\qquad P_\alpha\ket{\psi_A} = \varepsilon_\alpha\ket{\psi_A}
     \end{equation}
@@ -174,11 +174,11 @@ We can also generalise the definition of the symmetriser and the antisymmetriser
 \begin{definition}
     For a system of $N$ particles, we define the \textbf{symmetriser}, which projects any ket onto $\mathcal{E}_S$, as:
     \begin{equation}
-        S \equiv \frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha
+        S \equiv \frac{1}{N!}\sum_{\alpha} P_\alpha
     \end{equation}
     and the \textbf{antisymmetriser}, which projects any ket onto $\mathcal{E}_A$:
     \begin{equation}
-        A \equiv \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha
+        A \equiv \frac{1}{N!}\sum_{\alpha} \varepsilon_\alpha P_\alpha
     \end{equation}
 
     These verify:
@@ -194,15 +194,15 @@ We can also generalise the definition of the symmetriser and the antisymmetriser
 
 We can see that $S$ and $A$ are projection operators:
 \begin{equation}
-    S^2 =\frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha S = \frac{S}{N!}\sum_{\alpha=1}^{N!} 1 = S
+    S^2 =\frac{1}{N!}\sum_{\alpha} P_\alpha S = \frac{S}{N!}\sum_\alpha 1 = S
 \end{equation}
 \begin{equation}
-    A^2 =\frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha A = \frac{A}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha^2 = A
+    A^2 =\frac{1}{N!}\sum_\alpha \varepsilon_\alpha P_\alpha A = \frac{A}{N!}\sum_\alpha \varepsilon_\alpha^2 = A
 \end{equation}
 
 And that $\mathcal{E}_S$ and $\mathcal{E}_A$ are orthogonal:
 \begin{equation}
-    AS = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha S = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha S = \frac{S}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha  \stackrel{\footnotemark}{=}\footnotetext{Remember that there are the same number of even $\varepsilon_\alpha=1$ and odd $\varepsilon_\alpha=-1$ permutations.} 0
+    AS = \frac{1}{N!}\sum_\alpha \varepsilon_\alpha P_\alpha S = \frac{1}{N!}\sum_\alpha \varepsilon_\alpha S = \frac{S}{N!}\sum_\alpha \varepsilon_\alpha  \stackrel{\footnotemark}{=}\footnotetext{Remember that there are the same number of even ($\varepsilon_\alpha=1$) and odd ($\varepsilon_\alpha=-1$) permutations.} 0
 \end{equation}
 
 \section{Symmetrisation Postulate}
@@ -217,7 +217,7 @@ This is the very basis for the symmetrisation postulate, which states the follow
 \begin{postulate} \label{symmetrisation}
     \textbf{Symmetrisation Postulate:} 
     \begin{itemize}
-        \item In nature, the states of systems containing $N$ identical particles are either totally symmetric or totally antisymmetric under the interchange of any pair of particles. States with mixed symmetry do not exist | they are not physical kets\footnote{\color{red}add intuition behind this regarding $|\psi (a, b)|^2 = |\psi(b, a)|^2\to \psi (a, b) = \pm\psi(b, a)$}.
+        \item In nature, the states of systems containing $N$ identical particles are either totally symmetric or totally antisymmetric under the interchange of any pair of particles. States with mixed symmetry do not exist | they are not physical kets. % CHECK: add intuition behind this regarding $|\psi (a, b)|^2 = |\psi(b, a)|^2\to \psi (a, b) = \pm\psi(b, a)$
         \item Particles with \textbf{integral spins}, or \textbf{bosons}, have \textbf{symmetric} states.
         \item Particles with \textbf{half-odd-integral spins}, or \textbf{fermions}, have \textbf{antisymmetric states}.    
     \end{itemize}
@@ -272,7 +272,7 @@ Note that, in the case that the two identical particles are in the same state, $
     \ket{\varphi;\, \varphi}_\text{fermion} = \frac{\ket{1:\varphi;\ 2:\varphi} - \ket{1:\varphi;\ 2:\varphi}}{\sqrt{2}} = 0
 \end{equation}
 
-What does this zero mean? Well, we have just obtained the \textbf{Pauli Exclusion Principle}: there exists no ket in which two fermions are in the same individual state. 
+What does this zero mean? Well, we have just obtained the \textbf{Pauli Exclusion Principle}! There exists no ket in which two fermions are in the same individual state. 
 
 \subsection{System of $3$ particles}
 
@@ -285,7 +285,7 @@ Let us now consider the example of a system of \textit{three} identical particle
     \item If the particle is a \textbf{boson}, we symmetrise this ket applying $S$:
     \begin{equation}
         \begin{split}
-            \ket{\varphi;\, \chi;\, \psi} &= S\ket{u} = \frac{1}{N!}\sum_{\alpha=1}^{N!} P_\alpha\ket{u} = \\
+            \ket{\varphi;\, \chi;\, \psi} &= S\ket{u} = \frac{1}{3!}\sum_{\alpha} P_\alpha\ket{u} = \\
             &= \frac{1}{6} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. +\\ 
             &+ \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} + \ket{1:\chi;\ 2:\varphi;\ 3: \psi} + \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
         \end{split}
@@ -312,7 +312,7 @@ Let us now consider the example of a system of \textit{three} identical particle
     \item If the particle is a \textbf{fermion}, we antisymmetrise this ket applying $A$:
     \begin{equation}
         \begin{split}
-            \ket{\varphi;\, \chi;\ \psi} &= S\ket{u} = \frac{1}{N!}\sum_{\alpha=1}^{N!} \varepsilon_\alpha P_\alpha\ket{u} = \\
+            \ket{\varphi;\, \chi;\ \psi} &= S\ket{u} = \frac{1}{3!}\sum_{\alpha} \varepsilon_\alpha P_\alpha\ket{u} = \\
             &= \frac{1}{6} \left(\ket{1:\varphi;\ 2:\chi;\ 3: \psi} + \ket{1:\psi;\ 2:\varphi;\ 3: \chi} + \ket{1:\chi;\ 2:\psi;\ 3: \varphi}\right. -\\ 
             &- \left.\ket{1:\varphi;\ 2:\psi;\ 3: \chi} - \ket{1:\chi;\ 2:\varphi;\ 3: \psi} - \ket{1:\psi;\ 2:\chi;\ 3: \varphi}\right)
         \end{split}
@@ -329,6 +329,8 @@ Let us now consider the example of a system of \textit{three} identical particle
     It is easy to check that, if any two states coincide, the wave function becomes zero. 
 \end{itemize}
 
+\subsubsection{The Slater determinant}
+
 It is evident that, the larger the number of particles, the longer and more unwieldy that the expressions become. For \textbf{fermions}, there exists a simple notation that simplifies all this for us by using determinants. If we look at \textbf{Equation \ref{fermion-ket}}, we see that the combinations that appear are exactly the same as those that are present in a determinant, signs included. Understanding the product here as a tensor product, we can then write:
 \begin{equation}
     \ket{\varphi;\, \chi;\, \psi} = \frac{1}{\sqrt{6}}\left|\begin{matrix}
@@ -338,7 +340,7 @@ It is evident that, the larger the number of particles, the longer and more unwi
     \end{matrix}\right|
 \end{equation}
 
-It is now even clearer to see that, if any two states or more are equal, we will have as many equal columns as equal states. This will immediately make the determinant go to zero.
+This determinant is called the \textbf{Slater determinant}. It is now even clearer to see that, if any two states or more are equal, we will have as many equal columns as equal states. This will immediately make the determinant go to zero.
 
 It is also possible to extend the same notation to \textbf{bosons}, but forgetting all the minus signs in the determinant.
 
