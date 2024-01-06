@@ -22,7 +22,7 @@ advanced level.
 ## Course Overview
 
 The Advanced Quantum Mechanics course at Carlos III University is designed for Engineering Physics 
-students and delves into advanced concepts and mathematical formalisms in quantum mechanics. ç
+students and delves into advanced concepts and mathematical formalisms in quantum mechanics.
 The course covers topics such as:
 
 - The Mathematical Tools of Quantum Mechanics.
