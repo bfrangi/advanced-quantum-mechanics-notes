@@ -51,11 +51,9 @@ To make the best use of these notes, follow these steps:
 
 2. Open the `main.pdf` file.
 
-3. Contribute. If you find any errors or have additional insights, feel free to contribute by creating a pull request.
-
 ## Contributing
 
-Contributions are welcome! If you find any errors, have additional insights, or want to add notes on topics not covered, please follow these steps:
+Contributions are welcome! If you find any errors, have additional insights, or want to add notes on topics not covered, please follow these steps: 
 
 1. Fork the repository.
 2. Create a new branch for your changes.
