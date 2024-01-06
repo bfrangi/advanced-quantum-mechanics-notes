@@ -205,7 +205,7 @@ And that $\mathcal{E}_S$ and $\mathcal{E}_A$ are orthogonal:
     AS = \frac{1}{N!}\sum_\alpha \varepsilon_\alpha P_\alpha S = \frac{1}{N!}\sum_\alpha \varepsilon_\alpha S = \frac{S}{N!}\sum_\alpha \varepsilon_\alpha  \stackrel{\footnotemark}{=}\footnotetext{Remember that there are the same number of even ($\varepsilon_\alpha=1$) and odd ($\varepsilon_\alpha=-1$) permutations.} 0
 \end{equation}
 
-\section{Symmetrisation Postulate}
+\subsection{Symmetrisation Postulate}
 
 All these theoretical concepts around permutations are the basis for postulating the \textbf{symmetrisation postulate}. We have seen that the ket of a system of $N$ identical particles is either symmetric or antisymmetric under the interchange of any pair of particles (transposition) $T_\alpha$:
 \begin{equation}
@@ -227,7 +227,7 @@ This new postulate which we have introduced considerably restricts the class of 
 
 For composite particles (particles composed of other particles), the symmetrisation postulate also applies. All we have to do is add the spin of all the constituents. If the sum is an integer number, the composite particle will be a boson; while if the sum is a half-odd-integer, the composite particle will be a fermion.
 
-\section{Construction of physical kets}
+\subsection{Construction of physical kets}
 
 Based on the preceding discussion one can formulate the rule for constructing a unique physical ket corresponding to a given physical state of a system of $N$ identical particles. The process is simple:
 \begin{enumerate}
@@ -236,7 +236,7 @@ Based on the preceding discussion one can formulate the rule for constructing a 
     \item Normalize the resulting ket.
 \end{enumerate}
 
-\subsection{System of $2$ particles}
+\subsubsection{System of $2$ particles}
 
 Let us take the example of a system of two identical particles in two different states $\ket{\varphi}\neq \ket{\chi}$. Following the process we defined in the previous section, we construct a ket matching this state:
 \begin{equation}
@@ -274,7 +274,7 @@ Note that, in the case that the two identical particles are in the same state, $
 
 What does this zero mean? Well, we have just obtained the \textbf{Pauli Exclusion Principle}! There exists no ket in which two fermions are in the same individual state. 
 
-\subsection{System of $3$ particles}
+\subsubsection{System of $3$ particles}
 
 Let us now consider the example of a system of \textit{three} identical particles in \textit{three} different states $\ket{\varphi}\neq \ket{\chi}\neq \ket{\psi}$. Following the same process as before, we construct a ket matching this state:
 \begin{equation}
@@ -344,7 +344,7 @@ This determinant is called the \textbf{Slater determinant}. It is now even clear
 
 It is also possible to extend the same notation to \textbf{bosons}, but forgetting all the minus signs in the determinant.
 
-\subsection{Systems of $N$ particles}
+\subsubsection{Systems of $N$ particles}
 
 We can generalise our discussion in the previous two sections for a system of $N$ identical particles:
 
@@ -364,7 +364,7 @@ We can generalise our discussion in the previous two sections for a system of $N
     \end{itemize}
 \end{definition}
 
-\subsection{Systems with spin}
+\subsubsection{Systems with spin}
 
 We have seen that when the Schrödinger equation involves the spin, the wave function of a single particle $\ket{\Psi}$ is equal to the product of the spatial part $\ket{\psi}$ and the spin part $\ket{\chi}$: $\ket{\Psi} = \ket{\psi}\otimes\ket{\chi}$. The wave function of a system of $N$ particles, which have spins, is the product of the spatial part and the spin part:
 \begin{equation}
