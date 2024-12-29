@@ -77,6 +77,20 @@ The content and structure of these notes have been influenced by the insights an
 
 Happy studying!
 
+## Cite these course notes
+
+```bibtex
+@misc{frangi_2024_14570814,
+  author       = {Frangi, Bernat},
+  title        = {Advanced Quantum Mechanics Course Notes},
+  month        = 12,
+  year         = 2024,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.14570814},
+  url          = {https://doi.org/10.5281/zenodo.14570814},
+}
+```
+
 
 
 
