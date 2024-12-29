@@ -1,5 +1,7 @@
 # Advanced Quantum Mechanics Notes
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14570814.svg)](https://doi.org/10.5281/zenodo.14570814)
+
 This repository contains comprehensive notes from the Advanced Quantum Mechanics course taken during the 
 Fall semester of 2023 at Carlos III University in Madrid, as part of the Engineering Physics degree program.
 
