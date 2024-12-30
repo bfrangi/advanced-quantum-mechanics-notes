@@ -1,4 +1,4 @@
-# Advanced Quantum Mechanics Notes
+# Advanced Quantum Mechanics Course Notes
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14570814.svg)](https://doi.org/10.5281/zenodo.14570814)
 
